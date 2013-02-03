@@ -1,0 +1,161 @@
+XTerm*Geometry:		100x25
+XTerm*foreground:	#BBBBBB
+XTerm*background:	#111111
+XTerm*FaceName:		DejaVu Sans Mono:pixelsize=10:antialias=true
+!XTerm*font:		-*-terminus-*-r-*-*-12-*-*-*-*-*-iso10646-1
+!XTerm*boldFont:	-*-terminus-*-r-*-*-12-*-*-*-*-*-iso10646-1
+XTerm*boldColors:	true
+XTerm*boldMode:		false
+XTerm*metaSendsEscape:	true
+XTerm*loginShell:	true
+XTerm*title:		Terminal
+XTerm*utmpInhibit:	False
+XTerm*on2Clicks:	word
+XTerm*on3Clicks:	line
+XTerm*on4Clicks:	page
+XTerm*on5Clicks:	all
+XTerm*saveLines:	1024
+XTerm*bellIsUrgent:	true
+! black
+XTerm*color0:		#111111
+! red
+XTerm*color1:		#AA6655
+! green
+XTerm*color2:		#88AA77
+! yellow
+XTerm*color3:		#AA8833
+! blue
+XTerm*color4:		#3388AA
+! magenta
+XTerm*color5:		#AA7788
+! cyan
+XTerm*color6:		#66AAAA
+! white
+XTerm*color7:		#BBBBBB
+! bright black
+XTerm*color8:		#444444
+! bright red
+XTerm*color9:		#CC7766
+! bright green
+XTerm*color10:		#AACC88
+! bright yellow
+XTerm*color11:		#CCAA44
+! bright blue
+XTerm*color12:		#44AACC
+! bright magenta
+XTerm*color13:		#CC88AA
+! bright cyan
+XTerm*color14:		#88CCCC
+! bright white
+XTerm*color15:		#FFFFFF
+
+URxvt.geometry:		100x25
+!URxvt.depth:		32
+!URxvt.background:	rgba:1111/1111/1111/DDDD
+!URxvt.foreground:	rgba:BBBB/BBBB/BBBB/FFFF
+URxvt.background:	#111111
+URxvt.foreground:	#AAAAAA
+URxvt.font:		xft:DejaVu Sans Mono:pixelsize=10:antialias=true,xft:VL Gothic:pixelsize=10:antialias=true
+URxvt.keysym.Shift-Mod4-Left:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=10:antialias=true,xft:VL Gothic:pixelsize=10:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=10:antialias=true:bold,xft:VL Gothic:pixelsize=10:antialias=true:bold\007
+URxvt.keysym.Shift-Mod4-Down:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=15:antialias=true,xft:VL Gothic:pixelsize=15:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=15:antialias=true:bold,xft:VL Gothic:pixelsize=15:antialias=true:bold\007
+URxvt.keysym.Shift-Mod4-Right:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=20:antialias=true,xft:VL Gothic:pixelsize=20:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=20:antialias=true:bold,xft:VL Gothic:pixelsize=20:antialias=true:bold\007
+URxvt.keysym.Shift-Mod4-Up:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=120:antialias=true,xft:VL Gothic:pixelsize=120:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=120:antialias=true:bold,xft:VL Gothic:pixelsize=120:antialias=true:bold\007
+!URxvt.font:		xft:DejaVu Sans Mono:pixelsize=10:antialias=true,xft:VL Gothic:pixelsize=10:antialias=true
+!URxvt.font:		xft:terminus:pixelsize=14,xft:VL Gothic:pixelsize=14:antialias=true
+!URxvt.boldFont:		xft:terminus:pixelsize=14:bold,xft:VL Gothic:pixelsize=14:antialias=true
+!URxvt.keysym.Shift-Mod4-Left:	command:\033]710;xft:terminus:pixelsize=14,xft:VL Gothic:pixelsize=14:antialias=true\007\033]711;xft:terminus:pixelsize=14:bold,xft:VL Gothic:pixelsize=14:antialias=true:bold\007
+!URxvt.keysym.Shift-Mod4-Down:	command:\033]710;xft:terminus:pixelsize=20,xft:VL Gothic:pixelsize=20:antialias=true\007\033]711;xft:terminus:pixelsize=20:bold,xft:VL Gothic:pixelsize=20:antialias=true:bold\007
+!URxvt.keysym.Shift-Mod4-Right:	command:\033]710;xft:terminus:pixelsize=24,xft:VL Gothic:pixelsize=24:antialias=true\007\033]711;xft:terminus:pixelsize=24:bold,xft:VL Gothic:pixelsize=24:antialias=true:bold\007
+URxvt.title:		Terminal
+URxvt.termName:		rxvt
+URxvt.loginShell:	true
+URxvt.modifier:		alt
+URxvt.saveLines:	1024
+URxvt.borderLess:	false
+URxvt.inheritPixmap:	false
+URxvt.scrollBar:	false
+URxvt.scrollstyle:	plain
+URxvt.scrollColor:	#444444
+URxvt.jumpScroll:	true
+URxvt.scrollTtyOutput:	false
+URxvt.scrollWithBuffer:	true
+URxvt.scrollTtyKeypress:	true
+URxvt.utmpInhibit:	false
+URxvt.cursorUnderline:	true
+URxvt.cursorBlink:	true
+URxvt.urgentOnBell:	true
+URxvt.perl-ext-common:	default,matcher
+URxvt.url-launcher:	firefox
+URxvt.matcher.button:	1
+! black
+URxvt.color0:		#111111
+! red
+URxvt.color1:		#AA6655
+! green
+URxvt.color2:		#88AA77
+! yellow
+URxvt.color3:		#AA8833
+! blue
+URxvt.color4:		#3388AA
+! magenta
+URxvt.color5:		#AA7788
+! cyan
+URxvt.color6:		#66AAAA
+! white
+URxvt.color7:		#BBBBBB
+! bright black
+URxvt.color8:		#444444
+! bright red
+URxvt.color9:		#CC7766
+! bright green
+URxvt.color10:		#AACC88
+! bright yellow
+URxvt.color11:		#CCAA44
+! bright blue
+URxvt.color12:		#44AACC
+! bright magenta
+URxvt.color13:		#CC88AA
+! bright cyan
+URxvt.color14:		#88CCCC
+! bright white
+URxvt.color15:		#FFFFFF
+
+Xcursor.theme:		whiteglass
+Xcursor.size:		16
+
+Xft.dpi:		98
+
+xpdf*background:	#111111
+xpdf*foreground:	#bbbbbb
+
+xscreensaver.Dialog.headingFont:		-*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:			-*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:			-*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.foreground:			#aacc88
+xscreensaver.Dialog.background:			#111111
+xscreensaver.Dialog.topShadowColor:		#111111
+xscreensaver.Dialog.bottomShadowColor:		#111111
+xscreensaver.Dialog.Button.foreground:		#aacc88
+xscreensaver.Dialog.Button.background:		#222222
+xscreensaver.Dialog.text.foreground:		#aacc88
+xscreensaver.Dialog.text.background:		#000000
+xscreensaver.Dialog.borderColor:		#222222
+xscreensaver.Dialog.internalBorderWidth:	24
+xscreensaver.Dialog.borderWidth:		1
+xscreensaver.Dialog.shadowThickness:		2
+xscreensaver.passwd.thermometer.foreground:	#aacc88
+xscreensaver.passwd.thermometer.background:	#000000
+xscreensaver.passwd.thermometer.width:		8
+xscreensaver.passwd.uname:			false
+xscreensaver.passwd.heading.label:		XScreenSaver
+xscreensaver.passwd.body.label:			Session locked.
+xscreensaver.dateFormat:			
+xscreensaver.captureStderr:			false
+xscreensaver.fade:				false
+xscreensaver.splash:				false
+
+! vim:noet:ft=xdefaults
