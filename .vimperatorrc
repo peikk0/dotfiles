@@ -1,0 +1,40 @@
+" Mappings
+
+" Options
+set toolbars=addons,nobookmarks,nomenu,navigation,tabs
+set newtab=all
+set editor="urxvt -e vim"
+set complete=sl
+set autocomplete=false
+"set wildoptions=auto
+
+colorscheme darkness2
+
+" Abbreviations
+
+" Javascript
+" javascript <<EOF
+" (function(){
+"     var feedPanel = document.createElement("statusbarpanel");
+"     feedPanel.setAttribute("id", "feed-panel-clone");
+"     feedPanel.appendChild(document.getElementById("feed-button"));
+"     feedPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
+"     document.getElementById("status-bar").insertBefore(feedPanel, document.getElementById("security-button"));
+" })();
+" EOF
+
+" js <<EOF
+" mappings.addUserMap([modes.NORMAL], ["gs"],
+"     "Toggle HTTP SSL",
+"     function () { 
+"         let loc=content.location; 
+"         if (loc.protocol == "https:") 
+"             loc.protocol = "http";
+"         else if (loc.protocol == "http:") 
+"             loc.protocol = "https";
+"     });
+" EOF
+
+source! ~/.vimperatorrc.local
+
+" vim: set ft=vimperator:
