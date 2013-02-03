@@ -2,5 +2,7 @@
 !/.gitconfig
 !/.gitignore
 !/.gitmodules
+
+!/.gvimrc
 !/.vimrc
 !/.vim
