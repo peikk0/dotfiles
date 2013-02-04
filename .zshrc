@@ -175,7 +175,6 @@ alias ll="ls -h -l"
 alias la="ls -a"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
-alias tmux="tmux -2"
 
 # }}}
 

@@ -9,6 +9,7 @@ XTerm*boldMode:		false
 XTerm*metaSendsEscape:	true
 XTerm*loginShell:	true
 XTerm*title:		Terminal
+XTerm*termName:		xterm-256color
 XTerm*utmpInhibit:	False
 XTerm*on2Clicks:	word
 XTerm*on3Clicks:	line
@@ -67,7 +68,7 @@ URxvt.keysym.Shift-Mod4-Up:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=120:
 !URxvt.keysym.Shift-Mod4-Down:	command:\033]710;xft:terminus:pixelsize=20,xft:VL Gothic:pixelsize=20:antialias=true\007\033]711;xft:terminus:pixelsize=20:bold,xft:VL Gothic:pixelsize=20:antialias=true:bold\007
 !URxvt.keysym.Shift-Mod4-Right:	command:\033]710;xft:terminus:pixelsize=24,xft:VL Gothic:pixelsize=24:antialias=true\007\033]711;xft:terminus:pixelsize=24:bold,xft:VL Gothic:pixelsize=24:antialias=true:bold\007
 URxvt.title:		Terminal
-URxvt.termName:		rxvt
+URxvt.termName:		rxvt-unicode-256color
 URxvt.loginShell:	true
 URxvt.modifier:		alt
 URxvt.saveLines:	1024
