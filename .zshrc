@@ -283,6 +283,14 @@ function run-help-sudo {
 
 # {{{ Reminder
 
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
+
+# }}}
+
+# {{{ Reminder
+
 if [[ -f ~/.reminder ]]; then
   cat ~/.reminder
 fi
