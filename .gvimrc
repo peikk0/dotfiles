@@ -2,7 +2,7 @@
 set guioptions=ac
 
 " change font in gui
-set guifont=Dejavu\ Sans\ Mono\ 7
+set guifont=Inconsolata\ 11
 
 " syntax hilighting
 syntax on

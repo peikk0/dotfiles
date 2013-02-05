@@ -1,9 +1,7 @@
 XTerm*Geometry:		100x25
 XTerm*foreground:	#BBBBBB
 XTerm*background:	#111111
-XTerm*FaceName:		DejaVu Sans Mono:pixelsize=10:antialias=true
-!XTerm*font:		-*-terminus-*-r-*-*-12-*-*-*-*-*-iso10646-1
-!XTerm*boldFont:	-*-terminus-*-r-*-*-12-*-*-*-*-*-iso10646-1
+XTerm*FaceName:		Inconsolata:size=11:antialias=true:hinting=true
 XTerm*boldColors:	true
 XTerm*boldMode:		false
 XTerm*metaSendsEscape:	true
@@ -56,17 +54,8 @@ URxvt.geometry:		100x25
 !URxvt.foreground:	rgba:BBBB/BBBB/BBBB/FFFF
 URxvt.background:	#111111
 URxvt.foreground:	#AAAAAA
-URxvt.font:		xft:DejaVu Sans Mono:pixelsize=10:antialias=true,xft:VL Gothic:pixelsize=10:antialias=true
-URxvt.keysym.Shift-Mod4-Left:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=10:antialias=true,xft:VL Gothic:pixelsize=10:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=10:antialias=true:bold,xft:VL Gothic:pixelsize=10:antialias=true:bold\007
-URxvt.keysym.Shift-Mod4-Down:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=15:antialias=true,xft:VL Gothic:pixelsize=15:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=15:antialias=true:bold,xft:VL Gothic:pixelsize=15:antialias=true:bold\007
-URxvt.keysym.Shift-Mod4-Right:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=20:antialias=true,xft:VL Gothic:pixelsize=20:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=20:antialias=true:bold,xft:VL Gothic:pixelsize=20:antialias=true:bold\007
-URxvt.keysym.Shift-Mod4-Up:	command:\033]710;xft:DejaVu Sans Mono:pixelsize=120:antialias=true,xft:VL Gothic:pixelsize=120:antialias=true\007\033]711;xft:DejaVu Sans Mono:pixelsize=120:antialias=true:bold,xft:VL Gothic:pixelsize=120:antialias=true:bold\007
-!URxvt.font:		xft:DejaVu Sans Mono:pixelsize=10:antialias=true,xft:VL Gothic:pixelsize=10:antialias=true
-!URxvt.font:		xft:terminus:pixelsize=14,xft:VL Gothic:pixelsize=14:antialias=true
-!URxvt.boldFont:		xft:terminus:pixelsize=14:bold,xft:VL Gothic:pixelsize=14:antialias=true
-!URxvt.keysym.Shift-Mod4-Left:	command:\033]710;xft:terminus:pixelsize=14,xft:VL Gothic:pixelsize=14:antialias=true\007\033]711;xft:terminus:pixelsize=14:bold,xft:VL Gothic:pixelsize=14:antialias=true:bold\007
-!URxvt.keysym.Shift-Mod4-Down:	command:\033]710;xft:terminus:pixelsize=20,xft:VL Gothic:pixelsize=20:antialias=true\007\033]711;xft:terminus:pixelsize=20:bold,xft:VL Gothic:pixelsize=20:antialias=true:bold\007
-!URxvt.keysym.Shift-Mod4-Right:	command:\033]710;xft:terminus:pixelsize=24,xft:VL Gothic:pixelsize=24:antialias=true\007\033]711;xft:terminus:pixelsize=24:bold,xft:VL Gothic:pixelsize=24:antialias=true:bold\007
+URxvt.font:		xft:Inconsolata:size=11:antialias=true:hinting=true,xft:VL Gothic:size=11:antialias=true
+URxvt.letterSpace:	-1
 URxvt.title:		Terminal
 URxvt.termName:		rxvt-unicode-256color
 URxvt.loginShell:	true
