@@ -134,9 +134,7 @@ let python_highlight_numbers=1
 let python_highlight_space_errors=1
 
 " Ruby
-let ruby_fold=0
 let ruby_operators=1
-let ruby_space_errors=1
 let g:rubycomplete_buffer_loading=1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails=1
@@ -144,7 +142,6 @@ let g:rubycomplete_rails=1
 " rails
 let g:rails_gnu_screen=1
 let g:rails_mappings=1
-let g:rails_statusline=1
 let g:rails_syntax=1
 
 " syntastic
