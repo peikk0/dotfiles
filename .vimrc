@@ -112,6 +112,28 @@ function! SL(function)
   endif
 endfunction
 
+function! NTFinderP()
+  "" Check if NERDTree is open
+  if exists("t:NERDTreeBufName")
+    let s:ntree = bufwinnr(t:NERDTreeBufName)
+  else
+    let s:ntree = -1
+  endif
+  if (s:ntree != -1)
+    "" If NERDTree is open, close it.
+    :NERDTreeClose
+  else
+    "" Try to open a :Rtree for the rails project
+    if exists(":Rtree")
+      "" Open Rtree (using rails plugin, it opens in project dir)
+      :Rtree
+    else
+      "" Open NERDTree in the file path
+      :NERDTreeFind
+    endif
+  endif
+endfunction
+
 " Plugins
 
 " :Man command
@@ -152,7 +174,7 @@ let g:syntastic_auto_loc_list = 1
 
 " Mappings
 
-map <F1> :NERDTreeToggle<CR>
+map <silent> <F1> :call NTFinderP()<CR>
 map <F5> <Esc>gg=G''
 map <F6> :TlistToggle<CR>
 map <F7> :TlistUpdate<CR>
@@ -206,3 +228,4 @@ if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
 
+" vim:ft=vim:sw=2:ts=2:et
