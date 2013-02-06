@@ -2,106 +2,79 @@
 
 execute pathogen#infect()
 
-" don't be vi compatible
 set nocompatible
-
-" use modelines
 set modeline
+set modelines=5     " Debian likes to disable this
 
-" window title
+set backspace=indent,eol,start
+
+set nobackup
+set swapfile
+set autoread
+
 set title
-
-" short messages
 set shortmess=aoOtTI
+set wildmenu
+set wildmode=longest:full,full
 
-" viminfo file
 set viminfo='20,\"500,h
-" keep 50 lines of command history
 set history=50
 
-" tab == 4 space char
+set fileencodings=utf-8,latin1,default
+set fileformats=unix,dos,mac
+
 set shiftwidth=4
 set expandtab
 set smarttab
-
-" automagic indenting
 set autoindent
 set smartindent
 
-" special chars
+let showbreak="> "
 set list
-set listchars=tab:>-,trail:~,nbsp:_
-set showbreak=>\ 
+if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
+  let &listchars="tab:\u21e5\u2043,trail:\u2022,extends:\u21c9,precedes:\u21c7,nbsp:\u2423"
+  let &fillchars="vert:\u259a,fold:\u00b7"
+else
+  set listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:_
+endif
 
-" allow backspace in insert mode
-set backspace=indent,eol,start
-
-" selection behaviour
 set selection=inclusive
+set virtualedit=block
 
-" numbered lines
 set nonumber
 set numberwidth=3
-
-" show cursor position
+set nocursorline
 set ruler
-" show command on the bottom
 set showcmd
-" status line
-set laststatus=1
+set laststatus=2
 
-" hilight search
+set statusline=[%n]\ %<%f\ %y[%{&ff}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
+
 set hlsearch
-" search as I type
 set incsearch
-" ignore case when searching
+
 set ignorecase
-" override ignorecase if there are caps
 set smartcase
 
-" 3 lines visible around the cursor
 set scrolloff=3
 set sidescrolloff=5
 set scrolljump=1
 
-" completion
 set completeopt=longest,menu,preview
 
-" diffing
 set diffopt+=vertical
 
-" french spelling (activated with :set spell)
-setlocal spelllang=fr
+set timeoutlen=250
 
-" use sh instead of zsh
 set shell=/bin/sh
+set grepprg=grep\ -nH\ $*
+command -bar -nargs=1 OpenURL :!firefox <args>
 
-" Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    au!
-
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-          \ if line("'\"") > 0 && line("'\"") <= line("$") |
-          \   exe "normal! g`\"" |
-          \ endif
-
-  augroup END
-
+  au!
+  autocmd FileType text setlocal textwidth=78
   autocmd FileType c      set omnifunc=ccomplete#Complete
   autocmd FileType css    set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html   set omnifunc=htmlcomplete#CompleteTags
@@ -111,11 +84,14 @@ if has("autocmd")
   autocmd FileType ruby   set omnifunc=rubycomplete#Complete
   autocmd FileType sql    set omnifunc=sqlcomplete#Complete
   autocmd FileType xml    set omnifunc=xmlcomplete#CompleteTags
-
-endif " has("autocmd")
-
-" hilight current line
-set nocursorline
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+endif
 
 if has("terminfo")
   syntax enable
@@ -126,34 +102,65 @@ if has("terminfo")
   colorscheme solarized
 end
 
-" some usefull key mapping
-map <F5> <Esc>gg=G''
-map <F6> :TlistToggle
-map <F7> :TlistUpdate
-map <F9> :DiffChangesDiffToggle
-map <F10> :DiffChangesPatchToggle
-map <A-Right> gt
-map <A-Left> gT
-" paste/nopaste
-set pastetoggle=<F11>
+function! SL(function)
+  if exists('*'.a:function)
+    return call(a:function,[])
+  else
+    return ''
+  endif
+endfunction
 
-" force file encoding
-set fileencodings=utf-8,latin1,default
-
-" no backup
-set nobackup
-
-" swapfile
-set swapfile
+" Plugins
 
 " :Man command
 runtime ftplugin/man.vim
 
-" grep command
-set grepprg=grep\ -nH\ $*
+let g:netrw_http_cmd="wget -q -O"
 
-" open urls with firefox
-command -bar -nargs=1 OpenURL :!firefox <args>
+" use XHTML and CSS with :TOhtml
+let use_xhtml=1
+let html_use_css=1
+let html_ignore_folding=1
+let html_use_encoding="UTF-8"
+
+" Lua
+let lua_version=5
+let lua_subversion=1
+
+" Python
+let python_highlight_builtins=1
+let python_highlight_exceptions=1
+let python_highlight_numbers=1
+let python_highlight_space_errors=1
+
+" Ruby
+let ruby_fold=0
+let ruby_operators=1
+let ruby_space_errors=1
+let g:rubycomplete_buffer_loading=1
+let g:rubycomplete_classes_in_global=1
+let g:rubycomplete_rails=1
+
+" rails
+let g:rails_gnu_screen=1
+let g:rails_mappings=1
+let g:rails_statusline=1
+let g:rails_syntax=1
+
+" syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 1
+
+" Mappings
+
+map <F5> <Esc>gg=G''
+map <F6> :TlistToggle<Return>
+map <F7> :TlistUpdate<Return>
+map <F9> :DiffChangesDiffToggle<Return>
+map <F10> :DiffChangesPatchToggle<Return>
+map <A-Right> gt
+map <A-Left> gT
+set pastetoggle=<F11>
 
 " "" '' <> () [] {}
 noremap! "" ""<esc>i
@@ -195,35 +202,7 @@ noremap! ["; [""];<esc>hhi
 noremap! [' ['']<esc>hi
 noremap! [" [""]<esc>hi
 
-" don't open http links with elinks, but with wget instead
-let g:netrw_http_cmd="wget -q -O"
+if exists(":nohls")
+  nnoremap <silent> <C-L> :nohls<CR><C-L>
+endif
 
-" use XHTML and CSS with :TOhtml
-let use_xhtml=1
-let html_use_css=1
-let html_ignore_folding=1
-let html_use_encoding="UTF-8"
-
-" Lua
-let lua_version=5
-let lua_subversion=1
-
-" Python
-let python_highlight_builtins=1
-let python_highlight_exceptions=1
-let python_highlight_numbers=1
-let python_highlight_space_errors=1
-
-" Ruby
-let ruby_fold=1
-let ruby_operators=1
-let ruby_space_errors=1
-let g:rubycomplete_buffer_loading=1
-let g:rubycomplete_classes_in_global=1
-let g:rubycomplete_rails=1
-
-" rails.vim
-let g:rails_gnu_screen=1
-let g:rails_mappings=1
-let g:rails_statusline=1
-let g:rails_syntax=1
