@@ -48,7 +48,7 @@ set ruler
 set showcmd
 set laststatus=2
 
-set statusline=[%n]\ %<%f\ %y[%{&ff}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
+set statusline=[%n]\ %<%f\ %y[%{&ff}][%{&fenc}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
 
 set hlsearch
 set incsearch
