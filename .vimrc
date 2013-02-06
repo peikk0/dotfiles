@@ -91,6 +91,8 @@ if has("autocmd")
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal! g`\"" |
         \ endif
+
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
 if has("terminfo")
@@ -150,11 +152,12 @@ let g:syntastic_auto_loc_list = 1
 
 " Mappings
 
+map <F1> :NERDTreeToggle<CR>
 map <F5> <Esc>gg=G''
-map <F6> :TlistToggle<Return>
-map <F7> :TlistUpdate<Return>
-map <F9> :DiffChangesDiffToggle<Return>
-map <F10> :DiffChangesPatchToggle<Return>
+map <F6> :TlistToggle<CR>
+map <F7> :TlistUpdate<CR>
+map <F9> :DiffChangesDiffToggle<CR>
+map <F10> :DiffChangesPatchToggle<CR>
 map <A-Right> gt
 map <A-Left> gT
 set pastetoggle=<F11>
