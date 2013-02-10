@@ -10,6 +10,12 @@
 !/.vim
 /.vim/.netrwhist
 
+!/.muttrc
+!/.mutt/gpg.rc
+!/.mutt/themes
+!/.mutt/cache/headers/.gitignore
+!/.mailcap
+
 !/.bash_profile
 !/.bashrc
 !/.dialogrc

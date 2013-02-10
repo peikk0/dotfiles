@@ -1,0 +1,55 @@
+# peikk0's mutt theme
+
+# {{{ Main
+
+color status black green
+color normal white default
+color message brightgreen default
+color error brightred default
+
+# }}}
+
+# {{{ Sidebar
+
+color sidebar_new yellow default
+
+# }}}
+
+# {{{ Index
+
+color index white default "!~N !~O !~Q !~D !~T !~F"
+color index brightyellow default "~N"
+color index yellow default "~O"
+color index cyan default "~Q"
+color index brightblack default "~D"
+color index red default "~T"
+color index brightred default "~F"
+color indicator black white
+color tree red default
+color underline green default
+
+# }}}
+
+# {{{ Pager
+
+color attachment green default
+color hdrdefault blue default
+color markers blue default
+color search black yellow
+color signature brightblack default
+color tilde blue default
+color underline green default
+color bold brightgreen default
+color quoted red default
+color header brightwhite default "^(From|To|CC|Subject):"
+color header brightblue default "^Date:"
+color body brightwhite default "(ftps?|https?)://[^ ]+"
+color body brightwhite default "www\.[^ ]+"
+color body brightwhite default "[a-z0-9.+_-]+@[a-z0-9._-]+"
+color body black brightred "^gpg: BAD signature from .*"
+color body black brightgreen "^gpg: Good signature from .*"
+color body black brightyellow "^gpg: Can't check signature:.*"
+
+# }}}
+
+# vim:ft=muttrc:fdm=marker:

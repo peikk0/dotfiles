@@ -1,0 +1,210 @@
+# peikk0's mutt config
+
+# {{{ Reset everything
+
+reset all
+unhook *
+ignore *
+unhdr_order *
+
+# }}}
+
+# {{{ Default identity
+
+set realname = 'Pierre Guinoiseau'
+set from = 'pierre@guinoiseau.eu'
+set signature = 
+set crypt_autosign = yes
+
+# }}}
+
+# {{{ SMTP
+
+set smtp_url = smtp://mail.guinoiseau.eu/
+
+# }}}
+
+# {{{ IMAP
+
+set mbox_type = Maildir
+set spoolfile = imap://mail.guinoiseau.eu:143/INBOX
+set folder = imap://mail.guinoiseau.eu:143/
+#set ssl_use_tlsv1 = yes
+#set ssl_force_tls = yes
+set ssl_starttls = no
+
+set record = "=Sent"
+set postponed = "=Drafts"
+set maildir_trash = yes
+set copy = yes
+set move = no
+set mark_old = yes
+
+set imap_check_subscribed = "yes"
+set imap_list_subscribed = "yes"
+set mail_check = 300
+set timeout = 60
+set imap_idle = yes
+mailboxes !
+
+# }}}
+
+# {{{ Locales and encodings
+
+set charset = 'UTF-8'
+set locale  = 'en_US.UTF-8'
+set config_charset = "utf-8"
+set send_charset = "utf-8"
+set assumed_charset = "utf-8:iso-8859-15:iso-8859-1:us-ascii"
+set attach_charset = "utf-8:iso-8859-15:iso-8859-1:us-ascii"
+set allow_8bit = yes
+set rfc2047_parameters = yes
+
+# }}}
+
+# {{{ Paths
+
+set header_cache = ~/.mutt/cache/headers
+set certificate_file = ~/.mutt/certificates
+
+# }}}
+
+# {{{ Headers
+
+unignore From: To: Subject: Date: Organization: Newsgroups: CC: BCC: Reply-To: Mail-Followup-To: X-Mailer: User-Agent: X-Operating-System: Message-ID: In-Reply-To: List-Id: X-Spam-Flag: X-Spam-Level: rt-ticket: rt-originator:
+hdr_order Message-ID In-Reply-To Date From Organization To Cc Bcc Newsgroups Reply-To Mail-Followup-To List-Id User-Agent X-Mailer X-Operating-System X-Spam-Flag X-Spam-Level rt-ticket rt-originator Subject
+
+# }}}
+
+# {{{ MIME
+
+auto_view text
+mime_lookup application/octet-stream
+
+# }}}
+
+# {{{ PGP
+
+source ~/.mutt/gpg.rc
+set pgp_sign_as = 0x203279FF
+set crypt_replysign = no
+set crypt_verify_sig = yes
+set crypt_autopgp = yes
+set crypt_autosign = yes
+set pgp_use_gpg_agent = yes
+set pgp_verify_sig=yes
+message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
+
+# }}}
+
+# {{{ Index
+
+set index_format="%6C %Z  [%D]  %-25.25L  %s"
+set date_format = "%d/%m/%Y %H:%M:%S"
+
+set sort = threads
+set sort_aux = date-sent
+#set sort_re = yes
+
+# }}}
+
+# {{{ Viewing
+
+set visual = builtin
+set pager_index_lines = 15
+set pager_context = 10
+set pager_stop = yes
+set smart_wrap = yes
+set markers = yes
+set implicit_autoview = yes
+auto_view text/html application/x-pgp-message
+alternative_order text/plain text/enriched text text/html
+set mailcap_path = "~/.mailcap"
+set tilde = yes
+
+# }}}
+
+# {{{ Editing
+
+set editor="vim + -c 'set ft=mail tw=80' -c ':0/^$'"
+set edit_headers = yes
+set fast_reply = yes
+set reply_to = yes
+set forward_format = "Fwd: %s"
+set mime_forward = ask-yes
+set reverse_name = yes
+set reverse_reply = yes
+set abort_nosubject = ask-yes
+set abort_unmodified = ask-yes
+set include = yes
+set attribution = "On %d, %n <%a> wrote:\n"
+set user_agent = yes
+my_hdr X-Operating-System: `uname -s`
+
+# }}}
+
+# {{{ Aliases
+
+set alias_file = ~/.mutt/aliases
+source $alias_file
+set sort_alias = alias
+set reverse_alias = yes
+set query_command = "abook --mutt-query '%s'"
+
+# }}}
+
+# {{{ Bindings
+
+bind pager j next-line
+bind pager k previous-line
+bind index <pageup> half-up
+bind index <pagedown> half-down
+bind pager <pageup> half-up
+bind pager <pagedown> half-down
+bind index <F2> sidebar-prev
+bind index <F3> sidebar-next
+bind index <F4> sidebar-open
+bind pager <F2> sidebar-prev
+bind pager <F3> sidebar-next
+bind pager <F4> sidebar-open
+macro index <F1> "<enter-command>toggle sidebar_visible<enter>"
+macro pager <F1> "<enter-command>toggle sidebar_visible<enter>"
+macro generic,index,pager \Ca "<shell-escape>abook<return>" "launch abook"
+macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+macro index \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
+macro pager \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
+macro index \Cs "s=Spam<enter>" "move to spam folder"
+macro pager \Cs "s=Spam<enter>" "move to spam folder"
+
+# }}}
+
+# {{{ Sidebar
+
+set sidebar_width = 50
+set sidebar_visible =yes
+set sidebar_delim = '|'
+set sidebar_sort = yes
+
+# }}}
+
+# {{{ Misc
+
+set beep = no
+set wait_key = no
+set menu_scroll = yes
+
+# }}}
+
+# {{{ Theme
+
+source ~/.mutt/themes/akoya.rc
+
+# }}}
+
+# {{{ Local config (alternates email addresses, smtp & imap auth, ...)
+
+source `FILE=~/.mutt/local.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
+
+# }}}
+
+# vim:ft=muttrc:fdm=marker:

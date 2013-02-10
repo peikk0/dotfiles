@@ -1,0 +1,1 @@
+text/html; elinks -eval "set document.codepage.assume = %{charset}" -dump %s ; copiousoutput
