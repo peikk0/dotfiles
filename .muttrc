@@ -45,6 +45,7 @@ set imap_list_subscribed = "yes"
 set mail_check = 300
 set timeout = 60
 set imap_idle = yes
+
 mailboxes !
 
 # }}}
@@ -97,6 +98,17 @@ message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-tra
 
 # }}}
 
+# {{{ Attachments
+
+attachments +A */.*
+attachments -A text/x-vcard application/pgp.*
+attachments -A application/x-pkcs7-.*
+attachments +I text/plain
+attachments -A message/external-body
+attachments -I message/external-body
+
+# }}}
+
 # {{{ Index
 
 set index_format="%6C %Z  [%D]  %-25.25L  %s"
@@ -133,7 +145,7 @@ set reply_to = yes
 set forward_format = "Fwd: %s"
 set mime_forward = ask-yes
 set reverse_name = yes
-set reverse_reply = yes
+set reverse_realname = no
 set abort_nosubject = ask-yes
 set abort_unmodified = ask-yes
 set include = yes
@@ -155,8 +167,12 @@ set query_command = "abook --mutt-query '%s'"
 
 # {{{ Bindings
 
+bind index F flag-message
+bind pager F flag-message
 bind pager j next-line
 bind pager k previous-line
+macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
+bind browser y exit
 bind index <pageup> half-up
 bind index <pagedown> half-down
 bind pager <pageup> half-up
