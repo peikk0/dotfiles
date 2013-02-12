@@ -7,7 +7,7 @@ XTerm*boldMode:		false
 XTerm*metaSendsEscape:	true
 XTerm*loginShell:	true
 XTerm*title:		Terminal
-XTerm*termName:		xterm
+XTerm*termName:		xterm-256color
 XTerm*utmpInhibit:	False
 XTerm*on2Clicks:	word
 XTerm*on3Clicks:	line
@@ -57,7 +57,7 @@ URxvt.foreground:	#AAAAAA
 URxvt.font:		xft:Inconsolata:size=11:antialias=true,xft:Dejavu Sans Mono:size=11:antialias=true,xft:VL Gothic:size=11:antialias=true
 URxvt.letterSpace:	-1
 URxvt.title:		Terminal
-URxvt.termName:		rxvt-unicode
+URxvt.termName:		rxvt-unicode-256color
 URxvt.loginShell:	true
 URxvt.modifier:		alt
 URxvt.saveLines:	1024
