@@ -1,7 +1,7 @@
 XTerm*Geometry:		100x25
 XTerm*foreground:	#BBBBBB
 XTerm*background:	#111111
-XTerm*FaceName:		Inconsolata:size=11:antialias=true
+XTerm*FaceName:		Inconsolata:size=11
 XTerm*boldColors:	true
 XTerm*boldMode:		false
 XTerm*metaSendsEscape:	true
@@ -54,7 +54,7 @@ URxvt.geometry:		100x25
 !URxvt.foreground:	rgba:BBBB/BBBB/BBBB/FFFF
 URxvt.background:	#111111
 URxvt.foreground:	#AAAAAA
-URxvt.font:		xft:Inconsolata:size=11:antialias=true,xft:Dejavu Sans Mono:size=11:antialias=true,xft:VL Gothic:size=11:antialias=true
+URxvt.font:		xft:Inconsolata:size=11,xft:Dejavu Sans Mono:size=11
 URxvt.letterSpace:	-1
 URxvt.title:		Terminal
 URxvt.termName:		rxvt-unicode-256color
@@ -117,6 +117,7 @@ Xft.dpi:		96
 Xft.antialias:		true
 Xft.hinting:		true
 Xft.hintstyle:	hintfull
+Xft.lcdfilter:	lcddefault
 Xft.rgba:	rgb
 
 xpdf*background:	#111111
