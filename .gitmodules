@@ -33,7 +33,7 @@
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/bundle/vim-nerdtree"]
 	path = .vim/bundle/vim-nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-varnish"]
 	path = .vim/bundle/vim-varnish
 	url = git://github.com/empanda/vim-varnish.git
