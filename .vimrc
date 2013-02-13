@@ -32,7 +32,7 @@ set smartindent
 let showbreak="> "
 set list
 if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
-  let &listchars="tab:\u21e5\u2043,trail:\u2022,extends:\u21c9,precedes:\u21c7,nbsp:\u2423"
+  let &listchars="tab:\u21e5\u2010,trail:\u2022,extends:\u21c9,precedes:\u21c7,nbsp:\u2423"
   let &fillchars="vert:\u259a,fold:\u00b7"
 else
   set listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:_
