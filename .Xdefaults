@@ -54,7 +54,7 @@ URxvt.geometry:		100x25
 !URxvt.foreground:	rgba:BBBB/BBBB/BBBB/FFFF
 URxvt.background:	#111111
 URxvt.foreground:	#AAAAAA
-URxvt.font:		xft:Inconsolata:size=11,xft:Dejavu Sans Mono:size=11
+URxvt.font:		xft:Inconsolata:size=11,xft:Dejavu Sans Mono:size=11,xft:VL Gothic:size=11
 URxvt.letterSpace:	-1
 URxvt.title:		Terminal
 URxvt.termName:		rxvt-unicode-256color
