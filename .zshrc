@@ -35,19 +35,6 @@ umask 0022
 
 # }}}
 
-# {{{ Zen
-
-if [ -d $HOME/.zen ]; then
-  fpath=(
-    $fpath
-    $HOME/.zen/zsh/scripts
-    $HOME/.zen/zsh/zle )
-  autoload -U zen
-  autoload -U zpaste
-fi
-
-# }}}
-
 # {{{ Keybindings
 
 # vi keybindings
