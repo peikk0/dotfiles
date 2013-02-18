@@ -172,6 +172,12 @@ let g:rails_syntax=1
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 
+" gist
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command = 'firefox %URL%'
+let g:gist_show_privates = 1
+
 " Mappings
 
 map <silent> <F1> :call NTFinderP()<CR>

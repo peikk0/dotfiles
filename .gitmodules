@@ -40,3 +40,9 @@
 [submodule ".vim/bundle/vim-nagios"]
 	path = .vim/bundle/vim-nagios
 	url = git://github.com/tejr/vim-nagios.git
+[submodule ".vim/bundle/vim-gist"]
+	path = .vim/bundle/vim-gist
+	url = git://github.com/mattn/gist-vim.git
+[submodule ".vim/bundle/vim-webapi"]
+	path = .vim/bundle/vim-webapi
+	url = git://github.com/mattn/webapi-vim.git
