@@ -49,3 +49,9 @@
 [submodule ".vim/bundle/vim-rvm"]
 	path = .vim/bundle/vim-rvm
 	url = git://github.com/tpope/vim-rvm.git
+[submodule ".vim/bundle/vim-nodejs"]
+	path = .vim/bundle/vim-nodejs
+	url = git://github.com/mmalecki/vim-node.js.git
+[submodule ".vim/bundle/vim-git"]
+	path = .vim/bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
