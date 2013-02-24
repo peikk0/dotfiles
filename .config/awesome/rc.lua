@@ -62,26 +62,23 @@ beautiful.init(theme_path)
 
 -- {{{ Programs
 
-terminal      = "urxvt"
-terminal_alt  = "xterm"
+terminal      = "x-terminal-emulator"
 terminal_exec = terminal .. " -e "
 editor        = "vim"
 editor_cmd    = terminal_exec .. editor
 im            = "gajim"
 -- xlock         = "xset dpms force off ; xtrlock"
 xlock         = "xscreensaver-command -lock"
-firefox       = "firefox"
+browser       = "sensible-browser"
 mail          = terminal_exec .. "mutt"
 xmail         = "thunderbird"
 if ostype == "FreeBSD" then
-  chrome      = "chrome"
   mixer_chan  = "pcm"
   mixer       = "mixer " .. mixer_chan .. " "
   sound_down  = mixer .. "-2"
   sound_up    = mixer .. "+2"
   sound_mute  = "mute" -- mute comes from aumix package
 elseif ostype == "Linux" then -- Gentoo
-  chrome        = "chromium"
   mixer_chan  = "Master"
   mixer       = "amixer -q set " .. mixer_chan .. " "
   sound_down  = mixer .. "2-"
@@ -882,10 +879,8 @@ globalkeys = awful.util.table.join(
 -- {{{ Programs
 
   awful.key(k_m,  "Return", function () awful.util.spawn(terminal) end),
-  awful.key(k_ms, "Return", function () awful.util.spawn(terminal_alt) end),
+  awful.key(k_m,  "b",      function () awful.util.spawn(browser) end),
   awful.key(k_m,  "e",      function () awful.util.spawn(editor_cmd) end),
-  awful.key(k_m,  "f",      function () awful.util.spawn(firefox) end),
-  awful.key(k_m,  "g",      function () awful.util.spawn(chrome) end),
   awful.key(k_m,  "m",      function () awful.util.spawn(mail) end),
   awful.key(k_ms, "m",      function () awful.util.spawn(xmail) end),
   awful.key(k_m,  "i",      function () awful.util.spawn(im) end),

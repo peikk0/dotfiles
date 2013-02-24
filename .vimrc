@@ -68,7 +68,19 @@ set timeoutlen=250
 
 set shell=/bin/sh
 set grepprg=grep\ -nH\ $*
-command -bar -nargs=1 OpenURL :!firefox <args>
+function! OpenURL(url)
+  if $DISPLAY !~ '^\w'
+    exe "silent !sensible-browser \"".a:url."\""
+  else
+    exe "silent !sensible-browser -T \"".a:url."\""
+  endif
+  redraw!
+endfunction
+command! -nargs=1 OpenURL :call OpenURL(<q-args>)
+" open URL under cursor in browser
+nnoremap gb :OpenURL <cfile><CR>
+nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
+nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
 if has("autocmd")
   filetype plugin indent on
