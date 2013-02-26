@@ -918,6 +918,18 @@ globalkeys = awful.util.table.join(
 -- {{{ Prompts
 
   awful.key(k_m, "F1", function () mypromptbox[mouse.screen]:run() end),
+  awful.key(k_m, "F2", function ()
+      awful.prompt.run({ prompt = "Open URL: " },
+      mypromptbox[mouse.screen].widget,
+      function (url)
+          local result = awful.util.spawn(browser .. " " .. url)
+          if type(result) == "string" then
+              promptbox.widget.text = result
+          end
+      end,
+      nil,
+      awful.util.getdir("cache") .. "/history_url")
+    end),
 
   awful.key(k_m, "F4", function ()
       awful.prompt.run({ prompt = "Run Lua code: " },
