@@ -134,6 +134,7 @@ case `uname -s` in
   FreeBSD)
     export LSCOLORS="exgxfxcxcxdxdxhbadacec"
     alias ls="ls -G"
+    alias ll="ls -h -l -D '%F %T'"
     ZCOLORS="no=00:fi=00:di=00;34:ln=00;36:pi=00;32:so=00;35:do=00;35:bd=00;33:cd=00;33:or=05;37;41:mi=05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=00;32:"
     zstyle ':completion:*' list-colors ${(s.:.)ZCOLORS}
     ;;
@@ -147,6 +148,7 @@ case `uname -s` in
     fi
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
     alias ls="ls --color=auto"
+    alias ll="ls -h -l --time-style='+%F %T'"
     which bsdtar >/dev/null && alias tar="bsdtar"
     ;;
 esac
@@ -158,7 +160,6 @@ esac
 alias :e="\$EDITOR"
 alias :q="exit"
 alias l="ls -A -F"
-alias ll="ls -h -l"
 alias la="ls -a"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
