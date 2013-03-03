@@ -182,6 +182,7 @@ floatapps =
   ['feh'] = true,
   ['gimp'] = true,
   ["MPlayer"] = true,
+  ["mplayer2"] = true,
   ["pinentry"] = true,
   ["pinentry-gtk-2"] = true,
   ["plugin-container"] = true,
