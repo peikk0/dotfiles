@@ -5,8 +5,8 @@ update: --no-rdoc --no-ri --env-shebang --wrappers
 :update_sources: true
 :verbose: true
 :sources: 
-- http://rubygems.org/
-- http://gems.github.com/
+- https://rubygems.org/
+- https://gems.github.com/
 :benchmark: false
 :backtrace: false
 :bulk_threshold: 1000
