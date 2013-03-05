@@ -125,13 +125,10 @@ end
 
 if naughty then
   naughty.config.presets.normal.screen = screen.count()
-  naughty.config.presets.normal.width = 250
   naughty.config.presets.normal.fg = beautiful.naughty_fg
   naughty.config.presets.normal.bg = beautiful.naughty_bg
-  naughty.config.presets.normal.height = 12
   naughty.config.presets.critical.bg = beautiful.naughty_bg
   naughty.config.presets.critical.fg = beautiful.naughty_cri
-  naughty.config.presets.critical.height = 12
 end
 
 -- }}}
