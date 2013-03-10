@@ -191,7 +191,7 @@ function title {
   local t="%n@%m %~"
 
   case $TERM in
-    screen) # and tmux
+    screen*) # and tmux
       print -nP "\ek$t\e\\"
       print -nP "\e]0;$t\a"
       ;;
