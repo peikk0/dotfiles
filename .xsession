@@ -35,9 +35,9 @@ if which xrandr >/dev/null; then
     xrandr --output DVI-I-2 --auto --output DVI-I-3 --off
   elif [ `hostname -s` = 'kamino' ]; then
     if [ `xrandr -q | grep -Ec '^[A-Z0-9]+ connected'` -eq 1 ]; then
-      xrandr --output LVDS1 --auto --right-of HDMI2 --output HDMI2 --auto || echo 'Failed to configure screens with xrandr'
-    else
       xrandr --output LVDS1 --auto --output HDMI2 --off || echo 'Failed to configure screens with xrandr'
+    else
+      xrandr --output LVDS1 --auto --right-of HDMI2 --output HDMI2 --auto || echo 'Failed to configure screens with xrandr'
     fi
   fi
 fi
