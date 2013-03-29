@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 # {{{ Env vars
 
-PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin"
-[[ -d /usr/local/kde4 ]] && PATH="$PATH:/usr/local/kde4/sbin:/usr/local/kde4/bin"
+PATH="/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin:/usr/sbin:/bin:/sbin"
+[[ -d /usr/local/kde4 ]] && PATH="/usr/local/kde4/bin:/usr/local/kde4/sbin:$PATH"
 [[ -d ~/.rvm ]] && PATH="$HOME/.rvm/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 export PATH
