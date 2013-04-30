@@ -94,6 +94,7 @@ if has("autocmd")
   autocmd FileType php    set omnifunc=phpcomplete#CompletePHP
   autocmd FileType python set omnifunc=pythoncomplete#Complete
   autocmd FileType ruby   set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
   autocmd FileType sql    set omnifunc=sqlcomplete#Complete
   autocmd FileType xml    set omnifunc=xmlcomplete#CompleteTags
   " When editing a file, always jump to the last known cursor position.
