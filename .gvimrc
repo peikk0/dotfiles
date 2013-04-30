@@ -2,7 +2,11 @@
 set guioptions=ac
 
 " change font in gui
-set guifont=Inconsolata\ 11
+if has("mac")
+    set guifont=Menlo:h12
+elseif has("unix")
+    set guifont=Inconsolata\ 11
+endif
 
 " syntax hilighting
 syntax on
