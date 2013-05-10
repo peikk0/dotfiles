@@ -28,17 +28,9 @@ fi
 # xrandr
 if which xrandr >/dev/null; then
   echo 'Configuring screens...'
-  if [ `hostname -s` = 'hoth' ]; then
-    xrandr --output DVI-0 --auto --left-of DVI-1 --output DVI-1 --auto || echo 'Failed to configure screens with xrandr'
-  elif [ `hostname -s` = 'alderaan' ]; then
+  if [ `hostname -s` = 'alderaan' ]; then
     # xrandr --output DVI-0 --auto --output HDMI-0 --auto --right-of DVI-0 || echo 'Failed to configure screens with xrandr'
     xrandr --output DVI-I-2 --auto --output DVI-I-3 --off
-  elif [ `hostname -s` = 'kamino' ]; then
-    if [ `xrandr -q | grep -Ec '^[A-Z0-9]+ connected'` -eq 1 ]; then
-      xrandr --output LVDS1 --auto --output HDMI2 --off || echo 'Failed to configure screens with xrandr'
-    else
-      xrandr --output LVDS1 --auto --right-of HDMI2 --output HDMI2 --auto || echo 'Failed to configure screens with xrandr'
-    fi
   fi
 fi
 

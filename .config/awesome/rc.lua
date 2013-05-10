@@ -92,9 +92,6 @@ if hostname == 'korriban' then
 elseif hostname == 'alderaan' then
   setup_mono  = "xrandr --output DVI-I-2 --auto --output DVI-I-3 --off"
   setup_dual  = "xrandr --output DVI-I-2 --auto --output DVI-I-3 --auto --right-of DVI-I-2"
-elseif hostname == 'kamino' then
-  setup_mono  = "xrandr --output LVDS1 --auto --output HDMI2 --off"
-  setup_dual  = "xrandr --output LVDS1 --auto --right-of HDMI2 --output HDMI2 --auto"
 else
   setup_mono  = ""
   setup_dual  = ""
@@ -380,7 +377,7 @@ function widget_acpi()
     end
   end
 
-  if hostname == 'alderaan' or hostname == 'hoth' then
+  if hostname == 'alderaan' then
     return widget_base('')
   end
 
