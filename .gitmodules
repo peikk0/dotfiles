@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/vim-molokai"]
 	path = .vim/bundle/vim-molokai
 	url = git://github.com/tomasr/molokai.git
+[submodule ".vim/bundle/vim-i3-syntax"]
+	path = .vim/bundle/vim-i3-syntax
+	url = git://github.com/PotatoesMaster/i3-vim-syntax.git
