@@ -35,6 +35,7 @@ set ssl_starttls = no
 
 set record = "=Sent"
 set postponed = "=Drafts"
+set trash = "=Trash"
 set maildir_trash = yes
 set copy = yes
 set move = no
