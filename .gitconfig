@@ -23,7 +23,7 @@
     whitespace = red reverse
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/pierre/.gitignore_global
+    excludesfile = .gitignore_global
 
 [alias]
     st = status
