@@ -43,3 +43,6 @@
     default = matching
 [github]
     user = peikk0
+
+[include]
+    path = .gitconfig.local
