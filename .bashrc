@@ -1,32 +1,18 @@
-# Bash configuration, for sucky GNU OSes without zsh or ksh
+ENV="$HOME/.shrc"
+export ENV
+. $ENV
 
-# {{{ Initial check, because bash is not enough good to not read this file when non interactive...
+. "$HOME/.zprofile"
+
+# {{{ Initial check
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-	# Shell is non-interactive.  Be done now!
-	return
+  # Shell is non-interactive.  Be done now!
+  return
 fi
-
-# }}}
-
-# {{{ Env vars
-
-export PATH="$HOME/.rvm/bin:$HOME/.local/bin:$PATH"
-#export LC_ALL="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export PAGER="less"
-export EDITOR="vim"
-export VISUAL="vim"
-export LESS="-I -M -R --shift 5"
 
 # }}}
 
@@ -43,49 +29,9 @@ shopt -s cmdhist
 # Check window size after each command
 shopt -s checkwinsize
 
-# Error if glob fail
-# Seems buggy, as usual...
-# shopt -s failglob
-
-# vi mode, not as perfect as on zsh, but still better...
-# set -o vi
-
 # }}}
 
-# {{{ Aliases
-
-case `uname -s` in
-  FreeBSD)
-    export LSCOLORS="exgxfxcxcxdxdxhbadacec"
-    alias ls="ls -G"
-    ;;
-  Linux) 
-    if [[ -r ~/.dir_colors ]]; then
-      eval `dircolors -b ~/.dir_colors`
-    elif [[ -r /etc/DIR_COLORS ]]; then
-      eval `dircolors -b /etc/DIR_COLORS`
-    fi
-    alias ls="ls --color=auto"
-    alias cal="cal -m"
-    which bsdtar >/dev/null && alias tar="bsdtar"
-    ;;
-esac
-
-# }}}
-
-# {{{ General aliases
-
-alias :e="\$EDITOR"
-alias :q="exit"
-alias l="ls -A -F"
-alias ll="ls -h -l"
-alias la="ls -a"
-alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-
-# }}}
-
-# {{{ "Smart completion" (imperfect copy of zsh's one)
+# {{{ Smart completion
 
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion

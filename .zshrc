@@ -1,10 +1,7 @@
-#!/usr/bin/env zsh
-# my zshrc
-
 # {{{ General settings
 
 # History
-HISTFILE=~/.histfile
+HISTFILE="$HOME/.histfile"
 HISTSIZE=5000
 SAVEHIST=5000
 setopt append_history hist_ignore_all_dups hist_reduce_blanks
@@ -29,9 +26,6 @@ colors
 
 # Watch for login/logout
 watch=all
-
-# umask
-umask 0022
 
 # }}}
 
@@ -132,38 +126,13 @@ zstyle ':completion:*:rm:*' ignore-line yes
 
 case `uname -s` in
   FreeBSD|Darwin)
-    export LSCOLORS="exgxfxcxcxdxdxhbadacec"
-    alias ls="ls -G"
-    [ `uname -s` = "FreeBSD" ] && alias ll="ls -h -l -D '%F %T'" \
-                               || alias ll="ls -h -l -T"
     ZCOLORS="no=00:fi=00:di=00;34:ln=00;36:pi=00;32:so=00;35:do=00;35:bd=00;33:cd=00;33:or=05;37;41:mi=05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=00;32:"
     zstyle ':completion:*' list-colors ${(s.:.)ZCOLORS}
     ;;
   Linux)
-    if [[ -r ~/.dir_colors ]]; then
-      eval `dircolors -b ~/.dir_colors`
-    elif [[ -r /etc/DIR_COLORS ]]; then
-      eval `dircolors -b /etc/DIR_COLORS`
-    else
-      eval `dircolors`
-    fi
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-    alias ls="ls --color=auto"
-    alias ll="ls -h -l --time-style='+%F %T'"
-    which bsdtar >/dev/null && alias tar="bsdtar"
     ;;
 esac
-
-# }}}
-
-# {{{ General aliases
-
-alias :e="\$EDITOR"
-alias :q="exit"
-alias l="ls -A -F"
-alias la="ls -a"
-alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
 
 # }}}
 
@@ -171,7 +140,7 @@ alias egrep="egrep --color=auto"
 
 # Git prompt
 if [ -f "$HOME/.zsh/git-prompt/zshrc.sh" ]; then
-  source "$HOME/.zsh/git-prompt/zshrc.sh"
+  . "$HOME/.zsh/git-prompt/zshrc.sh"
   #ZSH_THEME_GIT_PROMPT_NOCACHE=1
   HAS_GIT_PROMPT=1
 fi
@@ -270,18 +239,10 @@ function run-help-sudo {
 
 # }}}
 
-# {{{ Reminder
+# {{{ Local configuration
 
-if [[ -f ~/.zshrc.local ]]; then
-  source ~/.zshrc.local
-fi
-
-# }}}
-
-# {{{ Reminder
-
-if [[ -f ~/.reminder ]]; then
-  cat ~/.reminder
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  . "$HOME/.zshrc.local"
 fi
 
 # }}}

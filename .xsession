@@ -1,20 +1,14 @@
 #!/bin/sh
 
-exec >~/.xsession.log 2>&1
+exec >"$HOME/.xsession.log" 2>&1
 
-. ~/.profile
+ENV="$HOME/.shrc"
+export ENV
+. $ENV
 
 # OpenOffice.org look
 OOO_FORCE_DESKTOP=gnome
 export OOO_FORCE_DESKTOP
-
-# keychain (ssh-agent and gpg-agent)
-if which keychain >/dev/null; then
-  echo 'Launching keychain...'
-  keychain --quiet --nogui || echo 'Failed to launch keychain'
-  [ -f ~/.keychain/`hostname`-sh ]     && . ~/.keychain/`hostname`-sh
-  [ -f ~/.keychain/`hostname`-sh-gpg ] && . ~/.keychain/`hostname`-sh-gpg
-fi
 
 # D-Bus
 if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
