@@ -139,7 +139,7 @@ esac
 # {{{ Prompts
 
 # Git prompt
-if [ -f "$HOME/.zsh/git-prompt/zshrc.sh" ]; then
+if which git >/dev/null 2>&1 && [[ -f "$HOME/.zsh/git-prompt/zshrc.sh" ]]; then
   . "$HOME/.zsh/git-prompt/zshrc.sh"
   #ZSH_THEME_GIT_PROMPT_NOCACHE=1
   HAS_GIT_PROMPT=1
