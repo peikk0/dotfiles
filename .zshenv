@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 # {{{ Env vars
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin:/usr/sbin:/bin:/sbin"
@@ -6,20 +7,25 @@ PATH="/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin:/usr/sbin:/bin:/sbin"
 [[ -d ~/.rvm ]] && PATH="$HOME/.rvm/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 export PATH
-#export LC_ALL="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export MM_CHARSET="UTF-8"
-export PAGER="less"
-export EDITOR="vim"
-export VISUAL="vim"
-export LESS="-I -M -R --shift 5"
-export BLOCKSIZE="K"
+
+LOCALE="en_US.UTF-8"
+LANG="$LOCALE"
+# LC_ALL="$LOCALE"
+LC_COLLATE="$LOCALE"
+LC_CTYPE="$LOCALE"
+LC_MESSAGES="$LOCALE"
+LC_MONETARY="$LOCALE"
+LC_NUMERIC="$LOCALE"
+LC_TIME="$LOCALE"
+MM_CHARSET="UTF-8"
+
+EDITOR="vim"
+VISUAL="vim"
+PAGER="less"
+LESS="-I -M -R --shift 5"
+BLOCKSIZE="K"
+
+export LANG LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME MM_CHARSET EDITOR VISUAL PAGER LESS BLOCKSIZE
 
 # }}}
 
