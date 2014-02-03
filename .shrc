@@ -71,15 +71,21 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
       fi
       alias ls="ls --color=auto"
       alias ll="ls -h -l --time-style='+%F %T'"
-      if which bsdtar >/dev/null 2>&1; then
-        alias tar="bsdtar"
-      fi
       ;;
   esac
 
   alias l="ls -A -F"
   alias la="ls -a"
-  alias grep="grep --color=auto"
+
+  if which bsdtar >/dev/null 2>&1; then
+    alias tar="bsdtar"
+  fi
+
+  if which bsdgrep >/dev/null 2>&1; then
+    alias grep="bsdgrep --color=auto"
+  else
+    alias grep="grep --color=auto"
+  fi
   alias egrep="grep -E --color=auto"
   alias fgrep="grep -F --color=auto"
 
