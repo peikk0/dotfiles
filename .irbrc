@@ -17,8 +17,4 @@ end
 IRB.conf[:AUTO_INDENT] = true
 IRB.conf[:LOAD_MODULES] |= %w(irb/completion stringio enumerator ostruct)
 IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = if defined?(Bundler)
-                            Bundler.tmp.parent.join('history.rb')
-                          else
-                            File.expand_path('~/.history.rb')
-                          end
+IRB.conf[:HISTORY_FILE] = File.expand_path('~/.history.rb')

@@ -1,0 +1,6 @@
+# -*- mode: ruby -*- vim:set ft=ruby:
+
+load File.expand_path('~/.pryrc')
+
+Pry.config.prompt_name = 'Guard'
+Pry.plugins['stack_explorer'] && Pry.plugins['stack_explorer'].disable!
