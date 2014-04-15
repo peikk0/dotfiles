@@ -160,7 +160,7 @@ bar {
     }
 }
 
-workspace tv output DVI-I-3
+workspace tv output HDMI-0
 
 for_window [class="mplayer"] floating enable
 for_window [class="MPlayer"] floating enable

@@ -8,8 +8,8 @@ main_screen=
 alt_screen=
 
 if [ `hostname -s` = 'alderaan' ]; then
-    main_screen="DVI-I-2"
-    alt_screen="DVI-I-3"
+    main_screen="DVI-I-1"
+    alt_screen="HDMI-0"
 fi
 
 if [ -n "$main_screen" -a -n "$alt_screen" ]; then
