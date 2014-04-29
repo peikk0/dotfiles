@@ -190,8 +190,8 @@ macro generic,index,pager \Ca "<shell-escape>abook<return>" "launch abook"
 macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
 macro index \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
 macro pager \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
-macro index \Cs "s=Spam<enter>" "move to spam folder"
-macro pager \Cs "s=Spam<enter>" "move to spam folder"
+macro index \Cs "s=Junk\n" "move to junk folder"
+macro pager \Cs "s=Junk\n" "move to junk folder"
 
 # }}}
 
