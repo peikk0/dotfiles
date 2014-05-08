@@ -111,10 +111,9 @@ endif
 if has("terminfo")
   syntax enable
   set t_Co=256
-  let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
   set background=dark
-  colorscheme solarized
+  let base16colorspace=256
+  colorscheme base16-default
 end
 
 function! SL(function)
