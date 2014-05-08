@@ -2,6 +2,8 @@
 #define HOME /home/pierre
 #endif
 
+#include ".config/base16-xresources/base16-default.dark.xresources"
+
 XTerm*Geometry:		100x25
 XTerm*foreground:	#BBBBBB
 XTerm*background:	#111111
@@ -19,38 +21,6 @@ XTerm*on4Clicks:	page
 XTerm*on5Clicks:	all
 XTerm*saveLines:	1024
 XTerm*bellIsUrgent:	true
-! black
-XTerm*color0:		#111111
-! red
-XTerm*color1:		#AA6655
-! green
-XTerm*color2:		#88AA77
-! yellow
-XTerm*color3:		#AA8833
-! blue
-XTerm*color4:		#3388AA
-! magenta
-XTerm*color5:		#AA7788
-! cyan
-XTerm*color6:		#66AAAA
-! white
-XTerm*color7:		#BBBBBB
-! bright black
-XTerm*color8:		#444444
-! bright red
-XTerm*color9:		#CC7766
-! bright green
-XTerm*color10:		#AACC88
-! bright yellow
-XTerm*color11:		#CCAA44
-! bright blue
-XTerm*color12:		#44AACC
-! bright magenta
-XTerm*color13:		#CC88AA
-! bright cyan
-XTerm*color14:		#88CCCC
-! bright white
-XTerm*color15:		#FFFFFF
 
 URxvt.geometry:		100x25
 !URxvt.depth:		32
@@ -89,38 +59,6 @@ URxvt.keysym.M-v:	perl:clipboard:paste
 URxvt.keysym.M-C-v:	perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:	xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:	xclip -o -selection clipboard
-! black
-URxvt.color0:		#111111
-! red
-URxvt.color1:		#AA6655
-! green
-URxvt.color2:		#88AA77
-! yellow
-URxvt.color3:		#AA8833
-! blue
-URxvt.color4:		#3388AA
-! magenta
-URxvt.color5:		#AA7788
-! cyan
-URxvt.color6:		#66AAAA
-! white
-URxvt.color7:		#BBBBBB
-! bright black
-URxvt.color8:		#444444
-! bright red
-URxvt.color9:		#CC7766
-! bright green
-URxvt.color10:		#AACC88
-! bright yellow
-URxvt.color11:		#CCAA44
-! bright blue
-URxvt.color12:		#44AACC
-! bright magenta
-URxvt.color13:		#CC88AA
-! bright cyan
-URxvt.color14:		#88CCCC
-! bright white
-URxvt.color15:		#FFFFFF
 
 Xcursor.theme:		whiteglass
 Xcursor.size:		16
