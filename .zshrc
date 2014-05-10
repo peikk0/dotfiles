@@ -31,8 +31,8 @@ watch=all
 
 # {{{ Keybindings
 
-# vi keybindings
-bindkey -v
+# emacs keybindings, tired of vi mode in shell
+bindkey -e
 
 # Fixes from Debian
 if [[ "$TERM" != emacs ]]; then
