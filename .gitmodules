@@ -85,3 +85,6 @@
 [submodule ".config/base16-xresources"]
 	path = .config/base16-xresources
 	url = https://github.com/chriskempson/base16-xresources.git
+[submodule ".vim/bundle/vim-dockerfile"]
+	path = .vim/bundle/vim-dockerfile
+	url = https://github.com/ekalinin/Dockerfile.vim.git
