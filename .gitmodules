@@ -85,3 +85,9 @@
 [submodule ".vim/bundle/vim-dockerfile"]
 	path = .vim/bundle/vim-dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule ".vim/bundle/vim-tabular"]
+	path = .vim/bundle/vim-tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/vim-puppet"]
+	path = .vim/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git
