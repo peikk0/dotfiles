@@ -88,7 +88,7 @@ mime_lookup application/octet-stream
 # {{{ PGP
 
 source ~/.mutt/gpg.rc
-set pgp_sign_as = 0x203279FF
+set pgp_sign_as = 0x1085EB9D
 set crypt_replysign = no
 set crypt_verify_sig = yes
 set crypt_autopgp = yes
