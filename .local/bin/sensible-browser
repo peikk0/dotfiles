@@ -65,7 +65,11 @@ elif [ -n "$DISPLAY" -a -z "$terminal" ]; then
     for browser in firefox iceweasel mozilla-firebird mozilla netscape; do
       if which $browser >/dev/null 2>&1; then
         # nice -n 1 $browser -remote "openURL($url,new-tab)" >/dev/null 2>&1 || # Error: Failed to send command: 500 command not parseable
-        nohup nice -n 1 $browser "$url" >/dev/null 2>&1 &
+        if [ -n "$url" ]; then
+          nohup nice -n 1 $browser "$url" >/dev/null 2>&1 &
+        else
+          nohup nice -n 1 $browser >/dev/null 2>&1 &
+        fi
         exit 0
       fi
     done
