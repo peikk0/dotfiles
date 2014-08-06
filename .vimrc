@@ -106,6 +106,9 @@ if has("autocmd")
         \ endif
 
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+  autocmd BufNewFile,BufRead *.json set filetype=json foldmethod=syntax
+  autocmd BufNewFile,BufRead *.jsonp set filetype=json foldmethod=syntax
 endif
 
 if has("terminfo")
