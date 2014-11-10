@@ -6,6 +6,13 @@ ENV['HOME'] ||= ENV['USERPROFILE'] || File.dirname(__FILE__)
 
 Pry.editor = ENV['VISUAL']
 Pry.config.history.file = File.expand_path('~/.history.rb')
+begin
+  if defined?(Bundler)
+    FileUtils.mkdir_p('.bundle')
+    Pry.config.history.file = Bundler.root.join('.bundle/history.rb')
+  end
+rescue
+end
 Pry.config.history.should_load = true
 Pry.config.history.should_save = true
 
