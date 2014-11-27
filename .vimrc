@@ -9,6 +9,7 @@ set modelines=5     " Debian likes to disable this
 set backspace=indent,eol,start
 
 set nobackup
+set noundofile
 set swapfile
 set autoread
 
@@ -66,6 +67,8 @@ set completeopt=longest,menu,preview
 set diffopt+=vertical
 
 set timeoutlen=250
+
+set mouse=
 
 set shell=/bin/sh
 set grepprg=grep\ -nH\ $*
