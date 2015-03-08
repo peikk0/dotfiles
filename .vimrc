@@ -188,15 +188,16 @@ let g:rails_mappings=1
 let g:rails_syntax=1
 
 " syntastic
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_tex_checkers=[]
 
 " gist
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-let g:gist_browser_command = 'sensible-browser %URL%'
-let g:gist_clip_command = 'xclip -selection clipboard'
-let g:gist_show_privates = 1
+let g:gist_detect_filetype=1
+let g:gist_open_browser_after_post=1
+let g:gist_browser_command='sensible-browser %URL%'
+let g:gist_clip_command='xclip -selection clipboard'
+let g:gist_show_privates=1
 
 " Mappings
 
