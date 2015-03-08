@@ -113,6 +113,7 @@ if has("autocmd")
 
   autocmd BufNewFile,BufRead *.json set filetype=json foldmethod=syntax
   autocmd BufNewFile,BufRead *.jsonp set filetype=json foldmethod=syntax
+  autocmd BufNewFile,BufRead *.pp set filetype=puppet
 endif
 
 if has("terminfo")
@@ -191,6 +192,8 @@ let g:rails_syntax=1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_tex_checkers=[]
+let g:syntastic_puppet_checkers=["puppet"]
+let g:syntastic_puppet_puppetlint_args="--error-level error"
 
 " gist
 let g:gist_detect_filetype=1
