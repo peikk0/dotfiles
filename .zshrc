@@ -139,11 +139,10 @@ esac
 # {{{ Prompts
 
 # Git prompt
-# if which git >/dev/null 2>&1 && [[ -f "$HOME/.zsh/git-prompt/zshrc.sh" ]]; then
-#   . "$HOME/.zsh/git-prompt/zshrc.sh"
-#   #ZSH_THEME_GIT_PROMPT_NOCACHE=1
-#   HAS_GIT_PROMPT=1
-# fi
+if which git >/dev/null 2>&1 && [[ -f "${HOME}/.zsh/git-prompt/zshrc.sh" ]]; then
+  . "${HOME}/.zsh/git-prompt/zshrc.sh"
+  HAS_GIT_PROMPT=1
+fi
 
 # Right prompt with clock
 RPS1="  %{$fg_no_bold[yellow]%}%D{%d/%m/%y %H:%M:%S}%{${reset_color}%}"
@@ -158,7 +157,7 @@ PS3="%{$fg_no_bold[yellow]%}?#%{${reset_color}%} "
 
 # Display the title
 function title {
-  local t="%n@%m %~"
+  local t="%m %~ %#"
 
   case $TERM in
     screen*) # and tmux
@@ -180,49 +179,47 @@ function precmd {
   title
 
   # Color for non-text things
-  local misc="%{${fg_no_bold[white]}%}"
+  local _reset_color="%{${reset_color}%}"
+  local _misc_color="%{${fg_no_bold[white]}%}"
+  local _host_color="%{${fg_no_bold[cyan]}%}"
+  local _rcerr_color="%{${fg_no_bold[red]}%}"
 
   # Change path color given user rights on it
   if [[ -O "${PWD}" ]]; then # owner
-    local path_color="${fg_bold[yellow]}"
+    local _path_color="%{${fg_bold[yellow]}%}"
   elif [[ -w "${PWD}" ]]; then # can write
-    local path_color="${fg_bold[blue]}"
+    local _path_color="%{${fg_bold[blue]}%}"
   else # other
-    local path_color="${fg_bold[red]}"
+    local _path_color="%{${fg_bold[red]}%}"
   fi
 
   if [[ $UID = 0 ]]; then
-    local login_color="${fg_bold[red]}"
+    local _sign_color="%{${fg_bold[red]}%}"
   else
-    local login_color="${fg_bold[green]}"
+    local _sign_color="%{${fg_bold[green]}%}"
   fi
 
-  # Jailed ?
-  if [[ "`uname -s`" = 'FreeBSD' && "`sysctl -n security.jail.jailed 2>/dev/null`" = 1 ]]; then
-    local jailed="${misc}(%{${fg_no_bold[yellow]}%}jail${misc})"
-  else
-    local jailed=""
-  fi
   # Display return code when not 0
-  local return_code="%(?..${misc}!%{${fg_no_bold[red]}%}%?${misc}! )"
+  local return_code="%(?..${_misc_color}!${_rcerr_color}%?${_misc_color}! )"
+
   # Host
-  local host="%{${fg_no_bold[cyan]}%}%m"
-  # User
-  local user="${misc}[%{${login_color}%}%n${misc}]"
+  local host="${_host_color}%m"
+
   # Current path
-  local cwd="%{${path_color}%}%48<...<%~"
+  local cwd="${_path_color}%48<...<%~"
+
   # Red # for root, green % for user
-  local sign="%{${login_color}%}%#"
+  local sign="${_sign_color}%#"
 
   # Git
-  if [ -n "$HAS_GIT_PROMPT" ]; then
+  if [[ -n "$HAS_GIT_PROMPT" ]]; then
     local git_status="\$(git_super_status)"
   else
     local git_status=""
   fi
 
   # Set the prompt
-  PS1="${return_code}${host}${jailed} ${user} ${cwd}${git_status} ${sign}%{${reset_color}%} "
+  PS1="${return_code}${host} ${cwd}${git_status} ${sign}${_reset_color} "
 }
 
 # }}}
