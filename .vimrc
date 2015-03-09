@@ -191,9 +191,10 @@ let g:rails_syntax=1
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_tex_checkers=[]
 let g:syntastic_puppet_checkers=["puppet"]
 let g:syntastic_puppet_puppetlint_args="--error-level error"
+let g:syntastic_php_checkers=['php']
+let g:syntastic_tex_checkers=[]
 
 " gist
 let g:gist_detect_filetype=1
