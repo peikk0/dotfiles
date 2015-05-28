@@ -19,16 +19,19 @@ Pry.config.history.should_save = true
 # gem install pry-theme
 Pry.config.theme = "solarized"
 
+Pry.config.print = proc do |output, value|
+  output.puts "\001\e[1;32m\002▶\001\e[0m\002 #{value.inspect}"
+end
+Pry.config.exception_handler = proc do |output, exception, _|
+  output.puts "\001\e[1;31m\002▶\001\e[0m\002 #{exception.class}: #{exception.message}"
+  output.puts "from #{exception.backtrace.first}"
+end
 Pry.prompt = [
   proc do |target_self, nest_level, pry|
-    "\001\e[1;30m\002PRY\001\e[1;31m\002#\001\e[1;32m\002#{Pry.config.prompt_name}\001\e[0m\002"\
-    "(\001\e[1;33m\002#{Pry.view_clip(target_self)}\001\e[0m\002)"\
-    "#{":#{nest_level}" unless nest_level.zero?}"\
-    "\001\e[1;31m\002>\001\e[0m\002 "
+    "\001\e[1;34m\002#{'◀' * (nest_level + 1)}\001\e[0m\002 "
   end,
   proc do |target_self, nest_level, pry|
-    padding = "PRY##{Pry.config.prompt_name}(#{Pry.view_clip(target_self)})#{":#{nest_level}" unless nest_level.zero?}".length
-    "#{' ' * padding}\001\e[1;30m\002|\001\e[0m\002 "
+    "#{' ' * nest_level}\001\e[1;30m\002┇\001\e[0m\002 "
   end
 ]
 
