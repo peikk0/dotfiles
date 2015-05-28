@@ -105,6 +105,7 @@ bindkey "\ec" _complete_help
 
 # {{{ Completion
 
+fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 autoload -Uz complist
 compinit
