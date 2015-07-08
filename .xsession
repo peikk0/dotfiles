@@ -10,6 +10,12 @@ export ENV
 OOO_FORCE_DESKTOP=gnome
 export OOO_FORCE_DESKTOP
 
+# GnuPG
+if which gpg-agent >/dev/null; then
+  echo 'Launching GPG agent...'
+  eval `gpg-agent --daemon` || echo "Failed to launch GPG agent"
+fi
+
 # D-Bus
 if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
   if which dbus-launch >/dev/null; then
