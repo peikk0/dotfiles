@@ -198,9 +198,11 @@ macro pager \Cs "s=Junk\n" "move to junk folder"
 # {{{ Sidebar
 
 set sidebar_width = 50
-set sidebar_visible =yes
+set sidebar_visible = no
 set sidebar_delim = '|'
 set sidebar_sort = yes
+set sidebar_folderindent = no
+set sidebar_shortpath = yes
 
 # }}}
 
