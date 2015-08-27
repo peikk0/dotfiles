@@ -70,8 +70,12 @@ if which xbindkeys >/dev/null; then
   LC_ALL=C xbindkeys || echo 'Failed to launch xbindkeys'
 fi
 
+# light-locker
+if which light-locker >/dev/null; then
+  echo 'Launching light-locker...'
+  light-locker || echo 'Failed to launch light-locker' &
 # xscreensaver
-if which xscreensaver >/dev/null; then
+elif which xscreensaver >/dev/null; then
   echo 'Launching xscreensaver...'
   xscreensaver -nosplash -no-capture-stderr || echo 'Failed to launch xscreensaver' &
 fi
