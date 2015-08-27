@@ -9,12 +9,6 @@ color error brightred default
 
 # }}}
 
-# {{{ Sidebar
-
-color sidebar_new yellow default
-
-# }}}
-
 # {{{ Index
 
 color index white default "!~N !~O !~Q !~D !~T !~F"

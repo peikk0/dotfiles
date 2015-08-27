@@ -178,31 +178,12 @@ bind index <pageup> half-up
 bind index <pagedown> half-down
 bind pager <pageup> half-up
 bind pager <pagedown> half-down
-bind index <F2> sidebar-prev
-bind index <F3> sidebar-next
-bind index <F4> sidebar-open
-bind pager <F2> sidebar-prev
-bind pager <F3> sidebar-next
-bind pager <F4> sidebar-open
-macro index <F1> "<enter-command>toggle sidebar_visible<enter>"
-macro pager <F1> "<enter-command>toggle sidebar_visible<enter>"
 macro generic,index,pager \Ca "<shell-escape>abook<return>" "launch abook"
 macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
 macro index \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
 macro pager \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
 macro index \Cs "s=Junk\n" "move to junk folder"
 macro pager \Cs "s=Junk\n" "move to junk folder"
-
-# }}}
-
-# {{{ Sidebar
-
-set sidebar_width = 50
-set sidebar_visible = no
-set sidebar_delim = '|'
-set sidebar_sort = yes
-set sidebar_folderindent = no
-set sidebar_shortpath = yes
 
 # }}}
 
