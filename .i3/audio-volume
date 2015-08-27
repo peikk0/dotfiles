@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# FIXME: add support for FreeBSD
+MIXER_COMMAND="amixer -D pulse sset Master"
+
+usage() {
+    echo "Usage: $0 up|down|mute" >&2
+    exit 1
+}
+
+mixer() {
+    $MIXER_COMMAND $1
+}
+
+[ $# -ne 1 ] && usage
+
+case $1 in
+    up)   mixer 5%+ ;;
+    down) mixer 5%- ;;
+    mute) mixer toggle ;;
+    *) usage ;;
+esac
