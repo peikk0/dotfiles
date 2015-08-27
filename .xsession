@@ -80,6 +80,10 @@ elif which xscreensaver >/dev/null; then
   xscreensaver -nosplash -no-capture-stderr || echo 'Failed to launch xscreensaver' &
 fi
 
+if [ -f ~/.xsession.local ]; then
+  . ~/.xsession.local
+fi
+
 # launch WM, launch the first found, by order of preference
 for wm in i3 awesome wmii fluxbox e16 enlightenment fvwm; do
   if which $wm >/dev/null; then
