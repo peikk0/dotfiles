@@ -80,18 +80,6 @@ elif which xscreensaver >/dev/null; then
   xscreensaver -nosplash -no-capture-stderr || echo 'Failed to launch xscreensaver' &
 fi
 
-# urxvtd
-# if which urxvtd >/dev/null; then
-#   echo 'Launching urxvt daemon...'
-#   urxvtd -f -o -q || echo 'Failed to launch urvxt daemon'
-# fi
-
-# composite
-# if which xcompmgr >/dev/null; then
-#   echo 'Launching composite manager...'
-#   xcompmgr -c -C -o0.2 -t1 -l1 -r2 >/dev/null 2>&1 || echo 'Failed to launch composite manager' &
-# fi
-
 # launch WM, launch the first found, by order of preference
 for wm in i3 awesome wmii fluxbox e16 enlightenment fvwm; do
   if which $wm >/dev/null; then
