@@ -5,7 +5,7 @@ PATH="/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin:/usr/sbin:/bin:/sbin"
 PATH="$HOME/.local/bin:$PATH"
 export PATH
 
-LOCALE="en_US.UTF-8"
+LOCALE="en_NZ.UTF-8"
 LANG="$LOCALE"
 # LC_ALL="$LOCALE"
 LC_COLLATE="$LOCALE"

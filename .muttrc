@@ -54,7 +54,7 @@ mailboxes !
 # {{{ Locales and encodings
 
 set charset = 'UTF-8'
-set locale  = 'en_US.UTF-8'
+set locale  = 'en_NZ.UTF-8'
 set config_charset = "utf-8"
 set send_charset = "utf-8"
 set assumed_charset = "utf-8:iso-8859-15:iso-8859-1:us-ascii"
