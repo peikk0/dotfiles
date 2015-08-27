@@ -57,7 +57,6 @@ URxvt.clipboard.pastecmd:	xclip -o -selection clipboard
 Xcursor.theme:		whiteglass
 Xcursor.size:		16
 
-Xft.dpi:		96
 Xft.antialias:		true
 Xft.autohint:		false
 Xft.hinting:		true

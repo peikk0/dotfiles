@@ -1,2 +1,2 @@
 #!/bin/sh
-exec X -dpi 96 -nolisten tcp -br >~/.xserver.log 2>&1
+exec X -nolisten tcp -br >~/.xserver.log 2>&1
