@@ -5,7 +5,7 @@
 #include ".config/base16-xresources/base16-default.dark.xresources"
 
 XTerm*Geometry:		100x25
-XTerm*FaceName:		Inconsolata:size=11
+XTerm*FaceName:		Inconsolata:size=12
 XTerm*boldColors:	true
 XTerm*boldMode:		false
 XTerm*metaSendsEscape:	true
@@ -22,7 +22,7 @@ XTerm*bellIsUrgent:	true
 
 URxvt.geometry:		100x25
 !URxvt.depth:		32
-URxvt.font:		xft:Inconsolata:size=11,xft:Dejavu Sans Mono:size=11,xft:VL Gothic:size=11
+URxvt.font:		xft:Inconsolata:size=12,xft:Dejavu Sans Mono:size=12
 URxvt.letterSpace:	-1
 URxvt.title:		Terminal
 URxvt.termName:		rxvt-unicode-256color
