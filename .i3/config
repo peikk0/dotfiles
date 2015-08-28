@@ -2,7 +2,7 @@
 # http://i3wm.org/docs/userguide.html
 
 # font for titles
-font xft:Dejavu Sans Bold 8
+font xft:Dejavu Sans Bold 10
 
 # use Windows key
 set $mod Mod4
@@ -32,7 +32,7 @@ bindsym $mod+Return exec x-terminal-emulator
 bindsym $mod+Shift+q kill
 
 # menu
-bindsym $mod+F1 exec dmenu_run -i -p "Run: " -fn Dejavu-8:bold -nb "#222222" -nf "#fdf6e3" -sb "#859900" -sf "#fdf6e3"
+bindsym $mod+F1 exec dmenu_run -i -p "Run: " -fn Dejavu-10:bold -nb "#222222" -nf "#fdf6e3" -sb "#859900" -sf "#fdf6e3"
 
 # change focus
 bindsym $mod+h focus left
@@ -153,7 +153,7 @@ bar {
     workspace_buttons yes
     tray_output primary
 
-    font xft:Dejavu Sans Bold 8
+    font xft:Dejavu Sans Bold 10
 
     colors {
         background #222222
