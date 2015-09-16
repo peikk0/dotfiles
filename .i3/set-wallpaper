@@ -3,7 +3,7 @@
 WALLPAPER="$HOME/.i3/wallpaper"
 
 if which feh >/dev/null 2>&1 && [ -f "$WALLPAPER" ]; then
-    feh --bg-scale "$WALLPAPER"
+    feh --bg-fill "$WALLPAPER"
 fi
 
 exit 0
