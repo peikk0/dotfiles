@@ -53,9 +53,6 @@
 
 !/.ncmpcpp/config
 
-!/.vimperator/colors
-!/.vimperatorrc
-
 !/.local/bin/shot
 !/.local/bin/sensible-browser
 !/.local/bin/x-terminal-emulator
