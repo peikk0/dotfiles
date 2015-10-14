@@ -154,7 +154,7 @@ endfunction
 " :Man command
 runtime ftplugin/man.vim
 
-let g:netrw_http_cmd="wget -q -O"
+let g:netrw_http_cmd="curl -s -o"
 
 " use XHTML and CSS with :TOhtml
 let use_xhtml=1
