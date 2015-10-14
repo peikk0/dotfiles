@@ -207,6 +207,10 @@ map <A-Right> gt
 map <A-Left> gT
 set pastetoggle=<F11>
 
+" easy-align
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+
 " "" '' <> () [] {}
 noremap! "" ""<esc>i
 noremap! '' ''<esc>i

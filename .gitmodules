@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/vim-emmet"]
 	path = .vim/bundle/vim-emmet
 	url = https://github.com/mattn/emmet-vim.git
+[submodule ".vim/bundle/vim-easy-align"]
+	path = .vim/bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
