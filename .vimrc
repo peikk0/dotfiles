@@ -201,8 +201,6 @@ let g:syntastic_tex_checkers=[]
 
 map <silent> <F1> :call NTFinderP()<CR>
 map <F5> <Esc>gg=G''
-map <F6> :TlistToggle<CR>
-map <F7> :TlistUpdate<CR>
 map <A-Right> gt
 map <A-Left> gT
 set pastetoggle=<F11>
