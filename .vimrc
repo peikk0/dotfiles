@@ -91,7 +91,6 @@ nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
 nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
 if has("autocmd")
-  au!
   autocmd FileType man    setlocal nolist
   autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
   autocmd FileType text   setlocal textwidth=78
@@ -105,10 +104,6 @@ if has("autocmd")
         \ endif
 
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-  autocmd BufNewFile,BufRead *.json  setlocal filetype=json foldmethod=syntax
-  autocmd BufNewFile,BufRead *.jsonp setlocal filetype=json foldmethod=syntax
-  autocmd BufNewFile,BufRead *.pp    setlocal filetype=puppet
 endif
 
 if has("terminfo")
