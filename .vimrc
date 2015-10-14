@@ -31,6 +31,9 @@ set smarttab
 set autoindent
 set smartindent
 
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+
 let showbreak="> "
 set list
 if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
@@ -88,20 +91,11 @@ nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
 nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
 if has("autocmd")
-  filetype plugin indent on
-
   au!
-  autocmd FileType text setlocal textwidth=78
-  autocmd FileType c      set omnifunc=ccomplete#Complete
-  autocmd FileType css    set omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html   set omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType man    set nolist
-  autocmd FileType php    set omnifunc=phpcomplete#CompletePHP
-  autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType ruby   set omnifunc=rubycomplete#Complete
+  autocmd FileType man    setlocal nolist
   autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
-  autocmd FileType sql    set omnifunc=sqlcomplete#Complete
-  autocmd FileType xml    set omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType text   setlocal textwidth=78
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -112,9 +106,9 @@ if has("autocmd")
 
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-  autocmd BufNewFile,BufRead *.json set filetype=json foldmethod=syntax
-  autocmd BufNewFile,BufRead *.jsonp set filetype=json foldmethod=syntax
-  autocmd BufNewFile,BufRead *.pp set filetype=puppet
+  autocmd BufNewFile,BufRead *.json  setlocal filetype=json foldmethod=syntax
+  autocmd BufNewFile,BufRead *.jsonp setlocal filetype=json foldmethod=syntax
+  autocmd BufNewFile,BufRead *.pp    setlocal filetype=puppet
 endif
 
 if has("terminfo")
