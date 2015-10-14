@@ -46,9 +46,9 @@ endif
 set selection=inclusive
 set virtualedit=block
 
-set nonumber
+set number
 set numberwidth=3
-set nocursorline
+set cursorline
 set ruler
 set showcmd
 set laststatus=2
