@@ -153,6 +153,8 @@ endfunction
 
 " :Man command
 runtime ftplugin/man.vim
+" Match It
+runtime macros/matchit.vim
 
 let g:netrw_http_cmd="curl -s -o"
 
