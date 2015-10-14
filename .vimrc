@@ -3,6 +3,16 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+syntax on
+filetype plugin indent on
+
+if has("terminfo")
+  set t_Co=256
+  set background=dark
+  let base16colorspace=256
+  colorscheme base16-default
+end
+
 set nocompatible
 set modeline
 set modelines=5     " Debian likes to disable this
@@ -30,8 +40,6 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
-
-filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 let showbreak="> "
@@ -105,14 +113,6 @@ if has("autocmd")
 
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
-
-if has("terminfo")
-  syntax enable
-  set t_Co=256
-  set background=dark
-  let base16colorspace=256
-  colorscheme base16-default
-end
 
 function! SL(function)
   if exists('*'.a:function)
