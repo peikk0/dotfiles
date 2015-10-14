@@ -162,9 +162,12 @@ let html_use_css=1
 let html_ignore_folding=1
 let html_use_encoding="UTF-8"
 
-" Lua
-let lua_version=5
-let lua_subversion=1
+" gist
+let g:gist_detect_filetype=1
+let g:gist_open_browser_after_post=1
+let g:gist_browser_command='sensible-browser %URL%'
+let g:gist_clip_command='xclip -selection clipboard'
+let g:gist_show_privates=1
 
 " Python
 let python_highlight_builtins=1
@@ -191,13 +194,6 @@ let g:syntastic_puppet_checkers=["puppet"]
 let g:syntastic_puppet_puppetlint_args="--error-level error"
 let g:syntastic_php_checkers=['php']
 let g:syntastic_tex_checkers=[]
-
-" gist
-let g:gist_detect_filetype=1
-let g:gist_open_browser_after_post=1
-let g:gist_browser_command='sensible-browser %URL%'
-let g:gist_clip_command='xclip -selection clipboard'
-let g:gist_show_privates=1
 
 " Mappings
 
