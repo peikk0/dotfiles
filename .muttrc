@@ -13,7 +13,7 @@ unhdr_order *
 
 set realname = 'Pierre Guinoiseau'
 set from = 'pierre@guinoiseau.eu'
-set signature = 
+set signature = '~/.mutt/signature'
 set crypt_autosign = yes
 
 # }}}
