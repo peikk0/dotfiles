@@ -1,0 +1,8 @@
+alternates '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|g|pierre)@sig11\.fr$'
+
+set smtp_url = 'smtp://USER@mail.guinoiseau.eu/'
+set smtp_pass = 'PASSWORD'
+set imap_user = 'USER'
+set imap_pass = 'PASSWORD'
+
+# vim:ft=muttrc:fdm=marker:
