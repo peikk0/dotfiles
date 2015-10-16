@@ -192,6 +192,8 @@ macro pager \Cs "s=Junk\n" "move to junk folder"
 set beep = no
 set wait_key = no
 set menu_scroll = yes
+set xterm_set_titles = yes
+set xterm_title = "Mutt: %f [%?m?%m messages&no messages?%?n?, %n NEW?]"
 
 # }}}
 
