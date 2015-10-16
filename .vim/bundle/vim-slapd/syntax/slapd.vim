@@ -26,7 +26,7 @@ else
 endif
 
 syn case match
-setlocal iskeyword=a-z,A-Z,48-57,45,
+setlocal iskeyword=a-z,A-Z,48-57,45
 
 " }}}
 "-----------------------------------------------------------------------------
