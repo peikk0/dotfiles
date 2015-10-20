@@ -6,7 +6,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-if has("terminfo")
+if has("terminfo") || has("nvim")
   set t_Co=256
   set background=dark
   let base16colorspace=256
