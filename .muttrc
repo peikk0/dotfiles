@@ -168,22 +168,22 @@ set query_command = "abook --mutt-query '%s'"
 
 # {{{ Bindings
 
-bind index F flag-message
-bind pager F flag-message
+macro index <F2> "<change-folder>=INBOX<return>"
+macro index <F3> "<change-folder>=Sent<return>"
+macro index <F4> "<change-folder>=Junk<return>"
+macro index <F5> "<change-folder>=Drafts<return>"
+macro index <F6> "<change-folder>=Trash<return>"
+bind index,pager F flag-message
 bind pager j next-line
 bind pager k previous-line
 macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
 bind browser y exit
-bind index <pageup> half-up
-bind index <pagedown> half-down
-bind pager <pageup> half-up
-bind pager <pagedown> half-down
+bind index,pager <pageup> half-up
+bind index,pager <pagedown> half-down
 macro generic,index,pager \Ca "<shell-escape>abook<return>" "launch abook"
 macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
-macro index \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
-macro pager \Cx "<tag-pattern>~N|~O<enter><tag-prefix><clear-flag>N<untag-pattern>~T<enter>" "mark all new messages as read"
-macro index \Cs "s=Junk\n" "move to junk folder"
-macro pager \Cs "s=Junk\n" "move to junk folder"
+macro index,pager \Cx "<tag-pattern>~N|~O<return><tag-prefix><clear-flag>N<untag-pattern>~T<return>" "mark all new messages as read"
+macro index,pager \Cs "s=Junk\n" "move to junk folder"
 
 # }}}
 
