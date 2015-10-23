@@ -9,56 +9,76 @@ unhdr_order *
 
 # }}}
 
+# {{{ User variables, override them in local.pre.rc
+
+set my_name = "Pierre Guinoiseau"
+set my_address = pierre@guinoiseau.eu
+set my_server = mail.guinoiseau.eu
+set my_user = $my_address
+set my_password = SET_ME_IN_VARS_RC
+
+source `FILE=~/.mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
+
+# }}}
+
 # {{{ Default identity
 
-set realname = 'Pierre Guinoiseau'
-set from = 'pierre@guinoiseau.eu'
-set signature = '~/.mutt/signature'
+set realname = $my_name
+set from = $my_address
+set signature = ~/.mutt/signature
 set crypt_autosign = yes
+
+alternates '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|g|pierre)@sig11\.fr$'
 
 # }}}
 
 # {{{ SMTP
 
-set smtp_url = smtp://mail.guinoiseau.eu/
+set smtp_url = smtp://$my_user@$my_server/
+set smtp_pass = $my_password
 
 # }}}
 
 # {{{ IMAP
 
-set mbox_type = Maildir
-set spoolfile = imap://mail.guinoiseau.eu:143/INBOX
-set folder = imap://mail.guinoiseau.eu:143/
+set imap_user = $my_user
+set imap_pass = $my_password
+
+set folder = imap://$my_server:143/
+set spoolfile = =INBOX
+mailboxes =INBOX
+
+set record = =Sent
+set postponed = =Drafts
+set trash = =Trash
+set maildir_trash = yes
+
 set ssl_use_tlsv1_2 = yes
 set ssl_force_tls = yes
 set ssl_starttls = yes
 
-set record = "=Sent"
-set postponed = "=Drafts"
-set trash = "=Trash"
-set maildir_trash = yes
 set copy = yes
 set move = no
 set mark_old = yes
 
-set imap_check_subscribed = "yes"
-set imap_list_subscribed = "yes"
-set mail_check = 300
+set imap_check_subscribed = yes
+set imap_list_subscribed = yes
+set mail_check = 60
 set timeout = 60
+set imap_keepalive = 30
 set imap_idle = yes
-
-mailboxes !
+set imap_passive = no
 
 # }}}
 
 # {{{ Locales and encodings
 
-set charset = 'UTF-8'
-set locale  = 'en_NZ.UTF-8'
-set config_charset = "utf-8"
-set send_charset = "utf-8"
-set assumed_charset = "utf-8:iso-8859-15:iso-8859-1:us-ascii"
-set attach_charset = "utf-8:iso-8859-15:iso-8859-1:us-ascii"
+set charset = UTF-8
+set locale  = en_NZ.UTF-8
+set config_charset = utf-8
+set send_charset = utf-8
+set assumed_charset = utf-8:iso-8859-15:iso-8859-1:us-ascii
+set attach_charset = utf-8:iso-8859-15:iso-8859-1:us-ascii
 set allow_8bit = yes
 set rfc2047_parameters = yes
 
@@ -112,11 +132,11 @@ attachments -I message/external-body
 
 # {{{ Index
 
-set index_format="%6C %Z  [%D]  %-25.25L  %s"
-set date_format = "%d/%m/%Y %H:%M:%S"
+set index_format = "%6C %Z  [%D]  %-25.25L  %s"
+set date_format  = "%d/%m/%Y %H:%M:%S"
 
 set sort = threads
-set sort_aux = date-sent
+set sort_aux = last-date-received
 #set sort_re = yes
 
 # }}}
@@ -132,14 +152,14 @@ set markers = yes
 set implicit_autoview = yes
 auto_view text/html application/x-pgp-message
 alternative_order text/plain text/enriched text text/html
-set mailcap_path = "~/.mailcap"
+set mailcap_path = ~/.mailcap
 set tilde = yes
 
 # }}}
 
 # {{{ Editing
 
-set editor="vim + -c 'set ft=mail tw=80' -c ':0/^$'"
+set editor = "vim + -c 'set ft=mail tw=72' -c ':0/^$' -c ':nohls'"
 set edit_headers = yes
 set fast_reply = yes
 set reply_to = yes
@@ -203,9 +223,9 @@ source ~/.mutt/themes/akoya.rc
 
 # }}}
 
-# {{{ Local config (alternates email addresses, smtp & imap auth, ...)
+# {{{ Local overrides
 
-source `FILE=~/.mutt/local.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
+source `FILE=~/.mutt/local.post.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
 
 # }}}
 
