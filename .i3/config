@@ -86,6 +86,10 @@ bindsym $mod+Right workspace next_on_output
 bindsym $mod+Shift+Left workspace prev
 bindsym $mod+Shift+Right workspace next
 
+# move workspace to screen
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Right move workspace to output right
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -99,6 +103,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+equal move container to workspace tv
 
+# lock session
+bindsym $mod+Shift+Delete exec light-locker-command --lock
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
