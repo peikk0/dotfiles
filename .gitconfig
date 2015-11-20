@@ -26,16 +26,17 @@
     excludesfile = ~/.gitignore_global
 
 [alias]
-    st = status
-    ci = commit
     br = branch
+    ci = commit
     co = checkout
-    df = diff
+    cp = cherry-pick
     dc = diff --cached
+    df = diff
     lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
+    st = status
 
 [http]
     sslVerify = false
