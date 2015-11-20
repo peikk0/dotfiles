@@ -1,6 +1,6 @@
 [user]
     email = pierre@guinoiseau.eu
-    name = Pierre GUINOISEAU
+    name = Pierre Guinoiseau
 
 [color]
     ui = auto
@@ -51,5 +51,5 @@
     user = peikk0
 
 [include]
-    path = .gitconfig.local
+    path = ~/.gitconfig.local
 
