@@ -74,7 +74,7 @@ set scrolloff=3
 set sidescrolloff=5
 set scrolljump=1
 
-set completeopt=longest,menu,preview
+set completeopt=longest,menu
 
 set diffopt+=vertical
 
@@ -171,7 +171,9 @@ let python_highlight_builtins=1
 let python_highlight_exceptions=1
 let python_highlight_numbers=1
 let python_highlight_space_errors=1
+let g:pymode_doc=0
 let g:pymode_options=0
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 
 " Ruby
 let ruby_operators=1
@@ -190,6 +192,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_puppet_checkers=["puppet"]
 let g:syntastic_puppet_puppetlint_args="--error-level error"
 let g:syntastic_php_checkers=['php']
+let g:syntastic_python_checkers=[]
 let g:syntastic_tex_checkers=[]
 
 " Mappings
