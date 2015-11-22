@@ -19,7 +19,7 @@ fi
 # {{{ General settings
 
 # History
-HISTFILE=~/.histfile
+HISTFILE=~/.bash_history
 HISTFILESIZE=5000
 HISTSIZE=5000
 HISTCONTROL=ignoredups
