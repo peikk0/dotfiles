@@ -182,8 +182,9 @@ function precmd {
   # Color for non-text things
   local _reset_color="%{${reset_color}%}"
   local _misc_color="%{${fg_no_bold[white]}%}"
-  local _host_color="%{${fg_no_bold[cyan]}%}"
   local _rcerr_color="%{${fg_no_bold[red]}%}"
+
+  local _host_color="%{${fg_no_bold[cyan]}%}"
 
   # Change path color given user rights on it
   if [[ -O "${PWD}" ]]; then # owner

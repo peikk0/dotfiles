@@ -69,64 +69,53 @@ function title {
 
 function precmd {
   # Save return code now
-  rcode=$?
+  _rcode=$?
 
   # Set window title
   title
 
   # Set used colors
-  color_reset="\033[00m"
-  color_red="\033[22;31m"
-  color_bred="\033[01;31m"
-  color_bgreen="\033[01;32m"
-  color_yellow="\033[22;33m"
-  color_byellow="\033[01;33m"
-  color_bblue="\033[01;34m"
-  color_cyan="\033[22;36m"
-  color_white="\033[22;37m"
+  local _color_reset="\033[00m"
+  local _color_red="\033[22;31m"
+  local _color_bred="\033[01;31m"
+  local _color_bgreen="\033[01;32m"
+  local _color_byellow="\033[01;33m"
+  local _color_bblue="\033[01;34m"
+  local _color_cyan="\033[22;36m"
+  local _color_white="\033[22;37m"
 
-  # Color for non-text things
-  local misc="\[${color_white}\]"
+  local _reset_color="${_color_reset}"
+  local _misc_color="${_color_white}"
+  local _rcerr_color="${_color_red}"
 
   # Change path color given user rights on it
   if [[ -O "${PWD}" ]]; then # owner
-    local path_color="${color_byellow}"
+    local _path_color="${_color_byellow}"
   elif [[ -w "${PWD}" ]]; then # can write
-    local path_color="${color_bblue}"
+    local _path_color="${_color_bblue}"
   else # other
-    local path_color="${color_bred}"
+    local _path_color="${_color_bred}"
   fi
 
-  if [[ $UID = 0 ]]; then
-    local login_color="${color_bred}"
-  else
-    local login_color="${color_bgreen}"
-  fi
-
-  # Jailed ?
-  if [[ "`uname -s`" = 'FreeBSD' && "`sysctl -n security.jail.jailed 2>/dev/null`" = 1 ]]; then
-    local jailed="${misc}(\[${color_yellow}\]jail${misc})"
-  else
-    local jailed=""
-  fi
   # Display return code when not 0
-  local return_code=""
-  [[ ${rcode} != 0 ]] && return_code="${misc}!\[${color_red}\]${rcode}${misc}! "
+  local _return_code=""
+  [[ ${_rcode} != 0 ]] && _return_code="\[${_misc_color}\]!\[${_color_red}\]${_rcode}\[${_misc_color}\]! "
+
   # Host
-  local host="\[${color_cyan}\]\h"
-  # User
-  local user="${misc}[\[${login_color}\]\u${misc}]"
+  local _host="\[${_color_cyan}\]\h"
+
   # Current path
-  local cwd="\[${path_color}\]\w"
+  local _cwd="\[${_path_color}\]\w"
+
   # Red # for root, green $ for user
   if [[ $UID = 0 ]]; then
-    local sign="\[${color_bred}\]#"
+    local _sign="\[${_color_bred}\]#"
   else
-    local sign="\[${color_bgreen}\]\$"
+    local _sign="\[${_color_bgreen}\]\$"
   fi
 
   # Set the prompt
-  PS1="${return_code}${host}${jailed} ${user} ${cwd} ${sign}\[${color_reset}\] "
+  PS1="${_return_code}${_host} ${_cwd} ${_sign}\[${_color_reset}\] "
 }
 
 PROMPT_COMMAND=precmd
