@@ -22,7 +22,7 @@
 [color "diff"]
     whitespace = red reverse
 [core]
-    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore_global
 
 [alias]
@@ -37,9 +37,6 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     st = status
-
-[http]
-    sslVerify = false
 
 [push]
     default = simple
