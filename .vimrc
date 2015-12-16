@@ -153,6 +153,9 @@ runtime macros/matchit.vim
 
 let g:netrw_http_cmd="curl -s -o"
 
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+
 " use XHTML and CSS with :TOhtml
 let use_xhtml=1
 let html_use_css=1
