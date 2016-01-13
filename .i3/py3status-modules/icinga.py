@@ -38,39 +38,27 @@ class Py3status:
     password = ''
     ca = True
 
-    def a3unknown(self, i3s_output_list, i3s_config):
-        format = 'Unknown: {unknown}'
-        response = {
-            'color': '#ba8baf',
-            'cached_until': time() + self.cache_timeout,
-            'full_text': format.format(unknown=self._queryServiceCount(Status.UNKNOWN))
-        }
-        return response
+    def a3_unknown(self, i3s_output_list, i3s_config):
+        return self._format_response('Unknown', Status.UNKNOWN, '#ba8baf')
 
-    def a2critical(self, i3s_output_list, i3s_config):
-        format = 'Critical: {critical}'
-        response = {
-            'color': '#ab4642',
-            'cached_until': time() + self.cache_timeout,
-            'full_text': format.format(critical=self._queryServiceCount(Status.CRITICAL))
-        }
-        return response
+    def a2_critical(self, i3s_output_list, i3s_config):
+        return self._format_response('Critical', Status.CRITICAL, '#ab4642')
 
-    def a1warning(self, i3s_output_list, i3s_config):
-        format = 'Warning: {warning}'
-        response = {
-            'color': '#dc9656',
-            'cached_until': time() + self.cache_timeout,
-            'full_text': format.format(warning=self._queryServiceCount(Status.WARNING))
-        }
-        return response
+    def a1_warning(self, i3s_output_list, i3s_config):
+        return self._format_response('Warning', Status.WARNING, '#dc9656')
 
-    def a0ok(self, i3s_output_list, i3s_config):
-        format = 'OK: {ok}'
+    def a0_ok(self, i3s_output_list, i3s_config):
+        return self._format_response('OK', Status.OK, '#a1b56c')
+
+    def _format_response(self, name, state, color):
+        format = '{name}: {count}'
+        count = self._queryServiceCount(state)
+        if count == 0:
+            color = '#585858'
         response = {
-            'color': '#a1b56c',
+            'color': color,
             'cached_until': time() + self.cache_timeout,
-            'full_text': format.format(ok=self._queryServiceCount(Status.OK))
+            'full_text': format.format(name=name, count=count)
         }
         return response
 
