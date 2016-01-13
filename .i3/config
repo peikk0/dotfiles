@@ -19,11 +19,11 @@ new_window normal 1
 workspace_auto_back_and_forth yes
 
 # class                 border  backgr. text    indicator
-client.focused          #111111 #222222 #859900 #859900
-client.focused_inactive #111111 #222222 #b58900 #657b83
-client.unfocused        #111111 #222222 #839496 #073642
-client.urgent           #111111 #222222 #dc322f #073642
-client.background color #111111
+client.focused          #181818 #282828 #d8d8d8 #b8b8b8
+client.focused_inactive #181818 #282828 #b8b8b8 #585858
+client.unfocused        #181818 #282828 #585858 #383838
+client.urgent           #181818 #282828 #ab4642 #383838
+client.background color #181818
 
 # start a terminal
 bindsym $mod+Return exec x-terminal-emulator
@@ -161,13 +161,13 @@ bar {
     font xft:Dejavu Sans Bold 10
 
     colors {
-        background #222222
-        statusline #eee8d5
+        background #282828
+        statusline #d8d8d8
 
-        focused_workspace  #111111 #859900 #222222
-        active_workspace   #111111 #b58900 #222222
-        inactive_workspace #111111 #222222 #eee8d5
-        urgent_workspace   #111111 #dc322f #222222
+        focused_workspace  #181818 #d8d8d8 #282828
+        active_workspace   #181818 #b8b8b8 #282828
+        inactive_workspace #181818 #282828 #d8d8d8
+        urgent_workspace   #181818 #ab4642 #282828
     }
 }
 
