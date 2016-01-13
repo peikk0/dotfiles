@@ -5,7 +5,8 @@ Display Icinga2 service status informations
 Configuration Parameters:
     - cache_timeout: how often the data should be updated
     - base_url: the base url to the icinga-web2 services list
-    - disable_acknowledge: enable or disable counting of acknowledged service problems
+    - disable_acknowledge: enable or disable counting of acknowledged service
+      problems
     - user: username to authenticate against the icinga-web2 interface
     - password: password to authenticate against the icinga-web2 interface
 
@@ -77,7 +78,8 @@ class Py3status:
         if self.disable_acknowledge:
             self.url_parameters = self.url_parameters + "&service_handled=0"
         result = requests.get(
-            self.base_url + self.url_parameters.format(service_state=state.value),
+            self.base_url +
+            self.url_parameters.format(service_state=state.value),
             auth=(self.user, self.password), verify=self.ca)
         return len(result.json())
 
