@@ -176,7 +176,7 @@ let python_highlight_numbers=1
 let python_highlight_space_errors=1
 let g:pymode_doc=0
 let g:pymode_options=0
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 
 " Ruby
 let ruby_operators=1
