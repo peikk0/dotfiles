@@ -1,58 +1,78 @@
-/*
+*
+# Git stuff
 !/.gitconfig
 !/.gitignore
+!/.gitignore_global
 !/.gitmodules
 
+# Hg stuff
 !/.hgrc
 
+# Vim stuff
 !/.gvimrc
-!/.vimrc
+!/.nvim
+!/.nvimrc
 !/.vim
+!/.vimrc
 /.vim/.netrwhist
 
+# Mutt stuff
 !/.muttrc
 !/.mutt/gpg.rc
 !/.mutt/themes
 !/.mutt/cache/headers/.gitignore
 !/.mailcap
 
+# Shell stuff
 !/.bash_profile
 !/.bashrc
+!/.config/base16-shell
+!/.config/base16-xresources
 !/.dialogrc
 !/.dir_colors
 !/.profile
+!/.screenrc
+!/.tmux.conf
 !/.zlogin
 !/.zprofile
 !/.zsh
 !/.zshenv
 !/.zshrc
 
-!/.screenrc
-!/.tmux.conf
-
+# Ruby stuff
 !/.gemrc
 !/.guardrc
 !/.irbrc
 !/.pryrc
 
+# Curl stuff
 !/.curlrc
 
+# SSH stuff
 !/.ssh/authorized_keys
 
+# X11 / xterm / urxvt stuff
 !/.gtkrc-2.0
+!/.perl/urxvt
 !/.terminfo
-!/.Xdefaults
 !/.xinitrc
 !/.xserverrc
 !/.xsession
-!/.perl/urxvt
+!/.Xdefaults
 
+# Awesome stuff
 !/.config/awesome/README.md
 !/.config/awesome/rc.lua
 !/.config/awesome/themes/akoya.lua
 
+# i3 stuff
+!/.i3
+/.i3/wallpaper
+
+# ncmpcpp stuff
 !/.ncmpcpp/config
 
-!/.local/bin/shot
+# Scripts
 !/.local/bin/sensible-browser
+!/.local/bin/shot
 !/.local/bin/x-terminal-emulator
