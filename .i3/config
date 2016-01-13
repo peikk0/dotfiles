@@ -155,7 +155,6 @@ bindsym $mod+Shift+m exec thunderbird
 # finds out, if available)
 bar {
     status_command i3status
-    #status_command ~/.rvm/bin/ruby ~/.i3/status.rb
     workspace_buttons yes
     tray_output primary
 
