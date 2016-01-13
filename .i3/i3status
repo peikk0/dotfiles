@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+# py3status must be installed in a virtualenv with Python 3 in this directory
+# If py3status is missing, i3status will be used as a fallback
+PY3STATUS_VENV="${HOME}/.i3/py3status"
+PY3STATUS_MODULES="${HOME}/.i3/py3status-modules"
+PY3STATUS="${PY3STATUS_VENV}/bin/py3status"
+I3STATUS=`which i3status`
+
+config="${HOME}/.i3/i3status.conf"
+config_local="${config}.local"
+
+if [ -f "${config_local}" ]; then
+    config="${config_local}"
+fi
+
+if [ -x "${PY3STATUS}" ]; then
+    . "${PY3STATUS_VENV}/bin/activate"
+    exec ${PY3STATUS} -c "${config}" -i "${PY3STATUS_MODULES}"
+else
+    exec ${I3STATUS} -c "${config}"
+fi
