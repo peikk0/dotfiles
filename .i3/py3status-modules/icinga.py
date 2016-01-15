@@ -55,6 +55,8 @@ class Py3status:
         count = self._queryServiceCount(state)
         if count == 0:
             color = '#585858'
+        elif count == -1:  # request error
+            color = '#a16946'
         response = {
             'color': color,
             'cached_until': time() + self.cache_timeout,
@@ -65,10 +67,13 @@ class Py3status:
     def _queryServiceCount(self, state):
         if self.disable_acknowledge:
             self.url_parameters = self.url_parameters + "&service_handled=0"
-        result = requests.get(
-            self.base_url +
-            self.url_parameters.format(service_state=state.value),
-            auth=(self.user, self.password), verify=self.ca)
+        try:
+            result = requests.get(
+                self.base_url +
+                self.url_parameters.format(service_state=state.value),
+                auth=(self.user, self.password), verify=self.ca, timeout=10)
+        except:
+            return -1
         return len(result.json())
 
 if __name__ == "__main__":
