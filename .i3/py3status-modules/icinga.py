@@ -39,20 +39,22 @@ class Py3status:
     ca = True
 
     def a3_unknown(self, i3s_output_list, i3s_config):
-        return self._format_response('Unknown', Status.UNKNOWN, '#ba8baf')
+        return self._get_response(Status.UNKNOWN, 'Unknown: {count}',
+                                  '#ba8baf')
 
     def a2_critical(self, i3s_output_list, i3s_config):
-        return self._format_response('Critical', Status.CRITICAL, '#ab4642')
+        return self._get_response(Status.CRITICAL, 'Critical: {count}',
+                                  '#ab4642')
 
     def a1_warning(self, i3s_output_list, i3s_config):
-        return self._format_response('Warning', Status.WARNING, '#dc9656')
+        return self._get_response(Status.WARNING, 'Warning: {count}',
+                                  '#dc9656')
 
     def a0_ok(self, i3s_output_list, i3s_config):
-        return self._format_response('OK', Status.OK, '#a1b56c')
+        return self._get_response(Status.OK, 'OK: {count}', '#a1b56c')
 
-    def _format_response(self, name, state, color):
-        format = '{name}: {count}'
-        count = self._queryServiceCount(state)
+    def _get_response(self, state, format, color):
+        count = self._query_service_count(state)
         if count == 0:
             color = '#585858'
         elif count == -1:  # request error
@@ -60,11 +62,11 @@ class Py3status:
         response = {
             'color': color,
             'cached_until': time() + self.cache_timeout,
-            'full_text': format.format(name=name, count=count)
+            'full_text': format.format(count=count)
         }
         return response
 
-    def _queryServiceCount(self, state):
+    def _query_service_count(self, state):
         if self.disable_acknowledge:
             self.url_parameters = self.url_parameters + "&service_handled=0"
         try:
