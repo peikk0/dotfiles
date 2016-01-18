@@ -67,6 +67,7 @@ class Py3status:
         return response
 
     def _query_service_count(self, state):
+        headers = {'User-agent': 'py3status/icinga'}
         url_parameters = self.url_parameters
         if self.disable_acknowledge:
             url_parameters = url_parameters + "&service_handled=0"
@@ -74,7 +75,8 @@ class Py3status:
             result = requests.get(
                 self.base_url +
                 url_parameters.format(service_state=state.value),
-                auth=(self.user, self.password), verify=self.ca, timeout=10)
+                auth=(self.user, self.password), headers=headers,
+                verify=self.ca, timeout=10)
         except:
             return -1
         return len(result.json())
