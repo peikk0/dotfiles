@@ -12,10 +12,14 @@ unhdr_order *
 # {{{ User variables, override them in local.pre.rc
 
 set my_name = "Pierre Guinoiseau"
+set my_signature = ~/.mutt/signature
 set my_address = pierre@guinoiseau.eu
+set my_alternates = '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|g|pierre)@sig11\.fr$'
 set my_server = mail.guinoiseau.eu
 set my_user = $my_address
 set my_password = SET_ME_IN_VARS_RC
+set my_imap_server = imap://$my_server/
+set my_smtp_server = smtp://$my_user@$my_server/
 
 source `FILE=~/.mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
 
@@ -25,16 +29,16 @@ source `FILE=~/.mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FI
 
 set realname = $my_name
 set from = $my_address
-set signature = ~/.mutt/signature
+set signature = $my_signature
 set crypt_autosign = yes
 
-alternates '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|g|pierre)@sig11\.fr$'
+alternates $my_alternates
 
 # }}}
 
 # {{{ SMTP
 
-set smtp_url = smtp://$my_user@$my_server/
+set smtp_url = $my_smtp_server
 set smtp_pass = $my_password
 
 # }}}
@@ -44,7 +48,7 @@ set smtp_pass = $my_password
 set imap_user = $my_user
 set imap_pass = $my_password
 
-set folder = imap://$my_server:143/
+set folder = $my_imap_server
 set spoolfile = =INBOX
 mailboxes =INBOX
 
