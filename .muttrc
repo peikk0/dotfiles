@@ -223,7 +223,7 @@ set xterm_title = "Mutt: %f [%?m?%m messages&no messages?%?n?, %n NEW?]"
 
 # {{{ Theme
 
-source ~/.mutt/themes/base16.rc
+source ~/.mutt/themes/akoya.rc
 
 # }}}
 

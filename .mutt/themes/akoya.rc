@@ -2,47 +2,55 @@
 
 # {{{ Main
 
-color status black green
-color normal white default
-color message brightgreen default
-color error brightred default
+color normal  color7  color0
+color status  color8  color18
+color message color20 color0
+color error   color1  color0
 
 # }}}
 
 # {{{ Index
 
-color index white default "!~N !~O !~Q !~D !~T !~F"
-color index brightyellow default "~N"
-color index yellow default "~O"
-color index cyan default "~Q"
-color index brightblack default "~D"
-color index red default "~T"
-color index brightred default "~F"
-color indicator black white
-color tree red default
-color underline green default
+color index     color7       color0  "~A"       # all messages
+color index     color1       color0  "~F"       # flagged messages
+color index     color7       color0  "~v~(!~N)" # collapsed thread with no unread
+color index     color4       color0  "~U"       # unread messages
+color index     color4       color0  "~v~(~N)"  # collapsed thread with some unread
+color index     color1       color0  "~v~(~F)"  # collapsed thread with some flagged
+color index     color8       color0  "~D"       # deleted messages
+color index     brightcolor7 color0  "~T"       # tagged messages
+color indicator color7       color19
+color tree      color19      color0
 
 # }}}
 
 # {{{ Pager
 
-color attachment green default
-color hdrdefault blue default
-color markers blue default
-color search black yellow
-color signature brightblack default
-color tilde blue default
-color underline green default
-color bold brightgreen default
-color quoted red default
-color header brightwhite default "^(From|To|CC|Subject):"
-color header brightblue default "^Date:"
-color body brightwhite default "(ftps?|https?)://[^ ]+"
-color body brightwhite default "www\.[^ ]+"
-color body brightwhite default "[a-z0-9.+_-]+@[a-z0-9._-]+"
-color body black brightred "^gpg: BAD signature from .*"
-color body black brightgreen "^gpg: Good signature from .*"
-color body black brightyellow "^gpg: Can't check signature:.*"
+color bold       color7       color0
+color underline  color7       color0
+color signature  color20      color0
+color attachment color8       color0
+color markers    color8       color0
+color tilde      color8       color0
+color search     brightcolor2 color0
+
+color quoted  color3 color0
+color quoted1 color2 color0
+color quoted2 color5 color0
+color quoted3 color6 color0
+color quoted4 color4 color0
+
+color hdrdefault color20      color18
+color header     brightcolor7 color18 "^(From|To|Cc|Subject|Date):"
+
+color body color20      color0 "^gpg: "
+color body color2       color0 "^gpg: Good signature .*"
+color body brightcolor1 color0 "^gpg: BAD signature from.*"
+color body color3       color0 "^gpg: Can't check signature:.*"
+# body url
+color body brightcolor7 color0 "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# body email
+color body brightcolor7 color0 "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
 
 # }}}
 
