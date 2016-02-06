@@ -18,7 +18,9 @@ color index     brightcolor7 color0  "~U"       # unread messages
 color index     color4       color0  "~v~(~N)"  # collapsed thread with some unread
 color index     color1       color0  "~v~(~F)"  # collapsed thread with some flagged
 color index     color8       color0  "~D"       # deleted messages
+color index     brightcolor8 color0  "~D ~U"    # unread deleted messages
 color index     color2       color0  "~T"       # tagged messages
+color index     brightcolor2 color0  "~T ~U"    # unread tagged messages
 color indicator color7       color19
 color tree      color19      color0
 
