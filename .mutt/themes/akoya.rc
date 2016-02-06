@@ -14,11 +14,11 @@ color error   color1  color0
 color index     color7       color0  "~A"       # all messages
 color index     color1       color0  "~F"       # flagged messages
 color index     color7       color0  "~v~(!~N)" # collapsed thread with no unread
-color index     color4       color0  "~U"       # unread messages
+color index     brightcolor7 color0  "~U"       # unread messages
 color index     color4       color0  "~v~(~N)"  # collapsed thread with some unread
 color index     color1       color0  "~v~(~F)"  # collapsed thread with some flagged
 color index     color8       color0  "~D"       # deleted messages
-color index     brightcolor7 color0  "~T"       # tagged messages
+color index     color2       color0  "~T"       # tagged messages
 color indicator color7       color19
 color tree      color19      color0
 
