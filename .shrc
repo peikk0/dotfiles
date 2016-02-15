@@ -29,7 +29,9 @@ export EDITOR VISUAL
 if which less >/dev/null 2>&1; then
   PAGER="less"
   LESS="-I -M -R --shift 5"; export LESS
-  if which lesspipe.sh >/dev/null 2>&1; then
+  if which lesspipe >/dev/null 2>&1; then
+    eval `lesspipe`
+  elif which lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'; export LESSOPEN
   fi
 else
