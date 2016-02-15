@@ -175,6 +175,7 @@ workspace tv output HDMI-0
 
 for_window [class="pinentry"] floating enable
 for_window [class="Pinentry"] floating enable
+for_window [class="mpv"] floating enable
 for_window [class="mplayer"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [title="Hangouts"] floating enable
