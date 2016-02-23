@@ -25,15 +25,6 @@ if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
   fi
 fi
 
-# xrandr
-if which xrandr >/dev/null; then
-  echo 'Configuring screens...'
-  if [ `hostname -s` = 'alderaan' ]; then
-    # xrandr --output DVI-0 --auto --output HDMI-0 --auto --right-of DVI-0 || echo 'Failed to configure screens with xrandr'
-    xrandr --output DVI-I-2 --auto --output DVI-I-3 --off
-  fi
-fi
-
 # X ressources
 if which xrdb >/dev/null; then
   echo 'Loading X ressources...'
