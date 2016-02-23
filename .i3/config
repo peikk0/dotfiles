@@ -142,9 +142,6 @@ bindsym $mod+F10 exec mpc stop
 bindsym $mod+F11 exec mpc toggle
 bindsym $mod+F12 exec mpc next
 
-bindsym $mod+F3       exec ~/.i3/switch-screen-setup mono
-bindsym $mod+Shift+F3 exec ~/.i3/switch-screen-setup dual
-
 bindsym XF86KbdBrightnessDown exec xbacklight -dec 10
 bindsym XF86KbdBrightnessUp   exec xbacklight -inc 10
 
