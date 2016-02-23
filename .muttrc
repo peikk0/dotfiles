@@ -107,6 +107,11 @@ hdr_order Message-ID In-Reply-To Date From Organization To Cc Bcc Newsgroups Rep
 auto_view text
 mime_lookup application/octet-stream
 
+# Default order: text/plain, text/html
+message-hook '.' 'unalternative_order *; alternative_order text/plain text/html'
+# Yahoo Mail has a broken text/plain
+message-hook '~f @yahoo\.(com\|fr)$' 'unalternative_order *; alternative_order text/html'
+
 # }}}
 
 # {{{ PGP
