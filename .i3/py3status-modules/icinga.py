@@ -67,7 +67,8 @@ class Py3status:
         return response
 
     def _query_service_count(self, state):
-        headers = {'User-agent': 'py3status/icinga'}
+        headers = {'Accept': 'application/json',
+                   'User-agent': 'py3status/icinga'}
         url_parameters = self.url_parameters
         if self.disable_acknowledge:
             url_parameters = url_parameters + "&service_handled=0"
