@@ -71,9 +71,6 @@
 /.i3/i3status.conf.local
 /.i3/py3status
 
-# ncmpcpp stuff
-!/.ncmpcpp/config
-
 # Scripts
 !/.local/bin/sensible-browser
 !/.local/bin/shot
