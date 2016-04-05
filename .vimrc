@@ -34,7 +34,6 @@ set history=50
 
 set fileencodings=utf-8,latin1,default
 set fileformats=unix,dos,mac
-
 set shiftwidth=4
 set expandtab
 set smarttab
@@ -252,6 +251,10 @@ noremap! [" [""]<esc>hi
 
 if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
+endif
+
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
 endif
 
 " vim:ft=vim:sw=2:ts=2:et
