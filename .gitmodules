@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/vim-systemd-syntax"]
 	path = .vim/bundle/vim-systemd-syntax
 	url = https://github.com/Matt-Deacalion/vim-systemd-syntax.git
+[submodule ".vim/bundle/vim-csv"]
+	path = .vim/bundle/vim-csv
+	url = https://github.com/chrisbra/csv.vim.git
