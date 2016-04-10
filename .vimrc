@@ -237,6 +237,8 @@ noremap! {'; {''};<esc>hhi
 noremap! {"; {""};<esc>hhi
 noremap! {' {''}<esc>hi
 noremap! {" {""}<esc>hi
+noremap! {% {%  %}<esc>hhi
+noremap! {{% {{  }}<esc>hhi
 noremap! {{{ {{{ }}}<esc>hhhi
 noremap! {{{<cr> {{{ <cr>}}}<esc>kA
 
@@ -253,7 +255,7 @@ if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
 
-if filereadable(glob("~/.vimrc.local")) 
+if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
