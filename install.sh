@@ -66,7 +66,7 @@ symlink() {
     ln -snf "${dotfiles}/$1" "${destdir}/$1"
 }
 
-dotfiles="$(realpath $(dirname $0))"
+dotfiles="$(readlink -f $(dirname $0))"
 sets="${dotfiles}/sets"
 
 set="${DEFAULT_SET}"
