@@ -3,9 +3,12 @@
 set -e
 
 check() {
-    echo -n "$1:\t"
-    type $1 >/dev/null || echo "NOT FOUND"
-    echo "$(eval "${1}_version")"
+    echo -n "$1: "
+    if type $1 >/dev/null 2>/dev/null; then
+        echo "$(eval "${1}_version")"
+    else
+        echo "NOT FOUND"
+    fi
 }
 
 bash_version() {
