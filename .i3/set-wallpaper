@@ -2,7 +2,9 @@
 
 WALLPAPER="$HOME/.i3/wallpaper"
 
-if which feh >/dev/null 2>&1 && [ -f "$WALLPAPER" ]; then
+if type nitrogen >/dev/null 2>&1; then
+    nitrogen --restore
+elif type feh >/dev/null 2>&1 && [ -f "$WALLPAPER" ]; then
     feh --bg-fill "$WALLPAPER"
 fi
 
