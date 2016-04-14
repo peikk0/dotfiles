@@ -49,10 +49,6 @@ install() {
     if ! [ -d "${destdir}/${file_dir}" ]; then
         makedirs "${destdir}/${file_dir}"
     fi
-    if [ -e "${destdir}/$1" -a "${force}" -ne 1 ]; then
-        puts "SKIP $1 (use -f to force)"
-        return
-    fi
     symlink "$1"
 }
 
@@ -62,7 +58,23 @@ makedirs() {
 }
 
 symlink() {
+    # avoid a catastrophic rm -rf $HOME
+    [ -n "$1" ] || return
+    [ -n "${destdir}" ] || return
+
+    if [ -e "${destdir}/$1" ]; then
+        if [ -h "${destdir}/$1" ] && \
+           [ $(readlink "${destdir}/$1") = "${dotfiles}/$1" ]; then
+            puts "OK $1"
+            return
+        elif [ "${force}" -ne 1 ]; then
+            puts "SKIP $1 (use -f to force)"
+            return
+        fi
+    fi
+
     puts "SYMLINK $1 -> ${destdir}/$1"
+    rm -rf "${destdir}/$1"
     ln -snf "${dotfiles}/$1" "${destdir}/$1"
 }
 
