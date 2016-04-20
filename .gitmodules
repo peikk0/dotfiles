@@ -124,3 +124,6 @@
 [submodule ".vim/bundle/vim-csv"]
 	path = .vim/bundle/vim-csv
 	url = https://github.com/chrisbra/csv.vim.git
+[submodule ".vim/bundle/vim-angular"]
+	path = .vim/bundle/vim-angular
+	url = https://github.com/burnettk/vim-angular.git
