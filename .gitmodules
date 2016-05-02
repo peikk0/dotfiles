@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/vim-angular"]
 	path = .vim/bundle/vim-angular
 	url = https://github.com/burnettk/vim-angular.git
+[submodule ".vim/bundle/vim-javascript-libraries-syntax"]
+	path = .vim/bundle/vim-javascript-libraries-syntax
+	url = https://github.com/othree/javascript-libraries-syntax.vim.git
