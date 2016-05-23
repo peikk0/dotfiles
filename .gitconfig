@@ -1,6 +1,7 @@
 [user]
     email = pierre@guinoiseau.eu
     name = Pierre Guinoiseau
+    signingkey = 1085EB9D
 
 [color]
     ui = auto
