@@ -20,7 +20,7 @@ Pry.config.history.should_save = true
 Pry.config.theme = "solarized"
 
 Pry.config.print = proc do |output, value|
-  output.puts "\001\e[1;32m\002⋖\001\e[0m\002 #{value.inspect}"
+  output.puts "\001\e[1;32m\002<\001\e[0m\002 #{value.inspect}"
 end
 Pry.config.exception_handler = proc do |output, exception, _|
   output.puts "\001\e[1;31m\002<\001\e[0m\002 #{exception.class}: #{exception.message}"
