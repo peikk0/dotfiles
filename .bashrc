@@ -57,7 +57,7 @@ function title {
       echo -ne "\ek$t\e\\"
       echo -ne "\e]0;$t\a"
       ;;
-    xterm*|rxvt*|Eterm|eterm)
+    xterm*|rxvt*|stterm|Eterm|eterm)
       echo -ne "\e]0;$t\a"
       ;;
   esac

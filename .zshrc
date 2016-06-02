@@ -165,7 +165,7 @@ function title {
       print -nP "\ek$t\e\\"
       print -nP "\e]0;$t\a"
       ;;
-    xterm*|rxvt*|(E|e)term)
+    xterm*|rxvt*|stterm*|(E|e)term)
       print -nP "\e]0;$t\a"
       ;;
   esac
