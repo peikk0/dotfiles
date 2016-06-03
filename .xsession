@@ -10,6 +10,9 @@ export ENV
 OOO_FORCE_DESKTOP=gnome
 export OOO_FORCE_DESKTOP
 
+XDG_CURRENT_DESKTOP=GNOME
+export XDG_CURRENT_DESKTOP
+
 # GnuPG
 if which gpg-agent >/dev/null; then
   echo 'Launching GPG agent...'
