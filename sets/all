@@ -58,5 +58,6 @@
 .xsession
 
 .gtkrc-2.0
+.config/gtk-3.0/settings.ini
 
 .local/share/fonts/fira
