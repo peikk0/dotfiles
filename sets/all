@@ -59,6 +59,4 @@
 
 .gtkrc-2.0
 
-.local/share/fonts/fira/FiraMono-Bold.otf
-.local/share/fonts/fira/FiraMono-Medium.otf
-.local/share/fonts/fira/FiraMono-Regular.otf
+.local/share/fonts/fira
