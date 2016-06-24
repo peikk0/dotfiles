@@ -31,9 +31,6 @@
 [submodule ".vim/bundle/vim-varnish"]
 	path = .vim/bundle/vim-varnish
 	url = https://github.com/empanda/vim-varnish.git
-[submodule ".vim/bundle/vim-nagios"]
-	path = .vim/bundle/vim-nagios
-	url = https://github.com/tejr/vim-nagios.git
 [submodule ".vim/bundle/vim-gist"]
 	path = .vim/bundle/vim-gist
 	url = https://github.com/mattn/gist-vim.git
