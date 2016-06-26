@@ -19,7 +19,7 @@ set my_server = mail.guinoiseau.eu
 set my_user = $my_address
 set my_password = SET_ME_IN_VARS_RC
 set my_imap_server = imap://$my_server/
-set my_smtp_server = smtp://$my_user@$my_server/
+set my_smtp_server = smtp://$my_user@$my_server:587/
 
 source `FILE=~/.mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
 
