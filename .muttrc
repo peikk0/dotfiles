@@ -14,7 +14,7 @@ unhdr_order *
 set my_name = "Pierre Guinoiseau"
 set my_signature = ~/.mutt/signature
 set my_address = pierre@guinoiseau.eu
-set my_alternates = '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|g|pierre)@sig11\.fr$'
+set my_alternates = '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|(host|post|web)master|g|pierre)@sig11\.fr$'
 set my_server = mail.guinoiseau.eu
 set my_user = $my_address
 set my_password = SET_ME_IN_VARS_RC
@@ -145,7 +145,7 @@ attachments -I message/external-body
 # {{{ Index
 
 set index_format = "%6C %Z  [%D]  %-25.25L  %s"
-set date_format  = "%d/%m/%Y %H:%M:%S"
+set date_format  = "%Y-%m-%d %H:%M:%S"
 
 set sort = threads
 set sort_aux = last-date-received
