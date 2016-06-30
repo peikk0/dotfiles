@@ -34,10 +34,14 @@
     dc = diff --cached
     df = diff
     lg = log -p
+    lgs = log --stat
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     st = status
+
+[log]
+    decorate = auto
 
 [push]
     default = simple
