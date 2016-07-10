@@ -8,6 +8,7 @@
 .zlogin
 .zprofile
 .zsh/git-prompt
+.zsh/zsh-syntax-highlighting
 .zshenv
 .zshrc
 
