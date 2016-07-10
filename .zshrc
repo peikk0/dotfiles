@@ -246,6 +246,14 @@ fi
 
 # }}}
 
+# {{{ Syntax highlighting
+
+if [[ -f "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  . "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# }}}
+
 : # noop
 
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:

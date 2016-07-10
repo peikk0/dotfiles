@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/vim-javascript-libraries-syntax"]
 	path = .vim/bundle/vim-javascript-libraries-syntax
 	url = https://github.com/othree/javascript-libraries-syntax.vim.git
+[submodule ".zsh/zsh-syntax-highlighting"]
+	path = .zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
