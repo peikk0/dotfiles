@@ -74,6 +74,12 @@ elif which xscreensaver >/dev/null; then
   xscreensaver -nosplash -no-capture-stderr || echo 'Failed to launch xscreensaver' &
 fi
 
+# dunst
+if which dunst >/dev/null; then
+  echo 'Launching dunst...'
+  dunst -conf ~/.dunstrc || echo 'Failed to launch dunst' &
+fi
+
 if [ -f ~/.xsession.local ]; then
   . ~/.xsession.local
 fi

@@ -47,6 +47,8 @@
 .i3/py3status-modules/icinga.py
 .i3/set-wallpaper
 
+.dunstrc
+
 .config/base16-xresources
 .perl/urxvt/clipboard
 .Xdefaults
