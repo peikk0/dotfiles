@@ -72,12 +72,7 @@ if [ -f ~/.xsession.local ]; then
   . ~/.xsession.local
 fi
 
-# launch WM, launch the first found, by order of preference
-for wm in i3 awesome wmii fluxbox e16 enlightenment fvwm; do
-  if type ${wm} >/dev/null; then
-    exec ${wm}
-  fi
-  echo 'Failed to launch any prefered WM'
-done
+# i3
+exec i3 || echo 'Failed to launch i3'
 
 # vim:ft=sh:sw=2:
