@@ -75,7 +75,7 @@ fi
 # launch WM, launch the first found, by order of preference
 for wm in i3 awesome wmii fluxbox e16 enlightenment fvwm; do
   if which $wm >/dev/null; then
-    exec $wm >>~/.xsession.log 2>&1
+    exec $wm
   fi
   echo 'Failed to launch any prefered WM'
 done
