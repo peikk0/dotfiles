@@ -38,12 +38,6 @@ fi
 if which xset >/dev/null; then
   echo 'Configuring X...'
   xset dpms 600 1200 4200 s 300 600 -b r 66 r rate 400 30 || echo 'Failed to configure X'
-  if [ -d /usr/local/lib/X11/fonts/terminus-font ]; then
-      xset +fp /usr/local/lib/X11/fonts/terminus-font:unscaled || echo 'Failed to add terminus to X font path'
-  fi
-  if [ -d /usr/local/lib/X11/fonts/dina ]; then
-      xset +fp /usr/local/lib/X11/fonts/dina || echo 'Failed to add dina to X font path'
-  fi
 fi
 
 # Compose key
@@ -56,12 +50,6 @@ fi
 if which xsetroot >/dev/null; then
   echo 'Setting pointer...'
   xsetroot -cursor_name left_ptr || echo 'Failed to set pointer'
-fi
-
-# xbindkeys
-if which xbindkeys >/dev/null; then
-  echo 'Launching xbindkeys...'
-  LC_ALL=C xbindkeys || echo 'Failed to launch xbindkeys'
 fi
 
 # light-locker
