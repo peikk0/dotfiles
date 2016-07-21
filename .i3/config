@@ -34,6 +34,7 @@ bindsym $mod+Shift+q kill
 # menu
 bindsym $mod+F1 exec dmenu_run -i -p "Run: " -fn "Fira Mono-10:bold" -nb "#282828" -nf "#d8d8d8" -sb "#d8d8d8" -sf "#282828"
 bindsym $mod+slash exec ~/.i3/passmenu
+bindsym $mod+Shift+slash exec ~/.i3/passmenu --type
 
 # change focus
 bindsym $mod+h focus left
