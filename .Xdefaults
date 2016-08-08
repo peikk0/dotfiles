@@ -64,37 +64,4 @@ Xft.hintstyle:	hintslight
 Xft.lcdfilter:	lcddefault
 Xft.rgba:	rgb
 
-xpdf*background:	#111111
-xpdf*foreground:	#bbbbbb
-
-xscreensaver.Dialog.headingFont:		-*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:			-*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:			-*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:			-*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.foreground:			#aacc88
-xscreensaver.Dialog.background:			#111111
-xscreensaver.Dialog.topShadowColor:		#111111
-xscreensaver.Dialog.bottomShadowColor:		#111111
-xscreensaver.Dialog.Button.foreground:		#aacc88
-xscreensaver.Dialog.Button.background:		#222222
-xscreensaver.Dialog.text.foreground:		#aacc88
-xscreensaver.Dialog.text.background:		#000000
-xscreensaver.Dialog.borderColor:		#222222
-xscreensaver.Dialog.internalBorderWidth:	24
-xscreensaver.Dialog.borderWidth:		1
-xscreensaver.Dialog.shadowThickness:		2
-xscreensaver.passwd.thermometer.foreground:	#aacc88
-xscreensaver.passwd.thermometer.background:	#000000
-xscreensaver.passwd.thermometer.width:		8
-xscreensaver.passwd.uname:			false
-xscreensaver.passwd.heading.label:		XScreenSaver
-xscreensaver.passwd.body.label:			Session locked.
-xscreensaver.dateFormat:			
-xscreensaver.captureStderr:			false
-xscreensaver.fade:				false
-xscreensaver.splash:				false
-
 ! vim:noet:ft=xdefaults
