@@ -161,6 +161,9 @@ let html_use_css=1
 let html_ignore_folding=1
 let html_use_encoding="UTF-8"
 
+" csv
+let g:csv_table_leftalign=1
+
 " gist
 let g:gist_detect_filetype=1
 let g:gist_open_browser_after_post=1
