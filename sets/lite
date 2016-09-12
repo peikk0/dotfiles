@@ -4,6 +4,7 @@
 .dialogrc
 .dir_colors
 .profile
+.psqlrc
 .shrc
 .zlogin
 .zprofile
