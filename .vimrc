@@ -10,7 +10,7 @@ if has("terminfo") || has("nvim")
   set t_Co=256
   set background=dark
   let base16colorspace=256
-  colorscheme base16-default
+  colorscheme base16-default-dark
 end
 
 set nocompatible
