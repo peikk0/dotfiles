@@ -1,3 +1,3 @@
-ENV="$HOME/.shrc"
+ENV="${HOME}/.shrc"
 export ENV
-. $ENV
+. ${ENV}

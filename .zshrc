@@ -1,7 +1,7 @@
 # {{{ General settings
 
 # History
-HISTFILE="$HOME/.zsh_history"
+HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
 setopt append_history hist_ignore_all_dups hist_reduce_blanks
@@ -35,7 +35,7 @@ watch=all
 bindkey -e
 
 # Fixes from Debian
-if [[ "$TERM" != emacs ]]; then
+if [[ "${TERM}" != emacs ]]; then
   [[ -z "$terminfo[kdch1]" ]] || bindkey -M emacs "$terminfo[kdch1]" delete-char
   [[ -z "$terminfo[khome]" ]] || bindkey -M emacs "$terminfo[khome]" beginning-of-line
   [[ -z "$terminfo[kend]" ]] || bindkey -M emacs "$terminfo[kend]" end-of-line
@@ -160,7 +160,7 @@ PS3="%{$fg_no_bold[yellow]%}?#%{${reset_color}%} "
 function title {
   local t="%m %~ %#"
 
-  case $TERM in
+  case ${TERM} in
     screen*) # and tmux
       print -nP "\ek$t\e\\"
       print -nP "\e]0;$t\a"
@@ -195,7 +195,7 @@ function precmd {
     local _path_color="%{${fg_bold[red]}%}"
   fi
 
-  if [[ $UID = 0 ]]; then
+  if [[ ${UID} = 0 ]]; then
     local _sign_color="%{${fg_bold[red]}%}"
   else
     local _sign_color="%{${fg_bold[green]}%}"
@@ -214,7 +214,7 @@ function precmd {
   local sign="${_sign_color}%#"
 
   # Git
-  if [[ -n "$HAS_GIT_PROMPT" ]]; then
+  if [[ -n "${HAS_GIT_PROMPT}" ]]; then
     local git_status="\$(git_super_status)"
   else
     local git_status=""
@@ -240,16 +240,16 @@ function run-help-sudo {
 
 # {{{ Local configuration
 
-if [[ -f "$HOME/.zshrc.local" ]]; then
-  . "$HOME/.zshrc.local"
+if [[ -f "${HOME}/.zshrc.local" ]]; then
+  . "${HOME}/.zshrc.local"
 fi
 
 # }}}
 
 # {{{ Syntax highlighting
 
-if [[ -f "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-  . "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ -f "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  . "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
 # }}}

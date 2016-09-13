@@ -1,19 +1,19 @@
 # This file is sourced by sh, zsh and bash
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin:/usr/sbin:/bin:/sbin"
-[ -d "$HOME/.rvm" ] && PATH="$HOME/.rvm/bin:$PATH"
-PATH="$HOME/.local/bin:$PATH"
+[ -d "${HOME}/.rvm" ] && PATH="${HOME}/.rvm/bin:${PATH}"
+PATH="${HOME}/.local/bin:${PATH}"
 export PATH
 
 LOCALE="en_NZ.UTF-8"
-LANG="$LOCALE"
-# LC_ALL="$LOCALE"
-LC_COLLATE="$LOCALE"
-LC_CTYPE="$LOCALE"
-LC_MESSAGES="$LOCALE"
-LC_MONETARY="$LOCALE"
-LC_NUMERIC="$LOCALE"
-LC_TIME="$LOCALE"
+LANG="${LOCALE}"
+# LC_ALL="${LOCALE}"
+LC_COLLATE="${LOCALE}"
+LC_CTYPE="${LOCALE}"
+LC_MESSAGES="${LOCALE}"
+LC_MONETARY="${LOCALE}"
+LC_NUMERIC="${LOCALE}"
+LC_TIME="${LOCALE}"
 MM_CHARSET="UTF-8"
 export LANG LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME MM_CHARSET
 
@@ -42,13 +42,13 @@ export PAGER
 BLOCKSIZE="K"; export BLOCKSIZE
 
 # Only if not root, and keychain is available, and the .keychain directory was created
-if [ `id -u` -ne 0 ] && which keychain >/dev/null 2>&1 && [ -d "$HOME/.keychain" ]; then
+if [ `id -u` -ne 0 ] && which keychain >/dev/null 2>&1 && [ -d "${HOME}/.keychain" ]; then
   keychain --nogui --noask --quiet
-  if [ -f "$HOME/.keychain/`hostname`-sh" ]; then
-    . "$HOME/.keychain/`hostname`-sh"
+  if [ -f "${HOME}/.keychain/`hostname`-sh" ]; then
+    . "${HOME}/.keychain/`hostname`-sh"
   fi
-  if [ -f "$HOME/.keychain/`hostname`-sh-gpg" ]; then
-    . "$HOME/.keychain/`hostname`-sh-gpg"
+  if [ -f "${HOME}/.keychain/`hostname`-sh-gpg" ]; then
+    . "${HOME}/.keychain/`hostname`-sh-gpg"
   fi
 fi
 
@@ -68,7 +68,7 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
       ;;
     Linux)
       if which dircolors >/dev/null 2>&1; then
-        eval `dircolors -b "$HOME/.dir_colors"`
+        eval `dircolors -b "${HOME}/.dir_colors"`
       fi
       alias ls="ls --color=auto"
       alias ll="ls -h -l --time-style='+%F %T'"
@@ -90,7 +90,7 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
   alias egrep="grep -E --color=auto"
   alias fgrep="grep -F --color=auto"
 
-  [ "$EDITOR" = "vim" ] && alias vi="vim"
+  [ "${EDITOR}" = "vim" ] && alias vi="vim"
 
   # Base16 Shell
   BASE16_SCHEME="default-dark"
@@ -98,8 +98,8 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
   [ -s "${BASE16_SHELL}" ] && . "${BASE16_SHELL}"
 fi
 
-if [ -f "$HOME/.shrc.local" ]; then
-  . "$HOME/.shrc.local"
+if [ -f "${HOME}/.shrc.local" ]; then
+  . "${HOME}/.shrc.local"
 fi
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

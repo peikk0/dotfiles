@@ -1,8 +1,8 @@
-ENV="$HOME/.shrc"
+ENV="${HOME}/.shrc"
 export ENV
-. $ENV
+. ${ENV}
 
-. "$HOME/.zprofile"
+. "${HOME}/.zprofile"
 
 # {{{ Initial check
 
@@ -50,9 +50,9 @@ PS3="\[\033[01;35m\]?#\[\033[00m\] "
 
 # Display the title, and append the command if given in $1
 function title {
-  t="${USER}@${HOSTNAME%%.*} ${PWD/$HOME/~}"
+  t="${USER}@${HOSTNAME%%.*} ${PWD/${HOME}/~}"
 
-  case $TERM in
+  case ${TERM} in
     screen)
       echo -ne "\ek$t\e\\"
       echo -ne "\e]0;$t\a"
@@ -108,7 +108,7 @@ function precmd {
   local _cwd="\[${_path_color}\]\w"
 
   # Red # for root, green $ for user
-  if [[ $UID = 0 ]]; then
+  if [[ ${UID} = 0 ]]; then
     local _sign="\[${_color_bred}\]#"
   else
     local _sign="\[${_color_bgreen}\]\$"
