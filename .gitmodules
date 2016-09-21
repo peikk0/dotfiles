@@ -130,3 +130,6 @@
 [submodule ".zsh/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".vim/bundle/vim-ansible"]
+	path = .vim/bundle/vim-ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
