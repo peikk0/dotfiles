@@ -23,7 +23,7 @@ if [ -S "$RXVT_SOCKET" ] && which urxvtc >/dev/null 2>&1; then
   [ "$?" = 1 ] && exec urxvtc "$@"
 fi
 
-for term in urxvt xterm rxvt konsole gnome-terminal; do
+for term in st urxvt xterm rxvt konsole gnome-terminal; do
   which $term >/dev/null 2>&1 && exec $term "$@"
 done
 
