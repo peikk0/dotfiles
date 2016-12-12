@@ -45,11 +45,13 @@ TERM rxvt
 TERM rxvt-cygwin
 TERM rxvt-cygwin-native
 TERM rxvt-unicode
+TERM rxvt-unicode-256color
 TERM screen
 TERM screen-256color
 TERM screen-bce
 TERM screen-w
 TERM screen.linux
+TERM st
 TERM vt100
 TERM xterm
 TERM xterm-16color
