@@ -171,7 +171,8 @@ set tilde = yes
 
 # {{{ Editing
 
-set editor = "vim + -c 'set ft=mail tw=72' -c ':0/^$' -c ':nohls'"
+# set editor = "vim + -c 'set ft=mail tw=72' -c ':0/^$' -c ':nohls'"
+set editor = "vim"
 set edit_headers = yes
 set fast_reply = yes
 set reply_to = yes
