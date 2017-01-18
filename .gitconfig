@@ -46,6 +46,9 @@
 [push]
     default = simple
 
+[diff]
+    renameLimit = 8192
+
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
@@ -55,4 +58,3 @@
 
 [include]
     path = ~/.gitconfig.local
-
