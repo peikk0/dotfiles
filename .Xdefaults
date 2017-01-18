@@ -5,7 +5,7 @@
 #include ".config/base16-xresources/xresources/base16-default-dark-256.Xresources"
 
 XTerm*Geometry:		100x25
-XTerm*FaceName:		Fira Mono:regular:size=10
+XTerm*FaceName:		Fira Code:regular:size=10
 XTerm*boldColors:	true
 XTerm*boldMode:		false
 XTerm*metaSendsEscape:	true
@@ -21,7 +21,7 @@ XTerm*saveLines:	1024
 XTerm*bellIsUrgent:	true
 
 URxvt.geometry:		100x25
-URxvt.font:		xft:Fira Mono:regular:size=10
+URxvt.font:		xft:Fira Code:regular:size=10
 URxvt.letterSpace:	-1
 URxvt.title:		Terminal
 URxvt.termName:		rxvt-unicode-256color
