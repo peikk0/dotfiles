@@ -133,6 +133,9 @@
 [submodule ".vim/bundle/vim-mustache-handlebars"]
 	path = .vim/bundle/vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule ".vim/bundle/vim-mail"]
+	path = .vim/bundle/vim-mail
+	url = https://github.com/dbeniamine/vim-mail.git
 [submodule ".vim/bundle/vim-ansible"]
 	path = .vim/bundle/vim-ansible
 	url = https://github.com/pearofducks/ansible-vim.git
