@@ -216,7 +216,7 @@ bind index,pager <pagedown> half-down
 macro generic,index,pager \Ca "<shell-escape>abook<return>" "launch abook"
 macro index,pager A "s=Archives/`date +%Y`<return>" "move to archives folder"
 macro index,pager \Cx "<tag-pattern>~N|~O<return><tag-prefix><clear-flag>N<untag-pattern>~T<return>" "mark all new messages as read"
-macro index,pager \Cj "s=Junk<return>" "move to junk folder"
+macro index,pager S "s=Junk<return>" "move to junk/spam folder"
 
 # }}}
 
