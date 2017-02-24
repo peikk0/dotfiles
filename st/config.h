@@ -32,7 +32,7 @@ static float chscale = 1.0;
  *
  * More advanced example: " `'\"()[]{}"
  */
-static char worddelimiters[] = " `'\"()[]{}";
+static char worddelimiters[] = " `'\"()[]{}<>|";
 
 /* selection timeouts (in milliseconds) */
 static unsigned int doubleclicktimeout = 300;
@@ -135,6 +135,13 @@ static unsigned int defaultrcs = 0;
  * 7: Snowman ("☃")
  */
 static unsigned int cursorshape = 4;
+
+/*
+ * Default columns and rows numbers
+ */
+
+static unsigned int cols = 80;
+static unsigned int rows = 24;
 
 /*
  * Default colour and shape of the mouse cursor
