@@ -240,6 +240,7 @@ noremap! {'; {''};<esc>hhi
 noremap! {"; {""};<esc>hhi
 noremap! {' {''}<esc>hi
 noremap! {" {""}<esc>hi
+noremap! {# {#  #}<esc>hhi
 noremap! {% {%  %}<esc>hhi
 noremap! {{% {{  }}<esc>hhi
 noremap! {{{ {{{ }}}<esc>hhhi
