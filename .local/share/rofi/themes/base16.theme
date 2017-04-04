@@ -1,0 +1,11 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! User: peikk0
+! Copyright: Pierre Guinoiseau
+! ------------------------------------------------------------------------------
+rofi.color-enabled:   true
+rofi.color-window:    #282828, #181818, #383838
+rofi.color-normal:    #282828, #b8b8b8, #383838, #b8b8b8, #282828
+rofi.color-active:    #181818, #d8d8d8, #181818, #d8d8d8, #181818
+rofi.color-urgent:    #282828, #ab4642, #383838, #ab4642, #282828
+rofi.separator-style: solid

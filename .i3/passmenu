@@ -13,7 +13,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | dmenu -i -p "Copy password: " -fn "Fira Mono-10:bold" -nb "#282828" -nf "#d8d8d8" -sb "#d8d8d8" -sf "#282828" "$@")
+password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -i -p "Copy password: " "$@")
 
 [[ -n $password ]] || exit
 
