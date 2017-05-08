@@ -98,9 +98,11 @@ nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
 nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
 if has("autocmd")
-  autocmd FileType man    setlocal nolist
-  autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
-  autocmd FileType text   setlocal textwidth=78
+  autocmd FileType html       setlocal shiftwidth=2 tabstop=2
+  autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
+  autocmd FileType man        setlocal nolist
+  autocmd FileType ruby       setlocal shiftwidth=2 tabstop=2
+  autocmd FileType text       setlocal textwidth=78
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
