@@ -32,9 +32,9 @@ bindsym $mod+Return exec x-terminal-emulator
 bindsym $mod+Shift+q kill
 
 # menu
-bindsym $mod+F1 exec rofi -show run
-bindsym $mod+F2 exec rofi -show ssh
-bindsym $mod+Tab exec rofi -show window
+bindsym $mod+F1 exec --release rofi -show run
+bindsym $mod+F2 exec --release rofi -show ssh
+bindsym $mod+Tab exec --release rofi -show window
 bindsym $mod+slash exec ~/.i3/passmenu
 bindsym $mod+Shift+slash exec ~/.i3/passmenu --type
 
