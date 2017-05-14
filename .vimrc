@@ -216,6 +216,7 @@ xmap ga <Plug>(EasyAlign)
 
 " "" '' <> () [] {}
 noremap! "" ""<esc>i
+noremap! """ """"""<esc>hhi
 noremap! '' ''<esc>i
 
 noremap! << <><esc>i
