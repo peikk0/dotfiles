@@ -20,5 +20,5 @@ password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -i -p "Copy passwo
 if [[ $typeit -eq 0 ]]; then
 	pass show -c "$password" 2>/dev/null
 else
-	xdotool - <<<"type --clearmodifiers -- $(pass show "$password" | head -n 1)"
+	xdotool - <<<"type --clearmodifiers -- '$(pass show "$password" | head -n 1)'"
 fi
