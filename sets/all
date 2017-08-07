@@ -45,6 +45,7 @@
 .i3/config
 .i3/i3status
 .i3/i3status.conf
+.i3/lock
 .i3/passmenu
 .i3/py3status-modules/icinga.py
 .i3/set-wallpaper

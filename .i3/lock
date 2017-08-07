@@ -1,0 +1,8 @@
+#!/bin/sh
+WALLPAPER="${HOME}/.i3/lock-wallpaper"
+if [ -f "${WALLPAPER}" ]; then
+    bg_args="-i ${WALLPAPER}"
+else
+    bg_args="-c 282828"
+fi
+exec i3lock ${bg_args}
