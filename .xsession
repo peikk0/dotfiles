@@ -59,7 +59,7 @@ fi
 # xautolock
 if type xautolock >/dev/null; then
   echo 'Launching xautolock...'
-  xautolock -time 5 -notify 10 -notifier "notify-send -u normal -t 10000 -a xautolock 'Autolocking session in 10 seconds...'" -locker "${HOME}/.i3/lock" || echo 'Failed to launch xautolock' &
+  xautolock -detectsleep -time 5 -notify 10 -notifier "notify-send -u normal -t 10000 -a xautolock 'Autolocking session in 10 seconds...'" -locker "${HOME}/.i3/lock" || echo 'Failed to launch xautolock' &
 # light-locker
 elif type light-locker >/dev/null; then
   echo 'Launching light-locker...'

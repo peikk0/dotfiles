@@ -5,4 +5,4 @@ if [ -f "${WALLPAPER}" ]; then
 else
     bg_args="-c 282828"
 fi
-exec i3lock ${bg_args}
+exec i3lock -n -u ${bg_args}
