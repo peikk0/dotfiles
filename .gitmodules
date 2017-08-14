@@ -139,3 +139,6 @@
 [submodule ".vim/bundle/vim-ansible"]
 	path = .vim/bundle/vim-ansible
 	url = https://github.com/pearofducks/ansible-vim.git
+[submodule ".vim/bundle/vim-mediawiki"]
+	path = .vim/bundle/vim-mediawiki
+	url = https://github.com/chikamichi/mediawiki.vim.git
