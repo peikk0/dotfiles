@@ -103,6 +103,7 @@ if has("autocmd")
   autocmd FileType man        setlocal nolist
   autocmd FileType ruby       setlocal shiftwidth=2 tabstop=2
   autocmd FileType text       setlocal textwidth=78
+  autocmd FileType yaml       setlocal shiftwidth=2 tabstop=2
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
