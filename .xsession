@@ -47,7 +47,7 @@ fi
 # Compose key
 if type setxkbmap >/dev/null; then
   echo 'Setting keymap...'
-  setxkbmap -layout us -variant altgr-intl -option compose:menu,caps:backspace || echo 'Failed to set keymap'
+  setxkbmap -layout us -variant altgr-intl -option compose:menu,caps:escape || echo 'Failed to set keymap'
 fi
 
 # pointer
