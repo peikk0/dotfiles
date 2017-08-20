@@ -205,6 +205,8 @@ let g:syntastic_tex_checkers=[]
 
 " Mappings
 
+inoremap jj <Esc>
+
 map <silent> <F1> :call NTFinderP()<CR>
 map <F5> <Esc>gg=G''
 map <A-Right> gt
