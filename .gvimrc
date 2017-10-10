@@ -5,7 +5,7 @@ set guioptions=ac
 if has("mac")
     set guifont=Menlo:h12
 elseif has("unix")
-    set guifont=Inconsolata\ 11
+    set guifont=Fira\ Code\ 10
 endif
 
 " syntax hilighting
