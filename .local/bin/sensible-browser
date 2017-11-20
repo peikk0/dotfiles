@@ -56,6 +56,12 @@ elif [ -n "$DISPLAY" -a -z "$terminal" ]; then
     file:*|/*) ;;
     :spotify:*) exec spotify "$url" ;;
     *:*|www*|'')
+    for browser in chrome google-chrome chromium chromium-browser; do
+      if which $browser >/dev/null 2>&1; then
+        nohup nice -n 1 $browser "$url" >/dev/null 2>&1 &
+        exit 0
+      fi
+    done
     for browser in firefox iceweasel; do
       if which $browser >/dev/null 2>&1; then
         # nice -n 1 $browser -remote "openURL($url,new-tab)" >/dev/null 2>&1 || # Error: Failed to send command: 500 command not parseable
@@ -64,12 +70,6 @@ elif [ -n "$DISPLAY" -a -z "$terminal" ]; then
         else
           nohup nice -n 1 $browser >/dev/null 2>&1 &
         fi
-        exit 0
-      fi
-    done
-    for browser in chrome google-chrome chromium chromium-browser; do
-      if which $browser >/dev/null 2>&1; then
-        nohup nice -n 1 $browser "$url" >/dev/null 2>&1 &
         exit 0
       fi
     done
