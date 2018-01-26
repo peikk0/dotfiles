@@ -145,3 +145,6 @@
 [submodule ".vim/bundle/vim-terraform"]
 	path = .vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule ".vim/bundle/vim-rainbow"]
+	path = .vim/bundle/vim-rainbow
+	url = https://github.com/luochen1990/rainbow.git
