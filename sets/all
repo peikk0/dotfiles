@@ -55,6 +55,7 @@
 .config/rofi/config
 .local/share/rofi/themes/base16.theme
 
+.config/kitty/kitty.conf
 .config/base16-xresources
 .perl/urxvt/clipboard
 .Xdefaults
