@@ -49,6 +49,9 @@
 [diff]
     renameLimit = 8192
 
+[merge]
+    conflictstyle = diff3
+
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
