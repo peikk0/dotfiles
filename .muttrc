@@ -14,7 +14,7 @@ unhdr_order *
 set my_name = "Pierre Guinoiseau"
 set my_signature = ~/.mutt/signature
 set my_address = pierre@guinoiseau.eu
-set my_alternates = '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|(host|post|web)master|g|pierre)@(sig11\.fr|yggdrasil\.nz)$'
+set my_alternates = '^pierre@guinoiseau\.eu|master@obiwankeno\.be|(root|admin|(host|post|web)master|g|pierre)@yggdrasil\.nz$'
 set my_user = $my_address
 set my_password = SET_ME_IN_VARS_RC
 set my_imap_server = imap://imap.guinoiseau.eu/
