@@ -13,12 +13,12 @@ unhdr_order *
 
 set my_name = "Pierre Guinoiseau"
 set my_signature = ~/.mutt/signature
-set my_address = pierre@guinoiseau.eu
+set my_address = pierre@guinoiseau.nz
 set my_alternates = '^pierre@guinoiseau\.(eu|nz)|master@obiwankeno\.be|(root|admin|(host|post|web)master|g|pierre)@yggdrasil\.nz$'
 set my_user = $my_address
 set my_password = SET_ME_IN_VARS_RC
-set my_imap_server = imap://imap.guinoiseau.eu/
-set my_smtp_server = smtp://$my_user@smtp.guinoiseau.eu:587/
+set my_imap_server = imap://imap.guinoiseau.nz/
+set my_smtp_server = smtp://$my_user@smtp.guinoiseau.nz:587/
 
 source `FILE=~/.mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
 
