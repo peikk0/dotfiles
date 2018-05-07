@@ -148,3 +148,6 @@
 [submodule ".vim/bundle/vim-rainbow"]
 	path = .vim/bundle/vim-rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule ".vim/bundle/vim-gnupg"]
+	path = .vim/bundle/vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg.git
