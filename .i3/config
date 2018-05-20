@@ -23,7 +23,7 @@ client.focused          #181818 #282828 #d8d8d8 #b8b8b8
 client.focused_inactive #181818 #282828 #b8b8b8 #585858
 client.unfocused        #181818 #282828 #585858 #383838
 client.urgent           #181818 #282828 #ab4642 #383838
-client.background color #181818
+client.background       #181818
 
 # start a terminal
 bindsym $mod+Return exec x-terminal-emulator
