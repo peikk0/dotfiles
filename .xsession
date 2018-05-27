@@ -57,9 +57,10 @@ if type xsetroot >/dev/null; then
 fi
 
 # xautolock
-if type xautolock >/dev/null; then
-  echo 'Launching xautolock...'
-  xautolock -detectsleep -time 5 -notify 10 -notifier "notify-send -u normal -t 10000 -a xautolock 'Autolocking session in 10 seconds...'" -locker "${HOME}/.i3/lock" || echo 'Failed to launch xautolock' &
+if type xss-lock >/dev/null; then
+  echo 'Launching xss-lock...'
+  xset s 280 10
+  xss-lock --notifier "notify-send -u normal -t 10000 -a xss-lock 'Autolocking session in 10 seconds...'" "${HOME}/.i3/lock" || echo 'Failed to launch xss-lock' &
 # light-locker
 elif type light-locker >/dev/null; then
   echo 'Launching light-locker...'
