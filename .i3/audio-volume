@@ -6,7 +6,7 @@ if [ `uname -s` = "FreeBSD" ]; then
     MIXER_DOWN="-5"
     MIXER_MUTE=""
 else
-    MIXER_COMMAND="amixer -D pulse sset Master"
+    MIXER_COMMAND="amixer sset Master"
     MIXER_UP="5%+"
     MIXER_DOWN="5%-"
     MIXER_MUTE="toggle"
