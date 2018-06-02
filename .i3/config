@@ -145,8 +145,10 @@ bindsym $mod+F10 exec mpc stop
 bindsym $mod+F11 exec mpc toggle
 bindsym $mod+F12 exec mpc next
 
-bindsym XF86KbdBrightnessDown exec xbacklight -dec 10
-bindsym XF86KbdBrightnessUp   exec xbacklight -inc 10
+bindsym XF86KbdBrightnessDown exec brightnessctl -q -d intel_backlight set 5%-
+bindsym XF86MonBrightnessDown exec brightnessctl -q -d intel_backlight set 5%-
+bindsym XF86KbdBrightnessUp   exec brightnessctl -q -d intel_backlight set 5%+
+bindsym XF86MonBrightnessUp   exec brightnessctl -q -d intel_backlight set 5%+
 
 bindsym $mod+Shift+b exec sensible-browser
 bindsym $mod+Shift+m exec thunderbird
