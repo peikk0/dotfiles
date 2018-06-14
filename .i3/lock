@@ -1,8 +1,52 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+# see /usr/share/doc/xss-lock/transfer-sleep-lock-i3lock.sh
+
+BGCOLOR="282828"
+FONT="Fira-Code-Bold"
 WALLPAPER="${HOME}/.i3/lock-wallpaper"
-if [ -f "${WALLPAPER}" ]; then
-    bg_args="-i ${WALLPAPER}"
+
+if [[ -f "${WALLPAPER}" ]]; then
+    I3LOCK_ARGS="-i ${WALLPAPER}"
 else
-    bg_args="-c 282828"
+    I3LOCK_ARGS="-c ${BGCOLOR}"
 fi
-exec i3lock -n -u ${bg_args}
+I3LOCK_FANCY_ARGS="-f ${FONT} -g"
+
+FANCY=0
+if type i3lock-fancy >/dev/null; then
+    FANCY=1
+fi
+
+# We set a trap to kill the locker if we get killed, then start the locker and
+# wait for it to exit. The waiting is not that straightforward when the locker
+# forks, so we use this polling only if we have a sleep lock to deal with.
+if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
+    kill_i3lock() {
+        pkill -xu $EUID "$@" i3lock
+    }
+
+    trap kill_i3lock TERM INT
+
+    # we have to make sure the locker does not inherit a copy of the lock fd
+    if [[ ${FANCY} -eq 1 ]]; then
+        i3lock-fancy ${I3LOCK_FANCY_ARGS} {XSS_SLEEP_LOCK_FD}<&-
+    else
+        i3lock ${I3LOCK_ARGS} {XSS_SLEEP_LOCK_FD}<&-
+    fi
+
+    # now close our fd (only remaining copy) to indicate we're ready to sleep
+    exec {XSS_SLEEP_LOCK_FD}<&-
+
+    while kill_i3lock -0; do
+        sleep 0.5
+    done
+else
+    trap 'kill %%' TERM INT
+    if [ ${FANCY} -eq 1 ]; then
+        i3lock-fancy -n ${I3LOCK_FANCY_ARGS} &
+    else
+        i3lock -n ${I3LOCK_ARGS} &
+    fi
+    wait
+fi
