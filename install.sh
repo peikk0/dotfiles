@@ -7,6 +7,11 @@ set -e
 # Assume lite set by default, this is will be the most commonly used set
 DEFAULT_SET=lite
 
+READLINK=readlink
+if type greadlink >/dev/null; then
+    READLINK=greadlink
+fi
+
 usage() {
     echo "$0 [options] [<set>]" >&2
     echo "  -d <destdir>  # destination directory (default: ${HOME})"
@@ -64,7 +69,7 @@ symlink() {
 
     if [ -e "${destdir}/$1" ]; then
         if [ -h "${destdir}/$1" ] && \
-           [ $(readlink "${destdir}/$1") = "${dotfiles}/$1" ]; then
+           [ $(${READLINK} "${destdir}/$1") = "${dotfiles}/$1" ]; then
             puts "OK $1"
             return
         elif [ "${force}" -ne 1 ]; then
@@ -78,7 +83,7 @@ symlink() {
     ln -snf "${dotfiles}/$1" "${destdir}/$1"
 }
 
-dotfiles="$(readlink -f $(dirname $0))"
+dotfiles="$(${READLINK} -f $(dirname $0))"
 sets="${dotfiles}/sets"
 
 set="${DEFAULT_SET}"
