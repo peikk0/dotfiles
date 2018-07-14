@@ -164,6 +164,19 @@ let html_use_css=1
 let html_ignore_folding=1
 let html_use_encoding="UTF-8"
 
+" airline
+let g:airline_theme='base16_default'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = "\uE0C6"
+" let g:airline_left_alt_sep = "\uE0C6"
+let g:airline_right_sep = "\uE0C7"
+" let g:airline_right_alt_sep = "\uE0C7"
+let g:airline_section_z = airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+
 " csv
 let g:csv_table_leftalign=1
 
