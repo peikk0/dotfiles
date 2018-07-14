@@ -184,6 +184,7 @@ function precmd {
   local _misc_color="%{${fg_no_bold[white]}%}"
   local _rcerr_color="%{${fg_no_bold[red]}%}"
 
+  local _desk_color="%{${fg_no_bold[blue]}%}"
   local _host_color="%{${fg_no_bold[cyan]}%}"
 
   # Change path color given user rights on it
@@ -207,6 +208,13 @@ function precmd {
   # Host
   local host="${_host_color}%m"
 
+  # Desk
+  if [ -n "${DESK_NAME}" ]; then
+    local desk=" ${_misc_color}[${_desk_color}${DESK_NAME}${_misc_color}]"
+  else
+    local desk=""
+  fi
+
   # Current path
   local cwd="${_path_color}%48<...<%~"
 
@@ -215,13 +223,13 @@ function precmd {
 
   # Git
   if [[ -n "${HAS_GIT_PROMPT}" ]]; then
-    local git_status="\$(git_super_status)"
+    local git_status="${_reset_color}\$(git_super_status)"
   else
     local git_status=""
   fi
 
   # Set the prompt
-  PS1="${return_code}${host} ${cwd}${git_status} ${sign}${_reset_color} "
+  PS1="${return_code}${host} ${cwd}${git_status}${desk} ${sign}${_reset_color} "
 }
 
 # }}}
