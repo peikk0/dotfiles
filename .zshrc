@@ -137,27 +137,10 @@ esac
 
 # }}}
 
-# {{{ Prompts
-
-# Git prompt
-if which git >/dev/null 2>&1 && [[ -f "${HOME}/.zsh/git-prompt/zshrc.sh" ]]; then
-  . "${HOME}/.zsh/git-prompt/zshrc.sh"
-  HAS_GIT_PROMPT=1
-fi
-
-# Right prompt with clock
-RPS1="  %{$fg_no_bold[yellow]%}%D{%d/%m/%y %H:%M:%S}%{${reset_color}%}"
-
-# Others prompts
-PS2="%{$fg_no_bold[yellow]%}%_>%{${reset_color}%} "
-PS3="%{$fg_no_bold[yellow]%}?#%{${reset_color}%} "
-
-# }}}
-
 # {{{ title()
 
 # Display the title
-function title {
+function update_title {
   local t="%m %~ %#"
 
   case ${TERM} in
@@ -171,14 +154,14 @@ function title {
   esac
 }
 
+autoload -U add-zsh-hook
+add-zsh-hook precmd update_title
+
 # }}}
 
-# {{{ precmd()
+# {{{ Prompts
 
-function precmd {
-  # Set window title
-  title
-
+function simple_prompt {
   # Color for non-text things
   local _reset_color="%{${reset_color}%}"
   local _misc_color="%{${fg_no_bold[white]}%}"
@@ -221,16 +204,104 @@ function precmd {
   # Red # for root, green % for user
   local sign="${_sign_color}%#"
 
-  # Git
-  if [[ -n "${HAS_GIT_PROMPT}" ]]; then
-    local git_status="${_reset_color}\$(git_super_status)"
-  else
-    local git_status=""
-  fi
-
   # Set the prompt
-  PS1="${return_code}${host} ${cwd}${git_status}${desk} ${sign}${_reset_color} "
+  PS1="${return_code}${host} ${cwd}${desk} ${sign}${_reset_color} "
+
+  # Right prompt with clock
+  RPS1="  %{$fg_no_bold[yellow]%}%D{%d/%m/%y %H:%M:%S}%{${reset_color}%}"
+
+  # Others prompts
+  PS2="%{$fg_no_bold[yellow]%}%_>%{${reset_color}%} "
+  PS3="%{$fg_no_bold[yellow]%}?#%{${reset_color}%} "
 }
+
+POWERLEVEL9K_THEME="${HOME}/.zsh/powerlevel9k/powerlevel9k.zsh-theme"
+
+setup_powerlevel9k() {
+  POWERLEVEL9K_MODE="nerdfont-complete"
+  POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0C6'
+  POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\uE0C6'
+  POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR="  "
+  POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0C7'
+  POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=$'\uE0C7'
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir dir_writable vcs desk aws)
+  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time date_joined)
+  POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+  POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+  POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
+  POWERLEVEL9K_DATE_FORMAT="%D{%Y-%m-%d}"
+  DEFAULT_USER="pierre"
+
+  POWERLEVEL9K_DESKTOP_ICON=$'\uF108'
+
+  # base16 colors
+
+  POWERLEVEL9K_OS_ICON_BACKGROUND='018'
+  POWERLEVEL9K_OS_ICON_FOREGROUND='021'
+
+  POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='green'
+  POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='018'
+  POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='green'
+  POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='018'
+  POWERLEVEL9K_CONTEXT_REMOTE_SUDO_BACKGROUND='red'
+  POWERLEVEL9K_CONTEXT_REMOTE_SUDO_FOREGROUND='021'
+  POWERLEVEL9K_CONTEXT_SUDO_BACKGROUND='red'
+  POWERLEVEL9K_CONTEXT_SUDO_FOREGROUND='021'
+  POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='red'
+  POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='021'
+
+  POWERLEVEL9K_DIR_HOME_BACKGROUND='019'
+  POWERLEVEL9K_DIR_HOME_FOREGROUND='blue'
+  POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='019'
+  POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='blue'
+  POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='019'
+  POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='021'
+  POWERLEVEL9K_DIR_ETC_BACKGROUND='019'
+  POWERLEVEL9K_DIR_ETC_FOREGROUND='021'
+
+  POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND='red'
+  POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='016'
+
+  POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
+  POWERLEVEL9K_VCS_CLEAN_FOREGROUND='018'
+  POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='teal'
+  POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='018'
+  POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='016'
+  POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='018'
+
+  POWERLEVEL9K_DESK_BACKGROUND='017'
+  POWERLEVEL9K_DESK_FOREGROUND='021'
+
+  POWERLEVEL9K_AWS_BACKGROUND='red'
+  POWERLEVEL9K_AWS_FOREGROUND='021'
+
+  POWERLEVEL9K_STATUS_ERROR_BACKGROUND='018'
+  POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
+  POWERLEVEL9K_STATUS_OK_BACKGROUND='018'
+  POWERLEVEL9K_STATUS_OK_FOREGROUND='green'
+
+  POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='017'
+  POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='021'
+
+  POWERLEVEL9K_TIME_BACKGROUND='019'
+  POWERLEVEL9K_TIME_FOREGROUND='020'
+  POWERLEVEL9K_DATE_BACKGROUND='019'
+  POWERLEVEL9K_DATE_FOREGROUND='020'
+
+  prompt_desk() {
+    if [[ -n "$DESK_NAME" ]]; then
+      "$1_prompt_segment" "$0" "$2" black cyan "$DESK_NAME" DESKTOP_ICON
+    fi
+  }
+
+  . "${POWERLEVEL9K_THEME}"
+}
+
+if [[ -e "${POWERLEVEL9K_THEME}" ]]; then
+  setup_powerlevel9k
+else
+  add-zsh-hook precmd simple_prompt
+fi
 
 # }}}
 
@@ -258,6 +329,7 @@ fi
 
 if [[ -f "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   . "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 fi
 
 # }}}

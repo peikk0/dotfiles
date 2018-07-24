@@ -9,6 +9,7 @@
 .zlogin
 .zprofile
 .zsh/git-prompt
+.zsh/powerlevel9k
 .zsh/zsh-syntax-highlighting
 .zshenv
 .zshrc
