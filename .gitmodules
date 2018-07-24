@@ -64,9 +64,6 @@
 [submodule ".vim/bundle/vim-i3-syntax"]
 	path = .vim/bundle/vim-i3-syntax
 	url = https://github.com/PotatoesMaster/i3-vim-syntax.git
-[submodule ".zsh/git-prompt"]
-	path = .zsh/git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt.git
 [submodule ".vim/bundle/vim-liquid"]
 	path = .vim/bundle/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
