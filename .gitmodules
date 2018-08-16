@@ -1,162 +1,208 @@
 [submodule ".vim/bundle/vim-rails"]
 	path = .vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+	branch = master
 [submodule ".vim/bundle/vim-bundler"]
 	path = .vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
+	branch = master
 [submodule ".vim/bundle/vim-haml"]
 	path = .vim/bundle/vim-haml
 	url = https://github.com/tpope/vim-haml.git
+	branch = master
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+	branch = master
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
+	branch = master
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
+	branch = master
 [submodule ".vim/bundle/vim-syntastic"]
 	path = .vim/bundle/vim-syntastic
 	url = https://github.com/scrooloose/syntastic.git
+	branch = master
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+	branch = master
 [submodule ".vim/bundle/vim-nerdtree"]
 	path = .vim/bundle/vim-nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+	branch = master
 [submodule ".vim/bundle/vim-varnish"]
 	path = .vim/bundle/vim-varnish
 	url = https://github.com/empanda/vim-varnish.git
+	branch = master
 [submodule ".vim/bundle/vim-gist"]
 	path = .vim/bundle/vim-gist
 	url = https://github.com/mattn/gist-vim.git
+	branch = master
 [submodule ".vim/bundle/vim-webapi"]
 	path = .vim/bundle/vim-webapi
 	url = https://github.com/mattn/webapi-vim.git
+	branch = master
 [submodule ".vim/bundle/vim-rvm"]
 	path = .vim/bundle/vim-rvm
 	url = https://github.com/tpope/vim-rvm.git
+	branch = master
 [submodule ".vim/bundle/vim-nodejs"]
 	path = .vim/bundle/vim-nodejs
 	url = https://github.com/mmalecki/vim-node.js.git
+	branch = master
 [submodule ".vim/bundle/vim-git"]
 	path = .vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
+	branch = master
 [submodule ".vim/bundle/vim-html5"]
 	path = .vim/bundle/vim-html5
 	url = https://github.com/othree/html5.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-css3"]
 	path = .vim/bundle/vim-css3
 	url = https://github.com/hail2u/vim-css3-syntax.git
+	branch = master
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+	branch = master
 [submodule ".vim/bundle/vim-endwise"]
 	path = .vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
-[submodule ".vim/bundle/vim-molokai"]
-	path = .vim/bundle/vim-molokai
-	url = https://github.com/tomasr/molokai.git
+	branch = master
 [submodule ".vim/bundle/vim-i3-syntax"]
 	path = .vim/bundle/vim-i3-syntax
 	url = https://github.com/PotatoesMaster/i3-vim-syntax.git
+	branch = master
 [submodule ".vim/bundle/vim-liquid"]
 	path = .vim/bundle/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
+	branch = master
 [submodule ".vim/bundle/vim-base16"]
 	path = .vim/bundle/vim-base16
 	url = https://github.com/chriskempson/base16-vim
+	branch = master
 [submodule ".config/base16-shell"]
 	path = .config/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+	branch = master
 [submodule ".config/base16-xresources"]
 	path = .config/base16-xresources
 	url = https://github.com/chriskempson/base16-xresources.git
+	branch = master
 [submodule ".vim/bundle/vim-dockerfile"]
 	path = .vim/bundle/vim-dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-tabular"]
 	path = .vim/bundle/vim-tabular
 	url = https://github.com/godlygeek/tabular.git
+	branch = master
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
 	url = https://github.com/rodjek/vim-puppet.git
+	branch = master
 [submodule ".vim/bundle/vim-json"]
 	path = .vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
+	branch = master
 [submodule ".vim/bundle/vim-php"]
 	path = .vim/bundle/vim-php
 	url = https://github.com/StanAngeloff/php.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+	branch = master
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+	branch = master
 [submodule ".vim/bundle/vim-python-mode"]
 	path = .vim/bundle/vim-python-mode
 	url = https://github.com/klen/python-mode.git
+	branch = develop
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+	branch = master
 [submodule ".vim/bundle/vim-emmet"]
 	path = .vim/bundle/vim-emmet
 	url = https://github.com/mattn/emmet-vim.git
+	branch = master
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+	branch = master
 [submodule ".vim/bundle/vim-tmux"]
 	path = .vim/bundle/vim-tmux
 	url = https://github.com/tmux-plugins/vim-tmux.git
+	branch = master
 [submodule ".vim/bundle/vim-systemd-syntax"]
 	path = .vim/bundle/vim-systemd-syntax
 	url = https://github.com/Matt-Deacalion/vim-systemd-syntax.git
+	branch = master
 [submodule ".vim/bundle/vim-csv"]
 	path = .vim/bundle/vim-csv
 	url = https://github.com/chrisbra/csv.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-angular"]
 	path = .vim/bundle/vim-angular
 	url = https://github.com/burnettk/vim-angular.git
+	branch = master
 [submodule ".vim/bundle/vim-javascript-libraries-syntax"]
 	path = .vim/bundle/vim-javascript-libraries-syntax
 	url = https://github.com/othree/javascript-libraries-syntax.vim.git
+	branch = master
 [submodule ".zsh/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	branch = master
 [submodule ".vim/bundle/vim-mustache-handlebars"]
 	path = .vim/bundle/vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+	branch = master
 [submodule ".vim/bundle/vim-mail"]
 	path = .vim/bundle/vim-mail
 	url = https://github.com/dbeniamine/vim-mail.git
+	branch = master
 [submodule ".vim/bundle/vim-ansible"]
 	path = .vim/bundle/vim-ansible
 	url = https://github.com/pearofducks/ansible-vim.git
+	branch = master
 [submodule ".vim/bundle/vim-mediawiki"]
 	path = .vim/bundle/vim-mediawiki
 	url = https://github.com/chikamichi/mediawiki.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-terraform"]
 	path = .vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+	branch = master
 [submodule ".vim/bundle/vim-rainbow"]
 	path = .vim/bundle/vim-rainbow
 	url = https://github.com/luochen1990/rainbow.git
+	branch = master
 [submodule ".vim/bundle/vim-gnupg"]
 	path = .vim/bundle/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
+	branch = master
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+	branch = master
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+	branch = master
 [submodule ".zsh/powerlevel9k"]
 	path = .zsh/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
+	branch = master
