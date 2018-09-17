@@ -98,6 +98,7 @@ nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
 nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
 if has("autocmd")
+  autocmd FileType go         setlocal shiftwidth=8 tabstop=8 noexpandtab
   autocmd FileType html       setlocal shiftwidth=2 tabstop=2
   autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
   autocmd FileType man        setlocal nolist
