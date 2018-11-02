@@ -1,7 +1,7 @@
 [user]
     email = pierre@guinoiseau.nz
     name = Pierre Guinoiseau
-    signingkey = 1085EB9D
+    signingkey = 0x8D1C3224FAB5BA48
 
 [color]
     ui = auto

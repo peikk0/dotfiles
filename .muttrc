@@ -114,7 +114,7 @@ message-hook '~f @yahoo\.(com\|fr)$' 'unalternative_order *; alternative_order t
 
 # {{{ PGP
 
-set pgp_sign_as = 0x1085EB9D
+set pgp_sign_as = 0x8D1C3224FAB5BA48
 
 set crypt_autopgp = yes
 set crypt_autosign = yes
