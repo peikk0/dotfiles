@@ -343,6 +343,3 @@ fi
 : # noop
 
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
