@@ -1,12 +1,9 @@
-gem: --no-rdoc --no-ri --env-shebang --wrappers
-install: --no-rdoc --no-ri --env-shebang --wrappers
-update: --no-rdoc --no-ri --env-shebang --wrappers
---- 
-:update_sources: true
+---
+install: --no-document --env-shebang --wrappers --user-install
+update: --no-document --env-shebang --wrappers --user-install
 :verbose: true
-:sources: 
+:sources:
 - https://rubygems.org/
 - https://gems.github.com/
-:benchmark: false
-:backtrace: false
-:bulk_threshold: 1000
+
+# vim:ft=yaml:
