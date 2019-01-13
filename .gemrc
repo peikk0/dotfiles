@@ -4,6 +4,5 @@ update: --no-document --env-shebang --wrappers --user-install
 :verbose: true
 :sources:
 - https://rubygems.org/
-- https://gems.github.com/
 
 # vim:ft=yaml:
