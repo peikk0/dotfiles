@@ -220,6 +220,11 @@ let g:syntastic_php_checkers=['php']
 let g:syntastic_python_checkers=[]
 let g:syntastic_tex_checkers=[]
 
+" terraform
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
+
 " Mappings
 
 inoremap jj <Esc>
