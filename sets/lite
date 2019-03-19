@@ -26,7 +26,7 @@
 .gvimrc
 .nvim
 .nvimrc
-.vim/bundle
+.vim/pack/vendor
 .vimrc
 
 .gemrc

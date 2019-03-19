@@ -1,12 +1,18 @@
 " peikk0's vimrc
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" Load plugins on Vim 7
+if !has("packages")
+  runtime pack/vendor/opt/pathogen/autoload/pathogen.vim
+  execute pathogen#infect()
+endif
 
 syntax on
 filetype plugin indent on
 
 if has("terminfo") || has("nvim")
+  if has("packages")
+    packadd base16
+  endif
   set t_Co=256
   set background=dark
   let base16colorspace=256
@@ -15,7 +21,7 @@ end
 
 set nocompatible
 set modeline
-set modelines=5     " Debian likes to disable this
+set modelines=5 " Debian likes to disable this
 
 set backspace=indent,eol,start
 
@@ -62,8 +68,6 @@ set showcmd
 set laststatus=2
 set colorcolumn=80
 
-set statusline=[%n]\ %<%f\ %y[%{&ff}][%{&fenc}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
-
 set hlsearch
 set incsearch
 
@@ -84,6 +88,7 @@ set mouse=
 
 set shell=/bin/sh
 set grepprg=grep\ -nH\ $*
+
 function! OpenURL(url)
   if $DISPLAY !~ '^\w'
     exe "silent !sensible-browser \"".a:url."\""
@@ -114,57 +119,22 @@ if has("autocmd")
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal! g`\"" |
         \ endif
-
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
-
-function! SL(function)
-  if exists('*'.a:function)
-    return call(a:function,[])
-  else
-    return ''
-  endif
-endfunction
-
-function! NTFinderP()
-  "" Check if NERDTree is open
-  if exists("t:NERDTreeBufName")
-    let s:ntree = bufwinnr(t:NERDTreeBufName)
-  else
-    let s:ntree = -1
-  endif
-  if (s:ntree != -1)
-    "" If NERDTree is open, close it.
-    :NERDTreeClose
-  else
-    "" Try to open a :Rtree for the rails project
-    if exists(":Rtree")
-      "" Open Rtree (using rails plugin, it opens in project dir)
-      :Rtree
-    else
-      "" Open NERDTree in the file path
-      :NERDTreeFind
-    endif
-  endif
-endfunction
-
-" Plugins
-
-" :Man command
-runtime ftplugin/man.vim
-" Match It
-runtime macros/matchit.vim
-
-let g:netrw_http_cmd="curl -s -o"
-
-" NERDTree
-let NERDTreeIgnore = ['\.pyc$']
 
 " use XHTML and CSS with :TOhtml
 let use_xhtml=1
 let html_use_css=1
 let html_ignore_folding=1
 let html_use_encoding="UTF-8"
+
+
+
+" === Plugins ===
+
+" Load all packages on Vim >= 8
+if has("packages")
+  packloadall
+endif
 
 " airline
 let g:airline_theme='base16_default'
@@ -189,12 +159,43 @@ let g:gist_browser_command='sensible-browser %URL%'
 let g:gist_clip_command='xclip -selection clipboard'
 let g:gist_show_privates=1
 
-" gitgutter + emoji
-let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-let g:gitgutter_sign_removed_first_line = emoji#for('small_red_triangle')
-let g:gitgutter_sign_modified_removed = emoji#for('collision')
+" Man
+runtime ftplugin/man.vim
+
+" Match It
+runtime macros/matchit.vim
+
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+
+if has("autocmd")
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+endif
+
+function! NTFinderP()
+  "" Check if NERDTree is open
+  if exists("t:NERDTreeBufName")
+    let s:ntree = bufwinnr(t:NERDTreeBufName)
+  else
+    let s:ntree = -1
+  endif
+  if (s:ntree != -1)
+    "" If NERDTree is open, close it.
+    :NERDTreeClose
+  else
+    "" Try to open a :Rtree for the rails project
+    if exists(":Rtree")
+      "" Open Rtree (using rails plugin, it opens in project dir)
+      :Rtree
+    else
+      "" Open NERDTree in the file path
+      :NERDTreeFind
+    endif
+  endif
+endfunction
+
+" netrw
+let g:netrw_http_cmd="curl -s -o"
 
 " Python
 let python_highlight_builtins=1
@@ -228,12 +229,22 @@ let g:syntastic_php_checkers=['php']
 let g:syntastic_python_checkers=[]
 let g:syntastic_tex_checkers=[]
 
+function! SL(function)
+  if exists('*'.a:function)
+    return call(a:function,[])
+  else
+    return ''
+  endif
+endfunction
+
+set statusline=[%n]\ %<%f\ %y[%{&ff}][%{&fenc}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
+
 " terraform
 let g:terraform_align=1
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
-" Mappings
+" === Mappings ===
 
 inoremap jj <Esc>
 
@@ -294,6 +305,8 @@ noremap! [" [""]<esc>hi
 if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
+
+" === LOCAL ===
 
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
