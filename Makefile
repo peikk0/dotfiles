@@ -13,6 +13,6 @@ update: git-update install
 
 git-update:
 	@git pull origin master
-	@git submodule update --init
+	@git submodule update --init --recursive
 
 .PHONY: default install update git-update check
