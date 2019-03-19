@@ -5,7 +5,7 @@ set guioptions=ac
 if has("mac")
     set guifont=FuraCode\ Nerd\ Font:h12
 elseif has("unix")
-    set guifont=FuraCode\ Nerd\ Font:10
+    set guifont=FuraCode\ Nerd\ Font\ 10
 endif
 
 " keyboard behaviour
