@@ -23,6 +23,7 @@ set nobackup
 set noundofile
 set swapfile
 set autoread
+set updatetime=100
 
 set title
 set shortmess=aoOtTI
@@ -187,6 +188,13 @@ let g:gist_open_browser_after_post=1
 let g:gist_browser_command='sensible-browser %URL%'
 let g:gist_clip_command='xclip -selection clipboard'
 let g:gist_show_privates=1
+
+" gitgutter + emoji
+let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+let g:gitgutter_sign_removed_first_line = emoji#for('small_red_triangle')
+let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 " Python
 let python_highlight_builtins=1

@@ -206,3 +206,9 @@
 	path = .zsh/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
 	branch = master
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/vim-emoji"]
+	path = .vim/bundle/vim-emoji
+	url = https://github.com/junegunn/vim-emoji.git
