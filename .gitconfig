@@ -52,6 +52,12 @@
 [merge]
     conflictstyle = diff3
 
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
