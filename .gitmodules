@@ -212,3 +212,6 @@
 [submodule ".vim/bundle/vim-emoji"]
 	path = .vim/pack/vendor/start/emoji
 	url = https://github.com/junegunn/vim-emoji.git
+[submodule ".vim/pack/vendor/start/jinja2"]
+	path = .vim/pack/vendor/start/jinja2
+	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
