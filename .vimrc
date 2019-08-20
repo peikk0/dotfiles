@@ -240,7 +240,7 @@ endfunction
 set statusline=[%n]\ %<%f\ %y[%{&ff}][%{&fenc}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
 
 " terraform
-let g:terraform_align=1
+let g:terraform_align=0
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
