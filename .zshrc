@@ -295,8 +295,8 @@ setup_powerlevel9k() {
   POWERLEVEL9K_DATE_FOREGROUND='020'
 
   prompt_desk() {
-    if [[ -n "$DESK_NAME" ]]; then
-      "$1_prompt_segment" "$0" "$2" black cyan "$DESK_NAME" DESKTOP_ICON
+    if [[ -n "${DESK_NAME}" ]]; then
+      "$1_prompt_segment" "$0" "$2" black cyan "${DESK_NAME}" DESKTOP_ICON
     fi
   }
 
