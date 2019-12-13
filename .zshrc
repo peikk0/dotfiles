@@ -167,7 +167,6 @@ function simple_prompt {
   local _misc_color="%{${fg_no_bold[white]}%}"
   local _rcerr_color="%{${fg_no_bold[red]}%}"
 
-  local _desk_color="%{${fg_no_bold[blue]}%}"
   local _host_color="%{${fg_no_bold[cyan]}%}"
 
   # Change path color given user rights on it
@@ -191,13 +190,6 @@ function simple_prompt {
   # Host
   local host="${_host_color}%m"
 
-  # Desk
-  if [ -n "${DESK_NAME}" ]; then
-    local desk=" ${_misc_color}[${_desk_color}${DESK_NAME}${_misc_color}]"
-  else
-    local desk=""
-  fi
-
   # Current path
   local cwd="${_path_color}%48<...<%~"
 
@@ -205,7 +197,7 @@ function simple_prompt {
   local sign="${_sign_color}%#"
 
   # Set the prompt
-  PS1="${return_code}${host} ${cwd}${desk} ${sign}${_reset_color} "
+  PS1="${return_code}${host} ${cwd} ${sign}${_reset_color} "
 
   # Right prompt with clock
   RPS1="  %{$fg_no_bold[yellow]%}%D{%d/%m/%y %H:%M:%S}%{${reset_color}%}"
@@ -218,6 +210,24 @@ function simple_prompt {
 POWERLEVEL9K_THEME="${HOME}/.zsh/powerlevel9k/powerlevel9k.zsh-theme"
 
 setup_powerlevel9k() {
+  prompt_aws_assume_role() {
+    if [[ -n "${AWS_ASSUME_ROLE}" ]] && [[ "${AWS_ACCESS_KEY_ID:0:4}" = 'ASIA' ]]; then
+      icon=SUDO_ICON
+      color=black
+      if [[ -n "${AWS_SESSION_TIMESTAMP}" ]] && [[ -n "${AWS_SESSION_MAX_TTL}" ]] && [[ $(( AWS_SESSION_TIMESTAMP + AWS_SESSION_MAX_TTL )) -lt "$(date +%s)" ]]; then
+        icon=FAIL_ICON
+        color=red
+      fi
+      "$1_prompt_segment" "$0" "$2" white "${color}" "${AWS_ASSUME_ROLE}" "${icon}"
+    fi
+  }
+
+  prompt_gcp() {
+    if [[ -n "${GCP_PROJECT}" ]]; then
+      "$1_prompt_segment" "$0" "$2" 032 white "${GCP_PROJECT}" 'GCP_ICON'
+    fi
+  }
+
   POWERLEVEL9K_MODE="nerdfont-complete"
   POWERLEVEL9K_IGNORE_TERM_COLORS=true
   POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
@@ -227,7 +237,7 @@ setup_powerlevel9k() {
   POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR="  "
   POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0C7'
   POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=$'\uE0C7'
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir dir_writable vcs desk aws)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir dir_writable vcs aws aws_assume_role gcp)
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs time date_joined)
   POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
   POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
@@ -235,7 +245,8 @@ setup_powerlevel9k() {
   POWERLEVEL9K_DATE_FORMAT="%D{%Y-%m-%d}"
   DEFAULT_USER="pierre"
 
-  POWERLEVEL9K_DESKTOP_ICON=$'\uF108'
+  # icons
+  POWERLEVEL9K_GCP_ICON=$'\uE7B2'
 
   # base16 colors
 
@@ -272,9 +283,6 @@ setup_powerlevel9k() {
   POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='016'
   POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='018'
 
-  POWERLEVEL9K_DESK_BACKGROUND='017'
-  POWERLEVEL9K_DESK_FOREGROUND='021'
-
   POWERLEVEL9K_AWS_BACKGROUND='red'
   POWERLEVEL9K_AWS_FOREGROUND='021'
 
@@ -293,12 +301,6 @@ setup_powerlevel9k() {
   POWERLEVEL9K_TIME_FOREGROUND='020'
   POWERLEVEL9K_DATE_BACKGROUND='019'
   POWERLEVEL9K_DATE_FOREGROUND='020'
-
-  prompt_desk() {
-    if [[ -n "${DESK_NAME}" ]]; then
-      "$1_prompt_segment" "$0" "$2" black cyan "${DESK_NAME}" DESKTOP_ICON
-    fi
-  }
 
   . "${POWERLEVEL9K_THEME}"
 }
