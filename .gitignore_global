@@ -7,8 +7,9 @@
 .Spotlight-V100
 .Trashes
 ._*
-Icon?
-Thumbs.db
-ehthumbs.db
 .ropeproject/
 .venv/
+Icon?
+Thumbs.db
+__pycache__/
+ehthumbs.db
