@@ -9,6 +9,7 @@
 .zlogin
 .zprofile
 .zsh/powerlevel9k
+.zsh/powerlevel10k
 .zsh/zsh-syntax-highlighting
 .zshenv
 .zshrc

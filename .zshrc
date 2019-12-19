@@ -207,23 +207,30 @@ function simple_prompt {
   PS3="%{$fg_no_bold[yellow]%}?#%{${reset_color}%} "
 }
 
-POWERLEVEL9K_THEME="${HOME}/.zsh/powerlevel9k/powerlevel9k.zsh-theme"
+POWERLEVEL="10k"
+POWERLEVEL9K_THEME="${HOME}/.zsh/powerlevel${POWERLEVEL}/powerlevel${POWERLEVEL}.zsh-theme"
 
 setup_powerlevel9k() {
   prompt_aws_assume_role() {
-    if [[ "${AWS_ACCESS_KEY_ID:0:4}" = 'ASIA' ]]; then
-      icon='SUDO_ICON'
-      color='black'
-      if [[ -n "${AWS_SESSION_EXPIRATION}" ]] && [[ "${AWS_SESSION_EXPIRATION}" -lt "$(date +%s)" ]]; then
-        icon='FAIL_ICON'
-        color='red'
-      fi
+    [[ "${AWS_ACCESS_KEY_ID:0:4}" = 'ASIA' ]] || return
+    icon='SUDO_ICON'
+    color='black'
+    if [[ -n "${AWS_SESSION_EXPIRATION}" ]] && [[ "${AWS_SESSION_EXPIRATION}" -lt "$(date +%s)" ]]; then
+      icon='FAIL_ICON'
+      color='red'
+    fi
+    if [ "${POWERLEVEL}" = "10k" ]; then
+      p10k segment -b 'white' -f "${color}" -r -i "${icon}" -t "${AWS_ASSUME_ROLE}"
+    else
       "$1_prompt_segment" "$0" "$2" 'white' "${color}" "${AWS_ASSUME_ROLE}" "${icon}"
     fi
   }
 
   prompt_gcp() {
-    if [[ -n "${GCP_PROJECT}" ]]; then
+    [[ -n "${GCP_PROJECT}" ]] || return
+    if [ "${POWERLEVEL}" = "10k" ]; then
+      p10k segment -b '032' -f 'white' -r -i 'GCP_ICON' -t "${GCP_PROJECT}"
+    else
       "$1_prompt_segment" "$0" "$2" '032' 'white' "${GCP_PROJECT}" 'GCP_ICON'
     fi
   }
