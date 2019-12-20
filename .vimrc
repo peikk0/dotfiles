@@ -136,18 +136,26 @@ if has("packages")
   packloadall
 endif
 
-" airline
+" airline / tmuxline
 let g:airline_theme='base16_default'
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = "\uE0C6"
-" let g:airline_left_alt_sep = "\uE0C6"
 let g:airline_right_sep = "\uE0C7"
-" let g:airline_right_alt_sep = "\uE0C7"
 let g:airline_section_z = airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_tab_type = 0
+let g:tmuxline_preset = {
+      \'a'    : '#h',
+      \'b'    : '#S',
+      \'win'  : ['#I', '#W', '#F'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'z'    : '#T',
+      \'options' : {'status-justify' : 'left'}}
+let g:tmuxline_separators = {
+    \ 'left' : "\uE0C6",
+    \ 'right' : "\uE0C7"}
 
 " csv
 let g:csv_table_leftalign=1

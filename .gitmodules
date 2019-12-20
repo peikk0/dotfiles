@@ -218,3 +218,6 @@
 [submodule ".zsh/powerlevel10k"]
 	path = .zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule ".vim/pack/vendor/start/tmuxline"]
+	path = .vim/pack/vendor/start/tmuxline
+	url = https://github.com/edkolev/tmuxline.vim.git

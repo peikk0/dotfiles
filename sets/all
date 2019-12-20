@@ -21,6 +21,7 @@
 
 .screenrc
 .tmux.conf
+.tmuxline.conf
 
 .terminfo
 
