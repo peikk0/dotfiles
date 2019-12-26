@@ -17,7 +17,7 @@ LC_TIME="${LOCALE}"
 MM_CHARSET="UTF-8"
 export LANG LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME MM_CHARSET
 
-if which vim >/dev/null 2>&1; then
+if command -v vim >/dev/null 2>&1; then
   EDITOR="vim"
   VISUAL="vim"
 else
@@ -26,12 +26,12 @@ else
 fi
 export EDITOR VISUAL
 
-if which less >/dev/null 2>&1; then
+if command -v less >/dev/null 2>&1; then
   PAGER="less"
   LESS="-I -M -R --shift 5"; export LESS
-  if which lesspipe >/dev/null 2>&1; then
+  if command -v lesspipe >/dev/null 2>&1; then
     eval `lesspipe`
-  elif which lesspipe.sh >/dev/null 2>&1; then
+  elif command -v lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'; export LESSOPEN
   fi
 else
@@ -42,7 +42,7 @@ export PAGER
 BLOCKSIZE="K"; export BLOCKSIZE
 
 # Only if not root, and keychain is available, and the .keychain directory was created
-if [ `id -u` -ne 0 ] && which keychain >/dev/null 2>&1 && [ -d "${HOME}/.keychain" ]; then
+if [ `id -u` -ne 0 ] && command -v keychain >/dev/null 2>&1 && [ -d "${HOME}/.keychain" ]; then
   keychain --nogui --noask --quiet
   if [ -f "${HOME}/.keychain/`hostname`-sh" ]; then
     . "${HOME}/.keychain/`hostname`-sh"
@@ -67,7 +67,7 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
       fi
       ;;
     Linux)
-      if which dircolors >/dev/null 2>&1; then
+      if command -v dircolors >/dev/null 2>&1; then
         eval `dircolors -b "${HOME}/.dir_colors"`
       fi
       alias ls="ls --color=auto -N"
@@ -78,11 +78,19 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
   alias l="ls -A -F"
   alias la="ls -a"
 
-  if which bsdtar >/dev/null 2>&1; then
+  if command -v exa >/dev/null 2>&1; then
+    alias exa="exa --group-directories-first --icons"
+    alias ls="exa"
+    alias ll="exa -l -g --time-style=long-iso --git"
+    alias l="exa -F -a"
+    alias la="exa -aa"
+  fi
+
+  if command -v bsdtar >/dev/null 2>&1; then
     alias tar="bsdtar"
   fi
 
-  if which bsdgrep >/dev/null 2>&1; then
+  if command -v bsdgrep >/dev/null 2>&1; then
     alias grep="bsdgrep --color=auto"
   else
     alias grep="grep --color=auto"
