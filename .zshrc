@@ -216,7 +216,7 @@ setup_powerlevel9k() {
       icon='FAIL_ICON'
       color='red'
     fi
-    if [ "${POWERLEVEL}" = "10k" ]; then
+    if [[ "${POWERLEVEL}" = "10k" ]]; then
       p10k segment -b 'white' -f "${color}" -r -i "${icon}" -t "${AWS_ASSUME_ROLE}"
     else
       "$1_prompt_segment" "$0" "$2" 'white' "${color}" "${AWS_ASSUME_ROLE}" "${icon}"
@@ -225,7 +225,7 @@ setup_powerlevel9k() {
 
   prompt_gcp() {
     [[ -n "${GCP_PROJECT}" ]] || return
-    if [ "${POWERLEVEL}" = "10k" ]; then
+    if [[ "${POWERLEVEL}" = "10k" ]]; then
       p10k segment -b '032' -f 'white' -r -i 'GCP_ICON' -t "${GCP_PROJECT}"
     else
       "$1_prompt_segment" "$0" "$2" '032' 'white' "${GCP_PROJECT}" 'GCP_ICON'
@@ -373,6 +373,10 @@ setup_powerlevel9k() {
   POWERLEVEL9K_DATE_FOREGROUND='020'
 
   . "${POWERLEVEL9K_THEME}"
+
+  if [[ "${POWERLEVEL}" = "10k" ]] && [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    . "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
 }
 
 if [[ -e "${POWERLEVEL9K_THEME}" ]]; then
@@ -386,7 +390,7 @@ fi
 # {{{ run-help-sudo
 
 function run-help-sudo {
-  if [ $# -eq 0 ]; then
+  if [[ $# -eq 0 ]]; then
     man sudo
   else
     man $1
