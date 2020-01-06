@@ -211,15 +211,13 @@ setup_powerlevel9k() {
   prompt_aws_assume_role() {
     [[ "${AWS_ACCESS_KEY_ID:0:4}" = 'ASIA' ]] || return
     icon='SUDO_ICON'
-    color='black'
     if [[ -n "${AWS_SESSION_EXPIRATION}" ]] && [[ "${AWS_SESSION_EXPIRATION}" -lt "$(date +%s)" ]]; then
       icon='FAIL_ICON'
-      color='red'
     fi
     if [[ "${POWERLEVEL}" = "10k" ]]; then
-      p10k segment -b 'white' -f "${color}" -r -i "${icon}" -t "${AWS_ASSUME_ROLE}"
+      p10k segment -b 'red' -f 'white' -r -i "${icon}"
     else
-      "$1_prompt_segment" "$0" "$2" 'white' "${color}" "${AWS_ASSUME_ROLE}" "${icon}"
+      "$1_prompt_segment" "$0" "$2" 'white' "${color}" "${icon}"
     fi
   }
 
@@ -247,6 +245,9 @@ setup_powerlevel9k() {
     dir
     dir_writable
     vcs
+    gcp
+    aws
+    aws_assume_role_joined
     # Line 2
     newline
     prompt_char
@@ -257,9 +258,6 @@ setup_powerlevel9k() {
     command_execution_time
     background_jobs
     vim_shell
-    aws_assume_role
-    aws
-    gcp
     time
     date_joined
     # Line 2
