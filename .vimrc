@@ -86,7 +86,7 @@ set timeoutlen=250
 
 set mouse=
 
-set shell=zsh
+set shell=/bin/sh
 set grepprg=grep\ -nH\ $*
 
 function! OpenURL(url)
