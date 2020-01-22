@@ -1,7 +1,6 @@
 # This file is sourced by sh, zsh and bash
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/games:/usr/bin:/usr/sbin:/bin:/sbin"
-[ -d "${HOME}/.rvm" ] && PATH="${HOME}/.rvm/bin:${PATH}"
 PATH="${HOME}/.local/bin:${PATH}"
 export PATH
 

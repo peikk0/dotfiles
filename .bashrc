@@ -2,8 +2,6 @@ ENV="${HOME}/.shrc"
 export ENV
 . ${ENV}
 
-. "${HOME}/.zprofile"
-
 # {{{ Initial check
 
 # Test for an interactive shell.  There is no need to set anything
