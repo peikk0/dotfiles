@@ -1,6 +1,6 @@
 ---
-install: --no-document --env-shebang --wrappers --user-install
-update: --no-document --env-shebang --wrappers --user-install
+install: --no-document --env-shebang --wrappers
+update: --no-document --env-shebang --wrappers
 :verbose: true
 :sources:
 - https://rubygems.org/
