@@ -1,0 +1,21 @@
+# https://github.com/Homebrew/homebrew-bundle
+
+tap "homebrew/cask"
+
+brew "curl"
+brew "exa"
+brew "git"
+brew "gnupg"
+brew "hub"
+brew "lftp"
+brew "libarchive"
+brew "mas"
+brew "pinentry"
+brew "pinentry-mac"
+brew "tmux"
+brew "vim"
+brew "yadm"
+brew "zsh"
+
+local_brewfile=File.join(ENV['HOME'], '.config', 'brew', 'Brewfile.local')
+eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)

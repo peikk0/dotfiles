@@ -30,7 +30,7 @@ if command -v less >/dev/null 2>&1; then
   PAGER="less"
   LESS="-I -M -R --shift 5"; export LESS
   if command -v lesspipe >/dev/null 2>&1; then
-    eval `lesspipe`
+    eval $(lesspipe)
   elif command -v lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'; export LESSOPEN
   fi
@@ -42,13 +42,13 @@ export PAGER
 BLOCKSIZE="K"; export BLOCKSIZE
 
 # Only if not root, and keychain is available, and the .keychain directory was created
-if [ `id -u` -ne 0 ] && command -v keychain >/dev/null 2>&1 && [ -d "${HOME}/.keychain" ]; then
+if [ $(id -u) -ne 0 ] && command -v keychain >/dev/null 2>&1 && [ -d "${HOME}/.keychain" ]; then
   keychain --nogui --noask --quiet
-  if [ -f "${HOME}/.keychain/`hostname`-sh" ]; then
-    . "${HOME}/.keychain/`hostname`-sh"
+  if [ -f "${HOME}/.keychain/$(hostname)-sh" ]; then
+    . "${HOME}/.keychain/$(hostname)-sh"
   fi
-  if [ -f "${HOME}/.keychain/`hostname`-sh-gpg" ]; then
-    . "${HOME}/.keychain/`hostname`-sh-gpg"
+  if [ -f "${HOME}/.keychain/$(hostname)-sh-gpg" ]; then
+    . "${HOME}/.keychain/$(hostname)-sh-gpg"
   fi
 fi
 
@@ -56,11 +56,11 @@ umask 0022
 
 # interactive shell
 if [ -t 1 ] && [ $- != "*i*" ]; then
-  case `uname -s` in
+  case $(uname -s) in
     FreeBSD|Darwin)
       export LSCOLORS="exgxfxcxcxdxdxhbadacec"
       alias ls="ls -G"
-      if [ `uname -s` = "FreeBSD" ]; then
+      if [ $(uname -s) = "FreeBSD" ]; then
         alias ll="ls -h -l -D '%F %T'"
       else
         alias ll="ls -h -l -T"
@@ -68,7 +68,7 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
       ;;
     Linux)
       if command -v dircolors >/dev/null 2>&1; then
-        eval `dircolors -b "${HOME}/.dir_colors"`
+        eval $(dircolors -b "${HOME}/.dir_colors")
       fi
       alias ls="ls --color=auto -N"
       alias ll="ls -h -l --time-style='+%F %T'"
@@ -104,6 +104,12 @@ if [ -t 1 ] && [ $- != "*i*" ]; then
   BASE16_SCHEME="default-dark"
   BASE16_SHELL="${HOME}/.config/base16-shell/scripts/base16-${BASE16_SCHEME}.sh"
   [ -s "${BASE16_SHELL}" ] && . "${BASE16_SHELL}"
+fi
+
+# Homebrew
+if [ $(uname -s) = "Darwin" ]; then
+  HOMEBREW_BUNDLE_FILE="${HOME}/.config/brew/Brewfile"
+  export HOMEBREW_BUNDLE_FILE
 fi
 
 if [ -f "${HOME}/.shrc.local" ]; then

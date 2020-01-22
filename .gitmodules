@@ -221,3 +221,6 @@
 [submodule ".vim/pack/vendor/start/tmuxline"]
 	path = .vim/pack/vendor/start/tmuxline
 	url = https://github.com/edkolev/tmuxline.vim.git
+[submodule ".vim/pack/vendor/start/brewfile"]
+	path = .vim/pack/vendor/start/brewfile
+	url = https://github.com/bfontaine/Brewfile.vim.git
