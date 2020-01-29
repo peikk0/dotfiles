@@ -220,3 +220,6 @@
 [submodule ".vim/pack/vendor/start/brewfile"]
 	path = .vim/pack/vendor/start/brewfile
 	url = https://github.com/bfontaine/Brewfile.vim.git
+[submodule ".vim/pack/vendor/opt/devicons"]
+	path = .vim/pack/vendor/opt/devicons
+	url = https://github.com/ryanoasis/vim-devicons.git

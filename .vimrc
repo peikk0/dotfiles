@@ -39,6 +39,7 @@ set wildmode=longest:full,full
 set viminfo='20,\"500,h
 set history=50
 
+set encoding=utf-8
 set fileencodings=utf-8,latin1,default
 set fileformats=unix,dos,mac
 set shiftwidth=4
@@ -134,6 +135,8 @@ let html_use_encoding="UTF-8"
 " Load all packages on Vim >= 8
 if has("packages")
   packloadall
+  " VimDevIcons needs to be loaded last
+  packadd devicons
 endif
 
 " airline / tmuxline
