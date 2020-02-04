@@ -198,10 +198,6 @@
 	path = .vim/pack/vendor/start/go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
-[submodule ".zsh/powerlevel9k"]
-	path = .zsh/powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
-	branch = master
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/pack/vendor/start/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
