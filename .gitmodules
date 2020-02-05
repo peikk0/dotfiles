@@ -219,3 +219,15 @@
 [submodule ".vim/pack/vendor/opt/devicons"]
 	path = .vim/pack/vendor/opt/devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule ".vim/pack/vendor/start/codefmt"]
+	path = .vim/pack/vendor/start/codefmt
+	url = https://github.com/google/vim-codefmt.git
+[submodule ".vim/pack/vendor/start/maktaba"]
+	path = .vim/pack/vendor/start/maktaba
+	url = https://github.com/google/vim-maktaba.git
+[submodule ".vim/pack/vendor/start/glaive"]
+	path = .vim/pack/vendor/start/glaive
+	url = https://github.com/google/vim-glaive.git
+[submodule ".vim/pack/vendor/start/yaml"]
+	path = .vim/pack/vendor/start/yaml
+	url = https://github.com/stephpy/vim-yaml.git

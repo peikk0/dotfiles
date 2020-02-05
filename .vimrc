@@ -104,23 +104,13 @@ nnoremap gb :OpenURL <cfile><CR>
 nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
 nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
-if has("autocmd")
-  autocmd FileType go         setlocal shiftwidth=8 tabstop=8 noexpandtab
-  autocmd FileType html       setlocal shiftwidth=2 tabstop=2
-  autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
-  autocmd FileType man        setlocal nolist
-  autocmd FileType ruby       setlocal shiftwidth=2 tabstop=2
-  autocmd FileType text       setlocal textwidth=78
-  autocmd FileType yaml       setlocal shiftwidth=2 tabstop=2
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-endif
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
 " use XHTML and CSS with :TOhtml
 let use_xhtml=1
@@ -141,24 +131,33 @@ endif
 
 " airline / tmuxline
 let g:airline_theme='base16_default'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = "\uE0C6"
-let g:airline_right_sep = "\uE0C7"
-let g:airline_section_z = airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:tmuxline_preset = {
+let g:airline_powerline_fonts=1
+let g:airline_left_sep="\uE0C6"
+let g:airline_right_sep="\uE0C7"
+let g:airline_section_z=airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#show_close_button=0
+let g:airline#extensions#tabline#show_tab_type=0
+let g:tmuxline_preset={
       \'a'    : '#h',
       \'b'    : '#S',
       \'win'  : ['#I', '#W', '#F'],
       \'cwin' : ['#I', '#W', '#F'],
       \'z'    : '#T',
       \'options' : {'status-justify' : 'left'}}
-let g:tmuxline_separators = {
+let g:tmuxline_separators={
     \ 'left' : "\uE0C6",
     \ 'right' : "\uE0C7"}
+
+" codefmt
+augroup autoformat_settings
+  autocmd FileType c,cpp AutoFormatBuffer clang-format
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType python AutoFormatBuffer yapf
+augroup END
+
 
 " csv
 let g:csv_table_leftalign=1
@@ -173,22 +172,22 @@ let g:gist_show_privates=1
 " Man
 runtime ftplugin/man.vim
 
+autocmd FileType man setlocal nolist
+
 " Match It
 runtime macros/matchit.vim
 
 " NERDTree
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore=['\.pyc$']
 
-if has("autocmd")
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 function! NTFinderP()
   "" Check if NERDTree is open
   if exists("t:NERDTreeBufName")
-    let s:ntree = bufwinnr(t:NERDTreeBufName)
+    let s:ntree=bufwinnr(t:NERDTreeBufName)
   else
-    let s:ntree = -1
+    let s:ntree=-1
   endif
   if (s:ntree != -1)
     "" If NERDTree is open, close it.
@@ -215,7 +214,7 @@ let python_highlight_numbers=1
 let python_highlight_space_errors=1
 let g:pymode_doc=0
 let g:pymode_options=0
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_checkers=['pyflakes', 'pep8']
 
 " Ruby
 let ruby_operators=1
@@ -232,23 +231,16 @@ let g:rails_syntax=1
 " let g:rainbow_active=1
 
 " syntastic
-let g:syntastic_enable_signs=1
+let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_signs=1
+let g:syntastic_php_checkers=['php']
 let g:syntastic_puppet_checkers=["puppet"]
 let g:syntastic_puppet_puppetlint_args="--error-level error"
-let g:syntastic_php_checkers=['php']
 let g:syntastic_python_checkers=[]
 let g:syntastic_tex_checkers=[]
-
-function! SL(function)
-  if exists('*'.a:function)
-    return call(a:function,[])
-  else
-    return ''
-  endif
-endfunction
-
-set statusline=[%n]\ %<%f\ %y[%{&ff}][%{&fenc}]%h%w%r%m%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%5l/%L%4c%V\ [0x%04B]
 
 " terraform
 let g:terraform_align=0
@@ -256,6 +248,8 @@ let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
 " === Mappings ===
+
+Glaive codefmt plugin[mappings]
 
 inoremap jj <Esc>
 
