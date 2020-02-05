@@ -236,6 +236,9 @@ setup_powerlevel9k() {
     dir
     dir_writable
     vcs
+    goenv
+    pyenv
+    rbenv
     gcloud
     google_app_cred
     aws
@@ -266,7 +269,20 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs'
   typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_SHOW_ON_COMMAND='terraform'
   typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc'
-  typeset -g POWERLEVEL9K_VCS_SHOW_ON_COMMAND='git|hub'
+  typeset -g POWERLEVEL9K_VCS_SHOW_ON_COMMAND='git|git-*|hub'
+
+  typeset -g POWERLEVEL9K_GOENV_SHOW_ON_COMMAND='go|goenv|gofmt|golangci-lint'
+  typeset -g POWERLEVEL9K_PYENV_SHOW_ON_COMMAND='ipython|ipython3*|pip|pip3*|python|python3*|pip|pip3*|pipenv|pyenv'
+  typeset -g POWERLEVEL9K_RBENV_SHOW_ON_COMMAND='bundle|gem|irb|pry|rbenv|ruby'
+
+  typeset -g POWERLEVEL9K_GOENV_SOURCES=(shell local global)
+  typeset -g POWERLEVEL9K_GOENV_PROMPT_ALWAYS_SHOW=true
+
+  typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
+  typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
+
+  typeset -g POWERLEVEL9K_RBENV_SOURCES=(shell local global)
+  typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
 
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   local anchor_files=(
@@ -336,6 +352,13 @@ setup_powerlevel9k() {
 
   typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_BACKGROUND='white'
   typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_FOREGROUND='032'
+
+  typeset -g POWERLEVEL9K_GOENV_BACKGROUND='cyan'
+  typeset -g POWERLEVEL9K_GOENV_FOREGROUND='018'
+  typeset -g POWERLEVEL9K_PYENV_BACKGROUND='blue'
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='018'
+  typeset -g POWERLEVEL9K_RBENV_BACKGROUND='red'
+  typeset -g POWERLEVEL9K_RBENV_FOREGROUND='018'
 
   typeset -g POWERLEVEL9K_STATUS_{ERROR,OK}_BACKGROUND='018'
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
