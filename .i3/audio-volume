@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ `uname -s` = "FreeBSD" ]; then
+if [ $(uname -s) = "FreeBSD" ]; then
     MIXER_COMMAND="mixer vol"
     MIXER_UP="+5"
     MIXER_DOWN="-5"
@@ -18,14 +18,14 @@ usage() {
 }
 
 _mixer() {
-    $MIXER_COMMAND $1 >/dev/null 2>&1
+    ${MIXER_COMMAND} $1 >/dev/null 2>&1
 }
 
 [ $# -ne 1 ] && usage
 
 case $1 in
-    up)   _mixer $MIXER_UP ;;
-    down) _mixer $MIXER_DOWN ;;
-    mute) [ -n "$MIXER_MUTE" ] && _mixer toggle ;;
+    up)   _mixer ${MIXER_UP} ;;
+    down) _mixer ${MIXER_DOWN} ;;
+    mute) [ -n "${MIXER_MUTE}" ] && _mixer toggle ;;
     *) usage ;;
 esac

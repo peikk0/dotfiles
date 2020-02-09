@@ -57,7 +57,7 @@ umask 0022
 if [ -t 1 ] && [ $- != "*i*" ]; then
   case $(uname -s) in
     FreeBSD|Darwin)
-      export LSCOLORS="exgxfxcxcxdxdxhbadacec"
+      LSCOLORS="exgxfxcxcxdxdxhbadacec"; export LSCOLORS
       alias ls="ls -G"
       if [ $(uname -s) = "FreeBSD" ]; then
         alias ll="ls -h -l -D '%F %T'"
