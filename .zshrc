@@ -16,7 +16,6 @@ setopt extended_glob
 setopt hash_cmds
 setopt hash_dirs
 setopt numeric_glob_sort
-setopt transient_rprompt
 unsetopt beep
 unsetopt notify
 
@@ -28,8 +27,8 @@ colors
 
 # {{{ Keybindings
 
-# emacs keybindings, tired of vi mode in shell
-bindkey -e
+# Vi keybindings
+bindkey -v
 
 # Fixes from Debian
 if [[ "${TERM}" != emacs ]]; then
@@ -383,6 +382,7 @@ setup_powerlevel9k() {
 if [[ -e "${POWERLEVEL9K_THEME}" ]]; then
   setup_powerlevel9k
 else
+  setopt transient_rprompt
   add-zsh-hook precmd simple_prompt
 fi
 
@@ -400,19 +400,19 @@ function run-help-sudo {
 
 # }}}
 
-# {{{ Local configuration
-
-if [[ -f "${HOME}/.zshrc.local" ]]; then
-  . "${HOME}/.zshrc.local"
-fi
-
-# }}}
-
 # {{{ Syntax highlighting
 
 if [[ -f "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   . "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+fi
+
+# }}}
+
+# {{{ Local configuration
+
+if [[ -f "${HOME}/.zshrc.local" ]]; then
+  . "${HOME}/.zshrc.local"
 fi
 
 # }}}
