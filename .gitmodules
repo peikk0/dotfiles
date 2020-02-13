@@ -231,3 +231,6 @@
 [submodule ".vim/pack/vendor/start/yaml"]
 	path = .vim/pack/vendor/start/yaml
 	url = https://github.com/stephpy/vim-yaml.git
+[submodule ".vim/pack/vendor/start/fugitive-gitlab"]
+	path = .vim/pack/vendor/start/fugitive-gitlab
+	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
