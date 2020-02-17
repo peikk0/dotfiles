@@ -234,3 +234,6 @@
 [submodule ".vim/pack/vendor/start/fugitive-gitlab"]
 	path = .vim/pack/vendor/start/fugitive-gitlab
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
+[submodule ".vim/pack/vendor/start/zsh"]
+	path = .vim/pack/vendor/start/zsh
+	url = https://github.com/chrisbra/vim-zsh.git
