@@ -32,7 +32,7 @@
 	branch = master
 [submodule ".vim/bundle/vim-nerdtree"]
 	path = .vim/pack/vendor/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = https://github.com/preservim/nerdtree.git
 	branch = master
 [submodule ".vim/bundle/vim-varnish"]
 	path = .vim/pack/vendor/start/varnish

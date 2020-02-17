@@ -182,10 +182,10 @@ runtime macros/matchit.vim
 " NERDTree
 let NERDTreeIgnore=['\.pyc$', '\.zwc$']
 
-let g:NERDTreeDirArrowExpandable = "\uF460"
-let g:NERDTreeDirArrowCollapsible = "\uF47C"
+let g:NERDTreeDirArrowExpandable="\uF460"
+let g:NERDTreeDirArrowCollapsible="\uF47C"
 
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeIndicatorMapCustom={
     \ "Modified"  : "\uF459 ",
     \ "Staged"    : "\uF055 ",
     \ "Untracked" : "\uF020 ",
