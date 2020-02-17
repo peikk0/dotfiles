@@ -7,14 +7,4 @@ done
 
 # }}}
 
-# {{{ Local configuration
-
-if [[ -f "${ZDOTDIR:-${HOME}}/.zshrc.local" ]]; then
-  . "${ZDOTDIR:-${HOME}}/.zshrc.local"
-fi
-
-# }}}
-
-: # noop
-
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:
