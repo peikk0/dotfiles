@@ -2,9 +2,12 @@
 
 exec >"${HOME}/.xsession.log" 2>&1
 
-ENV="${HOME}/.shrc"
-export ENV
-. ${ENV}
+umask 0022
+
+for file in "${HOME}/.sh/inc"/*.sh; do
+  # shellcheck source=/dev/null
+  . "${file}"
+done
 
 # OpenOffice.org look
 OOO_FORCE_DESKTOP=gnome
