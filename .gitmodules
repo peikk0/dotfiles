@@ -237,3 +237,6 @@
 [submodule ".vim/pack/vendor/start/zsh"]
 	path = .vim/pack/vendor/start/zsh
 	url = https://github.com/chrisbra/vim-zsh.git
+[submodule ".vim/pack/vendor/start/nerdtree-git"]
+	path = .vim/pack/vendor/start/nerdtree-git
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git

@@ -140,15 +140,17 @@ let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#show_close_button=0
 let g:airline#extensions#tabline#show_tab_type=0
 let g:tmuxline_preset={
-      \'a'    : '#h',
-      \'b'    : '#S',
-      \'win'  : ['#I', '#W', '#F'],
-      \'cwin' : ['#I', '#W', '#F'],
-      \'z'    : '#T',
-      \'options' : {'status-justify' : 'left'}}
+      \ 'a'       : '#h',
+      \ 'b'       : '#S',
+      \ 'win'     : ['#I', '#W', '#F'],
+      \ 'cwin'    : ['#I', '#W', '#F'],
+      \ 'z'       : '#T',
+      \ 'options' : {'status-justify' : 'left'}
+      \ }
 let g:tmuxline_separators={
-    \ 'left' : "\uE0C6",
-    \ 'right' : "\uE0C7"}
+    \ 'left'  : "\uE0C6",
+    \ 'right' : "\uE0C7"
+    \ }
 
 " codefmt
 augroup autoformat_settings
@@ -178,31 +180,23 @@ autocmd FileType man setlocal nolist
 runtime macros/matchit.vim
 
 " NERDTree
-let NERDTreeIgnore=['\.pyc$']
+let NERDTreeIgnore=['\.pyc$', '\.zwc$']
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:NERDTreeDirArrowExpandable = "\uF460"
+let g:NERDTreeDirArrowCollapsible = "\uF47C"
 
-function! NTFinderP()
-  "" Check if NERDTree is open
-  if exists("t:NERDTreeBufName")
-    let s:ntree=bufwinnr(t:NERDTreeBufName)
-  else
-    let s:ntree=-1
-  endif
-  if (s:ntree != -1)
-    "" If NERDTree is open, close it.
-    :NERDTreeClose
-  else
-    "" Try to open a :Rtree for the rails project
-    if exists(":Rtree")
-      "" Open Rtree (using rails plugin, it opens in project dir)
-      :Rtree
-    else
-      "" Open NERDTree in the file path
-      :NERDTreeFind
-    endif
-  endif
-endfunction
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "\uF459 ",
+    \ "Staged"    : "\uF055 ",
+    \ "Untracked" : "\uF020 ",
+    \ "Renamed"   : "\uF45A ",
+    \ "Unmerged"  : "\uF440 ",
+    \ "Deleted"   : "\uF458 ",
+    \ "Dirty"     : "\uF41B ",
+    \ "Clean"     : "\uF42E ",
+    \ 'Ignored'   : "\uF474 ",
+    \ "Unknown"   : "\uF46E "
+    \ }
 
 " netrw
 let g:netrw_http_cmd="curl -s -o"
@@ -253,7 +247,7 @@ Glaive codefmt plugin[mappings]
 
 inoremap jj <Esc>
 
-map <silent> <F1> :call NTFinderP()<CR>
+map <silent> <F1> :NERDTreeToggle<CR>
 map <F5> <Esc>gg=G''
 map <A-Right> gt
 map <A-Left> gT
