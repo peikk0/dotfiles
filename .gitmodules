@@ -240,3 +240,6 @@
 [submodule ".vim/pack/vendor/start/nerdtree-git"]
 	path = .vim/pack/vendor/start/nerdtree-git
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule ".vim/pack/vendor/start/startify"]
+	path = .vim/pack/vendor/start/startify
+	url = https://github.com/mhinz/vim-startify.git
