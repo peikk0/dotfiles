@@ -1,16 +1,12 @@
 " peikk0's vimrc
 
-" Load plugins on Vim 7
-if !has("packages")
-  runtime pack/vendor/opt/pathogen/autoload/pathogen.vim
-  execute pathogen#infect()
-endif
+set nocompatible
 
-syntax on
 filetype plugin indent on
+syntax on
 
-if has("terminfo") || has("nvim")
-  if has("packages")
+if has('terminfo') || has('nvim')
+  if has('packages')
     packadd base16
   endif
   set t_Co=256
@@ -19,9 +15,8 @@ if has("terminfo") || has("nvim")
   colorscheme base16-default-dark
 end
 
-set nocompatible
 set modeline
-set modelines=5 " Debian likes to disable this
+set modelines=3
 
 set backspace=indent,eol,start
 
@@ -39,7 +34,7 @@ set wildmode=longest:full,full
 set viminfo='20,\"500,h
 set history=50
 
-set encoding=utf-8
+set encoding=utf8
 set fileencodings=utf-8,latin1,default
 set fileformats=unix,dos,mac
 set shiftwidth=4
@@ -90,20 +85,6 @@ set mouse=
 set shell=/bin/sh
 set grepprg=grep\ -nH\ $*
 
-function! OpenURL(url)
-  if $DISPLAY !~ '^\w'
-    exe "silent !sensible-browser \"".a:url."\""
-  else
-    exe "silent !sensible-browser -T \"".a:url."\""
-  endif
-  redraw!
-endfunction
-command! -nargs=1 OpenURL :call OpenURL(<q-args>)
-" open URL under cursor in browser
-nnoremap gb :OpenURL <cfile><CR>
-nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
-nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
@@ -112,47 +93,47 @@ autocmd BufReadPost *
       \   exe "normal! g`\"" |
       \ endif
 
-" use XHTML and CSS with :TOhtml
-let use_xhtml=1
-let html_use_css=1
-let html_ignore_folding=1
-let html_use_encoding="UTF-8"
-
-
-
 " === Plugins ===
 
-" Load all packages on Vim >= 8
-if has("packages")
+if !has('packages')
+  " Load plugins on Vim < 8
+  runtime pack/vendor/opt/pathogen/autoload/pathogen.vim
+  execute pathogen#infect()
+else
+  " Load all packages on Vim >= 8
   packloadall
-  " VimDevIcons needs to be loaded last
+  " Ensure devicons is loaded after the plugins it modifies
   packadd devicons
 endif
 
-" airline / tmuxline
-let g:airline_theme='base16_default'
-let g:airline_powerline_fonts=1
-let g:airline_left_sep="\uE0C6"
-let g:airline_right_sep="\uE0C7"
-let g:airline_section_z=airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=0
-let g:airline#extensions#tabline#show_close_button=0
-let g:airline#extensions#tabline#show_tab_type=0
-let g:tmuxline_preset={
-      \ 'a'       : '#h',
-      \ 'b'       : '#S',
-      \ 'win'     : ['#I', '#W', '#F'],
-      \ 'cwin'    : ['#I', '#W', '#F'],
-      \ 'z'       : '#T',
-      \ 'options' : {'status-justify' : 'left'}
-      \ }
-let g:tmuxline_separators={
-    \ 'left'  : "\uE0C6",
-    \ 'right' : "\uE0C7"
-    \ }
+" Airline / Tmuxline
+if exists('g:loaded_airline') && g:loaded_airline
+  let g:airline_theme='base16_default'
+  let g:airline_powerline_fonts=1
+  let g:airline_highlighting_cache = 1
+  let g:airline_left_sep="\uE0C6"
+  let g:airline_right_sep="\uE0C7"
+  let g:airline_section_z=airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+  let g:airline#extensions#tabline#enabled=1
+  let g:airline#extensions#tabline#show_buffers=0
+  let g:airline#extensions#tabline#show_close_button=0
+  let g:airline#extensions#tabline#show_tab_type=0
 
-" codefmt
+  let g:tmuxline_preset={
+        \ 'a'       : '#h',
+        \ 'b'       : '#S',
+        \ 'win'     : ['#I', '#W', '#F'],
+        \ 'cwin'    : ['#I', '#W', '#F'],
+        \ 'z'       : '#T',
+        \ 'options' : {'status-justify' : 'left'}
+        \ }
+  let g:tmuxline_separators={
+        \ 'left'  : "\uE0C6",
+        \ 'right' : "\uE0C7"
+        \ }
+endif
+
+" CodeFmt
 augroup autoformat_settings
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType go AutoFormatBuffer gofmt
@@ -160,16 +141,34 @@ augroup autoformat_settings
   " autocmd FileType python AutoFormatBuffer yapf
 augroup END
 
+" CtrlP
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlPMixed'
 
-" csv
+" CSV
 let g:csv_table_leftalign=1
 
-" gist
+" DevIcons
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
+" Gist
 let g:gist_detect_filetype=1
 let g:gist_open_browser_after_post=1
 let g:gist_browser_command='sensible-browser %URL%'
 let g:gist_clip_command='xclip -selection clipboard'
 let g:gist_show_privates=1
+
+" Go
+let g:go_fmt_autosave=1
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_fields=1
+let g:go_highlight_types=1
+let g:go_highlight_operators=1
+let g:go_highlight_build_constraints=1
+let g:go_list_type="quickfix"
 
 " Man
 runtime ftplugin/man.vim
@@ -180,25 +179,34 @@ autocmd FileType man setlocal nolist
 runtime macros/matchit.vim
 
 " NERDTree
-let NERDTreeIgnore=['\.pyc$', '\.zwc$']
+runtime! nerdtree_plugin/webdevicons.vim
 
+let NERDTreeIgnore=['\.pyc$', '\.zwc$']
+let NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable="\uF460"
 let g:NERDTreeDirArrowCollapsible="\uF47C"
 
 let g:NERDTreeIndicatorMapCustom={
-    \ "Modified"  : "\uF459 ",
-    \ "Staged"    : "\uF055 ",
-    \ "Untracked" : "\uF020 ",
-    \ "Renamed"   : "\uF45A ",
-    \ "Unmerged"  : "\uF440 ",
-    \ "Deleted"   : "\uF458 ",
-    \ "Dirty"     : "\uF41B ",
-    \ "Clean"     : "\uF42E ",
-    \ 'Ignored'   : "\uF474 ",
-    \ "Unknown"   : "\uF46E "
-    \ }
+      \ 'Modified'  : "\uF459 ",
+      \ 'Staged'    : "\uF055 ",
+      \ 'Untracked' : "\uF020 ",
+      \ 'Renamed'   : "\uF45A ",
+      \ 'Unmerged'  : "\uF440 ",
+      \ 'Deleted'   : "\uF458 ",
+      \ 'Dirty'     : "\uF41B ",
+      \ 'Clean'     : "\uF42E ",
+      \ 'Ignored'   : "\uF474 ",
+      \ 'Unknown'   : "\uF46E "
+      \ }
 
-" netrw
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeBeforeGlyphPadding=''
+let g:WebDevIconsNerdTreeGitPluginForceVAlign=1
+let g:WebDevIconsUnicodeDecorateFolderNodes=1
+
+highlight! link NERDTreeFlags NERDTreeDir
+
+" NetRW
 let g:netrw_http_cmd="curl -s -o"
 
 " Python
@@ -216,38 +224,46 @@ let g:rubycomplete_buffer_loading=1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails=1
 
-" rails
+" Rails
 let g:rails_gnu_screen=1
 let g:rails_mappings=1
 let g:rails_syntax=1
 
-" rainbow
+" Rainbow
 " let g:rainbow_active=1
 
-" syntastic
+" Startify
+let g:startify_change_to_vcs_root=1
+let g:startify_custom_header = []
+let g:startify_session_persistence=1
+let g:startify_skiplist=[
+      \ 'COMMIT_EDITMSG',
+      \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') . 'doc',
+      \ $HOME . '/.vim/pack/.*/doc',
+      \ ]
+
+" Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=0
 let g:syntastic_enable_signs=1
-let g:syntastic_php_checkers=['php']
-let g:syntastic_puppet_checkers=["puppet"]
-let g:syntastic_puppet_puppetlint_args="--error-level error"
-let g:syntastic_python_checkers=[]
-let g:syntastic_tex_checkers=[]
+let g:syntastic_go_checkers=['golint', 'govet']
 
-" terraform
+" Terraform
 let g:terraform_align=0
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
 " === Mappings ===
 
-Glaive codefmt plugin[mappings]
+if exists('Glaive')
+  Glaive codefmt plugin[mappings]
+endif
 
 inoremap jj <Esc>
 
-map <silent> <F1> :NERDTreeToggle<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
 map <F5> <Esc>gg=G''
 map <A-Right> gt
 map <A-Left> gT
@@ -301,14 +317,14 @@ noremap! ["; [""];<esc>hhi
 noremap! [' ['']<esc>hi
 noremap! [" [""]<esc>hi
 
-if exists(":nohls")
-  nnoremap <silent> <C-L> :nohls<CR><C-L>
-endif
+nnoremap <silent> <C-L> :nohls<CR><C-L>
+
+nnoremap <Leader>ag :Ag <C-R><C-W><CR>
 
 " === LOCAL ===
 
-if filereadable(glob("~/.vimrc.local"))
-    source ~/.vimrc.local
+if filereadable(glob('~/.vimrc.local'))
+  source ~/.vimrc.local
 endif
 
 " vim:ft=vim:sw=2:ts=2:et
