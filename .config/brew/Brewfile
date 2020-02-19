@@ -2,8 +2,10 @@
 
 tap "homebrew/cask"
 
+brew "ag"
 brew "curl"
 brew "exa"
+brew "fzf"
 brew "git"
 brew "gnupg"
 brew "hub"
