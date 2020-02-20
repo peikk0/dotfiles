@@ -141,10 +141,6 @@ augroup autoformat_settings
   " autocmd FileType python AutoFormatBuffer yapf
 augroup END
 
-" CtrlP
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlPMixed'
-
 " CSV
 let g:csv_table_leftalign=1
 
@@ -273,6 +269,11 @@ set pastetoggle=<F11>
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
+" FZF
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <Leader>rg :Rg <C-R><C-W><CR>
+
 " "" '' <> () [] {}
 noremap! "" ""<esc>i
 noremap! """ """"""<esc>hhi
@@ -318,8 +319,6 @@ noremap! [' ['']<esc>hi
 noremap! [" [""]<esc>hi
 
 nnoremap <silent> <C-L> :nohls<CR><C-L>
-
-nnoremap <Leader>ag :Ag <C-R><C-W><CR>
 
 " === LOCAL ===
 
