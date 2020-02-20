@@ -22,10 +22,6 @@
 	path = .vim/pack/vendor/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
-[submodule ".vim/pack/vendor/start/syntastic"]
-	path = .vim/pack/vendor/start/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-	branch = master
 [submodule ".vim/pack/vendor/start/unimpaired"]
 	path = .vim/pack/vendor/start/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
@@ -266,3 +262,6 @@
 	path = .vim/pack/vendor/start/fzf-bin
 	url = https://github.com/junegunn/fzf.git
 	branch = master
+[submodule ".vim/pack/vendor/start/ale"]
+	path = .vim/pack/vendor/start/ale
+	url = https://github.com/dense-analysis/ale.git

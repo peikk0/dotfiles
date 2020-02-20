@@ -114,6 +114,14 @@ if exists('g:loaded_airline') && g:loaded_airline
   let g:airline_left_sep="\uE0C6"
   let g:airline_right_sep="\uE0C7"
   let g:airline_section_z=airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+
+  let g:airline#extensions#ale#enabled=1
+  let g:airline#extensions#ale#error_symbol="\uF467 "
+  let g:airline#extensions#ale#warning_symbol="\uF421 "
+  let g:airline#extensions#ale#show_line_numbers=1
+  let g:airline#extensions#ale#open_lnum_symbol="(\uE0A1"
+  let g:airline#extensions#ale#close_lnum_symbol=')'
+
   let g:airline#extensions#tabline#enabled=1
   let g:airline#extensions#tabline#show_buffers=0
   let g:airline#extensions#tabline#show_close_button=0
@@ -132,6 +140,11 @@ if exists('g:loaded_airline') && g:loaded_airline
         \ 'right' : "\uE0C7"
         \ }
 endif
+
+" ALE
+let g:ale_echo_msg_error_str='E'
+let g:ale_echo_msg_warning_str='W'
+let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
 
 " CodeFmt
 augroup autoformat_settings
@@ -158,6 +171,7 @@ let g:gist_show_privates=1
 
 " Go
 let g:go_fmt_autosave=1
+let g:go_fmt_fail_silently=1
 let g:go_highlight_functions=1
 let g:go_highlight_methods=1
 let g:go_highlight_fields=1
@@ -238,14 +252,6 @@ let g:startify_skiplist=[
       \ $HOME . '/.vim/pack/.*/doc',
       \ ]
 
-" Syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_signs=1
-let g:syntastic_go_checkers=['golint', 'govet']
-
 " Terraform
 let g:terraform_align=0
 let g:terraform_fold_sections=1
@@ -259,11 +265,12 @@ endif
 
 inoremap jj <Esc>
 
-map <silent> <C-n> :NERDTreeToggle<CR>
-map <F5> <Esc>gg=G''
-map <A-Right> gt
-map <A-Left> gT
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 set pastetoggle=<F11>
+
+" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " easy-align
 nmap ga <Plug>(EasyAlign)
