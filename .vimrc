@@ -25,6 +25,7 @@ set noundofile
 set swapfile
 set autoread
 set updatetime=100
+set tabpagemax=50
 
 set title
 set shortmess=aoOtTI
@@ -32,9 +33,12 @@ set wildmenu
 set wildmode=longest:full,full
 
 set viminfo='20,\"500,h
-set history=50
+set history=1000
 
-set encoding=utf8
+set sessionoptions-=options
+set viewoptions-=options
+
+set encoding=utf-8
 set fileencodings=utf-8,latin1,default
 set fileformats=unix,dos,mac
 set shiftwidth=4
@@ -43,6 +47,10 @@ set smarttab
 set autoindent
 set smartindent
 set omnifunc=syntaxcomplete#Complete
+
+set nrformats-=octal
+
+set formatoptions+=j
 
 let showbreak="> "
 set list
@@ -73,16 +81,18 @@ set smartcase
 set scrolloff=3
 set sidescrolloff=5
 set scrolljump=1
+set display+=lastline
 
 set completeopt=longest,menu
 
 set diffopt+=vertical
 
-set timeoutlen=250
+set ttimeout
+set timeoutlen=100
 
 set mouse=
 
-set shell=/bin/sh
+set shell=/usr/bin/env\ zsh
 set grepprg=grep\ -nH\ $*
 
 " When editing a file, always jump to the last known cursor position.
@@ -325,7 +335,7 @@ noremap! ["; [""];<esc>hhi
 noremap! [' ['']<esc>hi
 noremap! [" [""]<esc>hi
 
-nnoremap <silent> <C-L> :nohls<CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " === LOCAL ===
 
