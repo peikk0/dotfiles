@@ -1,9 +1,11 @@
 # {{{ Syntax highlighting
 
-if [[ -f "${ZDOTDIR:-${HOME}}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-  . "${ZDOTDIR:-${HOME}}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+SYNTAX_HIGHLIGHTING_PLUGIN="${ZDOTDIR:-${HOME}}/.zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ -f "${SYNTAX_HIGHLIGHTING_PLUGIN}" ]]; then
+  . "${SYNTAX_HIGHLIGHTING_PLUGIN}"
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 fi
+unset SYNTAX_HIGHLIGHTING_PLUGIN
 
 # }}}
 

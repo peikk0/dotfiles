@@ -150,8 +150,8 @@
 	path = .vim/pack/vendor/start/javascript-libraries-syntax
 	url = https://github.com/othree/javascript-libraries-syntax.vim.git
 	branch = master
-[submodule ".zsh/zsh-syntax-highlighting"]
-	path = .zsh/zsh-syntax-highlighting
+[submodule ".zsh/plugins/syntax-highlighting"]
+	path = .zsh/plugins/syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 	branch = master
 [submodule ".vim/pack/vendor/start/mustache-handlebars"]
@@ -206,8 +206,8 @@
 	path = .vim/pack/vendor/start/jinja2
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
 	branch = master
-[submodule ".zsh/powerlevel10k"]
-	path = .zsh/powerlevel10k
+[submodule ".zsh/plugins/powerlevel10k"]
+	path = .zsh/plugins/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
 	branch = master
 [submodule ".vim/pack/vendor/start/tmuxline"]

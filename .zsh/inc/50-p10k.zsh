@@ -1,7 +1,7 @@
 # {{{ Powerlevel10k prompt
 
 typeset -g POWERLEVEL="10k"
-typeset -g POWERLEVEL9K_THEME="${ZDOTDIR:-${HOME}}/.zsh/powerlevel${POWERLEVEL}/powerlevel${POWERLEVEL}.zsh-theme"
+typeset -g POWERLEVEL9K_THEME="${ZDOTDIR:-${HOME}}/.zsh/plugins/powerlevel${POWERLEVEL}/powerlevel${POWERLEVEL}.zsh-theme"
 
 setup_powerlevel9k() {
   prompt_aws_assume_role() {
@@ -176,7 +176,7 @@ setup_powerlevel9k() {
   fi
 }
 
-if [[ -e "${POWERLEVEL9K_THEME}" ]]; then
+if [[ -f "${POWERLEVEL9K_THEME}" ]]; then
   setup_powerlevel9k
 fi
 
