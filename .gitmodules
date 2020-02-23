@@ -265,6 +265,12 @@
 [submodule ".vim/pack/vendor/start/ale"]
 	path = .vim/pack/vendor/start/ale
 	url = https://github.com/dense-analysis/ale.git
+	branch = master
 [submodule ".vim/pack/vendor/start/workspace"]
 	path = .vim/pack/vendor/start/workspace
 	url = https://github.com/thaerkh/vim-workspace.git
+	branch = master
+[submodule ".zsh/plugins/autosuggestions"]
+	path = .zsh/plugins/autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+	branch = master
