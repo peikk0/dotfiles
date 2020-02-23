@@ -88,7 +88,7 @@ set completeopt=longest,menu
 set diffopt+=vertical
 
 set ttimeout
-set timeoutlen=100
+set timeoutlen=150
 
 set mouse=
 
