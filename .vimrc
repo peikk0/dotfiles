@@ -267,6 +267,9 @@ let g:terraform_align=0
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
+" Workspace
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+
 " === Mappings ===
 
 if exists('Glaive')
@@ -290,6 +293,9 @@ xmap ga <Plug>(EasyAlign)
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <Leader>rg :Rg <C-R><C-W><CR>
+
+" Workspace
+nnoremap <Leader>s :ToggleWorkspace<CR>
 
 " "" '' <> () [] {}
 noremap! "" ""<esc>i

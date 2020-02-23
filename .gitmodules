@@ -265,3 +265,6 @@
 [submodule ".vim/pack/vendor/start/ale"]
 	path = .vim/pack/vendor/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule ".vim/pack/vendor/start/workspace"]
+	path = .vim/pack/vendor/start/workspace
+	url = https://github.com/thaerkh/vim-workspace.git
