@@ -25,7 +25,6 @@
 [core]
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore_global
-    pager = less -F -X
 
 [alias]
     br = branch
