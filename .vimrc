@@ -35,6 +35,7 @@ set wildmode=longest:full,full
 set viminfo='20,\"500,h
 set history=1000
 
+set sessionoptions-=blank
 set sessionoptions-=options
 set viewoptions-=options
 
@@ -88,7 +89,7 @@ set completeopt=longest,menu
 set diffopt+=vertical
 
 set ttimeout
-set timeoutlen=150
+set timeoutlen=250
 
 set mouse=
 
@@ -102,6 +103,14 @@ autocmd BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal! g`\"" |
       \ endif
+
+augroup filetype_settings
+  autocmd FileType go     setlocal shiftwidth=8 tabstop=8 noexpandtab
+  autocmd FileType python setlocal shiftwidth=4 tabstop=4
+  autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
+  autocmd FileType text   setlocal textwidth=78
+  autocmd FileType yaml   setlocal shiftwidth=2 tabstop=2
+augroup END
 
 " === Plugins ===
 
@@ -156,14 +165,6 @@ let g:ale_echo_msg_error_str='E'
 let g:ale_echo_msg_warning_str='W'
 let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
 
-" CodeFmt
-augroup autoformat_settings
-  autocmd FileType c,cpp AutoFormatBuffer clang-format
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  " autocmd FileType python AutoFormatBuffer yapf
-augroup END
-
 " CSV
 let g:csv_table_leftalign=1
 
@@ -182,12 +183,12 @@ let g:gist_show_privates=1
 " Go
 let g:go_fmt_autosave=1
 let g:go_fmt_fail_silently=1
+let g:go_highlight_build_constraints=1
+let g:go_highlight_fields=1
 let g:go_highlight_functions=1
 let g:go_highlight_methods=1
-let g:go_highlight_fields=1
-let g:go_highlight_types=1
 let g:go_highlight_operators=1
-let g:go_highlight_build_constraints=1
+let g:go_highlight_types=1
 let g:go_list_type="quickfix"
 
 " Man
@@ -267,14 +268,17 @@ let g:terraform_align=0
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
+" UltiSnips
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsListSnippets="<C-k>"
+let g:UltiSnipsJumpBackwardTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-k>"
+
 " Workspace
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 
 " === Mappings ===
-
-if exists('Glaive')
-  Glaive codefmt plugin[mappings]
-endif
 
 inoremap jj <Esc>
 

@@ -222,18 +222,6 @@
 	path = .vim/pack/vendor/opt/devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
 	branch = master
-[submodule ".vim/pack/vendor/start/codefmt"]
-	path = .vim/pack/vendor/start/codefmt
-	url = https://github.com/google/vim-codefmt.git
-	branch = master
-[submodule ".vim/pack/vendor/start/maktaba"]
-	path = .vim/pack/vendor/start/maktaba
-	url = https://github.com/google/vim-maktaba.git
-	branch = master
-[submodule ".vim/pack/vendor/start/glaive"]
-	path = .vim/pack/vendor/start/glaive
-	url = https://github.com/google/vim-glaive.git
-	branch = master
 [submodule ".vim/pack/vendor/start/yaml"]
 	path = .vim/pack/vendor/start/yaml
 	url = https://github.com/stephpy/vim-yaml.git
@@ -273,4 +261,16 @@
 [submodule ".zsh/plugins/autosuggestions"]
 	path = .zsh/plugins/autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+	branch = master
+[submodule ".vim/pack/vendor/start/ultisnips"]
+	path = .vim/pack/vendor/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+	branch = master
+[submodule ".vim/pack/vendor/start/snippets"]
+	path = .vim/pack/vendor/start/snippets
+	url = https://github.com/honza/vim-snippets.git
+	branch = master
+[submodule ".vim/pack/vendor/start/youcompleteme"]
+	path = .vim/pack/vendor/start/youcompleteme
+	url = https://github.com/ycm-core/YouCompleteMe.git
 	branch = master
