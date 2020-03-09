@@ -274,3 +274,7 @@
 	path = .vim/pack/vendor/start/youcompleteme
 	url = https://github.com/ycm-core/YouCompleteMe.git
 	branch = master
+[submodule ".vim/pack/vendor/start/splitjoin"]
+	path = .vim/pack/vendor/start/splitjoin
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
+	branch = master
