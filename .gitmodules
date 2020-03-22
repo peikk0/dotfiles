@@ -278,3 +278,7 @@
 	path = .vim/pack/vendor/start/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
 	branch = master
+[submodule ".vim/pack/vendor/start/licenses"]
+	path = .vim/pack/vendor/start/licenses
+	url = https://github.com/antoyo/vim-licenses.git
+	branch = master
