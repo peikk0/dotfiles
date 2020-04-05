@@ -50,7 +50,7 @@ export EDITOR VISUAL
 PAGER="more"
 if command -v less >/dev/null 2>&1; then
   PAGER="less"
-  LESS="-I -M -R --shift 5"; export LESS
+  LESS="-i -M -R --shift 5"; export LESS
   if command -v lesspipe >/dev/null 2>&1; then
     eval "$(lesspipe)"
   elif command -v lesspipe.sh >/dev/null 2>&1; then
