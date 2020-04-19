@@ -263,6 +263,7 @@ let g:startify_skiplist=[
       \ 'COMMIT_EDITMSG',
       \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') . 'doc',
       \ $HOME . '/.vim/pack/.*/doc',
+      \ '/vendor/',
       \ ]
 
 " Terraform
