@@ -68,14 +68,4 @@ BLOCKSIZE="K"; export BLOCKSIZE
 
 # }}}
 
-# {{{ Homebrew
-
-if [ "${OS}" = "Darwin" ]; then
-  # shellcheck source=/dev/null
-  HOMEBREW_BUNDLE_FILE="${HOME}/.config/brew/Brewfile"
-  export HOMEBREW_BUNDLE_FILE
-fi
-
-# }}}
-
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

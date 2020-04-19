@@ -22,5 +22,5 @@ brew 'vim'
 brew 'yadm'
 brew 'zsh'
 
-local_brewfile=File.join(ENV['HOME'], '.config', 'brew', 'Brewfile.local')
+local_brewfile=File.join(ENV['HOME'], '.Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
