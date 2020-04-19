@@ -222,7 +222,7 @@ let g:NERDTreeIndicatorMapCustom={
       \ 'Unknown'   : "\uF46E "
       \ }
 
-let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFoldersOpenClose=1
 let g:WebDevIconsNerdTreeBeforeGlyphPadding=''
 let g:WebDevIconsNerdTreeGitPluginForceVAlign=1
 let g:WebDevIconsUnicodeDecorateFolderNodes=1
@@ -257,7 +257,7 @@ let g:rails_syntax=1
 
 " Startify
 let g:startify_change_to_vcs_root=1
-let g:startify_custom_header = []
+let g:startify_custom_header=[]
 let g:startify_session_persistence=1
 let g:startify_skiplist=[
       \ 'COMMIT_EDITMSG',
@@ -271,14 +271,17 @@ let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 
 " UltiSnips
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsListSnippets="<C-k>"
-let g:UltiSnipsJumpBackwardTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-k>"
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsListSnippets='<C-k>'
+let g:UltiSnipsJumpBackwardTrigger='<C-j>'
+let g:UltiSnipsJumpForwardTrigger='<C-k>'
 
 " Workspace
-let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_session_directory=$HOME . '/.vim/sessions/'
+
+" YCM
+let g:ycm_gopls_binary_path='gopls'
 
 " === Mappings ===
 
