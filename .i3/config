@@ -35,8 +35,6 @@ bindsym $mod+Shift+q kill
 bindsym --release $mod+F1 exec rofi -show run
 bindsym --release $mod+F2 exec rofi -show ssh
 bindsym --release $mod+Tab exec rofi -show window
-bindsym --release $mod+slash exec ~/.i3/passmenu
-bindsym --release $mod+Shift+slash exec ~/.i3/passmenu --type
 
 # change focus
 bindsym $mod+h focus left
