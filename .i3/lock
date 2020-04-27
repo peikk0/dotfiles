@@ -11,7 +11,7 @@ if [[ -f "${WALLPAPER}" ]]; then
 else
     I3LOCK_ARGS="-c ${BGCOLOR}"
 fi
-I3LOCK_FANCY_ARGS="-f ${FONT} -g"
+I3LOCK_FANCY_ARGS="-f ${FONT} -g -- scrot -o -z"
 
 FANCY=0
 if type i3lock-fancy >/dev/null; then
