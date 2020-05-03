@@ -17,13 +17,10 @@ class MyPrompts(Prompts):
             (Token.Prompt, (' ' * (width - 5)) + "  \ue621 "),
         ]
 
-    def rewrite_prompt_tokens(self):
-        return []
-
     def out_prompt_tokens(self):
         return [
             (Token, "  "),
-            (Token.OutPrompt, "❮ "),
+            (Token.Prompt, "❮ "),
         ]
 
 
