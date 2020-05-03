@@ -44,7 +44,7 @@ fi
 # set DPMS and screensaver, disable beep, autorepeat
 if command -v xset >/dev/null 2>&1; then
   echo 'Configuring X...'
-  xset dpms 600 1200 4200 s 300 600 -b r 66 r rate 400 30 || echo 'Failed to configure X'
+  xset dpms 300 600 900 s 300 600 -b r 66 r rate 400 30 || echo 'Failed to configure X'
 fi
 
 # Compose key
@@ -62,7 +62,7 @@ fi
 # xautolock
 if command -v xss-lock >/dev/null 2>&1; then
   echo 'Launching xss-lock...'
-  xset s 280 10
+  xset s 290 10
   xss-lock --transfer-sleep-lock --notifier "notify-send -u normal -t 10000 -a xss-lock 'Autolocking session in 10 seconds...'" "${HOME}/.i3/lock" || echo 'Failed to launch xss-lock' &
 # light-locker
 elif command -v light-locker >/dev/null 2>&1; then
