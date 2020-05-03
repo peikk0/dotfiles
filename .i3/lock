@@ -14,7 +14,7 @@ fi
 I3LOCK_FANCY_ARGS="-f ${FONT} -g -- scrot -o -z"
 
 FANCY=0
-if type i3lock-fancy >/dev/null; then
+if command -v i3lock-fancy >/dev/null 2>&1; then
     FANCY=1
 fi
 
