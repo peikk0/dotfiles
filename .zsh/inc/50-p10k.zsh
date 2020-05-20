@@ -4,21 +4,7 @@ typeset -g POWERLEVEL="10k"
 typeset -g POWERLEVEL9K_THEME="${ZDOTDIR:-${HOME}}/.zsh/plugins/powerlevel${POWERLEVEL}/powerlevel${POWERLEVEL}.zsh-theme"
 
 setup_powerlevel9k() {
-  prompt_aws_assume_role() {
-    [[ "${AWS_ACCESS_KEY_ID:0:4}" = 'ASIA' ]] || return
-    local icon='SUDO_ICON'
-    if [[ -n "${AWS_SESSION_EXPIRATION}" ]] && [[ "${AWS_SESSION_EXPIRATION}" -lt "$(date +%s)" ]]; then
-      icon='FAIL_ICON'
-    fi
-    if [[ "${POWERLEVEL}" = "10k" ]]; then
-      p10k segment -b 'red' -f 'white' -r -i "${icon}"
-    else
-      "$1_prompt_segment" "$0" "$2" 'white' "${color}" "${icon}"
-    fi
-  }
-
   typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
-  typeset -g POWERLEVEL9K_IGNORE_TERM_COLORS=true
 
   typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0C6'
   typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\uE0C6'
@@ -38,7 +24,6 @@ setup_powerlevel9k() {
     gcloud
     google_app_cred
     aws
-    aws_assume_role_joined
     # Line 2
     newline
     prompt_char
@@ -109,25 +94,10 @@ setup_powerlevel9k() {
 
   typeset -g DEFAULT_USER="pierre"
 
-  # icons
+  # Icons
   typeset -g POWERLEVEL9K_GCLOUD_ICON=$'\uE7B2'
 
-  # base16 colors
-
-  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND='018'
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND='021'
-
-  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,REMOTE}_BACKGROUND='green'
-  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,REMOTE}_FOREGROUND='018'
-  typeset -g POWERLEVEL9K_CONTEXT_{ROOT,SUDO,REMOTE_SUDO}_BACKGROUND='red'
-  typeset -g POWERLEVEL9K_CONTEXT_{ROOT,SUDO,REMOTE_SUDO}_FOREGROUND='021'
-
-  typeset -g POWERLEVEL9K_DIR_{HOME,HOME_SUBFOLDER,DEFAULT,ETC}_BACKGROUND='019'
-  typeset -g POWERLEVEL9K_DIR_HOME{,_SUBFOLDER}_FOREGROUND='blue'
-  typeset -g POWERLEVEL9K_DIR_{DEFAULT,ETC}_FOREGROUND='021'
-
-  typeset -g POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND='red'
-  typeset -g POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='016'
+  # Nord colors
 
   typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
   typeset -g POWERLEVEL9K_PROMPT_CHAR_FOREGROUND='green'
@@ -135,38 +105,25 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VI{INS,CMD,VIS,OWR}_FOREGROUND='red'
 
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='teal'
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='016'
-  typeset -g POWERLEVEL9K_VCS_{CLEAN,UNTRACKED,MODIFIED}_FOREGROUND='018'
-
-  typeset -g POWERLEVEL9K_AWS_BACKGROUND='red'
-  typeset -g POWERLEVEL9K_AWS_FOREGROUND='021'
-
-  typeset -g POWERLEVEL9K_GCLOUD_BACKGROUND='032'
-  typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='white'
-
-  typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_BACKGROUND='white'
-  typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_FOREGROUND='032'
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='cyan'
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 
   typeset -g POWERLEVEL9K_GOENV_BACKGROUND='cyan'
-  typeset -g POWERLEVEL9K_GOENV_FOREGROUND='018'
   typeset -g POWERLEVEL9K_PYENV_BACKGROUND='blue'
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='018'
   typeset -g POWERLEVEL9K_RBENV_BACKGROUND='red'
-  typeset -g POWERLEVEL9K_RBENV_FOREGROUND='018'
 
-  typeset -g POWERLEVEL9K_STATUS_{ERROR,OK}_BACKGROUND='018'
+  typeset -g POWERLEVEL9K_STATUS_{ERROR,OK}_BACKGROUND='black'
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND='green'
 
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='red'
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='021'
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='white'
 
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='017'
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='021'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='blue'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
 
-  typeset -g POWERLEVEL9K_{DATE,TIME}_BACKGROUND='019'
-  typeset -g POWERLEVEL9K_{DATE,TIME}_FOREGROUND='020'
+  typeset -g POWERLEVEL9K_{DATE,TIME}_BACKGROUND='grey'
+  typeset -g POWERLEVEL9K_{DATE,TIME}_FOREGROUND='white'
 
   . "${POWERLEVEL9K_THEME}"
 

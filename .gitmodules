@@ -74,18 +74,6 @@
 	path = .vim/pack/vendor/start/liquid
 	url = https://github.com/tpope/vim-liquid.git
 	branch = master
-[submodule ".vim/pack/vendor/opt/base16"]
-	path = .vim/pack/vendor/opt/base16
-	url = https://github.com/chriskempson/base16-vim
-	branch = master
-[submodule ".config/base16-shell"]
-	path = .config/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
-	branch = master
-[submodule ".config/base16-xresources"]
-	path = .config/base16-xresources
-	url = https://github.com/chriskempson/base16-xresources.git
-	branch = master
 [submodule ".vim/pack/vendor/start/dockerfile"]
 	path = .vim/pack/vendor/start/dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
@@ -281,4 +269,16 @@
 [submodule ".vim/pack/vendor/start/licenses"]
 	path = .vim/pack/vendor/start/licenses
 	url = https://github.com/antoyo/vim-licenses.git
+	branch = master
+[submodule ".vim/pack/vendor/opt/nord"]
+	path = .vim/pack/vendor/opt/nord
+	url = https://github.com/arcticicestudio/nord-vim.git
+	branch = master
+[submodule ".config/nord-xresources"]
+	path = .config/nord-xresources
+	url = https://github.com/arcticicestudio/nord-xresources.git
+	branch = master
+[submodule ".config/nord-dircolors"]
+	path = .config/nord-dircolors
+	url = https://github.com/arcticicestudio/nord-dircolors.git
 	branch = master

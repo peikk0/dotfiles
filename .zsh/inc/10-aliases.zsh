@@ -12,8 +12,9 @@ case "${OS}" in
     fi
     ;;
   Linux)
-    if command -v dircolors >/dev/null 2>&1; then
-      eval "$(dircolors -b "${ZDOTDIR:-${HOME}}/.dir_colors")"
+    local dir_colors="${ZDOTDIR:-${HOME}}/.config/nord-dircolors/src/dir_colors"
+    if command -v dircolors >/dev/null 2>&1 && [ -f "${dir_colors}" ]; then
+      eval "$(dircolors -b "${dir_colors}")"
     fi
     alias ls="ls --color=auto -N"
     alias ll="ls -h -l --time-style='+%F %T'"

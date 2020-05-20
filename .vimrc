@@ -7,12 +7,11 @@ syntax on
 
 if has('terminfo') || has('nvim')
   if has('packages')
-    packadd base16
+    packadd nord
   endif
   set t_Co=256
   set background=dark
-  let base16colorspace=256
-  colorscheme base16-default-dark
+  colorscheme nord
 end
 
 set modeline
@@ -127,7 +126,7 @@ endif
 
 " Airline / Tmuxline
 if exists('g:loaded_airline') && g:loaded_airline
-  let g:airline_theme='base16_default'
+  let g:airline_theme='nord'
   let g:airline_powerline_fonts=1
   let g:airline_highlighting_cache = 1
   let g:airline_left_sep="\uE0C6"
