@@ -9,13 +9,6 @@ for file in "${HOME}/.sh/inc"/*.sh; do
   . "${file}"
 done
 
-# OpenOffice.org look
-OOO_FORCE_DESKTOP=gnome
-export OOO_FORCE_DESKTOP
-
-XDG_CURRENT_DESKTOP=GNOME
-export XDG_CURRENT_DESKTOP
-
 # Make Java Swing apps less ugly
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export _JAVA_OPTIONS
