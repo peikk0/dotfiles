@@ -7,16 +7,16 @@
 
 set -e
 
-PY3STATUS_MODULES="${HOME}/.i3/py3status-modules"
+PY3STATUS_MODULES="${HOME}/.config/i3/py3status-modules"
 PY3STATUS="py3status"
 I3STATUS="i3status"
 
-config="${HOME}/.i3/i3status.conf"
+config="${HOME}/.config/i3/i3status.conf"
 if [ -f "${config}.local" ]; then
     config="${config}.local"
 fi
 
-if type ${PY3STATUS} >/dev/null; then
+if command -v ${PY3STATUS} >/dev/null 2>&1; then
     exec ${PY3STATUS} -c "${config}" -i "${PY3STATUS_MODULES}"
 else
     exec ${I3STATUS} -c "${config}"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WALLPAPER="$HOME/.i3/wallpaper"
+WALLPAPER="$HOME/.config/i3/wallpaper"
 
 if type nitrogen >/dev/null 2>&1; then
     nitrogen --restore

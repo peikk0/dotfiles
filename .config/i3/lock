@@ -4,7 +4,7 @@
 
 BGCOLOR="282828"
 FONT="Fira-Mono-Bold"
-WALLPAPER="${HOME}/.i3/lock-wallpaper"
+WALLPAPER="${HOME}/.config/i3/lock-wallpaper"
 
 if [[ -f "${WALLPAPER}" ]]; then
     I3LOCK_ARGS="-i ${WALLPAPER}"
