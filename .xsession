@@ -56,7 +56,7 @@ fi
 if command -v xss-lock >/dev/null 2>&1; then
   echo 'Launching xss-lock...'
   xset s 290 10
-  xss-lock --transfer-sleep-lock --notifier "notify-send -u normal -t 10000 -a xss-lock 'Autolocking session in 10 seconds...'" "${HOME}/.i3/lock" || echo 'Failed to launch xss-lock' &
+  xss-lock --transfer-sleep-lock --notifier "notify-send -u normal -t 10000 -a xss-lock 'Autolocking session in 10 seconds...'" "${HOME}/.config/i3/lock" || echo 'Failed to launch xss-lock' &
 # light-locker
 elif command -v light-locker >/dev/null 2>&1; then
   echo 'Launching light-locker...'
