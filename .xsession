@@ -28,16 +28,16 @@ if [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
   fi
 fi
 
-# X ressources
+# X resources
 if command -v xrdb >/dev/null 2>&1; then
   echo 'Loading X ressources...'
   xrdb -merge ~/.Xdefaults || echo 'Failed to load X ressources'
 fi
 
-# set DPMS and screensaver, disable beep, autorepeat
+# Set DPMS and screensaver, disable beep, autorepeat
 if command -v xset >/dev/null 2>&1; then
   echo 'Configuring X...'
-  xset dpms 300 600 900 s 300 600 -b r 66 r rate 400 30 || echo 'Failed to configure X'
+  xset dpms 300 600 900 s 300 60 -b r 66 r rate 400 30 || echo 'Failed to configure X'
 fi
 
 # Compose key
@@ -46,25 +46,16 @@ if command -v setxkbmap >/dev/null 2>&1; then
   setxkbmap -layout us -variant altgr-intl -option compose:menu,caps:escape || echo 'Failed to set keymap'
 fi
 
-# pointer
+# Pointer
 if command -v xsetroot >/dev/null 2>&1; then
   echo 'Setting pointer...'
   xsetroot -cursor_name left_ptr || echo 'Failed to set pointer'
 fi
 
-# xautolock
-if command -v xss-lock >/dev/null 2>&1; then
-  echo 'Launching xss-lock...'
-  xset s 290 10
-  xss-lock --transfer-sleep-lock --notifier "notify-send -u normal -t 10000 -a xss-lock 'Autolocking session in 10 seconds...'" "${HOME}/.config/i3/lock" || echo 'Failed to launch xss-lock' &
 # light-locker
-elif command -v light-locker >/dev/null 2>&1; then
+if command -v light-locker >/dev/null 2>&1; then
   echo 'Launching light-locker...'
   light-locker || echo 'Failed to launch light-locker' &
-# xscreensaver
-elif command -v xscreensaver >/dev/null 2>&1; then
-  echo 'Launching xscreensaver...'
-  xscreensaver -nosplash -no-capture-stderr || echo 'Failed to launch xscreensaver' &
 fi
 
 # dunst
@@ -73,6 +64,19 @@ if command -v dunst >/dev/null 2>&1; then
   dunst -conf ~/.dunstrc || echo 'Failed to launch dunst' &
 fi
 
+# Network Manager applet
+if command -v nm-applet >/dev/null 2>&1; then
+  echo 'Launching NetworkManager applet...'
+  nm-applet || echo 'Failed to launch NetworkManager applet' &
+fi
+
+# Bluetooth applet
+if command -v blueman-applet >/dev/null 2>&1; then
+  echo 'Launching Bluetooth applet...'
+  blueman-applet || echo 'Failed to launch Bluetooth applet' &
+fi
+
+# Local startup script
 if [ -f "${HOME}/.xsession.local" ]; then
   . "${HOME}/.xsession.local"
 fi
