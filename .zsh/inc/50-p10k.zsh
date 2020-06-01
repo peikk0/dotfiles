@@ -32,7 +32,7 @@ setup_powerlevel9k() {
     newline
     prompt_char
   )
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+  typeset -g POWERLEVEL9K_DISABLE_RPROMPT=true
 
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
   typeset -g POWERLEVEL9K_TRANSIENT_PROMPT='always'
