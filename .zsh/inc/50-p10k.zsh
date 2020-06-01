@@ -14,6 +14,7 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # Line 1
     os_icon
+    vim_shell
     context
     dir
     dir_writable
@@ -21,24 +22,17 @@ setup_powerlevel9k() {
     goenv
     pyenv
     rbenv
+    kubecontext
     gcloud
     google_app_cred
     aws
+    background_jobs
+    status
     # Line 2
     newline
     prompt_char
   )
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-    # Line 1
-    status
-    command_execution_time
-    background_jobs
-    vim_shell
-    time
-    date_joined
-    # Line 2
-    newline
-  )
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
   typeset -g POWERLEVEL9K_TRANSIENT_PROMPT='always'
@@ -86,12 +80,6 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
 
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=2
-
-  typeset -g POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
-  typeset -g POWERLEVEL9K_DATE_FORMAT="%D{%Y-%m-%d}"
-
   typeset -g DEFAULT_USER="pierre"
 
   # Icons
@@ -108,6 +96,12 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='cyan'
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 
+  typeset -g POWERLEVEL9K_KUBECONTEXT_BACKGROUND='magenta'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
+
+  typeset -g POWERLEVEL9K_GCLOUD_BACKGROUND='blue'
+  typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='black'
+
   typeset -g POWERLEVEL9K_GOENV_BACKGROUND='cyan'
   typeset -g POWERLEVEL9K_PYENV_BACKGROUND='blue'
   typeset -g POWERLEVEL9K_RBENV_BACKGROUND='red'
@@ -116,14 +110,8 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND='green'
 
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='red'
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='white'
-
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='blue'
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
-
-  typeset -g POWERLEVEL9K_{DATE,TIME}_BACKGROUND='grey'
-  typeset -g POWERLEVEL9K_{DATE,TIME}_FOREGROUND='white'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='grey'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='white'
 
   . "${POWERLEVEL9K_THEME}"
 
