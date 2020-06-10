@@ -128,7 +128,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # lock session
-bindsym $mod+Escape exec --no-startup-id light-locker-command --lock
+bindsym $mod+Escape exec light-locker-command --lock
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -150,13 +150,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindcode 92                  exec ~/.i3/audio-volume down
-bindcode 184                 exec ~/.i3/audio-volume up
-bindsym XF86AudioMute        exec ~/.i3/audio-volume mute
-bindsym XF86AudioLowerVolume exec ~/.i3/audio-volume down
-bindsym XF86AudioRaiseVolume exec ~/.i3/audio-volume up
-bindsym $mod+F7              exec ~/.i3/audio-volume down
-bindsym $mod+F8              exec ~/.i3/audio-volume up
+bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 bindsym XF86KbdBrightnessDown exec brightnessctl -q -d intel_backlight set 5%-
 bindsym XF86MonBrightnessDown exec brightnessctl -q -d intel_backlight set 5%-

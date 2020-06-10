@@ -64,16 +64,22 @@ if command -v dunst >/dev/null 2>&1; then
   dunst -conf ~/.dunstrc || echo 'Failed to launch dunst' &
 fi
 
+# Bluetooth applet
+if command -v blueman-applet >/dev/null 2>&1; then
+  echo 'Launching Bluetooth applet...'
+  blueman-applet || echo 'Failed to launch Bluetooth applet' &
+fi
+
 # Network Manager applet
 if command -v nm-applet >/dev/null 2>&1; then
   echo 'Launching NetworkManager applet...'
   nm-applet || echo 'Failed to launch NetworkManager applet' &
 fi
 
-# Bluetooth applet
-if command -v blueman-applet >/dev/null 2>&1; then
-  echo 'Launching Bluetooth applet...'
-  blueman-applet || echo 'Failed to launch Bluetooth applet' &
+# PulseAudio applet
+if command -v pasystray >/dev/null 2>&1; then
+  echo 'Launching PulseAudio applet...'
+  pasystray || echo 'Failed to launch PulseAudio applet' &
 fi
 
 # Local startup script
