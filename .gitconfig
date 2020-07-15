@@ -43,6 +43,9 @@
 [log]
     decorate = auto
 
+[pull]
+    rebase = false
+
 [push]
     default = simple
 
