@@ -282,3 +282,7 @@
 	path = .config/nord-dircolors
 	url = https://github.com/arcticicestudio/nord-dircolors.git
 	branch = master
+[submodule ".vim/pack/vendor/start/rust"]
+	path = .vim/pack/vendor/start/rust
+	url = https://github.com/rust-lang/rust.vim.git
+	branch = master
