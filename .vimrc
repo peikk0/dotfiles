@@ -163,6 +163,9 @@ endif
 let g:ale_echo_msg_error_str='E'
 let g:ale_echo_msg_warning_str='W'
 let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
+let g:ale_linters={
+      \ 'rust': ['analyzer'],
+      \ }
 
 " CSV
 let g:csv_table_leftalign=1
@@ -246,6 +249,11 @@ let g:rubycomplete_buffer_loading=1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails=1
 
+" Rust
+let g:rust_fold=1
+let g:rustfmt_autosave=1
+let g:rustfmt_fail_silently=1
+
 " Rails
 let g:rails_gnu_screen=1
 let g:rails_mappings=1
@@ -282,6 +290,14 @@ let g:workspace_session_directory=$HOME . '/.vim/sessions/'
 
 " YCM
 let g:ycm_gopls_binary_path='gopls'
+let g:ycm_language_server = [
+      \   {
+      \     'name': 'rust',
+      \     'cmdline': ['rust-analyzer'],
+      \     'filetypes': ['rust'],
+      \     'project_root_files': ['Cargo.toml']
+      \   }
+      \ ]
 
 " === Mappings ===
 
