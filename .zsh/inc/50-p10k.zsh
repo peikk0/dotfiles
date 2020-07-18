@@ -22,6 +22,7 @@ setup_powerlevel9k() {
     goenv
     pyenv
     rbenv
+    rust_version
     kubecontext
     gcloud
     google_app_cred
@@ -50,13 +51,15 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_GOENV_PROMPT_ALWAYS_SHOW=true
   typeset -g POWERLEVEL9K_GOENV_SHOW_ON_COMMAND='go|goenv|gofmt|golangci-lint'
 
+  typeset -g POWERLEVEL9K_RUST_VERSION_SHOW_ON_COMMAND='cargo|cargo-*|rust-*|rustc|rustdoc|rustfmt|rustup'
+
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
   typeset -g POWERLEVEL9K_PYENV_SHOW_ON_COMMAND='ipython|ipython3*|pip|pip3*|python|python3*|pip|pip3*|pipenv|pyenv|*.py'
 
   typeset -g POWERLEVEL9K_RBENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
-  typeset -g POWERLEVEL9K_RBENV_SHOW_ON_COMMAND='bundle|gem|irb|pry|rbenv|ruby|*.rb'
+  typeset -g POWERLEVEL9K_RBENV_SHOW_ON_COMMAND='bundle|gem|irb|pry|rake|rbenv|ruby|*.rb'
 
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   local anchor_files=(
