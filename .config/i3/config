@@ -161,6 +161,8 @@ bindsym XF86MonBrightnessUp   exec brightnessctl -q -d intel_backlight set 5%+
 
 bindsym $mod+Shift+b exec sensible-browser
 
+bindsym $mod+Shift+s exec flameshot gui
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -189,6 +191,7 @@ for_window [class="Pinentry"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="mplayer"] floating enable
 for_window [class="MPlayer"] floating enable
+for_window [class="blueman-manager"] floating enable
 
 exec --no-startup-id ~/.config/i3/set-wallpaper
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
