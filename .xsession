@@ -10,8 +10,10 @@ for file in "${HOME}/.sh/inc"/*.sh; do
 done
 
 # Make Java Swing apps less ugly
-_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-export _JAVA_OPTIONS
+_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'; export _JAVA_OPTIONS
+
+# Qt theme
+QT_QPA_PLATFORMTHEME=qgtk3; export QT_QPA_PLATFORMTHEME
 
 # GnuPG
 if command -v gpg-agent >/dev/null 2>&1; then
