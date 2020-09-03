@@ -27,7 +27,7 @@ alias la="ls -a"
 if command -v exa >/dev/null 2>&1; then
   alias exa="exa --group-directories-first --icons"
   alias ls="exa"
-  alias ll="exa -l -g --time-style=long-iso --git"
+  alias ll="exa -l -g --time-style=long-iso"
   alias l="exa -F -a"
   alias la="exa -aa"
 fi
