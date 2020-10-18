@@ -1,8 +1,12 @@
 # {{{ Aliases
 
 : "${OS:=$(uname -s)}"
+local dir_colors="${ZDOTDIR:-${HOME}}/.config/nord-dircolors/src/dir_colors"
 case "${OS}" in
   FreeBSD|Darwin)
+    if command -v gdircolors >/dev/null 2>&1 && [ -f "${dir_colors}" ]; then
+      eval "$(gdircolors -b "${dir_colors}")"
+    fi
     LSCOLORS="exgxfxcxcxdxdxhbadacec"; export LSCOLORS
     alias ls="ls -G"
     if [[ "${OS}" = "FreeBSD" ]]; then
@@ -12,7 +16,6 @@ case "${OS}" in
     fi
     ;;
   Linux)
-    local dir_colors="${ZDOTDIR:-${HOME}}/.config/nord-dircolors/src/dir_colors"
     if command -v dircolors >/dev/null 2>&1 && [ -f "${dir_colors}" ]; then
       eval "$(dircolors -b "${dir_colors}")"
     fi
@@ -20,6 +23,7 @@ case "${OS}" in
     alias ll="ls -h -l --time-style='+%F %T'"
     ;;
 esac
+unset dir_colors
 
 alias l="ls -A -F"
 alias la="ls -a"
