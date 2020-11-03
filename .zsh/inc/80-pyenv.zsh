@@ -1,11 +1,17 @@
 # {{{ pyenv
 
 load_pyenv() {
-  PYENV_ROOT="${HOME}/.local/pyenv"
-  path=("${PYENV_ROOT}/bin" ${path})
-  export PATH PYENV_ROOT
+  if [[ -d "${HOME}/.local/pyenv" ]]; then
+    PYENV_ROOT="${HOME}/.local/pyenv"
+    path=("${PYENV_ROOT}/bin" ${path})
+    export PATH PYENV_ROOT
+  fi
 
-  eval "$(pyenv init -)"
+  if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+  else
+    echo "pyenv not found!" >&2
+  fi
 }
 
 # }}}
