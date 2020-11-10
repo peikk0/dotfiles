@@ -317,7 +317,9 @@ xmap ga <Plug>(EasyAlign)
 " FZF
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>ag :Ag <C-R><C-W><CR>
-nnoremap <Leader>rg :Rg <C-R><C-W><CR>
+
+" Markdown preview
+nmap <silent> <C-m> <Plug>MarkdownPreviewToggle
 
 " Workspace
 nnoremap <Leader>s :ToggleWorkspace<CR>

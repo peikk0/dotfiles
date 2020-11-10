@@ -286,3 +286,7 @@
 	path = .vim/pack/vendor/start/rust
 	url = https://github.com/rust-lang/rust.vim.git
 	branch = master
+[submodule ".vim/pack/vendor/start/markdown-preview"]
+	path = .vim/pack/vendor/start/markdown-preview
+	url = https://github.com/iamcco/markdown-preview.nvim.git
+	branch = master
