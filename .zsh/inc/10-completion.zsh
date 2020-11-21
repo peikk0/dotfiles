@@ -1,6 +1,9 @@
 # {{{ Completion
 
-fpath=(~/.zsh/completion $fpath)
+typeset -aU fpath
+for d in /usr/{,local/}share/zsh/site-functions ${HOME}/.zsh/completion; do
+  [[ -d "${d}" ]] && fpath=(${d} ${fpath})
+done
 
 autoload -Uz compinit
 autoload -Uz complist
