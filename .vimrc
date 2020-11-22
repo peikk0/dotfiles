@@ -206,7 +206,7 @@ runtime macros/matchit.vim
 " NERDTree
 runtime! nerdtree_plugin/webdevicons.vim
 
-let NERDTreeIgnore=['\.pyc$', '\.zwc$']
+let NERDTreeIgnore=['\.pyc$', '\.zwc$', '\.zwc\.old$']
 let NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable="\uF460"
 let g:NERDTreeDirArrowCollapsible="\uF47C"
