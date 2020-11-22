@@ -5,4 +5,4 @@ export PATH
 
 # }}}
 
-# vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:
+# vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
