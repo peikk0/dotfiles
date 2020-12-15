@@ -1,6 +1,7 @@
 # {{{ Vi
 
 bindkey -v
+bindkey jj vi-cmd-mode
 
 # }}}
 
@@ -71,7 +72,7 @@ function run-help-sudo {
 autoload edit-command-line
 zle -N edit-command-line
 bindkey "\ee" edit-command-line
-bindkey "\ex" execute-named-cmd
+bindkey -M vicmd v edit-command-line
 
 # }}}
 
