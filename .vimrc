@@ -70,7 +70,7 @@ set cursorline
 set ruler
 set showcmd
 set laststatus=2
-set colorcolumn=80
+set colorcolumn=120
 
 set hlsearch
 set incsearch
@@ -107,7 +107,7 @@ augroup filetype_settings
   autocmd FileType go     setlocal shiftwidth=8 tabstop=8 noexpandtab
   autocmd FileType python setlocal shiftwidth=4 tabstop=4
   autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
-  autocmd FileType text   setlocal textwidth=78
+  autocmd FileType text   setlocal textwidth=120
   autocmd FileType yaml   setlocal shiftwidth=2 tabstop=2
 augroup END
 
@@ -166,6 +166,8 @@ let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
 let g:ale_linters={
       \ 'rust': ['analyzer'],
       \ }
+let g:ale_python_flake8_options = '--max-line-length 120'
+let g:ale_python_pylint_options = '--max-line-length 120'
 
 " CSV
 let g:csv_table_leftalign=1
@@ -242,6 +244,12 @@ let python_highlight_space_errors=1
 let g:pymode_doc=0
 let g:pymode_options=0
 let g:pymode_lint_checkers=['pyflakes', 'pep8']
+let g:pymode_options_max_line_length = 120
+let g:pymode_lint_options_pep8 = {
+    \ 'max_line_length': g:pymode_options_max_line_length
+    \ }
+let g:pymode_options_colorcolumn = 1
+let g:pymode_python = 'python3'
 
 " Ruby
 let ruby_operators=1
