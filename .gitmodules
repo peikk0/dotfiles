@@ -302,3 +302,7 @@
 	path = .vim/pack/vendor/start/ps1
 	url = https://github.com/PProvost/vim-ps1.git
 	branch = master
+[submodule ".zsh/plugins/vi-mode"]
+	path = .zsh/plugins/vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode.git
+	branch = master
