@@ -12,6 +12,10 @@ if [[ -f "${VI_MODE_PLUGIN}" ]]; then
   ZVM_NORMAL_MODE_CURSOR=${ZVM_CURSOR_BLOCK}
   ZVM_VISUAL_MODE_CURSOR=${ZVM_CURSOR_BLOCK}
   ZVM_VISUAL_LINE_MODE_CURSOR=${ZVM_CURSOR_BLOCK}
+
+  zvm_after_init_commands=(
+    "zvm_bindkey viins '^W' vi-backward-kill-word"
+  )
 fi
 unset VI_MODE_PLUGIN
 
