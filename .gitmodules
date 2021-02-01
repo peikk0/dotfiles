@@ -57,7 +57,7 @@
 [submodule ".vim/pack/vendor/start/css3"]
 	path = .vim/pack/vendor/start/css3
 	url = https://github.com/hail2u/vim-css3-syntax.git
-	branch = master
+	branch = main
 [submodule ".vim/pack/vendor/start/ruby"]
 	path = .vim/pack/vendor/start/ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
@@ -169,7 +169,7 @@
 [submodule ".vim/pack/vendor/start/gnupg"]
 	path = .vim/pack/vendor/start/gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
-	branch = master
+	branch = main
 [submodule ".vim/pack/vendor/start/airline"]
 	path = .vim/pack/vendor/start/airline
 	url = https://github.com/vim-airline/vim-airline.git
@@ -265,7 +265,7 @@
 [submodule ".vim/pack/vendor/start/splitjoin"]
 	path = .vim/pack/vendor/start/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
-	branch = master
+	branch = main
 [submodule ".vim/pack/vendor/start/licenses"]
 	path = .vim/pack/vendor/start/licenses
 	url = https://github.com/antoyo/vim-licenses.git
