@@ -1,4 +1,6 @@
-# Configuration file for ipython.
+"""
+Configuration file for ipython.
+"""
 
 from IPython.terminal.prompts import Prompts, Token
 
