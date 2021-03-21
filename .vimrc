@@ -163,8 +163,16 @@ endif
 let g:ale_echo_msg_error_str='E'
 let g:ale_echo_msg_warning_str='W'
 let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
+let g:ale_fix_on_save=1
+let g:ale_fixers={
+      \ 'terraform': ['remove_trailing_lines', 'terraform'],
+      \ 'yaml': ['remove_trailing_lines', 'trim_whitespace'],
+      \ }
 let g:ale_linters={
       \ 'rust': ['analyzer'],
+      \ }
+let g:ale_linters_ignore={
+      \ 'terraform': ['terraform'],
       \ }
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_python_pylint_options = '--max-line-length 120'
@@ -284,7 +292,7 @@ let g:startify_skiplist=[
 " Terraform
 let g:terraform_align=0
 let g:terraform_fold_sections=1
-let g:terraform_fmt_on_save=1
+let g:terraform_fmt_on_save=0
 
 " UltiSnips
 let g:UltiSnipsEditSplit='vertical'
