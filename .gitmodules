@@ -306,3 +306,11 @@
 	path = .zsh/plugins/vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode.git
 	branch = master
+[submodule ".vim/pack/vendor/start/kubernetes"]
+	path = .vim/pack/vendor/start/kubernetes
+	url = https://github.com/andrewstuart/vim-kubernetes.git
+	branch = master
+[submodule ".vim/pack/vendor/start/helm"]
+	path = .vim/pack/vendor/start/helm
+	url = https://github.com/towolf/vim-helm.git
+	branch = master
