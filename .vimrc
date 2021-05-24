@@ -1,7 +1,5 @@
 " peikk0's vimrc
 
-set nocompatible
-
 filetype plugin indent on
 syntax on
 
@@ -52,9 +50,9 @@ set nrformats-=octal
 
 set formatoptions+=j
 
-let showbreak="> "
+let showbreak='> '
 set list
-if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
+if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && v:version >= 700
   let &listchars="tab:\u21e5\u2010,trail:\u2022,extends:\u21c9,precedes:\u21c7,nbsp:\u2423"
   let &fillchars="vert:\u259a,fold:\u00b7"
 else
@@ -98,10 +96,12 @@ set grepprg=grep\ -nH\ $*
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
-autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+augroup last_known_cursor_position
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+augroup END
 
 augroup filetype_settings
   autocmd FileType go     setlocal shiftwidth=8 tabstop=8 noexpandtab
@@ -209,7 +209,9 @@ let g:go_list_type='quickfix'
 " Man
 runtime ftplugin/man.vim
 
-autocmd FileType man setlocal nolist
+augroup man_plugin_settings
+  autocmd FileType man setlocal nolist
+augroup END
 
 " Match It
 runtime macros/matchit.vim
@@ -243,7 +245,7 @@ let g:WebDevIconsUnicodeDecorateFolderNodes=1
 highlight! link NERDTreeFlags NERDTreeDir
 
 " NetRW
-let g:netrw_http_cmd="curl -s -o"
+let g:netrw_http_cmd='curl -s -o'
 
 " Python
 let python_highlight_builtins=1
