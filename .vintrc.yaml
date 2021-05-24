@@ -1,0 +1,6 @@
+---
+cmdargs:
+  severity: warning
+  color: true
+  env:
+    neovim: true
