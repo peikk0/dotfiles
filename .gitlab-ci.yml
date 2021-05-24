@@ -1,0 +1,30 @@
+---
+stages:
+  - test
+
+vint:
+  stage: test
+  image: python:3.9-slim
+  script:
+    - pip install vim-vint
+    - vint .gvimrc .vimrc
+
+shellcheck:
+  stage: test
+  image: koalaman/shellcheck-alpine:latest
+  script:
+    - |
+      status=0
+      for file in \
+        .bash_profile \
+        .bashrc \
+        .local/bin/sensible-browser \
+        .local/bin/x-terminal-emulator \
+        .profile \
+        .zlogin \
+        .zshenv \
+        .zshrc \
+        $(find .sh/inc .zsh/inc -type f -name '*.sh' -or -name '*.zsh'); do
+        shellcheck --severity=warning "${file}" || status=1
+      done
+      exit ${status}
