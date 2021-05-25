@@ -12,7 +12,8 @@
     {
       "matchManagers": ["git-submodules"],
       "matchUpdateTypes": ["digest"],
-      "automerge": true
+      "automerge": true,
+      "gitLabAutomerge": true
     }
   ]
 }
