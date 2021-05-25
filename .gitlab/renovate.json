@@ -8,5 +8,11 @@
   "git-submodules": {
       "enabled": true
   },
-  "cloneSubmodules": false
+  "packageRules": [
+    {
+      "matchManagers": ["git-submodules"],
+      "matchUpdateTypes": ["digest"],
+      "automerge": true
+    }
+  ]
 }
