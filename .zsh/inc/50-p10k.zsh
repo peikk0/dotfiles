@@ -45,7 +45,7 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs'
   typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_SHOW_ON_COMMAND='terraform'
   typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc'
-  typeset -g POWERLEVEL9K_VCS_SHOW_ON_COMMAND='git|git-*|hub'
+  # typeset -g POWERLEVEL9K_VCS_SHOW_ON_COMMAND='git|git-*|glab|hub'
 
   typeset -g POWERLEVEL9K_GOENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_GOENV_PROMPT_ALWAYS_SHOW=true
