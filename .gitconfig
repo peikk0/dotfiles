@@ -3,6 +3,23 @@
     name = Pierre Guinoiseau
     signingkey = 0x8D1C3224FAB5BA48
 
+[advice]
+    statusHints = false
+
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    cp = cherry-pick
+    dc = diff --cached
+    df = diff
+    lg = log -p
+    lgs = log --stat
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+    st = status
+
 [color]
     ui = auto
 [color "branch"]
@@ -19,38 +36,16 @@
     changed = green
     untracked = cyan
 
+[commit]
+    status = false
+
 [core]
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore_global
-
-[alias]
-    br = branch
-    ci = commit
-    co = checkout
-    cp = cherry-pick
-    dc = diff --cached
-    df = diff
-    lg = log -p
-    lgs = log --stat
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    ls = ls-files
-    st = status
-
-[log]
-    decorate = auto
-
-[pull]
-    rebase = false
-
-[push]
-    default = simple
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [diff]
     renameLimit = 8192
-
-[merge]
-    conflictstyle = diff3
+    submodule = log
 
 [filter "lfs"]
     required = true
@@ -64,6 +59,24 @@
 
 [github]
     user = peikk0
+
+[init]
+    defaultBranch = main
+
+[log]
+    decorate = auto
+
+[merge]
+    conflictstyle = diff3
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple
+
+[status]
+    short = true
 
 [include]
     path = ~/.gitconfig.local
