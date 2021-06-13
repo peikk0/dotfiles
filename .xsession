@@ -30,6 +30,12 @@ if [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
   fi
 fi
 
+# PolKit
+if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ]; then
+  echo 'Launching PolicyKit agent...'
+  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 || echo "Failed to launch PolicyKit agent" &
+fi
+
 # X resources
 if command -v xrdb >/dev/null 2>&1; then
   echo 'Loading X ressources...'
