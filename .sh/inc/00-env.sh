@@ -7,10 +7,12 @@
 
 # {{{ Path
 
-[ -n "${PATH}" ] || PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+if [ "${OS}" != "Darwin" ]; then
+  PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+fi
 # OSX
 if [ -x /usr/libexec/path_helper ]; then
-    eval "$(/usr/libexec/path_helper -s)"
+  eval "$(/usr/libexec/path_helper -s)"
 fi
 PATH="${HOME}/.local/bin:${PATH}"
 export PATH
