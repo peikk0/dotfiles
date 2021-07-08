@@ -314,3 +314,7 @@
 	path = .vim/pack/vendor/start/helm
 	url = https://github.com/towolf/vim-helm.git
 	branch = master
+[submodule ".vim/pack/vendor/start/jsonnet"]
+	path = .vim/pack/vendor/start/jsonnet
+	url = https://github.com/google/vim-jsonnet.git
+	branch = master
