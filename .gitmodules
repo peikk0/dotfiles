@@ -318,3 +318,7 @@
 	path = .vim/pack/vendor/start/jsonnet
 	url = https://github.com/google/vim-jsonnet.git
 	branch = master
+[submodule ".zsh/plugins/completions"]
+	path = .zsh/plugins/completions
+	url = https://github.com/zsh-users/zsh-completions.git
+	branch = master
