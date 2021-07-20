@@ -6,11 +6,6 @@ typeset -g POWERLEVEL9K_THEME="${ZDOTDIR:-${HOME}}/.zsh/plugins/powerlevel${POWE
 setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
 
-  typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0C6'
-  typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\uE0C6'
-  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0C7'
-  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=$'\uE0C7'
-
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # Line 1
     os_icon

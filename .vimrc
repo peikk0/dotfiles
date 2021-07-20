@@ -113,6 +113,10 @@ augroup END
 
 " === Plugins ===
 
+" Airline (part 1)
+let g:airline_powerline_fonts=1
+let g:airline_highlighting_cache = 1
+
 if !has('packages')
   " Load plugins on Vim < 8
   runtime pack/vendor/opt/pathogen/autoload/pathogen.vim
@@ -124,14 +128,9 @@ else
   packadd devicons
 endif
 
-" Airline / Tmuxline
+" Airline (part 2) / Tmuxline
 if exists('g:loaded_airline') && g:loaded_airline
   let g:airline_theme='nord'
-  let g:airline_powerline_fonts=1
-  let g:airline_highlighting_cache = 1
-  let g:airline_left_sep="\uE0C6"
-  let g:airline_right_sep="\uE0C7"
-  let g:airline_section_z=airline#section#create(['%3p%%'.g:airline_symbols.space, "\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 
   let g:airline#extensions#ale#enabled=1
   let g:airline#extensions#ale#error_symbol="\uF467 "
@@ -152,10 +151,6 @@ if exists('g:loaded_airline') && g:loaded_airline
         \ 'cwin'    : ['#I', '#W', '#F'],
         \ 'z'       : '#T',
         \ 'options' : {'status-justify' : 'left'}
-        \ }
-  let g:tmuxline_separators={
-        \ 'left'  : "\uE0C6",
-        \ 'right' : "\uE0C7"
         \ }
 endif
 
