@@ -14,6 +14,7 @@ setup_powerlevel9k() {
     dir
     dir_writable
     vcs
+    asdf
     goenv
     pyenv
     rbenv
@@ -93,16 +94,6 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='cyan'
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-
-  typeset -g POWERLEVEL9K_KUBECONTEXT_BACKGROUND='magenta'
-  typeset -g POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
-
-  typeset -g POWERLEVEL9K_GCLOUD_BACKGROUND='blue'
-  typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='black'
-
-  typeset -g POWERLEVEL9K_GOENV_BACKGROUND='cyan'
-  typeset -g POWERLEVEL9K_PYENV_BACKGROUND='blue'
-  typeset -g POWERLEVEL9K_RBENV_BACKGROUND='red'
 
   typeset -g POWERLEVEL9K_STATUS_{ERROR,OK}_BACKGROUND='black'
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
