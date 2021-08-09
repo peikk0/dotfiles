@@ -170,7 +170,7 @@ bar {
     workspace_buttons yes
     tray_output primary
 
-    font xft:FiraCode Nerd Font Bold 10
+    font xft:FiraCode Nerd Font 10
 
     colors {
         background $nord0
