@@ -1,23 +1,22 @@
 #!/bin/sh
 
-# Try to run py3status, or fallback on i3status
-
-# To install it:
-# pip install --user py3status requests
+# Try to run i3status-rs, or fallback on i3status
+#
+# https://github.com/greshake/i3status-rust
 
 set -e
 
-PY3STATUS_MODULES="${HOME}/.config/i3/py3status-modules"
-PY3STATUS="py3status"
 I3STATUS="i3status"
+I3STATUS_CONFIG="${HOME}/.config/i3/i3status.conf"
+I3STATUS_RS="${HOME}/.cargo/bin/i3status-rs"
+I3STATUS_RS_CONFIG="${HOME}/.config/i3/i3status.toml"
 
-config="${HOME}/.config/i3/i3status.conf"
-if [ -f "${config}.local" ]; then
-    config="${config}.local"
+if [ -f "${I3STATUS_CONFIG}.local" ]; then
+    I3STATUS_CONFIG="${I3STATUS_CONFIG}.local"
 fi
 
-if command -v ${PY3STATUS} >/dev/null 2>&1; then
-    exec ${PY3STATUS} -c "${config}" -i "${PY3STATUS_MODULES}"
+if [ -x ${I3STATUS_RS} ]; then
+    exec ${I3STATUS_RS} "${I3STATUS_RS_CONFIG}"
 else
-    exec ${I3STATUS} -c "${config}"
+    exec ${I3STATUS} -c "${I3STATUS_CONFIG}"
 fi
