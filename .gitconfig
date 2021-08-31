@@ -43,7 +43,12 @@
     excludesfile = ~/.gitignore_global
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
+[delta]
+    line-numbers = true
+    syntax-theme = Nord
+
 [diff]
+    colorMoved = default
     renameLimit = 8192
     submodule = log
 
@@ -68,6 +73,12 @@
 
 [merge]
     conflictstyle = diff3
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
 
 [pull]
     rebase = false
