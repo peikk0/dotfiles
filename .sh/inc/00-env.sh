@@ -73,6 +73,9 @@ export PAGER
 
 # }}}
 
+# {{{ Bat
+BAT_THEME="Nord"; export BAT_THEME
+
 # {{{ Du
 
 BLOCKSIZE="K"; export BLOCKSIZE
