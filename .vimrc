@@ -318,7 +318,7 @@ let g:ycm_language_server = [
 inoremap jj <Esc>
 
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-set pastetoggle=<F11>
+set pastetoggle=<Leader>p
 
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
