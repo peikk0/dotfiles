@@ -7,8 +7,13 @@ if has('terminfo') || has('nvim')
   if has('packages')
     packadd nord
   endif
-  set t_Co=256
   set background=dark
+  " https://github.com/tmux/tmux/issues/1246
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
   colorscheme nord
 end
 
