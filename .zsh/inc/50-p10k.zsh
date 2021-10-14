@@ -14,7 +14,6 @@ setup_powerlevel9k() {
     dir
     dir_writable
     vcs
-    asdf
     goenv
     pyenv
     rbenv
@@ -72,7 +71,9 @@ setup_powerlevel9k() {
     CVS
     Cargo.toml
     composer.json
+    Gemfile
     go.mod
+    jsonnetfile.json
     package.json
   )
   typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER="(${(j:|:)anchor_files})"
