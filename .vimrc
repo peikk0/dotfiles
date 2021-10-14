@@ -109,11 +109,12 @@ augroup last_known_cursor_position
 augroup END
 
 augroup filetype_settings
-  autocmd FileType go     setlocal shiftwidth=8 tabstop=8 noexpandtab
-  autocmd FileType python setlocal shiftwidth=4 tabstop=4
-  autocmd FileType ruby   setlocal shiftwidth=2 tabstop=2
-  autocmd FileType text   setlocal textwidth=120
-  autocmd FileType yaml   setlocal shiftwidth=2 tabstop=2
+  autocmd FileType go      setlocal shiftwidth=8 tabstop=8 noexpandtab
+  autocmd FileType jsonnet setlocal shiftwidth=2 tabstop=2
+  autocmd FileType python  setlocal shiftwidth=4 tabstop=4
+  autocmd FileType ruby    setlocal shiftwidth=2 tabstop=2
+  autocmd FileType text    setlocal textwidth=120
+  autocmd FileType yaml    setlocal shiftwidth=2 tabstop=2
 augroup END
 
 " === Plugins ===
