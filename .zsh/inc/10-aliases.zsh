@@ -52,6 +52,9 @@ if [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
 
+alias k="kubectl"
+alias kx="kubectx"
+
 # }}}
 
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:
