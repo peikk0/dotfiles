@@ -3,6 +3,7 @@
     "config:base",
     ":disableRateLimiting"
   ],
+  "assignAutomerge": true,
   "assignees": ["peikk0"],
   "labels": [
     "dependencies"
@@ -15,7 +16,8 @@
       "matchManagers": ["git-submodules"],
       "matchUpdateTypes": ["digest"],
       "automerge": true,
-      "gitLabAutomerge": true
+      "gitLabAutomerge": true,
+      "addLabels": ["submodule"]
     },
     {
       "matchPaths": [".config/nord-dircolors", ".config/nord-xresources", ".vim/pack/vendor/opt/nord"],
@@ -23,12 +25,12 @@
       "addLabels": ["nord"]
     },
     {
-      "matchPaths": [".vim/pack/vendor/*"],
+      "matchPaths": [".vim/pack/vendor/**"],
       "groupName": "Vim plugins",
       "addLabels": ["vim"]
     },
     {
-      "matchPaths": [".zsh/plugins/*"],
+      "matchPaths": [".zsh/plugins/**"],
       "groupName": "ZSH plugins",
       "addLabels": ["zsh"]
     }
