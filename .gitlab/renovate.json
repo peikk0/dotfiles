@@ -7,7 +7,7 @@
     "dependencies"
   ],
   "git-submodules": {
-      "enabled": true
+    "enabled": true
   },
   "packageRules": [
     {
@@ -15,6 +15,21 @@
       "matchUpdateTypes": ["digest"],
       "automerge": true,
       "gitLabAutomerge": true
+    },
+    {
+      "matchPaths": [".config/nord-dircolors", ".config/nord-xresources", ".vim/pack/vendor/opt/nord"],
+      "groupName": "Nord theme",
+      "addLabels": ["nord"]
+    },
+    {
+      "matchPaths": [".vim/pack/vendor/*"],
+      "groupName": "Vim plugins",
+      "addLabels": ["vim"]
+    },
+    {
+      "matchPaths": [".zsh/plugins/*"],
+      "groupName": "ZSH plugins",
+      "addLabels": ["zsh"]
     }
   ]
 }
