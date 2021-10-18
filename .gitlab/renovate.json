@@ -3,6 +3,7 @@
     "config:base",
     ":disableRateLimiting"
   ],
+  "assignees": ["peikk0"],
   "labels": [
     "dependencies"
   ],
