@@ -20,17 +20,20 @@
       "addLabels": ["submodule"]
     },
     {
-      "matchPaths": [".config/nord-dircolors", ".config/nord-xresources", ".vim/pack/vendor/opt/nord"],
+      "matchManagers": ["git-submodules"],
+      "matchPackageNames": [".config/nord-dircolors", ".config/nord-xresources", ".vim/pack/vendor/opt/nord"],
       "groupName": "Nord theme",
       "addLabels": ["nord"]
     },
     {
-      "matchPaths": [".vim/pack/vendor/**"],
+      "matchManagers": ["git-submodules"],
+      "matchPackagePrefixes": [".vim/pack/vendor/"],
       "groupName": "Vim plugins",
       "addLabels": ["vim"]
     },
     {
-      "matchPaths": [".zsh/plugins/**"],
+      "matchManagers": ["git-submodules"],
+      "matchPackagePrefixes": [".zsh/plugins/"],
       "groupName": "ZSH plugins",
       "addLabels": ["zsh"]
     }
