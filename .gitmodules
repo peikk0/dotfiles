@@ -293,7 +293,7 @@
 [submodule ".vim/pack/vendor/start/toml"]
 	path = .vim/pack/vendor/start/toml
 	url = https://github.com/cespare/vim-toml.git
-	branch = master
+	branch = main
 [submodule ".vim/pack/vendor/start/hcl"]
 	path = .vim/pack/vendor/start/hcl
 	url = https://github.com/jvirtanen/vim-hcl.git
