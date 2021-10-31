@@ -337,6 +337,7 @@ xmap ga <Plug>(EasyAlign)
 " FZF
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <Leader>rg :Rg <C-R><C-W><CR>
 let $BAT_THEME = 'Nord'
 
 " Markdown preview
