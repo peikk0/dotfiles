@@ -322,3 +322,7 @@
 	path = .zsh/plugins/completions
 	url = https://github.com/zsh-users/zsh-completions.git
 	branch = master
+[submodule ".vim/pack/vendor/start/jq"]
+	path = .vim/pack/vendor/start/jq
+	url = https://github.com/bfrg/vim-jq.git
+	branch = master
