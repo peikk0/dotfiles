@@ -76,6 +76,7 @@
     conflictstyle = diff3
 
 [pager]
+    blame = delta
     diff = delta
     log = delta
     reflog = delta
