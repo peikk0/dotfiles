@@ -4,9 +4,9 @@ stages:
 
 vint:
   stage: test
-  image: python:3.10-slim
+  image: alpine:3
   script:
-    - pip install vim-vint
+    - apk add vint
     - vint .gvimrc .vimrc
 
 # shellcheck:
