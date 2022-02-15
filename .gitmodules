@@ -326,3 +326,7 @@
 	path = .vim/pack/vendor/start/jq
 	url = https://github.com/bfrg/vim-jq.git
 	branch = master
+[submodule ".vim/pack/vendor/start/fold-rspec"]
+	path = .vim/pack/vendor/start/fold-rspec
+	url = https://github.com/rlue/vim-fold-rspec.git
+	branch = master
