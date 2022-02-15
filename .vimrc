@@ -194,6 +194,9 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
+" Fugitive
+let g:fugitive_gitlab_domains = ['https://ops.gitlab.net', 'https://dev.gitlab.org']
+
 " Gist
 let g:gist_detect_filetype=1
 let g:gist_open_browser_after_post=1
