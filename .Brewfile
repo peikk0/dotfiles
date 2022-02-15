@@ -10,8 +10,10 @@ brew 'azure-cli'
 brew 'bash'
 brew 'bat'
 brew 'cmake'
+brew 'colima'
 brew 'coreutils'
 brew 'curl'
+brew 'docker'
 brew 'exa'
 brew 'findutils'
 brew 'fzf'
@@ -43,6 +45,7 @@ brew 'lftp'
 brew 'libarchive'
 brew 'mas'
 brew 'minikube'
+brew 'node'
 brew 'nvm'
 brew 'openssh'
 brew 'pinentry'
@@ -72,8 +75,6 @@ brew 'yq'
 brew 'zsh'
 
 cask '1password-cli'
-cask 'chef-workstation'
-cask 'keybase', greedy: true
 cask 'wezterm-nightly', args: { no_quarantine: true }
 
 local_brewfile=File.join(ENV['HOME'], '.Brewfile.local')
