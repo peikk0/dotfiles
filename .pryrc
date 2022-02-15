@@ -13,39 +13,56 @@ begin
   end
 rescue
 end
+
+Gem.path.each do |gemset|
+  $:.concat(Dir.glob("#{gemset}/gems/pry-*/lib"))
+end if defined?(Bundler)
+$:.uniq!
+
+Pry.load_plugins if Pry.config.should_load_plugins
+
 Pry.config.history_load = true
 Pry.config.history_save = true
 
-# gem install pry-theme
-# Pry.config.theme = "pry-classic-256"
-
-Pry.config.print = proc do |output, value|
-  output.puts "  \001\e[1;38;5;2m\002❮\001\e[0m\002 #{value.inspect}"
-end
-Pry.config.exception_handler = proc do |output, exception, _|
-  output.puts "  \001\e[1;38;5;1m\002❮\001\e[0m\002 #{exception.class}: #{exception.message}"
-  output.puts "from #{exception.backtrace.first}"
+class NerdFont
+  DOTS_VERTICAL = "\uf6d8".freeze
+  POWERLINE_SEPARATOR = "\ue0b0".freeze
+  RUBY_LOGO = "\ue791".freeze
 end
 
-Pry.prompt = Pry::Prompt.new(
-    :custom,
-    'Custom minimalistic emoji prompt.',
-    [
-      proc do |target_self, nest_level, pry|
-        "\001\e[01;38;5;1m\002\ue791 \001\e[01;38;5;2m\002#{"❯" * (nest_level + 1)}\001\e[0m\002 "
-      end,
-      proc do |target_self, nest_level, pry|
-        "  #{' ' * nest_level}\001\e[1;38;5;2m\002\ue621\001\e[0m\002 "
-      end
-    ]
-)
-
-$LOAD_PATH.unshift(File.expand_path('~/.ruby/lib'), File.expand_path('~/.ruby'))
-$LOAD_PATH.uniq!
-
-%w(pry-editline).each do |lib|
-  begin
-    require lib
-  rescue LoadError
+Pry::Prompt.add(
+    :minimal,
+    'Minimalistic prompt with Ruby logo.',
+    %w[> |]
+) do |context, nesting, pry_instance, sep|
+  if sep == '>'
+    format(
+      "%<ruby>s %<separator>s ",
+      ruby: Pry::Helpers::Text.red(NerdFont::RUBY_LOGO),
+      separator: Pry::Helpers::Text.green('❯'),
+    )
+  else
+    format(
+      "  %<separator>s ",
+      separator: Pry::Helpers::Text.blue(NerdFont::DOTS_VERTICAL),
+    )
   end
 end
+
+Pry::Prompt.add(
+    :powerline,
+    'Powerline prompt.',
+) do |context, nesting, pry_instance, sep|
+  [
+    Pry::Helpers::Text.cyan_on_black(" #{pry_instance.input_ring.size} "),
+    Pry::Helpers::Text.black_on_blue(NerdFont::POWERLINE_SEPARATOR),
+    Pry::Helpers::Text.black_on_blue(" #{Pry.config.prompt_name} "),
+    Pry::Helpers::Text.blue_on_red(NerdFont::POWERLINE_SEPARATOR),
+    Pry::Helpers::Text.black_on_red(" #{NerdFont::RUBY_LOGO} #{RUBY_ENGINE} #{RUBY_VERSION} "),
+    Pry::Helpers::Text.red_on_cyan(NerdFont::POWERLINE_SEPARATOR),
+    Pry::Helpers::Text.black_on_cyan(" #{Pry.view_clip(context)}#{":#{nesting}" unless nesting.zero?} "),
+    (sep == '>' ? Pry::Helpers::Text.cyan("#{NerdFont::POWERLINE_SEPARATOR} ") : '  '),
+  ].join('')
+end
+
+Pry.prompt = Pry::Prompt[:powerline]
