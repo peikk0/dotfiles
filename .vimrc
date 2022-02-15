@@ -68,6 +68,7 @@ set selection=inclusive
 set virtualedit=block
 
 set number
+set relativenumber
 set numberwidth=3
 set cursorline
 set ruler
@@ -97,6 +98,12 @@ set mouse=
 
 set shell=/usr/bin/env\ zsh
 set grepprg=grep\ -nH\ $*
+
+augroup no_relative_number_in_insert_mode
+  autocmd!
+  autocmd InsertEnter * set norelativenumber
+  autocmd InsertLeave * set relativenumber
+augroup END
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
