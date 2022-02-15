@@ -79,6 +79,12 @@ BAT_THEME="Nord"; export BAT_THEME
 
 # }}}
 
+# {{{ ripgrep
+
+RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"; export RIPGREP_CONFIG_PATH
+
+# }}}
+
 # {{{ Du
 
 BLOCKSIZE="K"; export BLOCKSIZE
