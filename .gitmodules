@@ -330,3 +330,7 @@
 	path = .vim/pack/vendor/start/fold-rspec
 	url = https://github.com/rlue/vim-fold-rspec.git
 	branch = master
+[submodule ".vim/pack/vendor/start/haproxy"]
+	path = .vim/pack/vendor/start/haproxy
+	url = https://github.com/Joorem/vim-haproxy.git
+	branch = master
