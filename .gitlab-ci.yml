@@ -2,6 +2,9 @@
 stages:
   - test
 
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
 vint:
   stage: test
   image: alpine:3
