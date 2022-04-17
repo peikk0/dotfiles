@@ -12,29 +12,11 @@ done
 # Make Java Swing apps less ugly
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'; export _JAVA_OPTIONS
 
+# Pretend to use Gnome
+XDG_CURRENT_DESKTOP="GNOME"; export XDG_CURRENT_DESKTOP
+
 # Qt theme
-QT_QPA_PLATFORMTHEME=qgtk3; export QT_QPA_PLATFORMTHEME
-
-# GnuPG
-if command -v gpg-agent >/dev/null 2>&1; then
-  echo 'Launching GPG agent...'
-  eval $(gpg-agent --daemon) || echo "Failed to launch GPG agent"
-fi
-
-# D-Bus
-if [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
-  if command -v dbus-launch >/dev/null 2>&1; then
-    echo 'Launching D-BUS per-session daemon...'
-    eval $(dbus-launch --sh-syntax --exit-with-session) || echo "Failed to launch D-Bus session daemon"
-    echo "D-BUS per-session daemon address: ${DBUS_SESSION_BUS_ADDRESS}"
-  fi
-fi
-
-# PolKit
-if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ]; then
-  echo 'Launching PolicyKit agent...'
-  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 || echo "Failed to launch PolicyKit agent" &
-fi
+QT_QPA_PLATFORMTHEME="qgtk3"; export QT_QPA_PLATFORMTHEME
 
 # X resources
 if command -v xrdb >/dev/null 2>&1; then
@@ -58,6 +40,44 @@ fi
 if command -v xsetroot >/dev/null 2>&1; then
   echo 'Setting pointer...'
   xsetroot -cursor_name left_ptr || echo 'Failed to set pointer'
+fi
+
+# Configure Thinkpad Carbon X1's trackpad
+TOUCHPAD_NAME="ELAN0672:00 04F3:3187 Touchpad"
+if command -v xinput >/dev/null 2>&1 && xinput list --name-only "${TOUCHPAD_NAME}" >/dev/null 2>&1; then
+  echo 'Configuring trackpad...'
+  ## Vert + Horiz scrolling
+  xinput set-prop "${TOUCHPAD_NAME}" "Synaptics Two-Finger Scrolling" 1 1
+  ## Natural scrolling
+  xinput set-prop "${TOUCHPAD_NAME}" "Synaptics Scrolling Distance" -75 -75
+fi
+
+# GnuPG
+if command -v gpg-agent >/dev/null 2>&1; then
+  echo 'Launching GPG agent...'
+  eval $(gpg-agent --daemon) || echo "Failed to launch GPG agent"
+fi
+
+# D-Bus
+if [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+  if command -v dbus-launch >/dev/null 2>&1; then
+    echo 'Launching D-BUS per-session daemon...'
+    eval $(dbus-launch --sh-syntax --exit-with-session) || echo "Failed to launch D-Bus session daemon"
+    echo "D-BUS per-session daemon address: ${DBUS_SESSION_BUS_ADDRESS}"
+  fi
+fi
+dbus-update-activation-environment --systemd DISPLAY
+
+# PolKit
+if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ]; then
+  echo 'Launching PolicyKit agent...'
+  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 || echo "Failed to launch PolicyKit agent" &
+fi
+
+# Gnome Keyring Daemon
+if command -v gnome-keyring-daemon >/dev/null 2>&1; then
+  echo 'Launching Gnome keyring daemon...'
+  eval "$(gnome-keyring-daemon --start --components=ssh,secrets,pkcs11)" || echo "Failed to launch gnome-keyring-daemon"
 fi
 
 # light-locker
@@ -88,6 +108,18 @@ fi
 if command -v pasystray >/dev/null 2>&1; then
   echo 'Launching PulseAudio applet...'
   pasystray || echo 'Failed to launch PulseAudio applet' &
+fi
+
+# 1password
+if command -v 1password >/dev/null 2>&1; then
+  echo 'Launching 1password...'
+  1password --silent || echo "Failed to launch 1password" &
+fi
+
+# Flameshot
+if command -v flameshot >/dev/null 2>&1; then
+  echo 'Launching flameshot...'
+  flameshot || echo "Failed to launch flameshot" &
 fi
 
 # Local startup script
