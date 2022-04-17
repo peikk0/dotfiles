@@ -334,3 +334,7 @@
 	path = .vim/pack/vendor/start/haproxy
 	url = https://github.com/Joorem/vim-haproxy.git
 	branch = master
+[submodule ".vim/pack/vendor/start/nginx"]
+	path = .vim/pack/vendor/start/nginx
+	url = https://github.com/chr4/nginx.vim.git
+	branch = master
