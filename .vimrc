@@ -117,6 +117,8 @@ augroup END
 
 augroup filetype_settings
   autocmd FileType go      setlocal shiftwidth=8 tabstop=8 noexpandtab
+  autocmd FileType helm    setlocal shiftwidth=2 tabstop=2
+  autocmd FileType json    setlocal foldmethod=syntax
   autocmd FileType jsonnet setlocal shiftwidth=2 tabstop=2
   autocmd FileType python  setlocal shiftwidth=4 tabstop=4
   autocmd FileType ruby    setlocal shiftwidth=2 tabstop=2
