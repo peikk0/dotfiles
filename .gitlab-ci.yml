@@ -7,27 +7,27 @@ include:
 
 vint:
   stage: test
-  image: alpine:3
+  image: alpine:3.16
   script:
     - apk add py3-setuptools vint
     - vint .gvimrc .vimrc
 
-# shellcheck:
-#   stage: test
-#   image: koalaman/shellcheck-alpine:latest
-#   script:
-#     - |
-#       status=0
-#       for file in \
-#         .bash_profile \
-#         .bashrc \
-#         .local/bin/sensible-browser \
-#         .local/bin/x-terminal-emulator \
-#         .profile \
-#         .zlogin \
-#         .zshenv \
-#         .zshrc \
-#         $(find .sh/inc .zsh/inc -type f -name '*.sh' -or -name '*.zsh'); do
-#         shellcheck --severity=warning "${file}" || status=1
-#       done
-#       exit ${status}
+shellcheck:
+  stage: test
+  image: koalaman/shellcheck-alpine:v0.8.0
+  allow_failure: true
+  script:
+    - |
+      status=0
+      for file in \
+          .bash_profile \
+          .bashrc \
+          .local/bin/sensible-browser \
+          .local/bin/x-terminal-emulator \
+          .profile \
+          .xserverrc \
+          .xsession \
+          $(find .sh/inc -type f -name '*.sh'); do
+        shellcheck --severity=warning "${file}" || status=1
+      done
+      exit ${status}
