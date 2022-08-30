@@ -62,11 +62,10 @@ if command -v less >/dev/null 2>&1; then
   LESS_TERMCAP_ue=$'\e[0m'     # reset underline
   export LESS_TERMCAP_mb LESS_TERMCAP_md LESS_TERMCAP_me LESS_TERMCAP_so \
     LESS_TERMCAP_se LESS_TERMCAP_us LESS_TERMCAP_ue
-  if command -v lesspipe >/dev/null 2>&1; then
-    eval "$(lesspipe)"
-  elif command -v lesspipe.sh >/dev/null 2>&1; then
+  if command -v lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'; export LESSOPEN
-    LESS_ADVANCED_PREPROCESSOR=1; export LESS_ADVANCED_PREPROCESSOR
+  elif command -v lesspipe >/dev/null 2>&1; then
+    eval "$(lesspipe)"
   fi
 fi
 export PAGER
