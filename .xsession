@@ -78,6 +78,7 @@ fi
 if command -v gnome-keyring-daemon >/dev/null 2>&1; then
   echo 'Launching Gnome keyring daemon...'
   eval "$(gnome-keyring-daemon --start --components=ssh,secrets,pkcs11)" || echo "Failed to launch gnome-keyring-daemon"
+  export SSH_AUTH_SOCK
 fi
 
 # light-locker
