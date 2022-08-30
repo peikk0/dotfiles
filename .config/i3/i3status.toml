@@ -6,7 +6,7 @@ name = "nord-dark"
 [theme.overrides]
 alternating_tint_bg = "#3B4252"
 alternating_tint_fg = "#2E3440"
-separator = "\ue0b2"
+separator = ""
 
 [[block]]
 block = "cpu"
@@ -34,7 +34,6 @@ block = "battery"
 interval = 10
 format = "{percentage} {time} ({power})"
 full_format = "{percentage} {time}"
-allow_missing = true
 hide_missing = true
 
 [[block]]
