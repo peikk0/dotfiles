@@ -1,9 +1,9 @@
 # {{{ History
 
 HISTFILE="${ZDOTDIR:-${HOME}}/.zsh_history"
-HISTSIZE=5000
-SAVEHIST=5000
-setopt append_history hist_ignore_all_dups hist_reduce_blanks
+HISTSIZE=10000
+SAVEHIST=10000
+setopt append_history extended_history hist_find_no_dups hist_fcntl_lock hist_ignore_dups hist_ignore_space hist_reduce_blanks
 
 # }}}
 
