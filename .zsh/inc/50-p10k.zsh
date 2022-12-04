@@ -80,6 +80,9 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
 
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHORTEN=(eks gke)
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_DEFAULT_NAMESPACE=0
+
   typeset -g DEFAULT_USER="pierre"
 
   # Icons
