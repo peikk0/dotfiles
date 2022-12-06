@@ -10,10 +10,27 @@
 if [ "${OS}" != "Darwin" ]; then
   PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 fi
+
 # OSX
 if [ -x /usr/libexec/path_helper ]; then
   eval "$(/usr/libexec/path_helper -s)"
 fi
+
+# Homebrew
+if [ -x /opt/homebrew/bin/brew ] || [ -x /usr/local/bin/brew ]; then
+  if [ -x /opt/homebrew/bin/brew ]; then
+    HOMEBREW_PREFIX="/opt/homebrew";
+  elif [ -x /usr/local/bin/brew ]; then
+    HOMEBREW_PREFIX="/usr/local";
+  fi
+  HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
+  HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew";
+  PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
+  MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:$MANPATH}:";
+  INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
+  export HOMEBREW_PREFIX HOMEBREW_CELLAR HOMEBREW_REPOSITORY PATH MANPATH INFOPATH
+fi
+
 PATH="${HOME}/.local/bin:${PATH}"
 export PATH
 
