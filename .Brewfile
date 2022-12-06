@@ -3,7 +3,6 @@
 tap 'homebrew/cask'
 tap 'homebrew/services'
 tap 'starkandwayne/cf'
-tap 'wez/wezterm'
 tap 'koekeishiya/formulae'
 tap 'vmware-tanzu/carvel'
 
@@ -90,7 +89,6 @@ brew 'yq'
 brew 'zsh'
 
 cask '1password-cli'
-cask 'wezterm-nightly', args: { no_quarantine: true }
 
 local_brewfile=File.join(ENV['HOME'], '.Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
