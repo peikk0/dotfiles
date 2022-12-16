@@ -17,7 +17,7 @@ shift + cmd - k : yabai -m window --warp north
 shift + cmd - l : yabai -m window --warp east
 
 # balance size of windows
-shift + alt - 0 : yabai -m space --balance
+# shift + alt - 0 : yabai -m space --balance
 
 # make floating window fill screen
 shift + alt - up : yabai -m window --grid 1:1:0:0:1:1
@@ -26,28 +26,28 @@ shift + alt - up : yabai -m window --grid 1:1:0:0:1:1
 shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
 # fast focus desktop
-ctrl - left : yabai -m space --focus prev
-ctrl - right : yabai -m space --focus next
-ctrl - 1 : yabai -m space --focus 1
-ctrl - 2 : yabai -m space --focus 2
-ctrl - 3 : yabai -m space --focus 3
-ctrl - 4 : yabai -m space --focus 4
-ctrl - 5 : yabai -m space --focus 5
-ctrl - 6 : yabai -m space --focus 6
-ctrl - 7 : yabai -m space --focus 7
-ctrl - 8 : yabai -m space --focus 8
-ctrl - 9 : yabai -m space --focus 9
+# ctrl - left : yabai -m space --focus prev
+# ctrl - right : yabai -m space --focus next
+# ctrl - 1 : yabai -m space --focus 1
+# ctrl - 2 : yabai -m space --focus 2
+# ctrl - 3 : yabai -m space --focus 3
+# ctrl - 4 : yabai -m space --focus 4
+# ctrl - 5 : yabai -m space --focus 5
+# ctrl - 6 : yabai -m space --focus 6
+# ctrl - 7 : yabai -m space --focus 7
+# ctrl - 8 : yabai -m space --focus 8
+# ctrl - 9 : yabai -m space --focus 9
 
 # send window to desktop and follow focus
-ctrl + cmd - 1 : yabai -m window --space 1; yabai -m space --focus 1
-ctrl + cmd - 2 : yabai -m window --space 2; yabai -m space --focus 2
-ctrl + cmd - 3 : yabai -m window --space 3; yabai -m space --focus 3
-ctrl + cmd - 4 : yabai -m window --space 4; yabai -m space --focus 4
-ctrl + cmd - 5 : yabai -m window --space 5; yabai -m space --focus 5
-ctrl + cmd - 6 : yabai -m window --space 6; yabai -m space --focus 6
-ctrl + cmd - 7 : yabai -m window --space 7; yabai -m space --focus 7
-ctrl + cmd - 8 : yabai -m window --space 8; yabai -m space --focus 8
-ctrl + cmd - 9 : yabai -m window --space 9; yabai -m space --focus 9
+# ctrl + cmd - 1 : yabai -m window --space 1; yabai -m space --focus 1
+# ctrl + cmd - 2 : yabai -m window --space 2; yabai -m space --focus 2
+# ctrl + cmd - 3 : yabai -m window --space 3; yabai -m space --focus 3
+# ctrl + cmd - 4 : yabai -m window --space 4; yabai -m space --focus 4
+# ctrl + cmd - 5 : yabai -m window --space 5; yabai -m space --focus 5
+# ctrl + cmd - 6 : yabai -m window --space 6; yabai -m space --focus 6
+# ctrl + cmd - 7 : yabai -m window --space 7; yabai -m space --focus 7
+# ctrl + cmd - 8 : yabai -m window --space 8; yabai -m space --focus 8
+# ctrl + cmd - 9 : yabai -m window --space 9; yabai -m space --focus 9
 
 # focus monitor
 ctrl + alt - left  : yabai -m display --focus west
