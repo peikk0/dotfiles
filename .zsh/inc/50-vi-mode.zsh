@@ -1,6 +1,6 @@
 # {{{ Vi Mode
 
-_vi_mode_plugin="${ZDOTDIR:-${HOME}}/.zsh/plugins/vi-mode/zsh-vi-mode.zsh"
+_vi_mode_plugin="${ZDOTDIR:-${HOME}}/.zsh/plugins/vi-mode/zsh-vi-mode.zsh.disabled"
 if [[ -f "${_vi_mode_plugin}" ]]; then
   . "${_vi_mode_plugin}"
 
