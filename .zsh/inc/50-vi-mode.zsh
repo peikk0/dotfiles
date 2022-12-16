@@ -1,8 +1,8 @@
 # {{{ Vi Mode
 
-VI_MODE_PLUGIN="${ZDOTDIR:-${HOME}}/.zsh/plugins/vi-mode/zsh-vi-mode.zsh"
-if [[ -f "${VI_MODE_PLUGIN}" ]]; then
-  . "${VI_MODE_PLUGIN}"
+_vi_mode_plugin="${ZDOTDIR:-${HOME}}/.zsh/plugins/vi-mode/zsh-vi-mode.zsh"
+if [[ -f "${_vi_mode_plugin}" ]]; then
+  . "${_vi_mode_plugin}"
 
   ZVM_KEYTIMEOUT=0.25
 
@@ -17,7 +17,7 @@ if [[ -f "${VI_MODE_PLUGIN}" ]]; then
     "zvm_bindkey viins '^W' vi-backward-kill-word"
   )
 fi
-unset VI_MODE_PLUGIN
+unset _vi_mode_plugin
 
 # }}}
 

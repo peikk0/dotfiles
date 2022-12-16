@@ -338,3 +338,15 @@
 	path = .vim/pack/vendor/start/nginx
 	url = https://github.com/chr4/nginx.vim.git
 	branch = master
+[submodule ".zsh/plugins/fzf-git"]
+	path = .zsh/plugins/fzf-git
+	url = https://github.com/junegunn/fzf-git.sh.git
+	branch = main
+[submodule ".zsh/plugins/fzf-tab"]
+	path = .zsh/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab.git
+	branch = master
+[submodule ".zsh/plugins/forgit"]
+	path = .zsh/plugins/forgit
+	url = https://github.com/wfxr/forgit.git
+	branch = master

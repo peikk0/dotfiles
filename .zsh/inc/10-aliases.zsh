@@ -53,7 +53,7 @@ if [[ "${EDITOR}" = "vim" ]]; then
 fi
 
 alias k="kubectl"
-alias kx="kubectx"
+alias kx="kubectx | fzf-tmux -p | xargs kubectx"
 
 # }}}
 

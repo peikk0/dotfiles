@@ -16,7 +16,6 @@ zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character t
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' max-errors 2 not-numeric
 zstyle ':completion:*:approximate:::' max-errors 3 numeric
-zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' original true
 zstyle ':completion:*' squeeze-slashes true

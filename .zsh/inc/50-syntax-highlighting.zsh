@@ -1,8 +1,8 @@
 # {{{ Syntax highlighting
 
-SYNTAX_HIGHLIGHTING_PLUGIN="${ZDOTDIR:-${HOME}}/.zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
-if [[ -f "${SYNTAX_HIGHLIGHTING_PLUGIN}" ]]; then
-  . "${SYNTAX_HIGHLIGHTING_PLUGIN}"
+_syntax_highlighting_plugin="${ZDOTDIR:-${HOME}}/.zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ -f "${_syntax_highlighting_plugin}" ]]; then
+  . "${_syntax_highlighting_plugin}"
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
   typeset -A ZSH_HIGHLIGHT_STYLES
@@ -17,7 +17,7 @@ if [[ -f "${SYNTAX_HIGHLIGHTING_PLUGIN}" ]]; then
   ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white,bold'
   ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=white,bold'
 fi
-unset SYNTAX_HIGHLIGHTING_PLUGIN
+unset _syntax_highlighting_plugin
 
 # }}}
 
