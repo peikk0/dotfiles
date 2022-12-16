@@ -132,6 +132,8 @@ augroup END
 let g:airline_powerline_fonts=1
 let g:airline_highlighting_cache = 1
 
+set runtimepath+=$HOME/.local/fzf
+
 if !has('packages')
   " Load plugins on Vim < 8
   runtime pack/vendor/opt/pathogen/autoload/pathogen.vim

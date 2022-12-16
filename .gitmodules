@@ -1,3 +1,7 @@
+[submodule ".local/fzf"]
+	path = .local/fzf
+	url = https://github.com/junegunn/fzf.git
+	branch = master
 [submodule ".vim/pack/vendor/start/rails"]
 	path = .vim/pack/vendor/start/rails
 	url = https://github.com/tpope/vim-rails.git
@@ -233,10 +237,6 @@
 [submodule ".vim/pack/vendor/start/fzf"]
 	path = .vim/pack/vendor/start/fzf
 	url = https://github.com/junegunn/fzf.vim.git
-	branch = master
-[submodule ".vim/pack/vendor/start/fzf-bin"]
-	path = .vim/pack/vendor/start/fzf-bin
-	url = https://github.com/junegunn/fzf.git
 	branch = master
 [submodule ".vim/pack/vendor/start/ale"]
 	path = .vim/pack/vendor/start/ale
