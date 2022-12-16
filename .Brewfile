@@ -6,7 +6,6 @@ tap 'starkandwayne/cf'
 tap 'koekeishiya/formulae'
 tap 'vmware-tanzu/carvel'
 
-brew 'ag'
 brew 'asdf'
 brew 'awscli'
 brew 'bash'
