@@ -130,7 +130,7 @@ augroup END
 
 " Airline (part 1)
 let g:airline_powerline_fonts=1
-let g:airline_highlighting_cache = 1
+let g:airline_highlighting_cache=1
 
 set runtimepath+=$HOME/.local/fzf
 
@@ -187,8 +187,8 @@ let g:ale_linters={
 let g:ale_linters_ignore={
       \ 'terraform': ['terraform'],
       \ }
-let g:ale_python_flake8_options = '--max-line-length 120'
-let g:ale_python_pylint_options = '--max-line-length 120'
+let g:ale_python_flake8_options='--max-line-length 120'
+let g:ale_python_pylint_options='--max-line-length 120'
 
 " CSV
 let g:csv_table_leftalign=1
@@ -199,7 +199,7 @@ if exists('g:loaded_webdevicons')
 endif
 
 " Fugitive
-let g:fugitive_gitlab_domains = ['https://ops.gitlab.net', 'https://dev.gitlab.org']
+let g:fugitive_gitlab_domains=['https://ops.gitlab.net', 'https://dev.gitlab.org']
 
 " Gist
 let g:gist_detect_filetype=1
@@ -214,7 +214,7 @@ let g:go_fmt_command='goimports'
 let g:go_fmt_fail_silently=1
 let g:go_highlight_build_constraints=1
 let g:go_highlight_fields=1
-let g:go_highlight_function_calls = 1
+let g:go_highlight_function_calls=1
 let g:go_highlight_functions=1
 let g:go_highlight_methods=1
 let g:go_highlight_operators=1
@@ -270,12 +270,12 @@ let python_highlight_space_errors=1
 let g:pymode_doc=0
 let g:pymode_options=0
 let g:pymode_lint_checkers=['pyflakes', 'pep8']
-let g:pymode_options_max_line_length = 120
-let g:pymode_lint_options_pep8 = {
+let g:pymode_options_max_line_length=120
+let g:pymode_lint_options_pep8={
     \ 'max_line_length': g:pymode_options_max_line_length
     \ }
-let g:pymode_options_colorcolumn = 1
-let g:pymode_python = 'python3'
+let g:pymode_options_colorcolumn=1
+let g:pymode_python='python3'
 
 " Ruby
 let ruby_operators=1
@@ -344,21 +344,37 @@ set pastetoggle=<Leader>p
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" bat (for fzf previews)
+let $BAT_THEME = 'Nord'
+
 " easy-align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
-" FZF
+" FZF / ripgrep
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git'"
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+let g:rg_derive_root = 'true'
 nnoremap <C-p> :Files<CR>
-nnoremap <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <Leader>b :Buffers<cr>
+nnoremap <Leader>s :BLines<cr>
 nnoremap <Leader>rg :Rg <C-R><C-W><CR>
-let $BAT_THEME = 'Nord'
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Markdown preview
 nmap <silent> <C-m> <Plug>MarkdownPreviewToggle
 
 " Workspace
-nnoremap <Leader>s :ToggleWorkspace<CR>
+nnoremap <Leader>ws :ToggleWorkspace<CR>
 
 " "" '' <> () [] {}
 noremap! "" ""<esc>i
