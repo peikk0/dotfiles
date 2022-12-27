@@ -10,6 +10,8 @@ if [ -f "${GOOGLE_CLOUD_SDK}/completion.zsh.inc" ]; then
     . "${GOOGLE_CLOUD_SDK}/completion.zsh.inc"
 fi
 
+CLOUDSDK_PYTHON_SITEPACKAGES=1; export CLOUDSDK_PYTHON_SITEPACKAGES
+
 # For kubectl with GKE
 USE_GKE_GCLOUD_AUTH_PLUGIN=True; export USE_GKE_GCLOUD_AUTH_PLUGIN
 
