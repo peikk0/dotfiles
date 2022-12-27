@@ -52,13 +52,6 @@ if [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
 
-alias k="kubectl"
-kx() {
-  # kubectx with tmux popup and shorter context names for GKE
-  local choice="$(_KUBECTX_FORCE_COLOR=1 kubectx | sed -re 's/gke_.+_(.+)/\1/' | fzf-tmux -p 25%,50% --ansi --no-preview)"
-  kubectx "$(kubectl config get-contexts -o=name | grep -E "^(gke_.+_)?${choice}\$")"
-}
-
 # }}}
 
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:
