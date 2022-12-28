@@ -15,6 +15,9 @@ _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defa
 # Pretend to use Gnome
 XDG_CURRENT_DESKTOP="GNOME"; export XDG_CURRENT_DESKTOP
 
+# GTK 2.0 config
+GTK2_RC_FILES="${XDG_CONFIG_HOME:-${HOME}/.config}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
+
 # Qt theme
 QT_QPA_PLATFORMTHEME="qgtk3"; export QT_QPA_PLATFORMTHEME
 
