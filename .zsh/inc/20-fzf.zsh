@@ -8,11 +8,17 @@ FZF_TMUX=1
 FZF_TMUX_OPTS="-p"
 
 if command -v rg >/dev/null 2>&1; then
-  FZF_DEFAULT_COMMAND=$'rg --files --hidden --glob \'!.git\''
+  export FZF_DEFAULT_COMMAND=$'rg --files --hidden --glob \'!.git\''
 elif command -v fd >/dev/null 2>&1; then
-  FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
 fi
-export FZF_DEFAULT_COMMAND
+
+# https://github.com/junegunn/fzf/wiki/Color-schemes#nord
+local fzf_colors=(
+  --color 'fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C'
+  --color 'pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B'
+)
+export FZF_DEFAULT_OPTS="${(j: :)fzf_colors}"
 
 if [[ -f "${HOME}/.local/fzf/shell/completion.zsh" ]]; then
   . "${HOME}/.local/fzf/shell/completion.zsh"
