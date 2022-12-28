@@ -27,7 +27,7 @@ fi
 
 # {{{ History
 
-HISTFILE="${HOME}/.bash_history"
+HISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/bash_history"
 HISTFILESIZE=5000
 HISTSIZE=5000
 HISTCONTROL=ignoredups
