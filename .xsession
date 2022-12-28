@@ -97,7 +97,7 @@ fi
 # dunst
 if command -v dunst >/dev/null 2>&1; then
   echo 'Launching dunst...'
-  dunst -conf ~/.dunstrc || echo 'Failed to launch dunst' &
+  dunst || echo 'Failed to launch dunst' &
 fi
 
 # Bluetooth applet
