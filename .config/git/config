@@ -40,7 +40,7 @@
     status = false
 
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.config/git/ignore
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [delta]
@@ -92,4 +92,4 @@
     short = true
 
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/config.local
