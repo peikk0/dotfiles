@@ -56,7 +56,7 @@ bindsym $mod+Return exec x-terminal-emulator
 bindsym $mod+Shift+q kill
 
 # menu
-bindsym --release $mod+F1 exec rofi -show run
+bindsym --release $mod+grave exec rofi -show drun
 bindsym --release $mod+Tab exec rofi -show window
 
 # change focus
