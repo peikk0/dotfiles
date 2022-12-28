@@ -11,8 +11,6 @@ kx() {
 export KUBECTX_CURRENT_BGCOLOR="$(tput setab 0)"
 export KUBECTX_CURRENT_FGCOLOR="$(tput setaf 6)"
 
-export K9SCONFIG="${HOME}/.config/k9s"
-
 # }}}
 
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:

@@ -4,6 +4,14 @@
 : "${UID:=$(id -u)}"
 
 # }}}
+#
+# {{{ XDG
+
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME XDG_CONFIG_HOME
+
+# }}}
 
 # {{{ Path
 
@@ -70,6 +78,7 @@ PAGER="more"
 if command -v less >/dev/null 2>&1; then
   PAGER="less"
   LESS="-i -M -R --shift 5"; export LESS
+  LESSHISTFILE="${XDG_CACHE_HOME}/less_history"; export LESSHISTFILE
   LESS_TERMCAP_mb=$'\e[1;34m'  # begin bold
   LESS_TERMCAP_md=$'\e[1;34m'  # begin blink
   LESS_TERMCAP_me=$'\e[0m'     # reset bold/blink
