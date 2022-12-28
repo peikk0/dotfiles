@@ -1,6 +1,10 @@
 #!/bin/sh
 
-exec >"${HOME}/.xsession.log" 2>&1
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME XDG_CONFIG_HOME
+
+exec >"${XDG_CACHE_HOME}/xsession.log" 2>&1
 
 umask 0022
 
@@ -16,7 +20,7 @@ _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defa
 XDG_CURRENT_DESKTOP="GNOME"; export XDG_CURRENT_DESKTOP
 
 # GTK 2.0 config
-GTK2_RC_FILES="${XDG_CONFIG_HOME:-${HOME}/.config}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
+GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
 
 # Qt theme
 QT_QPA_PLATFORMTHEME="qgtk3"; export QT_QPA_PLATFORMTHEME
@@ -24,7 +28,7 @@ QT_QPA_PLATFORMTHEME="qgtk3"; export QT_QPA_PLATFORMTHEME
 # X resources
 if command -v xrdb >/dev/null 2>&1; then
   echo 'Loading X ressources...'
-  xrdb -merge ~/.Xdefaults || echo 'Failed to load X ressources'
+  xrdb -merge "${XDG_CONFIG_HOME}/X11/Xresources" || echo 'Failed to load X ressources'
 fi
 
 # Set DPMS and screensaver, disable beep, autorepeat
