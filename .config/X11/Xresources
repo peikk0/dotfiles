@@ -2,7 +2,7 @@
 #define HOME /home/pierre
 #endif
 
-#include ".config/nord-xresources/src/nord"
+#include "../nord-xresources/src/nord"
 
 XTerm*Geometry:		100x25
 XTerm*FaceName:		FiraCode Nerd Font:Regular:size=10
