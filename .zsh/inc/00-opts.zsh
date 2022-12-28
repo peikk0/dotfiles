@@ -1,6 +1,6 @@
 # {{{ History
 
-HISTFILE="${ZDOTDIR:-${HOME}}/.zsh_history"
+HISTFILE="${ZDOTDIR:-${HOME}}/.cache/zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 setopt append_history extended_history hist_find_no_dups hist_fcntl_lock hist_ignore_dups hist_ignore_space hist_reduce_blanks
