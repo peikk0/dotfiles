@@ -356,8 +356,9 @@ let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git'"
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 let g:rg_derive_root = 'true'
 nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>s :BLines<cr>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>s :BLines<CR>
+nnoremap <Leader>ft :Filetypes<CR>
 nnoremap <Leader>rg :Rg <C-R><C-W><CR>
 
 " Mapping selecting mappings
