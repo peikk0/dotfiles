@@ -162,7 +162,7 @@ set markers = yes
 set implicit_autoview = yes
 auto_view text/html application/x-pgp-message
 alternative_order text/plain text/enriched text text/html
-set mailcap_path = ~/.mailcap
+set mailcap_path = ~/.config/mutt/mailcap
 set tilde = yes
 
 # }}}
