@@ -12,7 +12,7 @@ unhdr_order *
 # {{{ User variables, override them in local.pre.rc
 
 set my_name = "Pierre Guinoiseau"
-set my_signature = ~/.mutt/signature
+set my_signature = ~/.config/mutt/signature
 set my_address = pierre@guinoiseau.nz
 set my_alternates = '^pierre@guinoiseau\.(eu|nz)|master@obiwankeno\.be|(root|admin|(host|post|web)master|g|pierre)@yggdrasil\.nz$'
 set my_user = $my_address
@@ -20,7 +20,7 @@ set my_password = SET_ME_IN_VARS_RC
 set my_imap_server = imap://imap.guinoiseau.nz/
 set my_smtp_server = smtp://$my_user@smtp.guinoiseau.nz:587/
 
-source `FILE=~/.mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
+source `FILE=~/.config/mutt/local.pre.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
 
 # }}}
 
@@ -88,8 +88,8 @@ set rfc2047_parameters = yes
 
 # {{{ Paths
 
-set header_cache = ~/.mutt/cache/headers
-set certificate_file = ~/.mutt/certificates
+set header_cache = ~/.cache/mutt/headers
+set certificate_file = ~/.cache/mutt/certificates
 
 # }}}
 
@@ -189,7 +189,7 @@ my_hdr X-Operating-System: `uname -s`
 
 # {{{ Aliases
 
-set alias_file = ~/.mutt/aliases
+set alias_file = ~/.config/mutt/aliases
 source $alias_file
 set sort_alias = alias
 set reverse_alias = yes
@@ -230,13 +230,13 @@ set xterm_title = "Mutt: %f [%?m?%m messages&no messages?%?n?, %n NEW?]"
 
 # {{{ Theme
 
-source ~/.mutt/themes/akoya.rc
+source ~/.config/mutt/themes/akoya.rc
 
 # }}}
 
 # {{{ Local overrides
 
-source `FILE=~/.mutt/local.post.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
+source `FILE=~/.config/mutt/local.post.rc; [ ! -s "$FILE" ] && FILE=/dev/null; echo "$FILE"`
 
 # }}}
 
