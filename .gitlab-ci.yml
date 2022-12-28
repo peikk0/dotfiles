@@ -10,7 +10,7 @@ vint:
   image: alpine:3.17
   script:
     - apk add py3-setuptools vint
-    - vint .gvimrc .vimrc
+    - vint --color --warning .vimrc
 
 shellcheck:
   stage: test
