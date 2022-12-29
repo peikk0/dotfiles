@@ -20,12 +20,12 @@ local fzf_colors=(
 )
 export FZF_DEFAULT_OPTS="${(j: :)fzf_colors} --layout=reverse"
 
-if [[ -f "${HOME}/.local/fzf/shell/completion.zsh" ]]; then
-  . "${HOME}/.local/fzf/shell/completion.zsh"
+if [[ -f "${HOME}/.local/opt/fzf/shell/completion.zsh" ]]; then
+  . "${HOME}/.local/opt/fzf/shell/completion.zsh"
 fi
 
-if [[ -f "${HOME}/.local/fzf/shell/key-bindings.zsh" ]]; then
-  . "${HOME}/.local/fzf/shell/key-bindings.zsh"
+if [[ -f "${HOME}/.local/opt/fzf/shell/key-bindings.zsh" ]]; then
+  . "${HOME}/.local/opt/fzf/shell/key-bindings.zsh"
 
   if [[ -v FZF_DEFAULT_COMMAND ]]; then
     FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
