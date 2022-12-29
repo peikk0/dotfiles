@@ -117,9 +117,9 @@ BAT_THEME="Nord"; export BAT_THEME
 
 # }}}
 
-# {{{ ripgrep
+# {{{ Docker
 
-RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"; export RIPGREP_CONFIG_PATH
+DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"; export DOCKER_CONFIG
 
 # }}}
 
@@ -132,6 +132,12 @@ BLOCKSIZE="K"; export BLOCKSIZE
 # {{{ PostgreSQL
 
 PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"; export PSQLRC
+
+# }}}
+
+# {{{ ripgrep
+
+RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"; export RIPGREP_CONFIG_PATH
 
 # }}}
 
