@@ -129,6 +129,12 @@ BLOCKSIZE="K"; export BLOCKSIZE
 
 # }}}
 
+# {{{ Kubernetes
+
+KUBECACHEDIR="${XDG_CACHE_HOME:-${HOME}/.cache}/kube"; export KUBECACHEDIR
+
+# }}}
+
 # {{{ PostgreSQL
 
 PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"; export PSQLRC
