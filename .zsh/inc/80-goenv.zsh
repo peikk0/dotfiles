@@ -4,6 +4,7 @@ goenv() {
   autoload -U colors; colors
 
   export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/goenv"
+  export GOENV_GOPATH_PREFIX="${XDG_DATA_DIR:-${HOME}/.local/share}/go"
 
   if [[ -d "${GOENV_ROOT}/bin" ]]; then
     path=("${GOENV_ROOT}/bin" ${path})
