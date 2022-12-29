@@ -3,13 +3,17 @@
 
 # original tpope's version: https://github.com/tpope/tpope/blob/master/bin/sensible-browser
 
+# TODO: cleanup and modernize
+
 # As the name suggests, picks a sensible web browser based on what's installed
 # and what environment we're in.  The -T option forces a terminal browser, -G
 # a gui browser, and -dump a formatted dump of the website.
 
-[ "$PATH" ] || PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin"
-ulimit -u 384 >/dev/null 2>/dev/null
-[ -f "$HOME/.sb.local" ] && . "$HOME/.sb.local"
+[ "${PATH}" ] || PATH="${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin"
+
+sb_local_config="${XDG_CONFIG_HOME:-${HOME}/.config}/sensible-browser/sb.local"
+# shellcheck source=/dev/null
+[ -f "${sb_local_config}" ] && . "${sb_local_config}"
 
 if [ "$1" = "-T" ]; then
   shift
@@ -19,56 +23,49 @@ fi
 if [ "$1" = "-dump" ]; then
   shift
   terminal='-dump'
-  launch() { exec "$@" -dump
-  }
-elif [ "$TMUX" ]; then
+  launch() { exec "$@" -dump; }
+elif [ -n "${TMUX}" ]; then
   # needs $* instead of $@, don't know why
   # also, fails with ? in URL, don't know how to properly fix this
-  launch() { tmux new-window -n "www" "$*"; exit 0
- }
-elif [ "$STY" ]; then
-  # no tested
-  launch() { screen -ln -fn -t "www" "$@"; exit 0
-  }
+  launch() { tmux new-window -n "www" "$*"; exit 0; }
 elif [ ! -t 1 ]; then
-  launch() { nohup x-terminal-emulator -e "$@" >/dev/null 2>&1 & exit 0
-  }
+  launch() { nohup x-terminal-emulator -e "$@" >/dev/null 2>&1 & exit 0; }
 else
-  launch() { exec "$@"
-  } fi
+  launch() { exec "$@"; }
+fi
 
-if [ -n "$SECURITYSESSIONID" -o -n "$Apple_PubSub_Socket_Render" ] && [ -x /usr/bin/open -a -z "$terminal" ]; then
+if { [ -n "${SECURITYSESSIONID}" ] || [ -n "${Apple_PubSub_Socket_Render}" ]; } && [ -x /usr/bin/open ] && [ -z "${terminal}" ]; then
   exec open "$@"
-elif [ -n "$DISPLAY" -a -z "$terminal" ]; then
-  url="$@"
-  case "$DISPLAY" in
-    :*|localhost*:0*|127.0.0.1:*|`hostname`*:0*) gui=: ;;
+elif [ -n "${DISPLAY}" ] && [ -z "${terminal}" ]; then
+  url="$*"
+  case "${DISPLAY}" in
+    :*|localhost*:0*|127.0.0.1:*|$(hostname)*:0*) gui=: ;;
   esac
-  if [ -e "$url" ]; then
-    case "$url" in
-      /*) url="file://$url" ;;
-      *) url="file://$PWD/$url" ;;
+  if [ -e "${url}" ]; then
+    case "${url}" in
+      /*) url="file://${url}" ;;
+      *) url="file://${PWD}/${url}" ;;
     esac
   else
-    case "$url" in www.*) url="http://$url"; esac
+    case "${url}" in www.*) url="http://${url}"; esac
   fi
-  case "$gui$url" in
+  case "${gui}${url}" in
     file:*|/*) ;;
-    :spotify:*) exec spotify "$url" ;;
+    :spotify:*) exec spotify "${url}" ;;
     *:*|www*|'')
     for browser in chrome google-chrome chromium chromium-browser; do
-      if which $browser >/dev/null 2>&1; then
-        nohup nice -n 1 $browser "$url" >/dev/null 2>&1 &
+      if command -v "${browser}" >/dev/null 2>&1; then
+        nohup nice -n 1 "${browser}" "${url}" >/dev/null 2>&1 &
         exit 0
       fi
     done
     for browser in firefox iceweasel; do
-      if which $browser >/dev/null 2>&1; then
-        # nice -n 1 $browser -remote "openURL($url,new-tab)" >/dev/null 2>&1 || # Error: Failed to send command: 500 command not parseable
-        if [ -n "$url" ]; then
-          nohup nice -n 1 $browser "$url" >/dev/null 2>&1 &
+      if command -v "${browser}" >/dev/null 2>&1; then
+        # nice -n 1 "${browser}" -remote "openURL(${url},new-tab)" >/dev/null 2>&1 || # Error: Failed to send command: 500 command not parseable
+        if [ -n "${url}" ]; then
+          nohup nice -n 1 "${browser}" "${url}" >/dev/null 2>&1 &
         else
-          nohup nice -n 1 $browser >/dev/null 2>&1 &
+          nohup nice -n 1 "${browser}" >/dev/null 2>&1 &
         fi
         exit 0
       fi
@@ -76,19 +73,19 @@ elif [ -n "$DISPLAY" -a -z "$terminal" ]; then
   esac
 fi
 
-if [ "$terminal" = "-dump" ] && which lynx >/dev/null 2>&1; then
+if [ "${terminal}" = "-dump" ] && command -v lynx >/dev/null 2>&1; then
   launch lynx -force_html "$@"
-elif which w3m >/dev/null 2>&1; then
-  if [ -n "$@" ]; then
+elif command -v w3m >/dev/null 2>&1; then
+  if [ "$#" -ge 1 ]; then
     launch w3m -T text/html "$@"
   else
     launch w3m http://www.google.com/
   fi
-elif which elinks >/dev/null 2>&1; then
+elif command -v elinks >/dev/null 2>&1; then
   launch elinks "$@"
-elif which links >/dev/null 2>&1; then
+elif command -v links >/dev/null 2>&1; then
   launch links "$@"
-elif which lynx >/dev/null 2>&1; then
+elif command -v lynx >/dev/null 2>&1; then
   launch lynx -force_html "$@"
 fi
 

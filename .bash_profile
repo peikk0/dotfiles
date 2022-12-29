@@ -1,5 +1,8 @@
+# shellcheck shell=bash
+
 # {{{ Bashrc
 
+# shellcheck source=.bashrc
 . "${HOME}/.bashrc"
 
 # }}}

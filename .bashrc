@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # {{{ Umask
 
 umask 0022

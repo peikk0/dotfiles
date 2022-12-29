@@ -17,17 +17,13 @@ shellcheck:
   image: koalaman/shellcheck-alpine:v0.9.0
   allow_failure: true
   script:
-    - |
-      status=0
-      for file in \
+    - shellcheck \
           .bash_profile \
           .bashrc \
           .local/bin/sensible-browser \
           .local/bin/x-terminal-emulator \
           .profile \
+          .yabairc \
           .xserverrc \
           .xsession \
-          $(find .sh/inc -type f -name '*.sh'); do
-        shellcheck --severity=warning "${file}" || status=1
-      done
-      exit ${status}
+          $(find .sh/inc -type f -name '*.sh')

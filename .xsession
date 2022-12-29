@@ -62,14 +62,14 @@ fi
 # GnuPG
 if command -v gpg-agent >/dev/null 2>&1; then
   echo 'Launching GPG agent...'
-  eval $(gpg-agent --daemon) || echo "Failed to launch GPG agent"
+  eval "$(gpg-agent --daemon)" || echo "Failed to launch GPG agent"
 fi
 
 # D-Bus
 if [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
   if command -v dbus-launch >/dev/null 2>&1; then
     echo 'Launching D-BUS per-session daemon...'
-    eval $(dbus-launch --sh-syntax --exit-with-session) || echo "Failed to launch D-Bus session daemon"
+    eval "$(dbus-launch --sh-syntax --exit-with-session)" || echo "Failed to launch D-Bus session daemon"
     echo "D-BUS per-session daemon address: ${DBUS_SESSION_BUS_ADDRESS}"
   fi
 fi
@@ -132,6 +132,7 @@ fi
 
 # Local startup script
 if [ -f "${HOME}/.xsession.local" ]; then
+  # shellcheck source=/dev/null
   . "${HOME}/.xsession.local"
 fi
 

@@ -6,25 +6,25 @@
 # Analyzes what terminal emulators are installed and picks my favorite from the
 # bunch.
 
-if [ -z "$DISPLAY" ]; then
+if [ -z "${DISPLAY}" ]; then
   echo "No display set.  Aborting." >&2
   exit 2
 elif [ "$1" = "-E" ]; then
   term="$2"; shift 2
-  exec "$term" "$@"
+  exec "${term}" "$@"
 fi
 
-[ -n "$XTERM" ] && which $XTERM >/dev/null 2>&1 && exec "$XTERM" "$@"
+[ -n "${XTERM}" ] && which "${XTERM}" >/dev/null 2>&1 && exec "${XTERM}" "$@"
 
 # NOT exported
-[ -z "$RXVT_SOCKET" ] && RXVT_SOCKET="$HOME/.urxvt/urxvtd-`hostname`"
-if [ -S "$RXVT_SOCKET" ] && which urxvtc >/dev/null 2>&1; then
+[ -z "${RXVT_SOCKET}" ] && RXVT_SOCKET="${HOME}/.urxvt/urxvtd-$(hostname)"
+if [ -S "${RXVT_SOCKET}" ] && which urxvtc >/dev/null 2>&1; then
   urxvtc --help 2>/dev/null
-  [ "$?" = 1 ] && exec urxvtc "$@"
+  [ "$?" -eq 1 ] && exec urxvtc "$@"
 fi
 
 for term in kitty alacritty terminator st urxvt xterm rxvt konsole gnome-terminal; do
-  which $term >/dev/null 2>&1 && exec $term "$@"
+  which "${term}" >/dev/null 2>&1 && exec "${term}" "$@"
 done
 
 echo "No terminal emulators found." >&2
