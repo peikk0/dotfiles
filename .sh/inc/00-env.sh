@@ -131,7 +131,9 @@ BLOCKSIZE="K"; export BLOCKSIZE
 
 # {{{ Kubernetes
 
-KUBECACHEDIR="${XDG_CACHE_HOME:-${HOME}/.cache}/kube"; export KUBECACHEDIR
+KUBECACHEDIR="${XDG_CACHE_HOME:-${HOME}/.cache}/kube"
+KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube/config"
+export KUBECACHEDIR KUBECONFIG
 
 # }}}
 
