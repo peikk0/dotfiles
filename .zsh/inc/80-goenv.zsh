@@ -1,16 +1,27 @@
 # {{{ goenv
 
-load_goenv() {
-  if [[ -d "${HOME}/.local/goenv" ]]; then
-    GOENV_ROOT="${HOME}/.local/goenv"
+goenv() {
+  autoload -U colors; colors
+
+  export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/goenv"
+
+  if [[ -d "${GOENV_ROOT}/bin" ]]; then
     path=("${GOENV_ROOT}/bin" ${path})
-    export PATH GOENV_ROOT
+    export PATH
   fi
 
-  if command -v goenv >/dev/null 2>&1; then
-    eval "$(goenv init -)"
-  else
-    echo "goenv not found!" >&2
+  if ! command -v goenv >/dev/null 2>&1; then
+    echo "${fg[red]}\uF00D${reset_color} goenv not found!" >&2
+    return 1
+  fi
+
+  unset -f goenv
+  eval "$(goenv init -)"
+  echo "${fg[green]}\uF00C${reset_color} goenv loaded!"
+
+  if [[ $# -ge 1 ]]; then
+    echo "${fg[blue]}❯ goenv $@${reset_color}"
+    goenv "$@"
   fi
 }
 
