@@ -130,6 +130,12 @@ export KUBECACHEDIR KUBECONFIG
 
 # }}}
 
+# {{{ lima
+
+LIMA_HOME="${XDG_DATA_HOME}/lima"; export LIMA_HOME
+
+# }}}
+
 # {{{ PostgreSQL
 
 PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"; export PSQLRC
