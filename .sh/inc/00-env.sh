@@ -108,14 +108,21 @@ BAT_THEME="Nord"; export BAT_THEME
 
 # {{{ ripgrep
 
-RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"; export RIPGREP_CONFIG_PATH
+RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"; export RIPGREP_CONFIG_PATH
 
 # }}}
 
-# {{{ Du
+# {{{ du
 
 BLOCKSIZE="K"; export BLOCKSIZE
 
 # }}}
+
+# {{{ PostgreSQL
+
+PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"; export PSQLRC
+
+# }}}
+
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
