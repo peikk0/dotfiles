@@ -1,5 +1,7 @@
 # {{{ Terraform
 
+export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/terraform/terraformrc"
+
 TFENV_ROOT="${HOME}/.local/tfenv"
 if [[ -d "${TFENV_ROOT}" ]]; then
   path=("${TFENV_ROOT}/bin" ${path})
