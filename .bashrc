@@ -29,7 +29,7 @@ fi
 
 # {{{ History
 
-HISTFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/bash_history"
+HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}/bash_history"
 HISTFILESIZE=5000
 HISTSIZE=5000
 HISTCONTROL=ignoredups
