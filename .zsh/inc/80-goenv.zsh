@@ -1,6 +1,6 @@
 # {{{ goenv
 
-goenv() {
+goenv_lazy_load() {
   autoload -U colors; colors
 
   export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/goenv"
@@ -11,12 +11,13 @@ goenv() {
     export PATH
   fi
 
+  unset -f goenv
   if ! command -v goenv >/dev/null 2>&1; then
     echo "${fg[red]}\uF00D${reset_color} goenv not found!" >&2
+    goenv() { goenv_lazy_load "$@" }
     return 1
   fi
 
-  unset -f goenv
   eval "$(goenv init -)"
   echo "${fg[green]}\uF00C${reset_color} goenv loaded!"
 
@@ -25,6 +26,8 @@ goenv() {
     goenv "$@"
   fi
 }
+
+goenv() { goenv_lazy_load "$@" }
 
 # }}}
 

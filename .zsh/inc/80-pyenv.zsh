@@ -1,6 +1,6 @@
 # {{{ pyenv
 
-pyenv() {
+pyenv_lazy_load() {
   autoload -U colors; colors
 
   export PYENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/pyenv"
@@ -10,12 +10,13 @@ pyenv() {
     export PATH
   fi
 
+  unset -f pyenv
   if ! command -v pyenv >/dev/null 2>&1; then
     echo "${fg[red]}\uF00D${reset_color} pyenv not found!" >&2
+    pyenv() { pyenv_lazy_load "$@" }
     return 1
   fi
 
-  unset -f pyenv
   eval "$(pyenv init -)"
   echo "${fg[green]}\uF00C${reset_color} pyenv loaded!"
 
@@ -24,6 +25,8 @@ pyenv() {
     pyenv "$@"
   fi
 }
+
+pyenv() { pyenv_lazy_load "$@" }
 
 # }}}
 
