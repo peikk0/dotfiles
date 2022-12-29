@@ -135,5 +135,10 @@ PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"; export PSQLRC
 
 # }}}
 
+# {{{ wget
+
+WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"; export WGETRC
+
+# }}}
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
