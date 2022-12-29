@@ -1,5 +1,6 @@
 # {{{ Terraform
 
+export CHECKPOINT_DISABLE=true
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/terraform/terraformrc"
 
 TFENV_ROOT="${HOME}/.local/tfenv"
