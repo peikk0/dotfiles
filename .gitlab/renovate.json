@@ -8,6 +8,12 @@
   "labels": [
     "dependencies"
   ],
+  "gitlabci": {
+      "fileMatch": [
+          "\\.gitlab-ci\\.yml$",
+          "\\.gitlab/ci\\.yml$"
+      ]
+  },
   "git-submodules": {
     "enabled": true
   },
