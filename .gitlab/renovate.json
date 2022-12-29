@@ -33,11 +33,6 @@
     },
     {
       "matchManagers": ["git-submodules"],
-      "matchPackageNames": [".local/fzf"],
-      "groupName": "Others"
-    },
-    {
-      "matchManagers": ["git-submodules"],
       "matchPackagePrefixes": [".vim/pack/vendor/"],
       "groupName": "Vim plugins",
       "addLabels": ["vim"]
