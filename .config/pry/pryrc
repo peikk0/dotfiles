@@ -5,7 +5,7 @@
 ENV['HOME'] ||= ENV['USERPROFILE'] || File.dirname(__FILE__)
 
 Pry.editor = ENV['VISUAL']
-Pry.config.history_file = File.expand_path('~/.local/state/history.rb')
+Pry.config.history_file = File.expand_path('~/.local/state/ruby/history.rb')
 begin
   if defined?(Bundler)
     FileUtils.mkdir_p('.bundle')

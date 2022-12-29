@@ -82,7 +82,8 @@ PAGER="more"
 if command -v less >/dev/null 2>&1; then
   PAGER="less"
   LESS="-i -M -R --shift 5"; export LESS
-  LESSHISTFILE="${XDG_STATE_HOME}/less_history"; export LESSHISTFILE
+  mkdir -p "${XDG_STATE_HOME}/less"
+  LESSHISTFILE="${XDG_STATE_HOME}/less/history"; export LESSHISTFILE
   LESS_TERMCAP_mb="$(tput setaf 4)"
   LESS_TERMCAP_md="$(tput setaf 4)"
   LESS_TERMCAP_me="$(tput sgr0)"

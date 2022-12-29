@@ -29,7 +29,8 @@ fi
 
 # {{{ History
 
-HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}/bash_history"
+mkdir -p "${XDG_STATE_HOME:-${HOME}/.local/state}/bash"
+HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}/bash/history"
 HISTFILESIZE=5000
 HISTSIZE=5000
 HISTCONTROL=ignoredups
