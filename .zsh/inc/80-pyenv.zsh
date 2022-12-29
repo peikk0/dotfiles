@@ -1,21 +1,27 @@
 # {{{ pyenv
 
-load_pyenv() {
-  if [[ -d "${HOME}/.local/pyenv" ]]; then
-    PYENV_ROOT="${HOME}/.local/pyenv"
-  elif [[ -d "${HOME}/.pyenv" ]]; then
-    PYENV_ROOT="${HOME}/.pyenv"
-  fi
-  if [[ -n "${PYENV_ROOT}" ]]; then
+pyenv() {
+  autoload -U colors; colors
+
+  export PYENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/pyenv"
+
+  if [[ -d "${PYENV_ROOT}/bin" ]]; then
     path=("${PYENV_ROOT}/bin" ${path})
-    export PATH PYENV_ROOT
+    export PATH
   fi
 
-  if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-  else
-    echo "pyenv not found!" >&2
+  if ! command -v pyenv >/dev/null 2>&1; then
+    echo "${fg[red]}\uF00D${reset_color} pyenv not found!" >&2
+    return 1
+  fi
+
+  unset -f pyenv
+  eval "$(pyenv init -)"
+  echo "${fg[green]}\uF00C${reset_color} pyenv loaded!"
+
+  if [[ $# -ge 1 ]]; then
+    echo "${fg[blue]}❯ pyenv $@${reset_color}"
+    pyenv "$@"
   fi
 }
 
