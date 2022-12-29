@@ -12,6 +12,7 @@
     mkdir -p "${zcompdumpdir}"
     if [[ -s "${zcompdump}" && (! -s "${zcompdump}.zwc" || "${zcompdump}" -nt "${zcompdump}.zwc") ]]; then
         zrecompile -pq "${zcompdump}"
+        rm -f "${zcompdump}.zwc.old"
     fi
 
     # Recompile zsh files
@@ -20,13 +21,16 @@
     zrecompile -pq ${ZDOTDIR:-${HOME}}/.zprofile
     zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshenv
     zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
+    rm -f .{zlogin,zlogout,zprofile,zshenv,zshrc}.zwc.old
 
     for f in "${ZDOTDIR:-$HOME}/.sh/inc"/*.sh; do
         zrecompile -pq "${f}"
+        rm -f "${f}.zwc.old"
     done
 
     for f in "${ZDOTDIR:-$HOME}/.zsh/inc"/*.zsh; do
         zrecompile -pq "${f}"
+        rm -f "${f}.zwc.old"
     done
 ) &!
 
