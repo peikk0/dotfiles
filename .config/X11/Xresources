@@ -41,7 +41,7 @@ URxvt.utmpInhibit:	false
 URxvt.cursorUnderline:	true
 URxvt.cursorBlink:	true
 URxvt.urgentOnBell:	true
-URxvt.perl-lib:		HOME/.perl/urxvt
+URxvt.perl-lib:		HOME/.config/rxvt-unicode/perl/
 URxvt.perl-ext-common:	default,matcher,confirm-paste,clipboard
 URxvt.url-launcher:	sensible-browser
 URxvt.matcher.button:	1
