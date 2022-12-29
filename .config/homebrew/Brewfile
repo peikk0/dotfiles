@@ -65,5 +65,5 @@ brew 'zsh'
 
 cask '1password-cli'
 
-local_brewfile=File.join(ENV['HOME'], '.Brewfile.local')
+local_brewfile=File.join(ENV['HOME'], 'config', 'homebrew', 'Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
