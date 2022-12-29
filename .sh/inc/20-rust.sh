@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 # {{{ rust
 
 PATH="${HOME}/.cargo/bin:${PATH}"
