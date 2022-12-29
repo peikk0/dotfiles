@@ -135,6 +135,14 @@ PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"; export PSQLRC
 
 # }}}
 
+# {{{ Ruby / Bundler
+
+BUNDLE_USER_HOME="${XDG_CONFIG_HOME}/bundle"
+BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
+export BUNDLE_USER_HOME BUNDLE_USER_CACHE
+
+# }}}
+
 # {{{ wget
 
 WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"; export WGETRC
