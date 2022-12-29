@@ -8,8 +8,14 @@ done
 autoload -Uz compinit
 autoload -Uz complist
 
-compinit
+(
+  local zcompdumpdir="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
+  local zcompdump="${zcompdumpdir}/zcompdump-${ZSH_VERSION}"
+  mkdir -p "${zcompdumpdir}"
+  compinit -d "${zcompdump}"
+)
 
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/zcompcache"
 zstyle ':completion:*' menu select=5
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s

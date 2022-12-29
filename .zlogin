@@ -7,7 +7,9 @@
     autoload -U zrecompile
 
     # Compile zcompdump, if modified, to increase startup speed
-    zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+    local zcompdumpdir="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
+    local zcompdump="${zcompdumpdir}/zcompdump-${ZSH_VERSION}"
+    mkdir -p "${zcompdumpdir}"
     if [[ -s "${zcompdump}" && (! -s "${zcompdump}.zwc" || "${zcompdump}" -nt "${zcompdump}.zwc") ]]; then
         zrecompile -pq "${zcompdump}"
     fi
