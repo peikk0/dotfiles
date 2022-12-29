@@ -20,7 +20,7 @@ brew 'git-delta'
 brew 'git-lfs'
 brew 'glab'
 brew 'gnupg'
-brew 'goenv', args: ['HEAD']
+brew 'goenv'
 brew 'helm'
 brew 'helmfile'
 brew 'htop'
