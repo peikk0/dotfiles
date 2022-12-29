@@ -132,7 +132,7 @@ augroup END
 let g:airline_powerline_fonts=1
 let g:airline_highlighting_cache=1
 
-set runtimepath+=$HOME/.local/fzf
+set runtimepath+=$HOME/.local/opt/fzf
 
 if !has('packages')
   " Load plugins on Vim < 8

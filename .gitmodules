@@ -1,5 +1,5 @@
-[submodule ".local/fzf"]
-	path = .local/fzf
+[submodule ".local/opt/fzf"]
+	path = .local/opt/fzf
 	url = https://github.com/junegunn/fzf.git
 	branch = master
 [submodule ".vim/pack/vendor/start/rails"]
