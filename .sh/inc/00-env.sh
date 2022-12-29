@@ -1,12 +1,5 @@
 # shellcheck shell=sh
 
-# {{{ Vars
-
-: "${OS:=$(uname -s)}"
-: "${UID:=$(id -u)}"
-
-# }}}
-#
 # {{{ XDG
 
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
@@ -19,7 +12,7 @@ export XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_STATE_HOME
 
 # {{{ Path
 
-if [ "${OS}" != "Darwin" ]; then
+if [ "$(uname -s)" != "Darwin" ]; then
   PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 fi
 
@@ -163,8 +156,7 @@ CARGO_HOME="${XDG_DATA_HOME}/cargo"
 RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME RUSTUP_HOME
 
-PATH="${CARGO_HOME}/bin:${PATH}"
-export PATH
+PATH="${CARGO_HOME}/bin:${PATH}"; export PATH
 
 # }}}
 
