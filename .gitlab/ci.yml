@@ -26,5 +26,6 @@ shellcheck:
           .profile \
           .config/yabai/yabairc \
           .xserverrc \
+          .xinitrc \
           .xsession \
           $(find .sh/inc -type f -name '*.sh')
