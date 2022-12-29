@@ -8,12 +8,10 @@ done
 autoload -Uz compinit
 autoload -Uz complist
 
-(
-  local zcompdumpdir="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
-  local zcompdump="${zcompdumpdir}/zcompdump-${ZSH_VERSION}"
-  mkdir -p "${zcompdumpdir}"
-  compinit -d "${zcompdump}"
-)
+zcompdumpdir="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
+zcompdump="${zcompdumpdir}/zcompdump-${ZSH_VERSION}"
+mkdir -p "${zcompdumpdir}"
+compinit -d "${zcompdump}"
 
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/zcompcache"
 zstyle ':completion:*' menu select=5
