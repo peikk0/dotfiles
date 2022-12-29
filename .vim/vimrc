@@ -23,10 +23,10 @@ set modelines=3
 set backspace=indent,eol,start
 
 " XDG
-if empty($XDG_DATA_HOME) | let $XDG_DATA_HOME = HOME . ".local/share" | endif
-if empty($XDG_STATE_HOME) | let $XDG_STATE_HOME = HOME . ".local/state" | endif
-let g:netrw_home = $XDG_DATA_HOME."/vim"
-call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+if empty($XDG_DATA_HOME) | let $XDG_DATA_HOME = HOME . '.local/share' | endif
+if empty($XDG_STATE_HOME) | let $XDG_STATE_HOME = HOME . '.local/state' | endif
+let g:netrw_home = $XDG_DATA_HOME.'/vim'
+call mkdir($XDG_DATA_HOME.'/vim/spell', 'p')
 set backupdir=$XDG_STATE_HOME/vim/backup | call mkdir(&backupdir, 'p')
 set directory=$XDG_STATE_HOME/vim/swap   | call mkdir(&directory, 'p')
 set undodir=$XDG_STATE_HOME/vim/undo     | call mkdir(&undodir,   'p')
