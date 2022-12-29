@@ -64,6 +64,14 @@ export LANG LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME MM_CH
 
 # }}}
 
+# {{{ ncurses / terminfo
+
+TERMINFO="${XDG_DATA_HOME}/terminfo"
+TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:/usr/local/share/terminfo:/usr/share/terminfo"
+export TERMINFO TERMINFO_DIRS
+
+#}}}
+
 # {{{ Editor
 
 EDITOR="vi"
@@ -84,13 +92,13 @@ if command -v less >/dev/null 2>&1; then
   LESS="-i -M -R --shift 5"; export LESS
   mkdir -p "${XDG_STATE_HOME}/less"
   LESSHISTFILE="${XDG_STATE_HOME}/less/history"; export LESSHISTFILE
-  LESS_TERMCAP_mb="$(tput setaf 4)"
-  LESS_TERMCAP_md="$(tput setaf 4)"
-  LESS_TERMCAP_me="$(tput sgr0)"
-  LESS_TERMCAP_so="$(tput setaf 5)"
-  LESS_TERMCAP_se="$(tput sgr0)"
-  LESS_TERMCAP_us="$(tput setaf 2)"
-  LESS_TERMCAP_ue="$(tput sgr0)"
+  LESS_TERMCAP_mb="$(tput -T "${TERM:-xterm}" setaf 4)"
+  LESS_TERMCAP_md="$(tput -T "${TERM:-xterm}" setaf 4)"
+  LESS_TERMCAP_me="$(tput -T "${TERM:-xterm}" sgr0)"
+  LESS_TERMCAP_so="$(tput -T "${TERM:-xterm}" setaf 5)"
+  LESS_TERMCAP_se="$(tput -T "${TERM:-xterm}" sgr0)"
+  LESS_TERMCAP_us="$(tput -T "${TERM:-xterm}" setaf 2)"
+  LESS_TERMCAP_ue="$(tput -T "${TERM:-xterm}" sgr0)"
   export LESS_TERMCAP_mb LESS_TERMCAP_md LESS_TERMCAP_me LESS_TERMCAP_so \
     LESS_TERMCAP_se LESS_TERMCAP_us LESS_TERMCAP_ue
   if command -v lesspipe.sh >/dev/null 2>&1; then
