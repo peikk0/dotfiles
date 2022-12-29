@@ -4,34 +4,41 @@
 
 # Execute code in the background to not affect the current session
 (
-    autoload -U zrecompile
+  autoload -U zrecompile
 
-    # Compile zcompdump, if modified, to increase startup speed
-    local zcompdumpdir="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
-    local zcompdump="${zcompdumpdir}/zcompdump-${ZSH_VERSION}"
-    mkdir -p "${zcompdumpdir}"
-    if [[ -s "${zcompdump}" && (! -s "${zcompdump}.zwc" || "${zcompdump}" -nt "${zcompdump}.zwc") ]]; then
-        zrecompile -pq "${zcompdump}"
-        rm -f "${zcompdump}.zwc.old"
-    fi
+  # Compile zcompdump, if modified, to increase startup speed
+  local zcompdumpdir="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
+  local zcompdump="${zcompdumpdir}/zcompdump-${ZSH_VERSION}"
+  mkdir -p "${zcompdumpdir}"
+  if [[ -s "${zcompdump}" && (! -s "${zcompdump}.zwc" || "${zcompdump}" -nt "${zcompdump}.zwc") ]]; then
+    zrecompile -pq "${zcompdump}"
+    rm -f "${zcompdump}.zwc.old"
+  fi
 
-    # Recompile zsh files
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zlogin
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zlogout
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zprofile
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshenv
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
-    rm -f .{zlogin,zlogout,zprofile,zshenv,zshrc}.zwc.old
+  # Recompile zsh files
+  zrecompile -pq ${ZDOTDIR:-${HOME}}/.zlogin
+  zrecompile -pq ${ZDOTDIR:-${HOME}}/.zlogout
+  zrecompile -pq ${ZDOTDIR:-${HOME}}/.zprofile
+  zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshenv
+  zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
+  rm -f .{zlogin,zlogout,zprofile,zshenv,zshrc}.zwc.old
 
-    for f in "${ZDOTDIR:-$HOME}/.sh/inc"/*.sh; do
-        zrecompile -pq "${f}"
-        rm -f "${f}.zwc.old"
+  for f in "${ZDOTDIR:-$HOME}/.sh/inc"/*.sh; do
+    zrecompile -pq "${f}"
+    rm -f "${f}.zwc.old"
+  done
+
+  for f in "${ZDOTDIR:-$HOME}/.zsh/inc"/*.zsh; do
+    zrecompile -pq "${f}"
+    rm -f "${f}.zwc.old"
+  done
+
+  if [[ -d "${ZDOTDIR:-$HOME}/.local/opt/fzf/shell" ]]; then
+    for f in "${ZDOTDIR:-$HOME}/.local/opt/fzf/shell"/*.zsh; do
+      zrecompile -pq "${f}"
+      rm -f "${f}.zwc.old"
     done
-
-    for f in "${ZDOTDIR:-$HOME}/.zsh/inc"/*.zsh; do
-        zrecompile -pq "${f}"
-        rm -f "${f}.zwc.old"
-    done
+  fi
 ) &!
 
 # }}}
