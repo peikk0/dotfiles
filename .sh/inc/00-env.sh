@@ -143,6 +143,17 @@ export BUNDLE_USER_HOME BUNDLE_USER_CACHE
 
 # }}}
 
+# {{{ Rust
+
+CARGO_HOME="${XDG_DATA_HOME}/cargo"
+RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
+export CARGO_HOME RUSTUP_HOME
+
+PATH="${CARGO_HOME}/bin:${PATH}"
+export PATH
+
+# }}}
+
 # {{{ wget
 
 WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"; export WGETRC
