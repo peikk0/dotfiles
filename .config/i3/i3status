@@ -8,7 +8,7 @@ set -e
 
 I3STATUS="i3status"
 I3STATUS_CONFIG="${HOME}/.config/i3/i3status.conf"
-I3STATUS_RS="${HOME}/.cargo/bin/i3status-rs"
+I3STATUS_RS="${CARGO_HOME:-${HOME}/.local/share/cargo}/bin/i3status-rs"
 I3STATUS_RS_CONFIG="${HOME}/.config/i3/i3status.toml"
 
 if [ -f "${I3STATUS_CONFIG}.local" ]; then
