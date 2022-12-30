@@ -44,8 +44,59 @@
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [delta]
-    line-numbers = true
+    dark = true
+    keep-plus-minus-markers = false
+    navigate = true
+    side-by-side = false
     syntax-theme = Nord
+
+    blame-code-style = syntax
+    blame-format = "{author:<20} ({commit:>10}) {timestamp:<15} "
+    blame-palette = "#2E3440" "#3B4252" "#434C5E" "#4C566A"
+
+    file-style = "#81A1C1"
+    file-decoration-style = "#434C5E" box
+    file-added-label = 
+    file-copied-label = 
+    file-modified-label = 
+    file-removed-label = 
+    file-renamed-label = 
+
+    hunk-header-decoration-style = "#434C5E" box
+    hunk-header-file-style = "#81A1C1"
+    hunk-header-line-number-style = "#B48EAD"
+    hunk-header-style = line-number syntax
+
+    line-numbers = true
+    line-numbers-minus-style = "#BF616A"
+    line-numbers-plus-style = "#A3BE8C"
+    line-numbers-zero-style = "#434C5E"
+    line-numbers-left-style = "#BF616A"
+    line-numbers-right-style = "#A3BE8C"
+    line-numbers-left-format = " {nm:>3} │"
+    line-numbers-right-format = " {np:>3} │"
+
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = "#D08770" bold
+    merge-conflict-ours-diff-header-decoration-style = "#434C5E" box
+    merge-conflict-theirs-diff-header-style = "#EBCB8B" bold
+    merge-conflict-theirs-diff-header-decoration-style = "#434C5E" box
+
+    minus-style = "#BF616A"
+    minus-emph-style = bold reverse "#BF616A"
+    minus-non-emph-style = "#BF616A"
+    minus-empty-line-marker-style = "#BF616A"
+    plus-style = "#A3BE8C"
+    plus-emph-style = bold reverse "#A3BE8C"
+    plus-non-emph-style = "#A3BE8C"
+    plus-empty-line-marker-style = "#BF616A"
+    zero-style = syntax
+
+    grep-file-style = "#81A1C1"
+    grep-line-number-style = "#81A1C1"
+
+    whitespace-error-style = "reverse #B48EAD"
 
 [diff]
     colorMoved = default
@@ -67,6 +118,9 @@
 
 [init]
     defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
 
 [log]
     date = iso-local
