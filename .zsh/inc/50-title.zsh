@@ -5,7 +5,7 @@ function update_title {
   local t="%m %~ %#"
 
   case "${TERM}" in
-    screen*) # and tmux
+    screen*|tmux*)
       print -nP "\ek$t\e\\"
       print -nP "\e]0;$t\a"
       ;;
