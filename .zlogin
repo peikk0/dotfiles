@@ -4,6 +4,8 @@
 
 # Execute code in the background to not affect the current session
 (
+  setopt extended_glob
+
   autoload -U zrecompile
 
   # Compile zcompdump, if modified, to increase startup speed
@@ -29,6 +31,11 @@
   done
 
   for f in "${ZDOTDIR:-$HOME}/.zsh/inc"/*.zsh; do
+    zrecompile -pq "${f}"
+    rm -f "${f}.zwc.old"
+  done
+
+  for f in "${ZDOTDIR:-$HOME}/.zsh/plugins"/(^(t|T)est(-data|s|)/)#/*.zsh; do
     zrecompile -pq "${f}"
     rm -f "${f}.zwc.old"
   done
