@@ -1,3 +1,4 @@
+
 # {{{ Recompile ZSH files
 
 # <https://github.com/htr3n/zsh-config/blob/master/zlogin>
@@ -25,7 +26,7 @@
   zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
   rm -f .{zlogin,zlogout,zprofile,zshenv,zshrc}.zwc.old
 
-  for f in "${ZDOTDIR:-$HOME}/.sh/inc"/*.sh; do
+  for f in "${HOME}/.sh/inc"/*.sh; do
     zrecompile -pq "${f}"
     rm -f "${f}.zwc.old"
   done
@@ -40,8 +41,8 @@
     rm -f "${f}.zwc.old"
   done
 
-  if [[ -d "${ZDOTDIR:-$HOME}/.local/opt/fzf/shell" ]]; then
-    for f in "${ZDOTDIR:-$HOME}/.local/opt/fzf/shell"/*.zsh; do
+  if [[ -d "${HOME}/.local/opt/fzf/shell" ]]; then
+    for f in "${HOME}/.local/opt/fzf/shell"/*.zsh; do
       zrecompile -pq "${f}"
       rm -f "${f}.zwc.old"
     done
