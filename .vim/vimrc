@@ -15,6 +15,7 @@ if has('terminfo') || has('nvim')
     set termguicolors
   endif
   colorscheme nord
+  hi normal guibg=NONE ctermbg=NONE
 end
 
 set modeline
