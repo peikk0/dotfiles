@@ -2,6 +2,7 @@ local wezterm = require 'wezterm';
 
 return {
     allow_square_glyphs_to_overflow_width = 'WhenFollowedBySpace',
+    audible_bell = "Disabled",
     color_scheme = "nord",
     custom_block_glyphs = false,
     default_cursor_style = "BlinkingUnderline",
