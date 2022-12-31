@@ -7,6 +7,7 @@ setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
 
   typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+  typeset -g POWERLEVEL9K_DIR_HYPERLINK=true
 
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # Line 1

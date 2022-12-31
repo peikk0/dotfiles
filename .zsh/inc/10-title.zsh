@@ -1,22 +1,21 @@
 # {{{ Terminal title update hook
 
-# Display the title
-function update_title {
+function update_terminal_title {
   local t="%m %~ %#"
 
   case "${TERM}" in
     screen*|tmux*)
-      print -nP "\ek$t\e\\"
-      print -nP "\e]0;$t\a"
+      print -nP "\ek${t}\e\\"
+      print -nP "\e]0;${t}\e\\"
       ;;
     xterm*|rxvt*|stterm*|(E|e)term)
-      print -nP "\e]0;$t\a"
+      print -nP "\e]0;${t}\e\\"
       ;;
   esac
 }
 
 autoload -U add-zsh-hook
-add-zsh-hook precmd update_title
+add-zsh-hook precmd update_terminal_title
 
 # }}}
 
