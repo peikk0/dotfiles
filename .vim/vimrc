@@ -8,12 +8,17 @@ if has('terminfo') || has('nvim')
     packadd nord
   endif
   set background=dark
-  " https://github.com/tmux/tmux/issues/1246
   if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    " https://github.com/tmux/tmux/issues/1246
+    let &t_8f = "\e[38;2;%lu;%lu;%lum"
+    let &t_8b = "\e[48;2;%lu;%lu;%lum"
+    " https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722
+    let &t_ZH = "\e[3m"
+    let &t_ZR = "\e[23m"
     set termguicolors
   endif
+  let g:nord_italic = 1
+  let g:nord_italic_comments = 1
   colorscheme nord
   hi normal guibg=NONE ctermbg=NONE
 end
