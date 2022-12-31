@@ -69,5 +69,5 @@ cask '1password-cli'
 cask 'secretive'
 cask 'wezterm'
 
-local_brewfile=File.join(ENV['HOME'], 'config', 'homebrew', 'Brewfile.local')
+local_brewfile=File.join(ENV['HOME'], '.config', 'homebrew', 'Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
