@@ -11,6 +11,7 @@ return {
         'Fira Code',
         'Fira Mono',
         'Menlo',
+        'Monaco',
         'Roboto',
         'Noto Mono',
         'Noto Sans Mono',
@@ -19,5 +20,6 @@ return {
     },
     font_size = 12.0,
     hide_tab_bar_if_only_one_tab = true,
-    window_background_opacity = 0.95
+    window_background_opacity = 0.95,
+    window_decorations = 'RESIZE',
 }
