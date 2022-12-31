@@ -6,6 +6,8 @@ typeset -g POWERLEVEL9K_THEME="${ZDOTDIR:-${HOME}}/.zsh/plugins/powerlevel${POWE
 setup_powerlevel9k() {
   typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
 
+  typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # Line 1
     os_icon
