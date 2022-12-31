@@ -53,7 +53,7 @@ return {
     window_decorations = 'RESIZE',
     window_frame = {
         font = wezterm.font { family = 'Fira Sans', italic = true },
-        font_size = 14.0,
+        font_size = 12.0,
 
         active_titlebar_bg = '#2E3440',
         active_titlebar_fg = '#ECEFF4',
