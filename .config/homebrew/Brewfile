@@ -66,6 +66,7 @@ brew 'yq'
 brew 'zsh'
 
 cask '1password-cli'
+cask 'secretive'
 
 local_brewfile=File.join(ENV['HOME'], 'config', 'homebrew', 'Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
