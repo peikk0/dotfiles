@@ -69,9 +69,9 @@
     hunk-header-style = line-number syntax
 
     line-numbers = true
-    line-numbers-minus-style = "#BF616A"
-    line-numbers-plus-style = "#A3BE8C"
-    line-numbers-zero-style = "#434C5E"
+    line-numbers-minus-style = "#BF616A" italic
+    line-numbers-plus-style = "#A3BE8C" italic
+    line-numbers-zero-style = "#434C5E" italic
     line-numbers-left-style = "#BF616A"
     line-numbers-right-style = "#A3BE8C"
     line-numbers-left-format = " {nm:>3} │"
