@@ -1,20 +1,32 @@
 
 # {{{ google-cloud-sdk
 
-GOOGLE_CLOUD_SDK="${HOME}/.local/opt/google-cloud-sdk"
+gcloud_paths=(
+    "${HOME}/.local/opt/google-cloud-sdk" \
+    /opt/google-cloud-sdk \
+    /usr/local/google-cloud-sdk \
+    "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+  )
 
-if [ -f "${GOOGLE_CLOUD_SDK}/path.zsh.inc" ]; then
-    . "${GOOGLE_CLOUD_SDK}/path.zsh.inc"
-fi
-if [ -f "${GOOGLE_CLOUD_SDK}/completion.zsh.inc" ]; then
-    . "${GOOGLE_CLOUD_SDK}/completion.zsh.inc"
+for gcloud_path in ${gcloud_paths}; do
+  if [[ -d "${gcloud_path}" ]]; then
+    GOOGLE_CLOUD_SDK="${gcloud_path}"
+    break
+  fi
+done
+
+unset gcloud_paths gcloud_path
+
+if [[ -n "${GOOGLE_CLOUD_SDK}" ]]; then
+  . "${GOOGLE_CLOUD_SDK}/path.zsh.inc"
+  . "${GOOGLE_CLOUD_SDK}/completion.zsh.inc"
 fi
 
 # For loading the optional Numpy dependency
-CLOUDSDK_PYTHON_SITEPACKAGES=1; export CLOUDSDK_PYTHON_SITEPACKAGES
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 # For kubectl with GKE
-USE_GKE_GCLOUD_AUTH_PLUGIN=True; export USE_GKE_GCLOUD_AUTH_PLUGIN
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # }}}
 
