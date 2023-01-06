@@ -3,19 +3,36 @@
 # shellcheck source=../../.profile
 . "${HOME}/.profile"
 
-echo " Initializing/updating submodules..."
-yadm submodule update --init --recursive
+# Submodules
+
+echo ' Updating submodules...'
+yadm -C "${HOME}" submodule update --init --recursive
+
+# Homebrew
+
+if [ "$(uname -s)" = 'Darwin' ]; then
+  brewfile="${XDG_CONFIG_HOME}/homebrew/Brewfile"
+  brewfile_lock_json="${brewfile}.lock.json"
+  # shellcheck disable=SC3013
+  if ! [ -f "${brewfile_lock_json}" ] || [ "${brewfile}" -nt "${brewfile_lock_json}" ]; then
+    echo '🍺Updating Homebrew bundle...'
+    brew bundle --file "${brewfile}" --verbose
+  fi
+  unset brewfile brewfile_lock_json
+fi
+
+# Vim
 
 if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
-  echo " Setting up vim-plug..."
+  echo ' Setting up vim-plug...'
   curl -sfLo "${XDG_DATA_HOME}/vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
-  echo " Ensuring vim-plug is up-to-date..."
-  vim -es -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE -c "PlugUpgrade" -c "qa"
+  echo ' Ensuring vim-plug is up-to-date...'
+  vim -es -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugUpgrade' '+qall'
 fi
 
-echo " Installing/updating all Vim plugins..."
-vim -es -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE -c "PlugInstall" -c "qa"
+echo ' Updating all Vim plugins...'
+vim -e -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
