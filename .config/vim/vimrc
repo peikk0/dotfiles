@@ -26,15 +26,14 @@ if !has('nvim') | set viminfofile=${XDG_STATE_HOME}/vim/viminfo | endif
 
 " {{{ vim-plug (https://github.com/junegunn/vim-plug)
 
-let vim_plug_version = '0.11.0'
 let data_dir = has('nvim') ? stdpath('data') . '/site' : $XDG_DATA_HOME.'/vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -sfLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/'.vim_plug_version.'/plug.vim'
+  silent execute '!curl -sfLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   augroup vim_plug_init
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   augroup END
 endif
-unlet data_dir vim_plug_version
+unlet data_dir
 
 source ${XDG_CONFIG_HOME}/vim/plugins.vim
 

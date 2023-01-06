@@ -32,50 +32,10 @@
       "addLabels": ["nord"]
     },
     {
-      "matchDepTypes": ["vim-plugin"],
-      "groupName": "Vim plugins",
-      "addLabels": ["vim"]
-    },
-    {
       "matchManagers": ["git-submodules"],
       "matchPackagePrefixes": [".zsh/plugins/"],
       "groupName": "ZSH plugins",
       "addLabels": ["zsh"]
-    }
-  ],
-  "regexManagers": [
-    {
-      "fileMatch": ["\\.vim$"],
-      "matchStrings": [
-        "^\\s*Plug\\s+'(?<depName>[^/]+/[^']+)',\\s+\\{(.+?,)?\\s*'commit':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
-      ],
-      "datasourceTemplate": "git-refs",
-      "packageNameTemplate": "https://github.com/{{{ depName }}}.git",
-      "depTypeTemplate": "vim-plugin"
-    },
-    {
-      "fileMatch": ["\\.vim$"],
-      "matchStrings": [
-        "^\\s*Plug\\s+'(?<depName>[^/]+/[^']+)',\\s+\\{(.+?,)?\\s*'tag':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
-      ],
-      "datasourceTemplate": "github-tags",
-      "depTypeTemplate": "vim-plugin"
-    },
-    {
-      "fileMatch": ["\\.vim$"],
-      "matchStrings": [
-        "^\\s*Plug\\s+'(?<packageName>https://gitlab\\.com/(?<depName>[^/]+/[^']+)\\.git)',\\s+\\{(.+?,)?\\s*'commit':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
-      ],
-      "datasourceTemplate": "git-refs",
-      "depTypeTemplate": "vim-plugin"
-    },
-    {
-      "fileMatch": ["\\.vim$"],
-      "matchStrings": [
-        "^\\s*Plug\\s+'https://gitlab\\.com/(?<depName>[^/]+/[^']+)\\.git',\\s+\\{(.+?,)?\\s*'tag':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
-      ],
-      "datasourceTemplate": "gitlab-tags",
-      "depTypeTemplate": "vim-plugin"
     }
   ]
 }
