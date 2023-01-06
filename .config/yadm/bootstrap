@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# shellcheck source=../../.profile
+# shellcheck source=/dev/null
 . "${HOME}/.profile"
 
 # Submodules
@@ -29,10 +29,10 @@ if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
   echo ' Ensuring vim-plug is up-to-date...'
-  vim -es -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugUpgrade' '+qall'
+  vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugUpgrade' '+qall'
 fi
 
 echo ' Updating all Vim plugins...'
-vim -e -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
+vim -e -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

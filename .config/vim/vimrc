@@ -1,9 +1,3 @@
-" {{{ Disable compatible mode from the start
-
-set nocompatible
-
-" }}}
-
 " {{{ XDG
 
 if empty($XDG_CONFIG_HOME) | let $XDG_CONFIG_HOME = HOME . '.config' | endif
