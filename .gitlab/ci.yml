@@ -24,10 +24,11 @@ shellcheck:
       shellcheck \
           .bash_profile \
           .bashrc \
+          .config/yabai/yabairc \
+          .config/yadm/bootstrap \
           .local/bin/sensible-browser \
           .local/bin/x-terminal-emulator \
           .profile \
-          .config/yabai/yabairc \
           .xserverrc \
           .xinitrc \
           .xsession \
@@ -36,11 +37,12 @@ shellcheck:
     - changes:
         - .bash_profile
         - .bashrc
+        - .config/yabai/yabairc
+        - .config/yadm/bootstrap
         - .local/bin/sensible-browser
         - .local/bin/x-terminal-emulator
         - .profile
-        - .config/yabai/yabairc
+        - .sh/inc/*.sh
         - .xserverrc
         - .xinitrc
         - .xsession
-        - .sh/inc/*.sh

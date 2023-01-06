@@ -1,3 +1,9 @@
+" {{{ Disable compatible mode from the start
+
+set nocompatible
+
+" }}}
+
 " {{{ XDG
 
 if empty($XDG_CONFIG_HOME) | let $XDG_CONFIG_HOME = HOME . '.config' | endif
@@ -36,6 +42,13 @@ endif
 unlet data_dir
 
 source ${XDG_CONFIG_HOME}/vim/plugins.vim
+
+augroup vim_plug_start
+  autocmd VimEnter *
+    \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \|   PlugInstall --sync | q
+    \| endif
+augroup END
 
 " }}}
 

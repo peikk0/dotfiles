@@ -1,6 +1,21 @@
 #!/bin/sh
 
-# Initialize/update submodules
-cd "${HOME}"
-echo "Initializing submodules..."
+# shellcheck source=../../.profile
+. "${HOME}/.profile"
+
+echo " Initializing/updating submodules..."
 yadm submodule update --init --recursive
+
+if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
+  echo " Setting up vim-plug..."
+  curl -sfLo "${XDG_DATA_HOME}/vim/autoload/plug.vim" --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+  echo " Ensuring vim-plug is up-to-date..."
+  vim -es -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE -c "PlugUpgrade" -c "qa"
+fi
+
+echo " Installing/updating all Vim plugins..."
+vim -es -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE -c "PlugInstall" -c "qa"
+
+# vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
