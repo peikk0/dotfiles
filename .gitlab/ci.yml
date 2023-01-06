@@ -12,9 +12,9 @@ vint:
     - apk add py3-setuptools vint
     - vint --color --warning .config/vim/vimrc .config/vim/*.vim
   rules:
-    changes:
-      - .config/vim/vimrc
-      - .config/vim/*.vim
+    - changes:
+        - .config/vim/vimrc
+        - .config/vim/*.vim
 
 shellcheck:
   stage: test
@@ -33,14 +33,14 @@ shellcheck:
           .xsession \
           $(find .sh/inc -type f -name '*.sh')
   rules:
-    changes:
-      - .bash_profile
-      - .bashrc
-      - .local/bin/sensible-browser
-      - .local/bin/x-terminal-emulator
-      - .profile
-      - .config/yabai/yabairc
-      - .xserverrc
-      - .xinitrc
-      - .xsession
-      - .sh/inc/*.sh
+    - changes:
+        - .bash_profile
+        - .bashrc
+        - .local/bin/sensible-browser
+        - .local/bin/x-terminal-emulator
+        - .profile
+        - .config/yabai/yabairc
+        - .xserverrc
+        - .xinitrc
+        - .xsession
+        - .sh/inc/*.sh
