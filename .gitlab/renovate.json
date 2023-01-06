@@ -27,13 +27,12 @@
     },
     {
       "matchManagers": ["git-submodules"],
-      "matchPackageNames": [".config/nord-dircolors", ".config/nord-xresources", ".vim/pack/vendor/opt/nord"],
+      "matchPackageNames": [".config/nord-dircolors", ".config/nord-xresources"],
       "groupName": "Nord theme",
       "addLabels": ["nord"]
     },
     {
-      "matchManagers": ["git-submodules"],
-      "matchPackagePrefixes": [".vim/pack/vendor/"],
+      "matchDepTypes": ["vim-plugin"],
       "groupName": "Vim plugins",
       "addLabels": ["vim"]
     },
@@ -42,6 +41,41 @@
       "matchPackagePrefixes": [".zsh/plugins/"],
       "groupName": "ZSH plugins",
       "addLabels": ["zsh"]
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["\\.vim$"],
+      "matchStrings": [
+        "^\\s*Plug\\s+'(?<depName>[^/]+/[^']+)',\\s+\\{(.+?,)?\\s*'commit':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
+      ],
+      "datasourceTemplate": "git-refs",
+      "packageNameTemplate": "https://github.com/{{{ depName }}}.git",
+      "depType": "vim-plugin"
+    },
+    {
+      "fileMatch": ["\\.vim$"],
+      "matchStrings": [
+        "^\\s*Plug\\s+'(?<depName>[^/]+/[^']+)',\\s+\\{(.+?,)?\\s*'tag':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
+      ],
+      "datasourceTemplate": "github-tags",
+      "depType": "vim-plugin"
+    },
+    {
+      "fileMatch": ["\\.vim$"],
+      "matchStrings": [
+        "^\\s*Plug\\s+'(?<packageName>https://gitlab\\.com/(?<depName>[^/]+/[^']+)\\.git)',\\s+\\{(.+?,)?\\s*'commit':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
+      ],
+      "datasourceTemplate": "git-refs",
+      "depType": "vim-plugin"
+    },
+    {
+      "fileMatch": ["\\.vim$"],
+      "matchStrings": [
+        "^\\s*Plug\\s+'https://gitlab\\.com/(?<depName>[^/]+/[^']+)\\.git',\\s+\\{(.+?,)?\\s*'tag':\\s*'(?<currentValue>[^']+?)'(,.+)?\\s*\\}\\s*$"
+      ],
+      "datasourceTemplate": "gitlab-tags",
+      "depType": "vim-plugin"
     }
   ]
 }

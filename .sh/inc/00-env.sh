@@ -166,6 +166,15 @@ PATH="${CARGO_HOME}/bin:${PATH}"; export PATH
 
 # {{{ wget
 
+# shellcheck disable=SC2016,SC2089
+VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source ${MYVIMRC}'
+# shellcheck disable=SC2090
+export VIMINIT
+
+# }}}
+
+# {{{ wget
+
 WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"; export WGETRC
 
 # }}}

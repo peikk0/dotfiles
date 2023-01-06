@@ -1,12 +1,55 @@
-" peikk0's vimrc
+" {{{ XDG
+
+if empty($XDG_CONFIG_HOME) | let $XDG_CONFIG_HOME = HOME . '.config' | endif
+if empty($XDG_DATA_HOME) | let $XDG_DATA_HOME = HOME . '.local/share' | endif
+if empty($XDG_STATE_HOME) | let $XDG_STATE_HOME = HOME . '.local/state' | endif
+
+set runtimepath^=${XDG_CONFIG_HOME}/vim
+set runtimepath+=${XDG_DATA_HOME}/vim
+set runtimepath+=${XDG_CONFIG_HOME}/vim/after
+set runtimepath+=$HOME/.local/opt/fzf
+
+set packpath^=${XDG_DATA_HOME}/vim,${XDG_CONFIG_HOME}/vim
+set packpath+=${XDG_CONFIG_HOME}/vim/after,${XDG_DATA_HOME}/vim/after
+
+let g:netrw_home = $XDG_DATA_HOME.'/vim'
+call mkdir($XDG_DATA_HOME.'/vim/spell', 'p')
+
+set backupdir=${XDG_STATE_HOME}/vim/backup | call mkdir(&backupdir, 'p')
+set directory=${XDG_STATE_HOME}/vim/swap   | call mkdir(&directory, 'p')
+set undodir=${XDG_STATE_HOME}/vim/undo     | call mkdir(&undodir,   'p')
+set viewdir=${XDG_STATE_HOME}/vim/view     | call mkdir(&viewdir,   'p')
+
+if !has('nvim') | set viminfofile=${XDG_STATE_HOME}/vim/viminfo | endif
+
+" }}}
+
+" {{{ vim-plug (https://github.com/junegunn/vim-plug)
+
+let vim_plug_version = '0.11.0'
+let data_dir = has('nvim') ? stdpath('data') . '/site' : $XDG_DATA_HOME.'/vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -sfLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/'.vim_plug_version.'/plug.vim'
+  augroup vim_plug_init
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
+endif
+unlet data_dir vim_plug_version
+
+source ${XDG_CONFIG_HOME}/vim/plugins.vim
+
+" }}}
+
+" {{{ Enable syntax
 
 filetype plugin indent on
 syntax on
 
+" }}}
+
+" {{{ Colors
+
 if has('terminfo') || has('nvim')
-  if has('packages')
-    packadd nord
-  endif
   set background=dark
   if exists('+termguicolors')
     " https://github.com/tmux/tmux/issues/1246
@@ -17,27 +60,25 @@ if has('terminfo') || has('nvim')
     let &t_ZR = "\e[23m"
     set termguicolors
   endif
+  " https://www.nordtheme.com/docs/ports/vim/configuration
   let g:nord_italic = 1
   let g:nord_italic_comments = 1
+  let g:nord_uniform_diff_background = 1
+  augroup nord-theme-overrides
+    autocmd!
+    autocmd ColorScheme nord highlight normal guibg=NONE ctermbg=NONE
+  augroup END
   colorscheme nord
-  hi normal guibg=NONE ctermbg=NONE
 end
+
+" }}}
+
+" {{{ Various basic settings
 
 set modeline
 set modelines=3
 
 set backspace=indent,eol,start
-
-" XDG
-if empty($XDG_DATA_HOME) | let $XDG_DATA_HOME = HOME . '.local/share' | endif
-if empty($XDG_STATE_HOME) | let $XDG_STATE_HOME = HOME . '.local/state' | endif
-let g:netrw_home = $XDG_DATA_HOME.'/vim'
-call mkdir($XDG_DATA_HOME.'/vim/spell', 'p')
-set backupdir=$XDG_STATE_HOME/vim/backup | call mkdir(&backupdir, 'p')
-set directory=$XDG_STATE_HOME/vim/swap   | call mkdir(&directory, 'p')
-set undodir=$XDG_STATE_HOME/vim/undo     | call mkdir(&undodir,   'p')
-set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p')
-if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 
 set nobackup
 set noundofile
@@ -100,6 +141,7 @@ set ignorecase
 set smartcase
 
 set scrolloff=3
+set sidescroll=1
 set sidescrolloff=5
 set scrolljump=1
 set display+=lastline
@@ -109,12 +151,16 @@ set completeopt=longest,menu
 set diffopt+=vertical
 
 set ttimeout
-set timeoutlen=250
+set ttimeoutlen=250
 
 set mouse=
 
 set shell=/usr/bin/env\ zsh
 set grepprg=grep\ -nH\ $*
+
+" }}}
+
+" {{{ Autocommands
 
 augroup no_relative_number_in_insert_mode
   autocmd!
@@ -143,50 +189,36 @@ augroup filetype_settings
   autocmd FileType yaml    setlocal shiftwidth=2 tabstop=2
 augroup END
 
-" === Plugins ===
+" }}}
 
-" Airline (part 1)
+" {{{ Plugins
+
+" Airline / Tmuxline
 let g:airline_powerline_fonts=1
 let g:airline_highlighting_cache=1
 
-set runtimepath+=$HOME/.local/opt/fzf
+let g:airline_theme='nord'
 
-if !has('packages')
-  " Load plugins on Vim < 8
-  runtime pack/vendor/opt/pathogen/autoload/pathogen.vim
-  execute pathogen#infect()
-else
-  " Load all packages on Vim >= 8
-  packloadall
-  " Ensure devicons is loaded after the plugins it modifies
-  packadd devicons
-endif
+let g:airline#extensions#ale#enabled=1
+let g:airline#extensions#ale#error_symbol="\uF467 "
+let g:airline#extensions#ale#warning_symbol="\uF421 "
+let g:airline#extensions#ale#show_line_numbers=1
+let g:airline#extensions#ale#open_lnum_symbol="(\uE0A1"
+let g:airline#extensions#ale#close_lnum_symbol=')'
 
-" Airline (part 2) / Tmuxline
-if exists('g:loaded_airline') && g:loaded_airline
-  let g:airline_theme='nord'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#show_close_button=0
+let g:airline#extensions#tabline#show_tab_type=0
 
-  let g:airline#extensions#ale#enabled=1
-  let g:airline#extensions#ale#error_symbol="\uF467 "
-  let g:airline#extensions#ale#warning_symbol="\uF421 "
-  let g:airline#extensions#ale#show_line_numbers=1
-  let g:airline#extensions#ale#open_lnum_symbol="(\uE0A1"
-  let g:airline#extensions#ale#close_lnum_symbol=')'
-
-  let g:airline#extensions#tabline#enabled=1
-  let g:airline#extensions#tabline#show_buffers=0
-  let g:airline#extensions#tabline#show_close_button=0
-  let g:airline#extensions#tabline#show_tab_type=0
-
-  let g:tmuxline_preset={
-        \ 'a'       : '#h',
-        \ 'b'       : '#S',
-        \ 'win'     : ['#I', '#W', '#F'],
-        \ 'cwin'    : ['#I', '#W', '#F'],
-        \ 'z'       : '#T',
-        \ 'options' : {'status-justify' : 'left'}
-        \ }
-endif
+let g:tmuxline_preset={
+      \ 'a'       : '#h',
+      \ 'b'       : '#S',
+      \ 'win'     : ['#I', '#W', '#F'],
+      \ 'cwin'    : ['#I', '#W', '#F'],
+      \ 'z'       : '#T',
+      \ 'options' : {'status-justify' : 'left'}
+      \ }
 
 " ALE
 let g:ale_echo_msg_error_str='E'
@@ -207,6 +239,9 @@ let g:ale_linters_ignore={
 let g:ale_python_flake8_options='--max-line-length 120'
 let g:ale_python_pylint_options='--max-line-length 120'
 
+" bat (for fzf previews)
+let $BAT_THEME = 'Nord'
+
 " CSV
 let g:csv_table_leftalign=1
 
@@ -217,13 +252,6 @@ endif
 
 " Fugitive
 let g:fugitive_gitlab_domains=['https://ops.gitlab.net', 'https://dev.gitlab.org']
-
-" Gist
-let g:gist_detect_filetype=1
-let g:gist_open_browser_after_post=1
-let g:gist_browser_command='sensible-browser %URL%'
-let g:gist_clip_command='xclip -selection clipboard'
-let g:gist_show_privates=1
 
 " Go
 let g:go_fmt_autosave=1
@@ -249,8 +277,6 @@ augroup END
 runtime macros/matchit.vim
 
 " NERDTree
-runtime! nerdtree_plugin/webdevicons.vim
-
 let NERDTreeIgnore=['\.pyc$', '\.zwc$', '\.zwc\.old$']
 let NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable="\uF460"
@@ -271,7 +297,6 @@ let g:NERDTreeIndicatorMapCustom={
 
 let g:DevIconsEnableFoldersOpenClose=1
 let g:WebDevIconsNerdTreeBeforeGlyphPadding=''
-let g:WebDevIconsNerdTreeGitPluginForceVAlign=1
 let g:WebDevIconsUnicodeDecorateFolderNodes=1
 
 highlight! link NERDTreeFlags NERDTreeDir
@@ -315,12 +340,14 @@ let g:rails_syntax=1
 
 " Startify
 let g:startify_change_to_vcs_root=1
-let g:startify_custom_header=[]
 let g:startify_session_persistence=1
+let g:startify_session_dir=$XDG_STATE_HOME . '/vim/sessions/'
+let g:startify_fortune_use_unicode=1
 let g:startify_skiplist=[
       \ 'COMMIT_EDITMSG',
       \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') . 'doc',
-      \ $HOME . '/.vim/pack/.*/doc',
+      \ $HOME.'/.vim/pack/.*/doc',
+      \ $XDG_DATA_HOME.'/vim/plugged/.*/doc',
       \ '/vendor/',
       \ ]
 
@@ -350,7 +377,9 @@ let g:ycm_language_server = [
       \   }
       \ ]
 
-" === Mappings ===
+" }}}
+
+" {{{ Mappings
 
 inoremap jj <Esc>
 
@@ -360,9 +389,6 @@ set pastetoggle=<Leader>p
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" bat (for fzf previews)
-let $BAT_THEME = 'Nord'
 
 " easy-align
 nmap ga <Plug>(EasyAlign)
@@ -426,8 +452,6 @@ noremap! {" {""}<esc>hi
 noremap! {# {#  #}<esc>hhi
 noremap! {% {%  %}<esc>hhi
 noremap! {{% {{  }}<esc>hhi
-noremap! {{{ {{{ }}}<esc>hhhi
-noremap! {{{<cr> {{{ <cr>}}}<esc>kA
 
 noremap! [[ []<left>
 noremap! [<cr> [<cr>]<c-o>O
@@ -440,10 +464,14 @@ noremap! [" [""]<esc>hi
 
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
-" === LOCAL ===
+" }}}
 
-if filereadable(glob('~/.vim/vimrc.local'))
-  source ~/.vim/vimrc.local
+" {{{ Local configuration
+
+if filereadable($XDG_CONFIG_HOME.'/vim/local.vim')
+  source ${XDG_CONFIG_HOME}/vim/local.vim
 endif
 
-" vim:ft=vim:sw=2:ts=2:et
+" }}}
+
+" vim:ft=vim:sw=2:ts=2:et:fdm=marker:
