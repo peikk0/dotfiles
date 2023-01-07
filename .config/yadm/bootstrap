@@ -20,6 +20,12 @@ if [ "$(uname -s)" = 'Darwin' ]; then
     brew bundle --file "${brewfile}" --verbose
   fi
   unset brewfile brewfile_lock_json
+
+  if ! [ -L "${XDG_DATA_HOME}/terminfo/t/tmux-256color" ]; then
+    echo ' Installing modified Tmux terminfo file for OSX...'
+    mkdir -p "${XDG_DATA_HOME}/terminfo/t"
+    ln -sf "${XDG_CONFIG_HOME}/tmux/terminfo/tmux-256color" "${XDG_DATA_HOME}/terminfo/t/tmux-256color"
+  fi
 fi
 
 # SSH
