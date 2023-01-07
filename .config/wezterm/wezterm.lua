@@ -52,7 +52,7 @@ return {
     window_background_opacity = 0.95,
     window_decorations = 'RESIZE',
     window_frame = {
-        font = wezterm.font { family = 'Fira Sans', italic = true },
+        font = wezterm.font { family = 'Noto Sans', italic = true },
         font_size = 12.0,
 
         active_titlebar_bg = '#2E3440',
