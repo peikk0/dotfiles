@@ -31,7 +31,7 @@ XDG_CURRENT_DESKTOP="GNOME"; export XDG_CURRENT_DESKTOP
 GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
 
 # Qt theme
-QT_QPA_PLATFORMTHEME="qgtk3"; export QT_QPA_PLATFORMTHEME
+QT_QPA_PLATFORMTHEME="qt5ct"; export QT_QPA_PLATFORMTHEME
 
 # X resources
 if command -v xrdb >/dev/null 2>&1; then
