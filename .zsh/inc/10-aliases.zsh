@@ -52,7 +52,9 @@ if [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
 
-alias bb="brew bundle --file \${XDG_CONFIG_HOME:-\${HOME}/.config}/homebrew/Brewfile"
+if [[ "${OS}" = "Darwin" ]]; then
+  alias bb="brew bundle --file \${XDG_CONFIG_HOME:-\${HOME}/.config}/homebrew/Brewfile"
+fi
 
 alias y="yadm"
 
