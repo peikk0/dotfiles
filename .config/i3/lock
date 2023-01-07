@@ -3,7 +3,7 @@
 # see /usr/share/doc/xss-lock/transfer-sleep-lock-i3lock.sh
 
 BGCOLOR="282828"
-FONT="Fira-Mono-Bold"
+FONT="Noto-Mono-Bold"
 WALLPAPER="${HOME}/.config/i3/lock-wallpaper"
 
 if [[ -f "${WALLPAPER}" ]]; then

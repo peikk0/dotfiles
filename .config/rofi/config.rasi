@@ -1,5 +1,5 @@
 configuration {
-    font: "Fira Mono 12";
+    font: "Noto Mono 12";
     show-icons: true;
     terminal: "i3-sensible-terminal";
 }
