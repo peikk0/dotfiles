@@ -48,6 +48,8 @@ fi
 alias egrep="grep -E --color=auto"
 alias fgrep="grep -F --color=auto"
 
+alias bash='bash --init-file "${XDG_CONFIG_HOME}/bash/bashrc"'
+
 if [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
