@@ -33,6 +33,6 @@ else
 fi
 
 echo ' Updating all Vim plugins...'
-vim -e -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
+vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
