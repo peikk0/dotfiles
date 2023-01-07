@@ -37,11 +37,6 @@ vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate'
 
 # ZSH
 
-if ! [ -L "${HOME}/.zshenv" ]; then
-  echo ' Creating symlink for .zshenv...'
-  ln -sf .config/zsh/.zshenv "${HOME}/.zshenv"
-fi
-
 if ! [ -d "${XDG_DATA_HOME:-${HOME}/.local/share}/zsh/antidote" ]; then
   echo ' Installing antidote...'
   git clone --quiet --depth=1 https://github.com/mattmc3/antidote.git \
