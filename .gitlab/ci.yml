@@ -29,7 +29,6 @@ shellcheck:
           .local/bin/sensible-browser \
           .local/bin/x-terminal-emulator \
           .profile \
-          .xserverrc \
           .xinitrc \
           .xsession
   rules:
@@ -41,6 +40,5 @@ shellcheck:
         - .local/bin/sensible-browser
         - .local/bin/x-terminal-emulator
         - .profile
-        - .xserverrc
         - .xinitrc
         - .xsession
