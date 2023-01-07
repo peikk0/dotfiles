@@ -1,6 +1,6 @@
 # shellcheck shell=sh
 
 # shellcheck source=/dev/null
-. "${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsession"
+exec /bin/sh "${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsession"
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
