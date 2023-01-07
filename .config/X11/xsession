@@ -6,6 +6,9 @@ export XDG_CACHE_HOME XDG_CONFIG_HOME
 
 exec >"${XDG_CACHE_HOME}/xsession.log" 2>&1
 
+# Move the .xsession-errors file created by lightdm
+mv "${HOME}/.xsession-errors" "${XDG_CACHE_HOME}/lightdm-errors.log"
+
 # shellcheck source=/dev/null
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
