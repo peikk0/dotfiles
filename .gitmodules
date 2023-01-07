@@ -1,4 +1,0 @@
-[submodule ".config/nord-xresources"]
-	path = .config/nord-xresources
-	url = https://github.com/arcticicestudio/nord-xresources.git
-	branch = master
