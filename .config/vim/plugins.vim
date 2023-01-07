@@ -1,8 +1,6 @@
 call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'junegunn/vim-plug'
 
-  Plug 'junegunn/fzf', { 'dir': $HOME . '/.local/opt/fzf' }
-
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'Joorem/vim-haproxy'
   Plug 'SirVer/ultisnips'
@@ -28,6 +26,7 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'https://gitlab.com/dbeniamine/vim-mail.git'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   Plug 'jamessan/vim-gnupg'
+  Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'lepture/vim-jinja'
