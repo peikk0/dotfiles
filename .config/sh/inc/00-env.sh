@@ -120,10 +120,16 @@ BLOCKSIZE="K"; export BLOCKSIZE
 
 # }}}
 
+# {{{ GnuPG
+
+GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"; export GNUPGHOME
+
+# }}}
+
 # {{{ Kubernetes
 
-KUBECACHEDIR="${XDG_CACHE_HOME:-${HOME}/.cache}/kube"
-KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube/config"
+KUBECACHEDIR="${XDG_CACHE_HOME}/kube"
+KUBECONFIG="${XDG_CONFIG_HOME}/kube/config"
 export KUBECACHEDIR KUBECONFIG
 
 # }}}
