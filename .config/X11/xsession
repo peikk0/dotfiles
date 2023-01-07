@@ -59,7 +59,7 @@ if command -v xinput >/dev/null 2>&1 && xinput list --name-only "${TOUCHPAD_NAME
 fi
 
 # GnuPG
-if command -v gpg-agent >/dev/null 2>&1; then
+if ! systemctl --quiet --user is-active gpg-agent.service && command -v gpg-agent >/dev/null 2>&1; then
   echo 'Launching GPG agent...'
   eval "$(gpg-agent --daemon)" || echo "Failed to launch GPG agent"
 fi
