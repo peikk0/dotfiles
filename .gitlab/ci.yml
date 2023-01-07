@@ -31,8 +31,9 @@ shellcheck:
   rules:
     - changes:
         - .config/bash/bashrc
-          .config/sh/profile
+        - .config/sh/profile
         - .config/sh/inc/*.sh
-          .config/X11/xsession
+        - .config/X11/xsession
+        - .config/X11/xsessionrc
         - .config/yabai/yabairc
         - .config/yadm/bootstrap
