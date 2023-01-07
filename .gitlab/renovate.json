@@ -5,37 +5,10 @@
   ],
   "assignAutomerge": true,
   "assignees": ["peikk0"],
-  "labels": [
-    "dependencies"
-  ],
   "gitlabci": {
       "fileMatch": [
           "\\.gitlab-ci\\.yml$",
           "\\.gitlab/ci\\.yml$"
       ]
-  },
-  "git-submodules": {
-    "enabled": true
-  },
-  "packageRules": [
-    {
-      "matchManagers": ["git-submodules"],
-      "matchUpdateTypes": ["digest"],
-      "automerge": true,
-      "platformAutomerge": true,
-      "addLabels": ["submodule"]
-    },
-    {
-      "matchManagers": ["git-submodules"],
-      "matchPackageNames": [".config/nord-dircolors", ".config/nord-xresources"],
-      "groupName": "Nord theme",
-      "addLabels": ["nord"]
-    },
-    {
-      "matchManagers": ["git-submodules"],
-      "matchPackagePrefixes": [".zsh/plugins/"],
-      "groupName": "ZSH plugins",
-      "addLabels": ["zsh"]
-    }
-  ]
+  }
 }
