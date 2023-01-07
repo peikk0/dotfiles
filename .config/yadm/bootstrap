@@ -24,6 +24,7 @@ if [ "$(uname -s)" = 'Darwin' ]; then
   if ! [ -L "${XDG_DATA_HOME}/terminfo/t/tmux-256color" ]; then
     echo ' Installing modified Tmux terminfo file for OSX...'
     mkdir -p "${XDG_DATA_HOME}/terminfo/t"
+    ln -sf t "${XDG_DATA_HOME}/terminfo/74"
     ln -sf "${XDG_CONFIG_HOME}/tmux/terminfo/tmux-256color" "${XDG_DATA_HOME}/terminfo/t/tmux-256color"
   fi
 fi
