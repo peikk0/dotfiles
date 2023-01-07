@@ -25,20 +25,18 @@ shellcheck:
           .config/bash/bashrc \
           .config/sh/profile \
           $(find .config/sh/inc -type f -name '*.sh') \
+          .config/X11/xsession \
           .config/yabai/yabairc \
           .config/yadm/bootstrap \
           .local/bin/sensible-browser \
-          .local/bin/x-terminal-emulator \
-          .xinitrc \
-          .xsession
+          .local/bin/x-terminal-emulator
   rules:
     - changes:
         - .config/bash/bashrc
-          .config/sh/profile \
+          .config/sh/profile
         - .config/sh/inc/*.sh
+          .config/X11/xsession
         - .config/yabai/yabairc
         - .config/yadm/bootstrap
         - .local/bin/sensible-browser
         - .local/bin/x-terminal-emulator
-        - .xinitrc
-        - .xsession

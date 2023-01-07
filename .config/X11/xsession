@@ -127,9 +127,9 @@ if command -v flameshot >/dev/null 2>&1; then
 fi
 
 # Local startup script
-if [ -f "${HOME}/.xsession.local" ]; then
+if [ -f "${XDG_CONFIG_HOME}/.config/X11/xsession.local" ]; then
   # shellcheck source=/dev/null
-  . "${HOME}/.xsession.local"
+  . "${XDG_CONFIG_HOME}/.config/X11/xsession.local"
 fi
 
 # i3
