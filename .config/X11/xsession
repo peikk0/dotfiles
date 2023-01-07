@@ -12,6 +12,15 @@ mv "${HOME}/.xsession-errors" "${XDG_CACHE_HOME}/lightdm-errors.log"
 # shellcheck source=/dev/null
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
+# Set preferred terminal for i3-sensible-terminal
+for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xterm; do
+  if command -v "${term}" >/dev/null 2>&1; then
+    echo "Setting preferred terminal to '${term}'..."
+    TERMINAL="${term}"; export TERMINAL
+    break
+  fi
+done
+
 # Make Java Swing apps less ugly
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'; export _JAVA_OPTIONS
 

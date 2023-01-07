@@ -50,7 +50,7 @@ client.urgent           $nord1  $nord0  $nord11 $nord10
 client.background       $nord0
 
 # start a terminal
-bindsym $mod+Return exec x-terminal-emulator
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill

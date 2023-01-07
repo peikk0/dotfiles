@@ -27,9 +27,7 @@ shellcheck:
           $(find .config/sh/inc -type f -name '*.sh') \
           .config/X11/xsession \
           .config/yabai/yabairc \
-          .config/yadm/bootstrap \
-          .local/bin/sensible-browser \
-          .local/bin/x-terminal-emulator
+          .config/yadm/bootstrap
   rules:
     - changes:
         - .config/bash/bashrc
@@ -38,5 +36,3 @@ shellcheck:
           .config/X11/xsession
         - .config/yabai/yabairc
         - .config/yadm/bootstrap
-        - .local/bin/sensible-browser
-        - .local/bin/x-terminal-emulator
