@@ -1,6 +1,6 @@
 # {{{ Includes
 
-for file in "${ZDOTDIR:-${HOME}}/.zsh/inc"/*.zsh; do
+for file in "${ZDOTDIR}/inc"/*.zsh; do
   # shellcheck source=/dev/null
   . "${file}"
 done

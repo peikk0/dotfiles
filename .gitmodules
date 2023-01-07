@@ -1,40 +1,4 @@
-[submodule ".zsh/plugins/syntax-highlighting"]
-	path = .zsh/plugins/syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-	branch = master
-[submodule ".zsh/plugins/powerlevel10k"]
-	path = .zsh/plugins/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-	branch = master
-[submodule ".zsh/plugins/autosuggestions"]
-	path = .zsh/plugins/autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
-	branch = master
 [submodule ".config/nord-xresources"]
 	path = .config/nord-xresources
 	url = https://github.com/arcticicestudio/nord-xresources.git
-	branch = master
-[submodule ".config/nord-dircolors"]
-	path = .config/nord-dircolors
-	url = https://github.com/arcticicestudio/nord-dircolors.git
-	branch = master
-[submodule ".zsh/plugins/vi-mode"]
-	path = .zsh/plugins/vi-mode
-	url = https://github.com/jeffreytse/zsh-vi-mode.git
-	branch = master
-[submodule ".zsh/plugins/completions"]
-	path = .zsh/plugins/completions
-	url = https://github.com/zsh-users/zsh-completions.git
-	branch = master
-[submodule ".zsh/plugins/fzf-git"]
-	path = .zsh/plugins/fzf-git
-	url = https://github.com/junegunn/fzf-git.sh.git
-	branch = main
-[submodule ".zsh/plugins/fzf-tab"]
-	path = .zsh/plugins/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab.git
-	branch = master
-[submodule ".zsh/plugins/forgit"]
-	path = .zsh/plugins/forgit
-	url = https://github.com/wfxr/forgit.git
 	branch = master

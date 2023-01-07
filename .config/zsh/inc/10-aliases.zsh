@@ -1,7 +1,7 @@
 # {{{ Aliases
 
 : "${OS:=$(uname -s)}"
-local dir_colors="${XDG_CONFIG_HOME:-${HOME}/.config}/nord-dircolors/src/dir_colors"
+local dir_colors="$(antidote path arcticicestudio/nord-dircolors)/src/dir_colors"
 case "${OS}" in
   FreeBSD|Darwin)
     if command -v gdircolors >/dev/null 2>&1 && [ -f "${dir_colors}" ]; then

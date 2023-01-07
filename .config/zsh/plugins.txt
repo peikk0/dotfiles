@@ -1,0 +1,19 @@
+# Nord
+arcticicestudio/nord-dircolors kind:clone
+
+# FZF / Git
+Aloxaf/fzf-tab
+junegunn/fzf path:shell
+junegunn/fzf-git.sh
+wfxr/forgit
+
+# Prompt
+romkatv/powerlevel10k
+
+# ZLE
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions kind:fpath path:src
+zsh-users/zsh-syntax-highlighting
+# jeffreytse/zsh-vi-mode
+
+# vim:ft=conf
