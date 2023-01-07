@@ -1,7 +1,8 @@
 #!/bin/sh
 
+: "${XDG_CONFIG_HOME:=${HOME}/.config}"
 # shellcheck source=/dev/null
-. "${HOME}/.profile"
+. "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 # Submodules
 

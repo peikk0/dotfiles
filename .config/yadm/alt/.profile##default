@@ -1,0 +1,7 @@
+# shellcheck shell=sh
+
+ENV="${XDG_CONFIG_HOME:-${HOME}/.config}/sh/profile"; export ENV
+# shellcheck source=/dev/null
+. "${ENV}"
+
+# vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

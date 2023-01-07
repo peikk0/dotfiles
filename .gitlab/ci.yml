@@ -23,22 +23,22 @@ shellcheck:
     - |
       shellcheck \
           .config/bash/bashrc \
+          .config/sh/profile \
           $(find .config/sh/inc -type f -name '*.sh') \
           .config/yabai/yabairc \
           .config/yadm/bootstrap \
           .local/bin/sensible-browser \
           .local/bin/x-terminal-emulator \
-          .profile \
           .xinitrc \
           .xsession
   rules:
     - changes:
         - .config/bash/bashrc
+          .config/sh/profile \
         - .config/sh/inc/*.sh
         - .config/yabai/yabairc
         - .config/yadm/bootstrap
         - .local/bin/sensible-browser
         - .local/bin/x-terminal-emulator
-        - .profile
         - .xinitrc
         - .xsession

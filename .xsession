@@ -7,7 +7,7 @@ export XDG_CACHE_HOME XDG_CONFIG_HOME
 exec >"${XDG_CACHE_HOME}/xsession.log" 2>&1
 
 # shellcheck source=/dev/null
-. "${HOME}/.profile"
+. "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 # Make Java Swing apps less ugly
 _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'; export _JAVA_OPTIONS

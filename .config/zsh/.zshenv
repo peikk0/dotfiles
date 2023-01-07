@@ -6,14 +6,15 @@ setopt noglobalrcs
 
 # {{{ Includes
 
+: "${XDG_CONFIG_HOME:=${HOME}/.config}"
 # shellcheck source=/dev/null
-. "${HOME}/.profile"
+. "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 # }}}
 
 # {{{ zsh
 
-ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"; export ZDOTDIR
+ZDOTDIR="${XDG_CONFIG_HOME}/zsh"; export ZDOTDIR
 
 # }}}
 

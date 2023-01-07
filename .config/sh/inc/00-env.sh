@@ -164,6 +164,12 @@ PATH="${CARGO_HOME}/bin:${PATH}"; export PATH
 
 # }}}
 
+# {{{ sh
+
+ENV="${XDG_CONFIG_HOME}/sh/profile"; export ENV
+
+# }}}
+
 # {{{ wget
 
 # shellcheck disable=SC2016,SC2089

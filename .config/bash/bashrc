@@ -2,8 +2,9 @@
 
 # {{{ Includes
 
+: "${XDG_CONFIG_HOME:=${HOME}/.config}"
 # shellcheck source=/dev/null
-. "${HOME}/.profile"
+. "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 # }}}
 
@@ -21,8 +22,9 @@ fi
 
 # {{{ History
 
-mkdir -p "${XDG_STATE_HOME:-${HOME}/.local/state}/bash"
-HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}/bash/history"
+: "${XDG_STATE_HOME:=${HOME}/.local/state}"
+mkdir -p "${XDG_STATE_HOME}/bash"
+HISTFILE="${XDG_STATE_HOME}/bash/history"
 HISTFILESIZE=5000
 HISTSIZE=5000
 HISTCONTROL=ignoredups
