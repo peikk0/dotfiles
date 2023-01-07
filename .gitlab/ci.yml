@@ -22,8 +22,7 @@ shellcheck:
   script:
     - |
       shellcheck \
-          .bash_profile \
-          .bashrc \
+          .config/bash/bashrc \
           $(find .config/sh/inc -type f -name '*.sh') \
           .config/yabai/yabairc \
           .config/yadm/bootstrap \
@@ -35,8 +34,7 @@ shellcheck:
           .xsession
   rules:
     - changes:
-        - .bash_profile
-        - .bashrc
+        - .config/bash/bashrc
         - .config/sh/inc/*.sh
         - .config/yabai/yabairc
         - .config/yadm/bootstrap
