@@ -288,19 +288,6 @@ let NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable="\uF460"
 let g:NERDTreeDirArrowCollapsible="\uF47C"
 
-let g:NERDTreeIndicatorMapCustom={
-      \ 'Modified'  : "\uF459 ",
-      \ 'Staged'    : "\uF055 ",
-      \ 'Untracked' : "\uF020 ",
-      \ 'Renamed'   : "\uF45A ",
-      \ 'Unmerged'  : "\uF440 ",
-      \ 'Deleted'   : "\uF458 ",
-      \ 'Dirty'     : "\uF41B ",
-      \ 'Clean'     : "\uF42E ",
-      \ 'Ignored'   : "\uF474 ",
-      \ 'Unknown'   : "\uF46E "
-      \ }
-
 let g:DevIconsEnableFoldersOpenClose=1
 let g:WebDevIconsNerdTreeBeforeGlyphPadding=''
 let g:WebDevIconsUnicodeDecorateFolderNodes=1
