@@ -8,7 +8,7 @@ umask 0022
 
 # {{{ Includes
 
-for file in "${HOME}/.sh/inc"/*.sh; do
+for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/inc"/*.sh; do
   # shellcheck source=/dev/null
   . "${file}"
 done

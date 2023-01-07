@@ -19,6 +19,7 @@
   fi
 
   # Recompile zsh files
+  zrecompile -pq ${ZDOTDIR:-${HOME}}/.profile
   zrecompile -pq ${ZDOTDIR:-${HOME}}/.zlogin
   zrecompile -pq ${ZDOTDIR:-${HOME}}/.zlogout
   zrecompile -pq ${ZDOTDIR:-${HOME}}/.zprofile
@@ -26,7 +27,7 @@
   zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
   rm -f .{zlogin,zlogout,zprofile,zshenv,zshrc}.zwc.old
 
-  for f in "${HOME}/.sh/inc"/*.sh; do
+  for f in "${XDG_CONFIG_HOME:-${HOME}/.config}/sh/inc"/*.sh; do
     zrecompile -pq "${f}"
     rm -f "${f}.zwc.old"
   done

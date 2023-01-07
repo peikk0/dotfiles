@@ -24,6 +24,7 @@ shellcheck:
       shellcheck \
           .bash_profile \
           .bashrc \
+          $(find .config/sh/inc -type f -name '*.sh') \
           .config/yabai/yabairc \
           .config/yadm/bootstrap \
           .local/bin/sensible-browser \
@@ -31,18 +32,17 @@ shellcheck:
           .profile \
           .xserverrc \
           .xinitrc \
-          .xsession \
-          $(find .sh/inc -type f -name '*.sh')
+          .xsession
   rules:
     - changes:
         - .bash_profile
         - .bashrc
+        - .config/sh/inc/*.sh
         - .config/yabai/yabairc
         - .config/yadm/bootstrap
         - .local/bin/sensible-browser
         - .local/bin/x-terminal-emulator
         - .profile
-        - .sh/inc/*.sh
         - .xserverrc
         - .xinitrc
         - .xsession

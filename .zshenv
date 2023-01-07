@@ -4,18 +4,10 @@ setopt noglobalrcs
 
 # }}}
 
-# {{{ Umask
-
-umask 0022
-
-# }}}
-
 # {{{ Includes
 
-for file in "${ZDOTDIR:-${HOME}}/.sh/inc"/*.sh; do
-  # shellcheck source=/dev/null
-  . "${file}"
-done
+# shellcheck source=/dev/null
+. "${HOME}/.profile"
 
 # }}}
 
