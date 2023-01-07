@@ -185,4 +185,12 @@ WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"; export WGETRC
 
 # }}}
 
+# {{{ wget
+
+XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
+XSERVERRC="${XDG_CONFIG_HOME}/X11/xserverrc"
+export XINITRC XSERVERRC
+
+# }}}
+
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

@@ -1,0 +1,9 @@
+# shellcheck shell=sh
+
+USRRESOURCES="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/Xresources"
+USERXSESSION="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsession"
+USERXSESSIONRC="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsessionrc"
+ALTUSERXSESSION="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/Xsession"
+ERRFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/xsession-errors"
+
+# vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
