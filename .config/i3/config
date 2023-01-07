@@ -174,7 +174,7 @@ bar {
     font xft:NotoMono Nerd Font 10
 
     colors {
-        background $nord0
+        background $nord1
         statusline $nord8
 
         focused_workspace  $nord3 $nord8
