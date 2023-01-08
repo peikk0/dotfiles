@@ -10,11 +10,11 @@ vint:
   image: alpine:3.17
   script:
     - apk add py3-setuptools vint
-    - vint --color --warning .config/vim/vimrc .config/vim/*.vim
+    - vint --color --warning vim/vimrc vim/*.vim
   rules:
     - changes:
-        - .config/vim/vimrc
-        - .config/vim/*.vim
+        - vim/vimrc
+        - vim/*.vim
 
 shellcheck:
   stage: test
@@ -22,18 +22,18 @@ shellcheck:
   script:
     - |
       shellcheck \
-          .config/bash/bashrc \
-          .config/sh/profile \
-          $(find .config/sh/inc -type f -name '*.sh') \
-          .config/X11/xsession \
-          .config/yabai/yabairc \
-          .config/yadm/bootstrap
+          bash/bashrc \
+          sh/profile \
+          $(find sh/inc -type f -name '*.sh') \
+          X11/xsession \
+          yabai/yabairc \
+          yadm/bootstrap
   rules:
     - changes:
-        - .config/bash/bashrc
-        - .config/sh/profile
-        - .config/sh/inc/*.sh
-        - .config/X11/xsession
-        - .config/X11/xsessionrc
-        - .config/yabai/yabairc
-        - .config/yadm/bootstrap
+        - bash/bashrc
+        - sh/profile
+        - sh/inc/*.sh
+        - X11/xsession
+        - X11/xsessionrc
+        - yabai/yabairc
+        - yadm/bootstrap
