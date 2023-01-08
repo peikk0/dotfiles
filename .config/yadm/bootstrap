@@ -4,11 +4,6 @@
 # shellcheck source=/dev/null
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
-# Submodules
-
-echo ' Updating submodules...'
-yadm -C "${HOME}" submodule update --init --recursive
-
 # Homebrew
 
 if [ "$(uname -s)" = 'Darwin' ]; then
