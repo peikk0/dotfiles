@@ -14,6 +14,7 @@ mkdir -p "${zcompdumpdir}"
 compinit -d "${zcompdump}"
 
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/zcompcache"
+zstyle ':completion:*' known-hosts-files "${HOME}/.ssh/known_hosts" "${XDG_CACHE_HOME:-${HOME}/.cache}/ssh_known_hosts"
 zstyle ':completion:*' menu select=5
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
