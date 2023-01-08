@@ -1,6 +1,7 @@
 # https://github.com/Homebrew/homebrew-bundle
 
 tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/services'
 
@@ -89,8 +90,11 @@ cask 'nordvpn'
 cask 'secretive'
 cask 'slack'
 cask 'spotify'
+cask 'wacom-tablet'
 cask 'wezterm'
 cask 'zoom'
 
 local_brewfile=File.join(ENV['HOME'], '.config', 'homebrew', 'Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
+
+# vim:ft=brewfile:
