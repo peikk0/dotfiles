@@ -1,5 +1,0 @@
-# shellcheck shell=sh
-
-. "${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsessionrc"
-
-# vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

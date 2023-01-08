@@ -4,6 +4,15 @@
 # shellcheck source=/dev/null
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
+echo ' Creating necessary root-level dotfiles symlinks...'
+mkdir -pv "${HOME}/.ssh"
+ln -fsv .config/sh/profile "${HOME}/.profile"
+ln -fsv .config/zsh/.zshenv "${HOME}/.zshenv"
+ln -fsv ../.config/ssh/config "${HOME}/.ssh/config"
+if [ "$(uname -s)" = 'Linux' ]; then
+  ln -fsv .config/X11/xsessionrc "${HOME}/.xsessionrc"
+fi
+
 # Homebrew
 
 if [ "$(uname -s)" = 'Darwin' ]; then
@@ -18,16 +27,15 @@ if [ "$(uname -s)" = 'Darwin' ]; then
 
   if ! [ -L "${XDG_DATA_HOME}/terminfo/t/tmux-256color" ]; then
     echo ' Installing modified Tmux terminfo file for OSX...'
-    mkdir -p "${XDG_DATA_HOME}/terminfo/t"
-    ln -sf t "${XDG_DATA_HOME}/terminfo/74"
-    ln -sf "${XDG_CONFIG_HOME}/tmux/terminfo/tmux-256color" "${XDG_DATA_HOME}/terminfo/t/tmux-256color"
+    mkdir -pv "${XDG_DATA_HOME}/terminfo/t"
+    ln -fsv t "${XDG_DATA_HOME}/terminfo/74"
+    ln -fsv "${XDG_CONFIG_HOME}/tmux/terminfo/tmux-256color" "${XDG_DATA_HOME}/terminfo/t/tmux-256color"
   fi
 fi
 
 # SSH
 
 echo ' Updating SSH authorized keys...'
-mkdir -p "${HOME}/.ssh"
 cat "${XDG_CONFIG_HOME}/ssh/authorized_keys"/* > "${HOME}/.ssh/authorized_keys"
 
 # Vim
