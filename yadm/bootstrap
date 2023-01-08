@@ -13,6 +13,13 @@ if [ "$(uname -s)" = 'Linux' ]; then
   ln -fsv .config/X11/xsessionrc "${HOME}/.xsessionrc"
 fi
 
+# yadm
+
+echo ' Updating yadm repository configuration...'
+yadm gitconfig commit.gpgSign true
+yadm remote set-url origin https://gitlab.com/peikk0/dotfiles.git
+yadm remote set-url --push origin git@gitlab.com:peikk0/dotfiles.git
+
 # Homebrew
 
 if [ "$(uname -s)" = 'Darwin' ]; then
