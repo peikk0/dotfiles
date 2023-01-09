@@ -6,7 +6,8 @@ name = "nord-dark"
 [theme.overrides]
 alternating_tint_bg = "#3B4252"
 alternating_tint_fg = "#2E3440"
-separator = ""
+# https://github.com/greshake/i3status-rust/issues/246#issuecomment-1086749777
+separator = "<span font='13.5'>\ue0b2</span>"
 
 [[block]]
 block = "cpu"

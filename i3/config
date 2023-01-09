@@ -2,7 +2,7 @@
 # http://i3wm.org/docs/userguide.html
 
 # font for titles
-font xft:Noto Mono Bold 10
+font pango:Noto Mono Bold 10
 
 # use Windows key
 set $mod Mod4
@@ -171,7 +171,7 @@ bar {
     workspace_buttons yes
     tray_output primary
 
-    font xft:NotoMono Nerd Font 10
+    font pango:NotoMono Nerd Font 12
 
     colors {
         background $nord0
