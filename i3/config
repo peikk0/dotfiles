@@ -150,9 +150,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 bindsym XF86MonBrightnessDown exec brightnessctl -q -d intel_backlight set 5%-
 bindsym XF86MonBrightnessUp   exec brightnessctl -q -d intel_backlight set 5%+
@@ -196,5 +196,12 @@ for_window [class="blueman-manager"] floating enable
 
 exec --no-startup-id ~/.config/i3/set-wallpaper
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
+exec --no-startup-id light-locker
+exec --no-startup-id dunst
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id pasystray --key-grabbing
+exec --no-startup-id flameshot
+exec --no-startup-id 1password --silent
 
 # vim:filetype=i3config

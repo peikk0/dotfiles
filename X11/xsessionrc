@@ -1,9 +1,111 @@
-# shellcheck shell=sh
+#!/bin/sh
 
-USRRESOURCES="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/Xresources"
-USERXSESSION="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsession"
-USERXSESSIONRC="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/xsessionrc"
-ALTUSERXSESSION="${XDG_CONFIG_HOME:-${HOME}/.config}/X11/Xsession"
-ERRFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/xsession-errors"
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME XDG_CONFIG_HOME
+
+# Redirect xsession logs to a better location than the default, if
+# ERRFILE hasn't already been modified for it in /etc/X11/Xsession
+exec >"${XDG_CACHE_HOME}/xsession.log" 2>&1
+# Move away the .xsession-errors file still forcibly created by lightdm
+if [ -f "${HOME}/.xsession-errors" ]; then
+  mv "${HOME}/.xsession-errors" "${XDG_CACHE_HOME}/lightdm-errors.log"
+fi
+
+echo '*** xsessionrc start ***'
+
+# Source the environment
+# shellcheck source=/dev/null
+. "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
+
+# Set preferred terminal for i3-sensible-terminal
+for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xterm; do
+  if command -v "${term}" >/dev/null 2>&1; then
+    echo "Setting preferred terminal to '${term}'..."
+    TERMINAL="${term}"; export TERMINAL
+    break
+  fi
+done
+
+# Make sure XDG_CURRENT_DESKTOP is set
+: "${XDG_CURRENT_DESKTOP:=i3}"; export XDG_CURRENT_DESKTOP
+
+# GTK 2.0 configuration
+GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
+
+# Qt theme
+QT_QPA_PLATFORMTHEME="qt5ct"; export QT_QPA_PLATFORMTHEME
+
+# X resources
+if command -v xrdb >/dev/null 2>&1; then
+  echo 'Loading X ressources...'
+  xrdb -merge "${XDG_CONFIG_HOME}/X11/Xresources"
+fi
+
+# Set DPMS and screensaver, disable beep, autorepeat
+if command -v xset >/dev/null 2>&1; then
+  echo 'Configuring X...'
+  xset dpms 300 600 900 s 300 60 -b r 66 r rate 400 30
+fi
+
+# Compose key
+if command -v setxkbmap >/dev/null 2>&1; then
+  echo 'Setting keymap...'
+  setxkbmap -layout us -variant altgr-intl -option compose:menu,caps:escape
+fi
+
+# Pointer
+if command -v xsetroot >/dev/null 2>&1; then
+  echo 'Setting pointer...'
+  xsetroot -cursor_name left_ptr
+fi
+
+# Configure Thinkpad Carbon X1's trackpad
+TOUCHPAD_NAME="ELAN0672:00 04F3:3187 Touchpad"
+if command -v xinput >/dev/null 2>&1 && xinput list --name-only "${TOUCHPAD_NAME}" >/dev/null 2>&1; then
+  echo 'Configuring trackpad...'
+  ## Vert + Horiz scrolling
+  xinput set-prop "${TOUCHPAD_NAME}" "Synaptics Two-Finger Scrolling" 1 1
+  ## Natural scrolling
+  xinput set-prop "${TOUCHPAD_NAME}" "Synaptics Scrolling Distance" -75 -75
+fi
+
+# GnuPG
+if ! systemctl --quiet --user is-active gpg-agent.socket && command -v gpg-agent >/dev/null 2>&1; then
+  echo 'Launching GPG agent...'
+  eval "$(gpg-agent --daemon)"
+fi
+
+# D-Bus
+if [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+  if command -v dbus-launch >/dev/null 2>&1; then
+    echo 'Launching D-BUS per-session daemon...'
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+    echo "D-BUS per-session daemon address: ${DBUS_SESSION_BUS_ADDRESS}"
+  fi
+fi
+dbus-update-activation-environment --systemd --all
+
+# PolKit
+if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ]; then
+  echo 'Launching PolicyKit agent...'
+  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+fi
+
+# Gnome Keyring Daemon
+if command -v gnome-keyring-daemon >/dev/null 2>&1; then
+  echo 'Launching/reinitializing Gnome keyring daemon...'
+  eval "$(gnome-keyring-daemon --daemonize --start --components=ssh,secrets,pkcs11)"
+  echo
+  export SSH_AUTH_SOCK
+fi
+
+# Local xsessionrc script additions
+if [ -f "${XDG_CONFIG_HOME}/.config/X11/xsessionrc.local" ]; then
+  # shellcheck source=/dev/null
+  . "${XDG_CONFIG_HOME}/.config/X11/xsessionrc.local"
+fi
+
+echo "*** xsessionrc end ***"
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:
