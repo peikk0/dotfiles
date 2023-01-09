@@ -1,5 +1,6 @@
 configuration {
     font: "Noto Mono 12";
+    icon-theme: "Nordzy";
     show-icons: true;
     terminal: "i3-sensible-terminal";
 }

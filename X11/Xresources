@@ -53,7 +53,7 @@ URxvt.keysym.M-C-v:	perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:	xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:	xclip -o -selection clipboard
 
-Xcursor.theme:		whiteglass
+Xcursor.theme:		Nordzy-cursors
 Xcursor.size:		16
 
 Xft.dpi:		96

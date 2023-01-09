@@ -36,6 +36,9 @@ GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
 # Qt theme
 QT_QPA_PLATFORMTHEME="qt5ct"; export QT_QPA_PLATFORMTHEME
 
+# Cursor theme
+XCURSOR_THEME="Nordzy-cursors"; export XCURSOR_THEME
+
 # X resources
 if command -v xrdb >/dev/null 2>&1; then
   echo 'Loading X ressources...'
