@@ -159,7 +159,9 @@ bindsym XF86MonBrightnessUp   exec brightnessctl -q -d intel_backlight set 5%+
 
 bindsym $mod+Shift+b exec sensible-browser
 
-bindsym $mod+Shift+s exec flameshot gui
+bindsym $mod+Print exec flameshot launcher
+bindsym $mod+Ctrl+Print exec flameshot screen
+bindsym $mod+Shift+Print exec flameshot gui
 
 bindsym $mod+BackSpace exec dunstctl close
 bindsym $mod+Shift+BackSpace exec dunstctl close-all
@@ -187,12 +189,9 @@ bar {
 # Disable window titlebar
 for_window [class="^.*"] border pixel 0
 
-for_window [class="pinentry"] floating enable
-for_window [class="Pinentry"] floating enable
+for_window [class="(?i)pinentry"] floating enable
+for_window [class="(?i)mplayer"] floating enable
 for_window [class="mpv"] floating enable
-for_window [class="mplayer"] floating enable
-for_window [class="MPlayer"] floating enable
-for_window [class="blueman-manager"] floating enable
 
 exec --no-startup-id ~/.config/i3/set-wallpaper
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
