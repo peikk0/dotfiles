@@ -278,6 +278,17 @@ augroup man_plugin_settings
   autocmd FileType man setlocal nolist
 augroup END
 
+" Markdown preview
+
+if executable('google-chrome')
+  function OpenMarkdownPreview (url)
+    execute "silent ! google-chrome --app=" . a:url
+  endfunction
+  let g:mkdp_browserfunc='OpenMarkdownPreview'
+endif
+
+let g:mkdp_theme = 'dark'
+
 " Match It
 runtime macros/matchit.vim
 
