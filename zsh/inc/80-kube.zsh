@@ -20,7 +20,7 @@ fzf-kubectx-widget() {
     return 0
   fi
   zle push-line
-  context="$(kubectl config get-contexts -o=name | grep -E "^(gke_.+_)?${choice%% *}\$")"
+  local context="$(kubectl config get-contexts -o=name | grep -E "^(gke_.+_)?${choice%% *}\$")"
   BUFFER="kubectx ${(q)context}"
   zle accept-line
   local ret=$?
