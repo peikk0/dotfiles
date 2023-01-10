@@ -14,7 +14,7 @@ kx() {
       | sed -re "s/gke_(.+)_(.+)_(.+)/\\3 ${_fg_blue} ${_italic}\\1:${_fg_cyan}\\2${_reset}/" \
       | fzf-tmux -p 25%,50% --ansi --no-preview --prompt '⎈ '
     )"
-  if [[ -z "${choice}" ]]; then return; fi
+  [[ -n "${choice}" ]] || return
   kubectx "$(kubectl config get-contexts -o=name | grep -E "^(gke_.+_)?${choice%% *}\$")"
 }
 
