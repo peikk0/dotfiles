@@ -281,8 +281,8 @@ augroup END
 " Markdown preview
 
 if executable('google-chrome')
-  function OpenMarkdownPreview (url)
-    execute "silent ! google-chrome --app=" . a:url
+  function OpenMarkdownPreview(url)
+    execute 'silent ! google-chrome --app=' . a:url
   endfunction
   let g:mkdp_browserfunc='OpenMarkdownPreview'
 endif
