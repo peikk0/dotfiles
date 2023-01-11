@@ -29,9 +29,9 @@ fzf-kubectx-widget() {
   return $ret
 }
 zle     -N            fzf-kubectx-widget
-bindkey -M emacs '^K' fzf-kubectx-widget
-bindkey -M vicmd '^K' fzf-kubectx-widget
-bindkey -M viins '^K' fzf-kubectx-widget
+bindkey -M emacs '^K^X' fzf-kubectx-widget
+bindkey -M vicmd '^K^X' fzf-kubectx-widget
+bindkey -M viins '^K^X' fzf-kubectx-widget
 
 export KUBECTX_CURRENT_BGCOLOR="$(tput setab 0)"
 export KUBECTX_CURRENT_FGCOLOR="$(tput setaf 6)"
