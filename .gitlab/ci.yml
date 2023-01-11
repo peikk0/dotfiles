@@ -28,6 +28,32 @@ shellcheck:
           sh/profile \
           $(find sh/inc -type f -name '*.sh') \
           X11/xsession \
+          X11/xsessionrc \
+          yabai/yabairc \
+          yadm/bootstrap
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - bash/bashrc
+        - sh/profile
+        - sh/inc/*.sh
+        - X11/xsession
+        - X11/xsessionrc
+        - yabai/yabairc
+        - yadm/bootstrap
+
+shfmt:
+  stage: test
+  image: docker pull mvdan/shfmt:v3.6.0-alpine
+  script:
+    - |
+      shfmt -d -l -i 2 -ci \
+          bash/bashrc \
+          sh/profile \
+          $(find sh/inc -type f -name '*.sh') \
+          X11/xsession \
+          X11/xsessionrc \
           yabai/yabairc \
           yadm/bootstrap
   rules:
