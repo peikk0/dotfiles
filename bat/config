@@ -1,0 +1,5 @@
+--theme="Nord"
+--italic-text=always
+
+--paging=auto
+--pager="less --ignore-case --LONG-PROMPT --mouse --RAW-CONTROL-CHARS --shift 5"
