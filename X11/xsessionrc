@@ -22,22 +22,27 @@ echo '*** xsessionrc start ***'
 for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xterm; do
   if command -v "${term}" >/dev/null 2>&1; then
     echo "Setting preferred terminal to '${term}'..."
-    TERMINAL="${term}"; export TERMINAL
+    TERMINAL="${term}"
+    export TERMINAL
     break
   fi
 done
 
 # Make sure XDG_CURRENT_DESKTOP is set
-: "${XDG_CURRENT_DESKTOP:=i3}"; export XDG_CURRENT_DESKTOP
+: "${XDG_CURRENT_DESKTOP:=i3}"
+export XDG_CURRENT_DESKTOP
 
 # GTK 2.0 configuration
-GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"; export GTK2_RC_FILES
+GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+export GTK2_RC_FILES
 
 # Qt theme
-QT_QPA_PLATFORMTHEME="qt5ct"; export QT_QPA_PLATFORMTHEME
+QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME
 
 # Cursor theme
-XCURSOR_THEME="Nordzy-cursors"; export XCURSOR_THEME
+XCURSOR_THEME="Nordzy-cursors"
+export XCURSOR_THEME
 
 # X resources
 if command -v xrdb >/dev/null 2>&1; then

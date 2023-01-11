@@ -43,7 +43,7 @@ fi
 # SSH
 
 echo ' Updating SSH authorized keys...'
-cat "${XDG_CONFIG_HOME}/ssh/authorized_keys"/* > "${HOME}/.ssh/authorized_keys"
+cat "${XDG_CONFIG_HOME}/ssh/authorized_keys"/* >"${HOME}/.ssh/authorized_keys"
 
 # Vim
 
