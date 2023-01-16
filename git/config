@@ -23,9 +23,15 @@
 [color]
     ui = auto
 [color "branch"]
-    current = green
-    local = yellow
-    remote = blue
+    current = blue black
+    local = cyan
+    remote = italic cyan
+[color "decorate"]
+    HEAD = green
+    branch = cyan
+    remoteBranch = italic cyan
+    stash = italic blue
+    tag = green
 [color "diff"]
     meta = blue
     frag = magenta
@@ -125,7 +131,7 @@
 
 [log]
     date = iso-local
-    decorate = auto
+    decorate = short
 
 [merge]
     conflictstyle = diff3
@@ -138,7 +144,7 @@
     show = delta
 
 [pretty]
-    ol = format:%C(green)%h%C(magenta)%d%C(reset) %s %C(cyan)(%cr) %C(blue)-- %C(bold)%an%C(no-bold) <%ae>%C(reset)
+    ol = format:%C(blue)%h%C(auto)%d%C(reset) %s %C(italic brightblack)(%cr) — %an <%ae>%C(reset)
 
 [pull]
     rebase = false
