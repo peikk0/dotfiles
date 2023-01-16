@@ -294,6 +294,19 @@ augroup man_plugin_settings
   autocmd FileType man setlocal nolist
 augroup END
 
+" Markdown
+let g:vim_markdown_edit_url_in='tab'
+let g:vim_markdown_fenced_languages=[
+      \ 'ini=dosini',
+      \ 'shell=sh',
+      \ 'yml=yaml',
+      \ ]
+let g:vim_markdown_folding_style_pythonic=1
+let g:vim_markdown_follow_anchor=1
+let g:vim_markdown_no_extensions_in_markdown=1
+let g:vim_markdown_strikethrough=1
+let g:vim_markdown_toc_autofit=1
+
 " Markdown preview
 
 if executable('google-chrome')
