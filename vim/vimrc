@@ -57,21 +57,37 @@ syntax on
 if has('terminfo') || has('nvim')
   set background=dark
   if exists('+termguicolors')
-    " https://github.com/tmux/tmux/issues/1246
-    let &t_8f = "\e[38;2;%lu;%lu;%lum"
-    let &t_8b = "\e[48;2;%lu;%lu;%lum"
-    " https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722
-    let &t_ZH = "\e[3m"
-    let &t_ZR = "\e[23m"
+    if &term =~ 'xterm\|tmux\|kitty\|alacritty'
+      " https://github.com/tmux/tmux/issues/1246
+      let &t_8f="\e[38;2;%lu;%lu;%lum"
+      let &t_8b="\e[48;2;%lu;%lu;%lum"
+      " https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722
+      let &t_ZH="\e[3m"
+      let &t_ZR="\e[23m"
+      " Strikethrough
+      let &t_Ts="\e[9m"
+      let &t_Te="\e[29m"
+      " Undercurl
+      let &t_Cs="\e[4:3m"
+      let &t_Ce="\e[4:0m"
+    endif
     set termguicolors
   endif
   " https://www.nordtheme.com/docs/ports/vim/configuration
-  let g:nord_italic = 1
-  let g:nord_italic_comments = 1
-  let g:nord_uniform_diff_background = 1
+  let g:nord_bold=1
+  let g:nord_italic=1
+  let g:nord_italic_comments=1
+  let g:nord_underline=1
+  let g:nord_uniform_diff_background=1
   augroup nord-theme-overrides
     autocmd!
     autocmd ColorScheme nord highlight normal guibg=NONE ctermbg=NONE
+    autocmd ColorScheme nord highlight SpellBad cterm=undercurl
+    autocmd ColorScheme nord highlight SpellCap cterm=undercurl
+    autocmd ColorScheme nord highlight SpellLocal cterm=undercurl
+    autocmd ColorScheme nord highlight SpellRare cterm=undercurl
+    autocmd ColorScheme nord highlight ALEWarning cterm=undercurl
+    autocmd ColorScheme nord highlight ALEError cterm=undercurl
   augroup END
   colorscheme nord
 end
