@@ -48,6 +48,18 @@ return {
     },
     font_size = 14.0,
     hide_tab_bar_if_only_one_tab = true,
+    mouse_bindings = {
+        {
+            event = { Up = { streak = 1, button = 'Left' } },
+            mods = 'NONE',
+            action = wezterm.action.CompleteSelection 'PrimarySelection',
+        },
+        {
+            event = { Up = { streak = 1, button = 'Left' } },
+            mods = 'SUPER',
+            action = wezterm.action.OpenLinkAtMouseCursor,
+        },
+    },
     show_new_tab_button_in_tab_bar = false,
     window_background_opacity = 0.95,
     window_decorations = 'RESIZE',
