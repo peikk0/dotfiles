@@ -31,7 +31,7 @@ fzf-kubectx-widget() {
   zle reset-prompt
   return $ret
 }
-zle     -N            fzf-kubectx-widget
+zle     -N              fzf-kubectx-widget
 bindkey -M emacs '^K^X' fzf-kubectx-widget
 bindkey -M vicmd '^K^X' fzf-kubectx-widget
 bindkey -M viins '^K^X' fzf-kubectx-widget
