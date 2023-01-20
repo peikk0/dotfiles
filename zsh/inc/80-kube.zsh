@@ -52,14 +52,16 @@ bindkey -M viins '^K^X' fzf-kubectx-widget
 kube-proxy-widget() {
   local ssh_proxy_host="kube-proxy:$(kubectl config current-context)"
   if [[ -n "${TMUX:-}" ]]; then
+    zle redisplay
     tmux split-window -d -v -l 2 ssh ${(q)ssh_proxy_host}
+    return 0
   else
     zle push-line
     BUFFER="ssh ${(q)ssh_proxy_host}"
     zle accept-line
     local ret=$?
   fi
-  unset context
+  unset ssh_proxy_host
   zle reset-prompt
   return $ret
 }
