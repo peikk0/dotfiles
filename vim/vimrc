@@ -57,7 +57,7 @@ syntax on
 if has('terminfo') || has('nvim')
   set background=dark
   if exists('+termguicolors')
-    if &term =~ 'xterm\|tmux\|kitty\|alacritty'
+    if &term =~# 'xterm\|tmux\|kitty\|alacritty'
       " https://github.com/tmux/tmux/issues/1246
       let &t_8f="\e[38;2;%lu;%lu;%lum"
       let &t_8b="\e[48;2;%lu;%lu;%lum"
