@@ -2,6 +2,9 @@
 
 alias k="kubectl"
 
+export KUBECTX_CURRENT_BGCOLOR="$(tput setab 0)"
+export KUBECTX_CURRENT_FGCOLOR="$(tput setaf 6)"
+
 # CTRL-K - kubectx with tmux popup and reformatted context names for GKE
 fzf-kubectx-widget() {
   local \
@@ -33,8 +36,37 @@ bindkey -M emacs '^K^X' fzf-kubectx-widget
 bindkey -M vicmd '^K^X' fzf-kubectx-widget
 bindkey -M viins '^K^X' fzf-kubectx-widget
 
-export KUBECTX_CURRENT_BGCOLOR="$(tput setab 0)"
-export KUBECTX_CURRENT_FGCOLOR="$(tput setaf 6)"
+# The following widget works with this SSH configuration:
+#
+# Host kube-proxy:*
+#     CanonicalizeHostname yes
+#     ExitOnForwardFailure yes
+#     PermitLocalCommand yes
+#     RemoteCommand echo '󱃾 Kube SOCKS5 Proxy via %h opened! Press Enter to disconnect.'; read
+#
+# Host kube-proxy:gke_some-project_*
+#     Hostname some.bastion.host
+#     DynamicForward 1080
+#     LocalCommand kubectl config set clusters.$(echo "%n" | cut -d: -f2).proxy-url socks5://localhost:1080 >/dev/null
+
+kube-proxy-widget() {
+  local ssh_proxy_host="kube-proxy:$(kubectl config current-context)"
+  if [[ -v TMUX ]]; then
+    tmux split-window -d -v -l 2 ssh ${(q)ssh_proxy_host}
+  else
+    zle push-line
+    BUFFER="ssh ${(q)ssh_proxy_host}"
+    zle accept-line
+    local ret=$?
+  fi
+  unset context
+  zle reset-prompt
+  return $ret
+}
+zle     -N              kube-proxy-widget
+bindkey -M emacs '^K^P' kube-proxy-widget
+bindkey -M vicmd '^K^P' kube-proxy-widget
+bindkey -M viins '^K^P' kube-proxy-widget
 
 # }}}
 
