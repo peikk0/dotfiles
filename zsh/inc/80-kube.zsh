@@ -42,7 +42,7 @@ bindkey -M viins '^K^X' fzf-kubectx-widget
 #     CanonicalizeHostname yes
 #     ExitOnForwardFailure yes
 #     PermitLocalCommand yes
-#     RemoteCommand echo '󱃾 Kube SOCKS5 Proxy via %h opened! Press Enter to disconnect.'; read
+#     RemoteCommand printf '%%b' '\r\e[34m[kube]\e[0m SOCKS5 Proxy via \e[36m%h\e[0m opened! Press Enter to disconnect.'; read
 #
 # Host kube-proxy:gke_some-project_*
 #     Hostname some.bastion.host
@@ -50,10 +50,12 @@ bindkey -M viins '^K^X' fzf-kubectx-widget
 #     LocalCommand kubectl config set clusters.$(echo "%n" | cut -d: -f2).proxy-url socks5://localhost:1080 >/dev/null
 
 kube-proxy-widget() {
+  autoload -U colors && colors
+
   local ssh_proxy_host="kube-proxy:$(kubectl config current-context)"
   if [[ -n "${TMUX:-}" ]]; then
     zle redisplay
-    tmux split-window -d -v -l 2 ssh ${(q)ssh_proxy_host}
+    tmux split-window -d -v -l 2 "printf %b '${fg[blue]}[kube]${reset_color} Opening SOCKS5 proxy ${fg[cyan]}${ssh_proxy_host}${reset_color}...'; ssh ${(q)ssh_proxy_host}"
     return 0
   else
     zle push-line
