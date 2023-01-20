@@ -12,16 +12,20 @@ fzf-kubectx-widget() {
     _fg_blue="$(tput setaf 4)" \
     _fg_cyan="$(tput setaf 6)" \
     _reset="$(tput sgr0)"
+
   setopt localoptions pipefail no_aliases 2>/dev/null
+
   local choice="$(
     _KUBECTX_FORCE_COLOR=1 kubectx \
       | sed -re "s/gke_(.+)_(.+)_(.+)/\\3 ${_fg_blue} ${_italic}\\1:${_fg_cyan}\\2${_reset}/" \
       | fzf-tmux -p 25%,40% --ansi --no-preview --prompt '⎈ '
     )"
+
   if [[ -z "${choice}" ]]; then
     zle redisplay
     return 0
   fi
+
   zle push-line
   local context="$(kubectl config get-contexts -o=name | grep -E "^(gke_.+_)?${choice%% *}\$")"
   BUFFER="kubectx ${(q)context}"
@@ -53,9 +57,13 @@ kube-proxy-widget() {
   autoload -U colors && colors
 
   local ssh_proxy_host="kube-proxy:$(kubectl config current-context)"
+
   if [[ -n "${TMUX:-}" ]]; then
     zle redisplay
-    tmux split-window -d -v -l 2 "printf %b '${fg[blue]}[kube]${reset_color} Opening SOCKS5 proxy ${fg[cyan]}${ssh_proxy_host}${reset_color}...'; ssh ${(q)ssh_proxy_host}"
+    tmux split-window -d -v -l 2 "
+      printf %b '${fg[blue]}[kube]${reset_color} Opening SOCKS5 proxy ${fg[cyan]}${ssh_proxy_host}${reset_color}...';
+      ssh ${(q)ssh_proxy_host}
+      "
     return 0
   else
     zle push-line
@@ -63,6 +71,7 @@ kube-proxy-widget() {
     zle accept-line
     local ret=$?
   fi
+
   unset ssh_proxy_host
   zle reset-prompt
   return $ret
