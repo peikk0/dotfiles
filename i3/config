@@ -2,7 +2,7 @@
 # http://i3wm.org/docs/userguide.html
 
 # font for titles
-font pango:Noto Mono Bold 10
+font pango:Noto Sans Bold Italic 10
 
 # use Windows key
 set $mod Mod4
