@@ -1,5 +1,7 @@
 # {{{ Aliases
 
+# ls / exa
+
 : "${OS:=$(uname -s)}"
 local dir_colors="$(antidote path arcticicestudio/nord-dircolors)/src/dir_colors"
 case "${OS}" in
@@ -36,27 +38,47 @@ if command -v exa >/dev/null 2>&1; then
   alias la="exa -aa"
 fi
 
-if command -v bsdtar >/dev/null 2>&1; then
-  alias tar="bsdtar"
-fi
+# bash
+
+alias bash='bash --init-file "${XDG_CONFIG_HOME}/bash/bashrc"'
+
+# git
+
+alias g="git"
+alias gp="git pull"
+alias gpu="git push -u"
+alias gf="git fetch"
+alias gfp="git fetch --prune"
+
+# grep
 
 if command -v bsdgrep >/dev/null 2>&1; then
   alias grep="bsdgrep --color=auto"
 else
   alias grep="grep --color=auto"
 fi
-alias egrep="grep -E --color=auto"
-alias fgrep="grep -F --color=auto"
+alias egrep="grep -E"
+alias fgrep="grep -F"
 
-alias bash='bash --init-file "${XDG_CONFIG_HOME}/bash/bashrc"'
+# homebrew
+
+if [[ "${OS}" = "Darwin" ]]; then
+  alias bb='brew bundle --file "${XDG_CONFIG_HOME}/homebrew/Brewfile"'
+fi
+
+# tar
+
+if command -v bsdtar >/dev/null 2>&1; then
+  alias tar="bsdtar"
+fi
+
+# vim
 
 if [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
 
-if [[ "${OS}" = "Darwin" ]]; then
-  alias bb='brew bundle --file "${XDG_CONFIG_HOME}/homebrew/Brewfile"'
-fi
+# yaml
 
 alias y="yadm"
 
