@@ -28,6 +28,16 @@ for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xter
   fi
 done
 
+# Set preferred browser for sensible-browser
+for browser in firefox google-chrome chromium; do
+  if command -v "${browser}" >/dev/null 2>&1; then
+    echo "Setting preferred browser to '${browser}'..."
+    BROWSER="${browser}"
+    export BROWSER
+    break
+  fi
+done
+
 # Make sure XDG_CURRENT_DESKTOP is set
 : "${XDG_CURRENT_DESKTOP:=i3}"
 export XDG_CURRENT_DESKTOP
@@ -43,6 +53,11 @@ export QT_QPA_PLATFORMTHEME
 # Cursor theme
 XCURSOR_THEME="Nordzy-cursors"
 export XCURSOR_THEME
+
+# Firefox
+MOZ_X11_EGL=1
+MOZ_USE_XINPUT2=1
+export MOZ_X11_EGL MOZ_USE_XINPUT2
 
 # X resources
 if command -v xrdb >/dev/null 2>&1; then
