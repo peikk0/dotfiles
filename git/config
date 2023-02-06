@@ -37,6 +37,14 @@
     frag = magenta
     old = red reverse
     new = green reverse
+[color "grep"]
+    context = brightblack
+    filename = italic blue
+    lineNumber = italic cyan
+    column = italic cyan
+    function = italic brightblack
+    match = cyan black
+    separator = italic brightblack
 [color "status"]
     added = yellow
     changed = green
