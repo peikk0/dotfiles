@@ -31,7 +31,7 @@
     branch = cyan
     remoteBranch = italic cyan
     stash = italic blue
-    tag = green
+    tag = blue
 [color "diff"]
     meta = blue
     frag = magenta
