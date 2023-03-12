@@ -2,8 +2,12 @@
 
 alias k="kubectl"
 
-export KUBECTX_CURRENT_BGCOLOR="$(tput setab 0)"
-export KUBECTX_CURRENT_FGCOLOR="$(tput setaf 6)"
+kubectx() {
+  env \
+    KUBECTX_CURRENT_BGCOLOR="$(tput setab 0)" \
+    KUBECTX_CURRENT_FGCOLOR="$(tput setaf 6)" \
+    kubectx "$@"
+}
 
 # CTRL-K - kubectx with tmux popup and reformatted context names for GKE
 fzf-kubectx-widget() {
