@@ -1,0 +1,8 @@
+#env
+LESS_TERMCAP_mb = [34m
+LESS_TERMCAP_md = [34m
+LESS_TERMCAP_me = [m
+LESS_TERMCAP_se = [m
+LESS_TERMCAP_so = [35m
+LESS_TERMCAP_ue = [m
+LESS_TERMCAP_us = [32m

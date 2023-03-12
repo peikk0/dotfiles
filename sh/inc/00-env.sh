@@ -86,15 +86,6 @@ if command -v less >/dev/null 2>&1; then
   mkdir -p "${XDG_STATE_HOME}/less"
   LESSHISTFILE="${XDG_STATE_HOME}/less/history"
   export LESSHISTFILE
-  LESS_TERMCAP_mb="$(tput -T "${TERM:-xterm}" setaf 4)"
-  LESS_TERMCAP_md="$(tput -T "${TERM:-xterm}" setaf 4)"
-  LESS_TERMCAP_me="$(tput -T "${TERM:-xterm}" sgr0)"
-  LESS_TERMCAP_so="$(tput -T "${TERM:-xterm}" setaf 5)"
-  LESS_TERMCAP_se="$(tput -T "${TERM:-xterm}" sgr0)"
-  LESS_TERMCAP_us="$(tput -T "${TERM:-xterm}" setaf 2)"
-  LESS_TERMCAP_ue="$(tput -T "${TERM:-xterm}" sgr0)"
-  export LESS_TERMCAP_mb LESS_TERMCAP_md LESS_TERMCAP_me LESS_TERMCAP_so \
-    LESS_TERMCAP_se LESS_TERMCAP_us LESS_TERMCAP_ue
   if command -v lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'
     export LESSOPEN
