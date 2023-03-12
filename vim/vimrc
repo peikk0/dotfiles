@@ -177,7 +177,6 @@ set ttimeoutlen=250
 set mouse=
 
 set shell=/usr/bin/env\ zsh
-set grepprg=grep\ -nH\ $*
 
 " }}}
 
