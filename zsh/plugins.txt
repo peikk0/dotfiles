@@ -1,5 +1,5 @@
 # Nord
-arcticicestudio/nord-dircolors kind:clone
+nordtheme/dircolors kind:clone
 
 # FZF / Git
 Aloxaf/fzf-tab
