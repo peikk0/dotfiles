@@ -7,7 +7,7 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'andrewstuart/vim-kubernetes'
   Plug 'ararslan/license-to-vim'
-  Plug 'nordtheme/vim'
+  Plug 'nordtheme/vim', { 'as': 'nord' }
   Plug 'bfontaine/Brewfile.vim'
   Plug 'chr4/nginx.vim'
   Plug 'chrisbra/csv.vim'
