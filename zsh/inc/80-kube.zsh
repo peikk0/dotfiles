@@ -9,7 +9,7 @@ kubectx() {
     kubectx "$@"
 }
 
-# CTRL-K - kubectx with tmux popup and reformatted context names for GKE
+# kubectx with tmux popup and reformatted context names for GKE and Teleport
 fzf-kubectx-widget() {
   local \
     _italic="$(tput sitm)" \
@@ -21,8 +21,8 @@ fzf-kubectx-widget() {
 
   local choice="$(
     _KUBECTX_FORCE_COLOR=1 kubectx \
-      | sed -re "s/gke_(.+)_(.+)_(.+)/\\3 ${_fg_blue} ${_italic}\\1:${_fg_cyan}\\2${_reset}/" \
-      | sed -re "s/(.+\.teleport\.gitlab\.net)-(.+)/\\2 ${_fg_blue} ${_italic}\\1${_reset}/" \
+      | sed -r -e "s/gke_(.+)_(.+)_(.+)/\\3 ${_fg_blue} ${_italic}\\1:${_fg_cyan}\\2${_reset}/" \
+               -e "s/(.+\.teleport\.gitlab\.net)-(.+)/\\2 ${_fg_blue} ${_italic}\\1${_reset}/" \
       | fzf-tmux -p 25%,40% --ansi --no-preview --prompt '⎈ '
     )"
 
