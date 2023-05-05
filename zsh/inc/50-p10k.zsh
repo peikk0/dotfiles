@@ -1,6 +1,6 @@
 # {{{ Powerlevel10k prompt
 
-typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
+typeset -g POWERLEVEL9K_MODE="nerdfont-v3"
 
 typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
 typeset -g POWERLEVEL9K_DIR_HYPERLINK=true
