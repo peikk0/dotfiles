@@ -154,6 +154,7 @@ set ruler
 set showcmd
 set laststatus=2
 set colorcolumn=120
+set conceallevel=2
 
 set hlsearch
 set incsearch
