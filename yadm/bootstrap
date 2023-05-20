@@ -45,6 +45,21 @@ fi
 echo ' Updating SSH authorized keys...'
 cat "${XDG_CONFIG_HOME}/ssh/authorized_keys"/* >"${HOME}/.ssh/authorized_keys"
 
+# Tmux
+
+if ! [ -d "${XDG_DATA_HOME}/tmux/plugins/tpm" ]; then
+  echo ' Installing Tmux Plugin Manager...'
+  git clone --quiet --depth=1 https://github.com/tmux-plugins/tpm.git \
+    "${XDG_DATA_HOME}/tmux/plugins/tpm"
+else
+  echo ' Ensuring Tmux Plugin Manager is up-to-date...'
+  git -C "${XDG_DATA_HOME}/tmux/plugins/tpm" pull --quiet
+fi
+echo ' Installing all Tmux plugins...'
+"${XDG_DATA_HOME}/tmux/plugins/tpm/bin/install_plugins"
+echo ' Updating all Tmux plugins...'
+"${XDG_DATA_HOME}/tmux/plugins/tpm/bin/update_plugins" all
+
 # Vim
 
 if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
