@@ -143,6 +143,14 @@
 
 [merge]
     conflictstyle = diff3
+    tool = diffconflicts
+
+[mergetool]
+    keepBackup = false
+
+[mergetool "diffconflicts"]
+    cmd = vim -c DiffConflicts \"${MERGED}\" \"${BASE}\" \"${LOCAL}\" \"${REMOTE}\"
+    trustExitCode = true
 
 [pager]
     blame = delta

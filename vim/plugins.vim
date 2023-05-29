@@ -65,5 +65,6 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'vim-scripts/ntp.vim'
   Plug 'vim-scripts/pam.vim'
   Plug 'vito-c/jq.vim'
+  Plug 'whiteinge/diffconflicts'
   Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
