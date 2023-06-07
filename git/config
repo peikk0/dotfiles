@@ -29,6 +29,7 @@
 [color "decorate"]
     HEAD = green
     branch = cyan
+    grafted = yellow
     remoteBranch = italic cyan
     stash = italic blue
     tag = blue
