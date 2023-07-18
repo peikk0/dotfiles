@@ -29,7 +29,7 @@ for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xter
 done
 
 # Set preferred browser for sensible-browser
-for browser in firefox google-chrome chromium; do
+for browser in google-chrome chromium firefox; do
   if command -v "${browser}" >/dev/null 2>&1; then
     echo "Setting preferred browser to '${browser}'..."
     BROWSER="${browser}"
