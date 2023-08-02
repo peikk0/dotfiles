@@ -435,6 +435,15 @@ nnoremap <Leader>s :BLines<CR>
 nnoremap <Leader>ft :Filetypes<CR>
 nnoremap <Leader>rg :Rg <C-R><C-W><CR>
 
+function! FzfSpellSink(word)
+  exe 'normal! "_ciw'.a:word
+endfunction
+function! FzfSpell()
+  let suggestions = spellsuggest(expand("<cword>"))
+  return fzf#run(fzf#wrap({'source': suggestions, 'sink': function("FzfSpellSink")}))
+endfunction
+nnoremap z= :call FzfSpell()<CR>
+
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
