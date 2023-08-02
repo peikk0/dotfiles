@@ -72,11 +72,11 @@
 
     file-style = "#81A1C1"
     file-decoration-style = "#434C5E" box
-    file-added-label = 
-    file-copied-label = 
-    file-modified-label = 
-    file-removed-label = 
-    file-renamed-label = 
+    file-added-label = [+]
+    file-copied-label = [=]
+    file-modified-label = [~]
+    file-removed-label = [-]
+    file-renamed-label = [>]
 
     hunk-header-decoration-style = "#434C5E" box
     hunk-header-file-style = "#81A1C1"
