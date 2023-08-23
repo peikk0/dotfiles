@@ -191,7 +191,7 @@ export ENV
 # {{{ wget
 
 # shellcheck disable=SC2016,SC2089
-VIMINIT='let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source ${MYVIMRC}'
+VIMINIT='if !has("nvim") | let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | source ${MYVIMRC} | endif'
 # shellcheck disable=SC2090
 export VIMINIT
 
