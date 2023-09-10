@@ -26,6 +26,35 @@ zstyle ':completion:*:descriptions' format '[%d]'
 # preview directory's content with exa when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always --group-directories-first --icons ${realpath}'
 
+edit-dotfiles() {
+  yadm_workdir="$(yadm rev-parse --show-toplevel)"
+
+  dotfile="$(
+    yadm ls-files |
+      fzf-tmux -p 75%,75% --ansi --border-label 'Edit dotfiles' \
+          --preview-window 'right:60%' --preview "bat --color=always --style=plain ${(q)yadm_workdir}/{}"
+  )"
+
+  if [[ -z "${dotfile}" ]]; then
+    zle redisplay
+    return 0
+  fi
+
+  zle push-line
+  BUFFER="${EDITOR} ${(q)yadm_workdir}/${(q)dotfile}"
+  zle accept-line
+  local ret=$?
+
+  unset dotfile
+  zle reset-prompt
+  return "${ret}"
+}
+
+zle     -N            edit-dotfiles
+bindkey -M emacs '^Ed' edit-dotfiles
+bindkey -M vicmd '^Ed' edit-dotfiles
+bindkey -M viins '^Ed' edit-dotfiles
+
 # }}}
 
 # vim:filetype=zsh:tabstop=2:shiftwidth=2:fdm=marker:
