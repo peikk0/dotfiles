@@ -61,7 +61,8 @@ return {
         },
     },
     show_new_tab_button_in_tab_bar = false,
-    window_background_opacity = 0.95,
+    window_background_opacity = 0.85,
+    macos_window_background_blur = 25,
     window_decorations = 'RESIZE',
     window_frame = {
         font = wezterm.font { family = 'Noto Sans', italic = true, weight = 'Bold' },
