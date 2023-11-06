@@ -247,6 +247,7 @@ let g:ale_echo_msg_warning_str='W'
 let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
 let g:ale_fix_on_save=1
 let g:ale_fixers={
+      \ 'rego': ['opafmt', 'remove_trailing_lines', 'trim_whitespace'],
       \ 'rust': ['remove_trailing_lines', 'rustfmt', 'trim_whitespace'],
       \ 'terraform': ['remove_trailing_lines', 'terraform'],
       \ 'yaml': ['remove_trailing_lines', 'trim_whitespace'],

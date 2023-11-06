@@ -58,6 +58,7 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+  Plug 'tsandall/vim-rego'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-ruby/vim-ruby'
