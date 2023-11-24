@@ -1,5 +1,7 @@
 local wezterm = require 'wezterm';
 
+local monaspace_ligatures = { 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig' };
+
 return {
     adjust_window_size_when_changing_font_size = false,
     allow_square_glyphs_to_overflow_width = 'WhenFollowedBySpace',
@@ -34,9 +36,11 @@ return {
     custom_block_glyphs = false,
     default_cursor_style = 'BlinkingUnderline',
     font = wezterm.font_with_fallback {
+        { family = 'MonaspiceAr NF', weight = 'Regular', harfbuzz_features = monaspace_ligatures },
         'FiraCode Nerd Font',
         'FiraMono Nerd Font',
         'NotoMono Nerd Font',
+        'Monaspace Argon',
         'Fira Code',
         'Fira Mono',
         'Noto Mono',
@@ -46,7 +50,26 @@ return {
         'DejaVu Sans Mono',
         'Liberation Mono',
     },
-    font_size = 14.0,
+    font_rules = {
+        {
+            intensity = 'Bold',
+            font = wezterm.font {
+                family = 'MonaspiceAr NF',
+                weight = 'Medium',
+                harfbuzz_features = monaspace_ligatures
+            }
+        },
+        {
+            italic = true,
+            font = wezterm.font {
+                italic = true,
+                family = 'MonaspiceRn NF',
+                weight = 'Regular',
+                harfbuzz_features = monaspace_ligatures
+            }
+        },
+    },
+    font_size = 13.0,
     hide_tab_bar_if_only_one_tab = true,
     mouse_bindings = {
         {
