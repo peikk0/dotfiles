@@ -107,8 +107,13 @@ export AWS_CONFIG_FILE AWS_SHARED_CREDENTIALS_FILE
 
 # {{{ Bat
 
-BAT_THEME="Nord"
-export BAT_THEME
+if command -v bat >/dev/null 2>&1; then
+  BAT_THEME="Nord"
+  # shellcheck disable=SC2089
+  MANPAGER="sh -c 'col -bx | bat -l man --paging=always --plain'"
+  # shellcheck disable=SC2090
+  export BAT_THEME MANPAGER
+fi
 
 # }}}
 
