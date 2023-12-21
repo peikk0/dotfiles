@@ -10,7 +10,7 @@ stages:
 
 vint:
   stage: test
-  image: alpine:3.18
+  image: alpine:3.19
   script:
     - apk add py3-setuptools vint
     - vint --color --warning vim/vimrc vim/*.vim
