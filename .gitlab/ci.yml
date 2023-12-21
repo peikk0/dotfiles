@@ -48,7 +48,7 @@ shellcheck:
 
 shfmt:
   stage: test
-  image: mvdan/shfmt:3.7.0
+  image: mvdan/shfmt:v3.7.0-alpine
   script:
     - |
       shfmt -d -l -i 2 -ci \
