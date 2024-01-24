@@ -1,5 +1,10 @@
-# https://github.com/derailed/k9s/blob/master/skins/nord.yml
----
+# https://github.com/derailed/k9s/blob/master/skins/nord.yaml
+
+# -----------------------------------------------------------------------------
+# Nord skin
+# -----------------------------------------------------------------------------
+
+# Styles...
 foreground: &foreground "#DADEE8"
 background: &background "#30343F"
 current_line: &current_line "#383D4A"
@@ -13,6 +18,7 @@ magenta: &magenta "#B48EAD"
 red: &red "#BF616A"
 yellow: &yellow "#EBCB8B"
 
+# Skin...
 k9s:
   # General K9s styles
   body:
@@ -107,6 +113,8 @@ k9s:
       indicator:
         fgColor: *foreground
         bgColor: *magenta
+        toggleOnColor: *magenta
+        toggleOffColor: *blue
     help:
       fgColor: *foreground
       bgColor: *background
