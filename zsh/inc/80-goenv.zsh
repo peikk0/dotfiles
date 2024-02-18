@@ -1,6 +1,6 @@
 # {{{ goenv
 
-goenv_lazy_load() {
+_goenv_lazy_load() {
   autoload -U colors; colors
 
   export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/goenv"
@@ -27,7 +27,7 @@ goenv_lazy_load() {
   fi
 }
 
-goenv() { goenv_lazy_load "$@" }
+goenv() { _goenv_lazy_load "$@" }
 
 # }}}
 

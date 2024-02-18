@@ -1,6 +1,6 @@
 # {{{ mise
 
-mise_lazy_load() {
+_mise_lazy_load() {
   autoload -U colors; colors
 
   unset -f mise
@@ -19,7 +19,7 @@ mise_lazy_load() {
   fi
 }
 
-mise() { mise_lazy_load "$@" }
+mise() { _mise_lazy_load "$@" }
 
 # }}}
 

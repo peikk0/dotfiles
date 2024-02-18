@@ -1,6 +1,6 @@
 # {{{ rbenv
 
-rbenv_lazy_load() {
+_rbenv_lazy_load() {
   autoload -U colors; colors
 
   export RBENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/rbenv"
@@ -26,7 +26,7 @@ rbenv_lazy_load() {
   fi
 }
 
-rbenv() { rbenv_lazy_load "$@" }
+rbenv() { _rbenv_lazy_load "$@" }
 
 # }}}
 

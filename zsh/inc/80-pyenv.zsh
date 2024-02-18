@@ -1,6 +1,6 @@
 # {{{ pyenv
 
-pyenv_lazy_load() {
+_pyenv_lazy_load() {
   autoload -U colors; colors
 
   export PYENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/pyenv"
@@ -26,7 +26,7 @@ pyenv_lazy_load() {
   fi
 }
 
-pyenv() { pyenv_lazy_load "$@" }
+pyenv() { _pyenv_lazy_load "$@" }
 
 # }}}
 
