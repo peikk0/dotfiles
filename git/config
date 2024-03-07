@@ -136,7 +136,7 @@
     defaultBranch = main
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
 
 [log]
     date = iso-local
