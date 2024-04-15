@@ -43,7 +43,7 @@ vault-login-widget() {
 
   if [[ -n "${TMUX:-}" ]]; then
     zle redisplay
-    tmux split-window -d -v -l 10 "
+    tmux display-popup -E -h 20 "
       printf %b '${fg[blue]}[vault]${reset_color} Logging into Vault at ${fg[cyan]}${VAULT_ADDR}${reset_color} with role ${fg[magenta]}${role}${reset_color}...\n';
       vault login -no-print -address '${VAULT_ADDR}' -method oidc role='${role}' || read
       "
