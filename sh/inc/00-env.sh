@@ -97,6 +97,15 @@ export PAGER
 
 # }}}
 
+# {{{ Ansible
+
+ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
+ANSIBLE_CONFIG="${ANSIBLE_HOME}/ansible.cfg"
+ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
+export ANSIBLE_CONFIG ANSIBLE_HOME ANSIBLE_GALAXY_CACHE_DIR
+
+# }}}
+
 # {{{ AWS
 
 AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
