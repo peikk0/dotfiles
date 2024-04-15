@@ -1,6 +1,6 @@
 # {{{ Aliases
 
-# ls / exa
+# ls / eza
 
 : "${OS:=$(uname -s)}"
 local dir_colors="$(antidote path nordtheme/dircolors)/src/dir_colors"
@@ -30,12 +30,12 @@ unset dir_colors
 alias l="ls -A -F"
 alias la="ls -a"
 
-if command -v exa >/dev/null 2>&1; then
-  alias exa="exa --group-directories-first --icons"
-  alias ls="exa"
-  alias ll="exa -l -g --time-style=long-iso"
-  alias l="exa -F -a"
-  alias la="exa -aa"
+if command -v eza >/dev/null 2>&1; then
+  alias eza="eza --group-directories-first --icons"
+  alias ls="eza"
+  alias ll="eza -l -g --time-style=long-iso"
+  alias l="eza -F -a"
+  alias la="eza -aa"
 fi
 
 # bash
