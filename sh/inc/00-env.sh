@@ -162,6 +162,13 @@ export LIMA_HOME
 
 # }}}
 
+# {{{ npm
+
+NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export NPM_CONFIG_USERCONFIG
+
+# }}}
+
 # {{{ PostgreSQL
 
 PSQLRC="${XDG_CONFIG_HOME}/postgresql/psqlrc"
