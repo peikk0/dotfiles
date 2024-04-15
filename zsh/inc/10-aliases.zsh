@@ -66,6 +66,12 @@ if [[ "${OS}" = "Darwin" ]]; then
   alias bb='brew bundle --file "${XDG_CONFIG_HOME}/homebrew/Brewfile"'
 fi
 
+# ripgrep
+
+rgd() {
+  rg --json --context 2 "$@" | delta
+}
+
 # tar
 
 if command -v bsdtar >/dev/null 2>&1; then
