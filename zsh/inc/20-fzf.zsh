@@ -3,10 +3,10 @@
 FZF_TMUX=1
 FZF_TMUX_OPTS="-p"
 
-if command -v rg >/dev/null 2>&1; then
+if command -v fd >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --strip-cwd-prefix'
+elif command -v rg >/dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND=$'rg --files --hidden --glob \'!.git\''
-elif command -v fd >/dev/null 2>&1; then
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
 fi
 
 # https://github.com/junegunn/fzf/wiki/Color-schemes#nord
