@@ -427,7 +427,7 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " FZF / ripgrep
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git'"
+let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --exclude .git --strip-cwd-prefix"
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 let g:rg_derive_root = 'true'
 nnoremap <C-p> :Files<CR>
@@ -435,6 +435,8 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>s :BLines<CR>
 nnoremap <Leader>ft :Filetypes<CR>
 nnoremap <Leader>rg :Rg <C-R><C-W><CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git' -- ".fzf#shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* RG call fzf#vim#grep2("rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git' -- ", <q-args>, fzf#vim#with_preview(), <bang>0)
 
 function! FzfSpellSink(word)
   exe 'normal! "_ciw'.a:word
