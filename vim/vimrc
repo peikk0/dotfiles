@@ -427,7 +427,7 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " FZF / ripgrep
-let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --exclude .git --strip-cwd-prefix"
+let $FZF_DEFAULT_COMMAND = 'fd --type file --hidden --exclude .git --strip-cwd-prefix'
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 let g:rg_derive_root = 'true'
 nnoremap <C-p> :Files<CR>
