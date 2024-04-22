@@ -110,7 +110,8 @@
     zero-style = syntax
 
     grep-file-style = "#81A1C1"
-    grep-line-number-style = "#81A1C1"
+    grep-header-decoration-style = "#434C5E" box
+    grep-line-number-style = "#A3BE8C" italic
 
     whitespace-error-style = "reverse #B48EAD"
 
