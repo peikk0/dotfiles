@@ -31,7 +31,7 @@ alias l="ls -A -F"
 alias la="ls -a"
 
 if command -v eza >/dev/null 2>&1; then
-  alias eza="eza --group-directories-first --icons"
+  alias eza="eza --group-directories-first --hyperlink --icons=auto"
   alias ls="eza"
   alias ll="eza -l -g --time-style=long-iso"
   alias l="eza -F -a"
