@@ -1,6 +1,17 @@
 local wezterm = require 'wezterm';
 
-local monaspace_ligatures = { 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig' };
+-- calt -> texture healing
+-- liga -> ... /// // !! || ;;
+-- ss01 -> === !== =!= =/= /== /= #= == != ~~ =~ !~
+-- ss02 -> >= <=
+-- ss03 -> <--> <-> <!-- <-- --> <- -> <~> <~~ ~~> <~ ~>
+-- ss04 -> </ /> </> <>
+-- ss05 -> [| |] /\ \/ |> <|
+-- ss06 -> ### +++ &&&
+-- ss07 -> -:- =:= :>: :<: ::> <:: :: :::
+-- ss08 -> ..= ..- ..< .= .-
+-- ss09 -> <=> <<= =>> =<< >>= => << >>
+local monaspace_ligatures = { 'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss06', 'ss07', 'ss08', 'ss09' };
 
 return {
     adjust_window_size_when_changing_font_size = false,
@@ -53,20 +64,15 @@ return {
     font_rules = {
         {
             intensity = 'Bold',
-            font = wezterm.font {
-                family = 'MonaspiceAr NF',
-                weight = 'Medium',
-                harfbuzz_features = monaspace_ligatures
-            }
+            font = wezterm.font_with_fallback {
+                { family = 'MonaspiceAr NF', weight = 'Medium', harfbuzz_features = monaspace_ligatures }
+            },
         },
         {
             italic = true,
-            font = wezterm.font {
-                italic = true,
-                family = 'MonaspiceRn NF',
-                weight = 'Regular',
-                harfbuzz_features = monaspace_ligatures
-            }
+            font = wezterm.font_with_fallback {
+                { italic = true, family = 'MonaspiceRn NF', weight = 'Regular', harfbuzz_features = monaspace_ligatures }
+            },
         },
     },
     font_size = 13.0,
