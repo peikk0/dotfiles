@@ -13,7 +13,6 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'chrisbra/csv.vim'
   Plug 'chrisbra/vim-zsh'
   Plug 'dense-analysis/ale'
-  Plug 'edkolev/tmuxline.vim'
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'elzr/vim-json'
   Plug 'ericpruitt/tmux.vim', { 'rtp': 'vim/' }

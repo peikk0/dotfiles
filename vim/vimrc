@@ -129,6 +129,7 @@ set smarttab
 set autoindent
 set smartindent
 set omnifunc=syntaxcomplete#Complete
+set nojoinspaces
 
 set nrformats-=octal
 
@@ -214,7 +215,7 @@ augroup END
 
 " {{{ Plugins
 
-" Airline / Tmuxline
+" Airline
 let g:airline_powerline_fonts=1
 let g:airline_highlighting_cache=1
 
@@ -231,15 +232,6 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#show_close_button=0
 let g:airline#extensions#tabline#show_tab_type=0
-
-let g:tmuxline_preset={
-      \ 'a'       : '#h',
-      \ 'b'       : '#S',
-      \ 'win'     : ['#I', '#W', '#F'],
-      \ 'cwin'    : ['#I', '#W', '#F'],
-      \ 'z'       : '#T',
-      \ 'options' : {'status-justify' : 'left'}
-      \ }
 
 " ALE
 let g:ale_echo_msg_error_str='E'
