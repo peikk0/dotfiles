@@ -72,7 +72,7 @@ kube-proxy-widget() {
   if [[ -n "${TMUX:-}" ]]; then
     zle redisplay
     tmux split-window -d -v -l 2 "
-      printf %b '${fg[blue]}[kube]${reset_color} Opening SOCKS5 proxy ${fg[cyan]}${ssh_proxy_host}${reset_color}...';
+      printf %b '${fg[blue]}[kube]${fg[yellow]} 󱥸 Opening SOCKS5 proxy ${fg[cyan]}${ssh_proxy_host}${fg[yellow]}...${reset_color}';
       ssh ${(q)ssh_proxy_host}
       "
     return 0

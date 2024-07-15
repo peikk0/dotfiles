@@ -64,6 +64,14 @@ bindkey -M emacs '^V^L' vault-login-widget
 bindkey -M vicmd '^V^L' vault-login-widget
 bindkey -M viins '^V^L' vault-login-widget
 
+vault-login-widget-admin() {
+  vault-login-widget admin
+}
+zle     -N              vault-login-widget-admin
+bindkey -M emacs '^V^K' vault-login-widget-admin
+bindkey -M vicmd '^V^K' vault-login-widget-admin
+bindkey -M viins '^V^K' vault-login-widget-admin
+
 # The following widget works with this SSH configuration:
 #
 # Host vault-proxy
@@ -80,7 +88,7 @@ vault-proxy-widget() {
   if [[ -n "${TMUX:-}" ]]; then
     zle redisplay
     tmux split-window -d -v -l 2 "
-      printf %b '${fg[blue]}[vault]${reset_color} Opening SOCKS5 proxy...';
+      printf %b '${fg[blue]}[vault]${fg[yellow]} 󱥸 Opening SOCKS5 proxy...${reset_color}';
       ssh vault-proxy
       "
     return 0
