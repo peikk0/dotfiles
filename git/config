@@ -63,7 +63,7 @@
     keep-plus-minus-markers = false
     navigate = true
     paging = always
-    side-by-side = false
+    side-by-side = true
     syntax-theme = Nord
 
     blame-code-style = syntax
