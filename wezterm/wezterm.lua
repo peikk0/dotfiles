@@ -77,6 +77,13 @@ return {
     },
     font_size = 13.0,
     hide_tab_bar_if_only_one_tab = true,
+    keys = {
+        {
+            key = 'Enter',
+            mods = 'ALT',
+            action = wezterm.action.DisableDefaultAssignment,
+        },
+    },
     mouse_bindings = {
         {
             event = { Up = { streak = 1, button = 'Left' } },
