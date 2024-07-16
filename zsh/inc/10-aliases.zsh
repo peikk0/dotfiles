@@ -84,7 +84,7 @@ if [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
 
-# yaml
+# yadm
 
 alias y="yadm"
 

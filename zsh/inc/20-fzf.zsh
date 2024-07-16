@@ -3,18 +3,15 @@
 FZF_TMUX=1
 FZF_TMUX_OPTS="-p"
 
+# Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
+export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/fzfrc"
+
 if command -v fd >/dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git --strip-cwd-prefix'
+  export FZF_ALT_C_COMMAND='fd --type directory --hidden --exclude .git --strip-cwd-prefix'
 elif command -v rg >/dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND=$'rg --files --hidden --glob \'!.git\''
 fi
-
-# https://github.com/junegunn/fzf/wiki/Color-schemes#nord
-local fzf_colors=(
-  --color 'fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C'
-  --color 'pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B,border:#4C566A,label:#81A1C1'
-)
-export FZF_DEFAULT_OPTS="${(j: :)fzf_colors} --layout=reverse"
 if [[ -v FZF_DEFAULT_COMMAND ]]; then
   FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 fi

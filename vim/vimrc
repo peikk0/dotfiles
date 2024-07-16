@@ -1,3 +1,9 @@
+" {{{ force use of a POSIX shell
+
+set shell=/bin/sh
+
+" }}}
+
 " {{{ XDG
 
 if empty($XDG_CONFIG_HOME) | let $XDG_CONFIG_HOME = HOME . '.config' | endif
@@ -177,8 +183,6 @@ set ttimeout
 set ttimeoutlen=250
 
 set mouse=
-
-set shell=/usr/bin/env\ zsh
 
 " }}}
 

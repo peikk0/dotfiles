@@ -62,7 +62,7 @@ export LANG LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME MM_CH
 TERMINFO_DIRS="/usr/local/share/terminfo:/usr/share/terminfo:${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS
 
-#}}}
+# }}}
 
 # {{{ Editor
 

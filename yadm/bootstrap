@@ -47,42 +47,55 @@ cat "${XDG_CONFIG_HOME}/ssh/authorized_keys"/* >"${HOME}/.ssh/authorized_keys"
 
 # Tmux
 
-if ! [ -d "${XDG_DATA_HOME}/tmux/plugins/tpm" ]; then
-  echo ' Installing Tmux Plugin Manager...'
-  git clone --quiet --depth=1 https://github.com/tmux-plugins/tpm.git \
-    "${XDG_DATA_HOME}/tmux/plugins/tpm"
-else
-  echo ' Ensuring Tmux Plugin Manager is up-to-date...'
-  git -C "${XDG_DATA_HOME}/tmux/plugins/tpm" pull --quiet
+if command -v tmux >/dev/null 2>&1; then
+  if ! [ -d "${XDG_DATA_HOME}/tmux/plugins/tpm" ]; then
+    echo ' Installing Tmux Plugin Manager...'
+    git clone --quiet --depth=1 https://github.com/tmux-plugins/tpm.git \
+      "${XDG_DATA_HOME}/tmux/plugins/tpm"
+  else
+    echo ' Ensuring Tmux Plugin Manager is up-to-date...'
+    git -C "${XDG_DATA_HOME}/tmux/plugins/tpm" pull --quiet
+  fi
+  echo ' Installing all Tmux plugins...'
+  "${XDG_DATA_HOME}/tmux/plugins/tpm/bin/install_plugins"
+  echo ' Updating all Tmux plugins...'
+  "${XDG_DATA_HOME}/tmux/plugins/tpm/bin/update_plugins" all
 fi
-echo ' Installing all Tmux plugins...'
-"${XDG_DATA_HOME}/tmux/plugins/tpm/bin/install_plugins"
-echo ' Updating all Tmux plugins...'
-"${XDG_DATA_HOME}/tmux/plugins/tpm/bin/update_plugins" all
 
 # Vim
 
-if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
-  echo ' Setting up vim-plug...'
-  curl -sfLo "${XDG_DATA_HOME}/vim/autoload/plug.vim" --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-else
-  echo ' Ensuring vim-plug is up-to-date...'
-  vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugUpgrade' '+qall'
+if command -v vim >/dev/null 2>&1; then
+  if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
+    echo ' Setting up vim-plug...'
+    curl -sfLo "${XDG_DATA_HOME}/vim/autoload/plug.vim" --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  else
+    echo ' Ensuring vim-plug is up-to-date...'
+    vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugUpgrade' '+qall'
+  fi
+
+  echo ' Updating all Vim plugins...'
+  vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
-echo ' Updating all Vim plugins...'
-vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
+if command -v fish >/dev/null 2>&1; then
+  echo '  Installing fisher...'
+  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+  echo '  Installing/updating all fish plugins...'
+  fish -c 'fisher update'
+fi
 
 # ZSH
 
-if ! [ -d "${XDG_DATA_HOME}/zsh/antidote" ]; then
-  echo ' Installing antidote...'
-  git clone --quiet --depth=1 https://github.com/mattmc3/antidote.git \
-    "${XDG_DATA_HOME}/zsh/antidote"
-else
-  echo ' Ensuring antidote is up-to-date...'
-  git -C "${XDG_DATA_HOME}/zsh/antidote" pull --quiet
+if command -v zsh >/dev/null 2>&1; then
+  if ! [ -d "${XDG_DATA_HOME}/zsh/antidote" ]; then
+    echo ' Installing antidote...'
+    git clone --quiet --depth=1 https://github.com/mattmc3/antidote.git \
+      "${XDG_DATA_HOME}/zsh/antidote"
+  else
+    echo ' Ensuring antidote is up-to-date...'
+    git -C "${XDG_DATA_HOME}/zsh/antidote" pull --quiet
+  fi
 fi
 
 # vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

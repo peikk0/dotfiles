@@ -1,0 +1,140 @@
+'$schema' = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:nord1)\
+$os\
+[( $username([@](bg:nord1 fg:nord4)$hostname) )](bg:nord1)\
+[](fg:nord1 bg:nord2)\
+$directory\
+[](fg:nord2 bg:nord8)\
+$git_branch\
+$git_commit\
+[](fg:nord8 bg:nord9)\
+$git_state\
+$git_status\
+[](fg:nord9 bg:nord10)\
+$cmd_duration\
+$status\
+[ ](fg:nord10)\
+$line_break$character"""
+
+palette = 'nord'
+
+[palettes.nord]
+nord0  = '#2E3440'
+nord1  = '#3B4252'
+nord2  = '#434C5E'
+nord3  = '#4C566A'
+nord4  = '#D8DEE9'
+nord5  = '#E5E9F0'
+nord6  = '#ECEFF4'
+nord7  = '#8FBCBB'
+nord8  = '#88C0D0'
+nord9  = '#81A1C1'
+nord10 = '#5E81AC'
+nord11 = '#BF616A'
+nord12 = '#D08770'
+nord13 = '#EBCB8B'
+nord14 = '#A3BE8C'
+nord15 = '#B48EAD'
+
+[character]
+error_symbol = '[❯](bold fg:nord11)'
+success_symbol = '[❯](bold fg:nord14)'
+vimcmd_replace_one_symbol = '[❮](bold fg:nord15)'
+vimcmd_replace_symbol = '[❮](bold fg:nord15)'
+vimcmd_symbol = '[❮](bold fg:nord14)'
+vimcmd_visual_symbol = '[❮](bold fg:nord13)'
+
+[cmd_duration]
+format = '[  $duration ]($style)'
+style = 'fg:nord1 bg:nord10'
+
+[directory]
+fish_style_pwd_dir_length = 2
+format = '[ $path[$read_only]($read_only_style) ]($style)'
+home_symbol = ' '
+read_only = ' 󰌾'
+read_only_style = 'fg:nord11 bg:nord2'
+style = 'fg:nord8 bg:nord2'
+truncation_length = 3
+truncation_symbol = '…/'
+truncate_to_repo = true
+
+[directory.substitutions]
+'Desktop' = ' '
+'Documents' = '󰈙 '
+'Downloads' = ' '
+'Movies' = '󰿎 '
+'Music' = '󰝚 '
+'Pictures' = ' '
+'Videos' = '󰿎 '
+
+'gitlab' = ' '
+'src' = '󰲋 '
+
+[git_branch]
+format = '[ $symbol$branch(  $remote_branch) ]($style)'
+style = 'fg:nord1 bg:nord8'
+symbol = ' '
+
+[git_commit]
+format = '[ $hash$tag ]($style)'
+style = 'fg:nord1 bg:nord8'
+tag_symbol = '  '
+tag_disabled = false
+
+[git_state]
+format = '[ \($state( $progress_current/$progress_total)\)]($style)'
+style = 'fg:nord1 bg:nord9'
+
+[git_status]
+format = '[( $all_status$ahead_behind )]($style)'
+style = 'fg:nord1 bg:nord9'
+
+ahead = ' $count '
+behind = ' $count '
+conflicted = ' $count '
+deleted = ' $count '
+diverged = ' $ahead_count  $behind_count'
+modified = ' $count '
+renamed = ' $count '
+staged = ' $count '
+stashed = ' $count '
+untracked = ' '
+up_to_date = ''
+
+[hostname]
+format = '[$hostname]($style)'
+ssh_symbol = ' '
+ssh_only = true
+style = 'bg:nord1 fg:nord14'
+
+[line_break]
+disabled = false
+
+[os]
+disabled = false
+format = '[$symbol]($style)'
+style = 'bg:nord1 fg:nord4'
+
+[os.symbols]
+Android = ' '
+Debian = ' '
+Linux = ' '
+Macos = ' '
+Ubuntu = ' '
+Unknown = ' '
+Windows = '󰍲 '
+
+[status]
+disabled = false
+format = '[ $symbol$status (\(SIG$signal_name\) )]($style)'
+symbol = ' '
+style = 'fg:nord1 bg:nord10'
+
+[username]
+format = '[$user]($style)'
+show_always = false
+style_user = 'bg:nord1 fg:nord13'
+style_root = 'bg:nord1 fg:nord11 bold'
