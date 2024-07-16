@@ -1,7 +1,7 @@
 # {{{ Completion
 
 typeset -aU fpath
-for d in /usr/{,local/}share/zsh/site-functions ${HOME}/.zsh/completions; do
+for d in /usr/{,local/}share/zsh/site-functions ${HOME}/.config/zsh/completions; do
   [[ -d "${d}" ]] && fpath=(${d} ${fpath})
 done
 
