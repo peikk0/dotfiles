@@ -29,7 +29,7 @@ for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xter
 done
 
 # Set preferred browser for sensible-browser
-for browser in google-chrome chromium firefox; do
+for browser in vivaldi google-chrome chromium firefox; do
   if command -v "${browser}" >/dev/null 2>&1; then
     echo "Setting preferred browser to '${browser}'..."
     BROWSER="${browser}"
@@ -116,12 +116,12 @@ if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ]; then
 fi
 
 # Gnome Keyring Daemon
-if command -v gnome-keyring-daemon >/dev/null 2>&1; then
-  echo 'Launching/reinitializing Gnome keyring daemon...'
-  eval "$(gnome-keyring-daemon --daemonize --start --components=ssh,secrets,pkcs11)"
-  echo
-  export SSH_AUTH_SOCK
-fi
+# if command -v gnome-keyring-daemon >/dev/null 2>&1; then
+#   echo 'Setting Gnome keyring daemon components...'
+#   eval "$(gnome-keyring-daemon --components=ssh,secrets,pkcs11)"
+#   echo
+#   export SSH_AUTH_SOCK
+# fi
 
 # Local xsessionrc script additions
 if [ -f "${XDG_CONFIG_HOME}/.config/X11/xsessionrc.local" ]; then
