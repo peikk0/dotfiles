@@ -120,8 +120,9 @@ if command -v bat >/dev/null 2>&1; then
   BAT_THEME="Nord"
   # shellcheck disable=SC2089
   MANPAGER="sh -c 'col -bx | bat -l man --paging=always --plain'"
+  MANROFFOPT="-c"
   # shellcheck disable=SC2090
-  export BAT_THEME MANPAGER
+  export BAT_THEME MANPAGER MANROFFOPT
 fi
 
 # }}}
@@ -209,7 +210,7 @@ export ENV
 
 # }}}
 
-# {{{ wget
+# {{{ Vim
 
 # shellcheck disable=SC2016,SC2089
 VIMINIT='if has("nvim") | let $MYVIMRC="${XDG_CONFIG_HOME}/nvim/init.vim" | else | let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | endif | source ${MYVIMRC}'
@@ -218,14 +219,14 @@ export VIMINIT
 
 # }}}
 
-# {{{ wget
+# {{{ Wget
 
 WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 export WGETRC
 
 # }}}
 
-# {{{ wget
+# {{{ X11
 
 XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 XSERVERRC="${XDG_CONFIG_HOME}/X11/xserverrc"
