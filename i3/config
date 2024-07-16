@@ -13,7 +13,7 @@ set $ws9 9:eta
 set $ws10 10:theta
 
 # font for titles
-font pango:Noto Sans Bold Italic 10
+font pango:Monaspace Argon Italic 12
 
 # use Windows key
 set $mod Mod4
