@@ -358,6 +358,7 @@ if command -qv fzf
 
   # Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
   set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
+  set -gx FORGIT_FZF_DEFAULT_OPTS '--tmux'
 
   if command -qv fd
     set -gx FZF_DEFAULT_COMMAND 'fd --type file --hidden --exclude .git --strip-cwd-prefix'
@@ -368,13 +369,6 @@ if command -qv fzf
   if status is-interactive
 
     fzf --fish | source
-
-    set -g FZF_TMUX 1
-    set -g FZF_TMUX_OPTS -p
-
-    function fzf --wraps=fzf --description='Use fzf-tmux if in tmux'
-      set --query TMUX; and fzf-tmux -p $argv; or command fzf $argv
-    end
 
     set -q FZF_DEFAULT_COMMAND; and set -g FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
     command -qv fd; and set -g FZF_ALT_C_COMMAND 'fd --type directory --hidden --exclude .git --strip-cwd-prefix'
