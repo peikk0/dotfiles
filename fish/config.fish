@@ -194,7 +194,7 @@ fish_add_path --move --path $HOME/.local/bin
 
 # }}}
 
-# {{{ Aliases
+# {{{ Abbreviations / Aliases
 
 if status is-interactive
 
@@ -235,11 +235,11 @@ if status is-interactive
 
   # git
 
-  alias g='git'
-  alias gp='git pull'
-  alias gpu='git push -u'
-  alias gf='git fetch'
-  alias gfp='git fetch --prune'
+  abbr -a g git
+  abbr -a gp git pull
+  abbr -a gpu git push --set-upstream
+  abbr -a gf git fetch
+  abbr -a gfp git fetch --prune
 
   # grep
 
@@ -256,7 +256,7 @@ if status is-interactive
   command -qv brew; and alias bb='brew bundle --file $XDG_CONFIG_HOME/homebrew/Brewfile'
 
   # kubectl
-  command -qv kubectl; and alias k='kubectl'
+  command -qv kubectl; and abbr -a k kubectl
 
   # ripgrep
 
@@ -268,11 +268,11 @@ if status is-interactive
 
   # vim
 
-  test $EDITOR = 'vim'; and alias vi='vim'
+  test $EDITOR = 'vim'; and abbr -a vi vim
 
   # yadm
 
-  command -qv yadm; and alias y='yadm'
+  command -qv yadm; and abbr y yadm
 
 end
 
