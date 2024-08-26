@@ -70,9 +70,6 @@ truncate_to_repo = true
 'Pictures' = ' '
 'Videos' = '󰿎 '
 
-'gitlab' = ' '
-'src' = '󰲋 '
-
 [git_branch]
 format = '[ $symbol$branch(  $remote_branch) ]($style)'
 style = 'fg:nord1 bg:nord8'
