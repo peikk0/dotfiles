@@ -168,9 +168,16 @@ fish_add_path --move --path $CARGO_HOME/bin
 
 set -gx ENV $XDG_CONFIG_HOME/sh/profile
 
+# Teleport
+
+set -gx TELEPORT_HOME $XDG_CONFIG_HOME/teleport
+
 # Terraform
 set -gx CHECKPOINT_DISABLE 'true'
 set -gx TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/terraformrc
+
+# TFLint
+set -gx TFLINT_PLUGIN_DIR $XDG_CACHE_HOME/tflint/plugins
 
 # Vault
 set -gx VAULT_CONFIG $XDG_CONFIG_HOME/vault/config
