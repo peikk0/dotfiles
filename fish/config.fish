@@ -78,6 +78,7 @@ if command -qv less
   set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
   if command -qv lesspipe.sh
     set -gx LESSOPEN '|lesspipe.sh %s'
+    command -qv bat; and set -gx LESSCOLORIZER 'bat'
   else if command -qv lesspipe
     set -gx LESSOPEN '|lesspipe %s'
     set -gx LESSCLOSE 'lesspipe %s %s'

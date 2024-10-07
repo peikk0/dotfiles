@@ -89,6 +89,10 @@ if command -v less >/dev/null 2>&1; then
   if command -v lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'
     export LESSOPEN
+    if command -v bat >/dev/null; then
+      LESSCOLORIZER='bat'
+      export LESSCOLORIZER
+    fi
   elif command -v lesspipe >/dev/null 2>&1; then
     eval "$(lesspipe)"
   fi
