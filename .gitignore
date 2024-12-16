@@ -1,0 +1,15 @@
+# local configs
+fish/local.fish
+homebrew/Brewfile.local
+sh/inc/*-local-*
+zsh/inc/*-local-*
+
+# fish plugins
+fish/completions/_git-forgit
+fish/completions/fisher.fish
+fish/completions/git-forgit.bash
+fish/completions/git-forgit.fish
+fish/conf.d/bin/git-forgit
+fish/conf.d/forgit.plugin.fish
+fish/fish_variables
+fish/functions/fisher.fish
