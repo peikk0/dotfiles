@@ -23,7 +23,7 @@ fzf-kubectx-widget() {
     _KUBECTX_FORCE_COLOR=1 kubectx \
       | sed -r -e "s/gke_(.+)_(.+)_(.+)/\\3 ${_fg_blue} ${_italic}\\1:${_fg_cyan}\\2${_reset}/" \
                -e "s/(.+\.teleport\.gitlab\.net)-(.+)/\\2 ${_fg_blue} ${_italic}\\1${_reset}/" \
-      | fzf-tmux -p 25%,40% --ansi --no-preview --prompt '⎈ '
+      | fzf --tmux center,25%,40% --ansi --no-preview --prompt '⎈ '
     )"
 
   if [[ -z "${choice}" ]]; then

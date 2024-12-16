@@ -12,7 +12,7 @@ if command -v safe >/dev/null; then
 fi
 
 vault-target-widget() {
-  choice="$(fzf-tmux -p 25%,40% --ansi --no-preview --border-label "Vault Address" <<<${(F)VAULT_HOSTS})"
+  choice="$(fzf --tmux center,25%,40% --ansi --no-preview --border-label "Vault Address" <<<${(F)VAULT_HOSTS})"
 
   if [[ -z "${choice}" ]]; then
     zle redisplay

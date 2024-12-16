@@ -28,7 +28,7 @@ edit-dotfiles() {
 
   dotfile="$(
     yadm ls-files |
-      fzf-tmux -p 75%,75% --ansi --border-label 'Edit dotfiles' \
+      fzf --tmux center,75%,75% --ansi --border-label 'Edit dotfiles' \
           --preview-window 'right:60%' --preview "bat --color=always --style=plain ${(q)yadm_workdir}/{}"
   )"
 
