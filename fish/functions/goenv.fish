@@ -1,7 +1,9 @@
 function goenv --description "Lazy-load goenv"
   set -gx GOENV_ROOT $XDG_DATA_HOME/goenv
-  set -gx GOENV_GOPATH_PREFIX $XDG_DATA_DIR/go
-  test -d $GOENV_ROOT/bin; and fish_add_path --move --path $GOENV_ROOT/bin
+  # set -gx GOENV_GOPATH_PREFIX $XDG_DATA_HOME/go
+  set -gx GOENV_DISABLE_GOPATH 1
+  set -gx GOPATH $XDG_DATA_HOME/go
+  fish_add_path --move --path $GOENV_ROOT/bin $GOPATH/bin
 
   if not command -qv goenv
     set_color red; echo -n " "
