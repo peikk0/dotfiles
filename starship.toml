@@ -4,15 +4,15 @@ format = """
 [](fg:nord1)\
 $os\
 [( $username([@](bg:nord1 fg:nord4)$hostname) )](bg:nord1)\
-[](fg:nord1 bg:nord2)\
+[](fg:nord1 bg:nord2)\
 $directory\
-[](fg:nord2 bg:nord8)\
+[](fg:nord2 bg:nord8)\
 $git_branch\
 $git_commit\
-[](fg:nord8 bg:nord9)\
+[](fg:nord8 bg:nord9)\
 $git_state\
 $git_status\
-[](fg:nord9 bg:nord10)\
+[](fg:nord9 bg:nord10)\
 $cmd_duration\
 $status\
 [ ](fg:nord10)\
