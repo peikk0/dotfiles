@@ -44,7 +44,7 @@ return {
             },
         },
     },
-    custom_block_glyphs = false,
+    custom_block_glyphs = true,
     default_cursor_style = 'BlinkingUnderline',
     font = wezterm.font_with_fallback {
         { family = 'MonaspiceAr NF', weight = 'Regular', harfbuzz_features = monaspace_ligatures },
