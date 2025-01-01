@@ -127,6 +127,7 @@ set sessionoptions-=options
 set viewoptions-=options
 
 set encoding=utf-8
+scriptencoding utf-8
 set fileencodings=utf-8,latin1,default
 set fileformats=unix,dos,mac
 set shiftwidth=4
