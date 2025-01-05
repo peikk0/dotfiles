@@ -32,7 +32,6 @@ shellcheck:
           $(find sh/inc -type f -name '*.sh') \
           X11/xsession \
           X11/xsessionrc \
-          yabai/yabairc \
           yadm/bootstrap
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
@@ -43,7 +42,6 @@ shellcheck:
         - sh/inc/*.sh
         - X11/xsession
         - X11/xsessionrc
-        - yabai/yabairc
         - yadm/bootstrap
 
 shfmt:
@@ -57,7 +55,6 @@ shfmt:
           $(find sh/inc -type f -name '*.sh') \
           X11/xsession \
           X11/xsessionrc \
-          yabai/yabairc \
           yadm/bootstrap
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
@@ -68,5 +65,4 @@ shfmt:
         - sh/inc/*.sh
         - X11/xsession
         - X11/xsessionrc
-        - yabai/yabairc
         - yadm/bootstrap
