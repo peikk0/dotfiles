@@ -1,0 +1,92 @@
+start-at-login = true
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[workspace-to-monitor-force-assignment]
+
+"1:terminal" = 'main'
+"2:web"      = 'main'
+"3:slack"    = 'secondary'
+
+[gaps]
+
+inner.horizontal = 8
+inner.vertical =   8
+outer.left =       8
+outer.bottom =     8
+outer.top =        8
+outer.right =      8
+
+[mode.main.binding]
+
+alt-enter = '''exec-and-forget osascript -e '
+tell application "WezTerm"
+    do script
+    activate
+end tell'
+'''
+
+alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
+alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
+alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+alt-ctrl-h = 'join-with left'
+alt-ctrl-j = 'join-with down'
+alt-ctrl-k = 'join-with up'
+alt-ctrl-l = 'join-with right'
+
+alt-s = 'layout v_accordion'
+alt-w = 'layout h_accordion'
+alt-e = 'layout tiles horizontal vertical'
+
+alt-shift-space = 'layout floating tiling'
+
+alt-1 = 'workspace 1:terminal'
+alt-2 = 'workspace 2:web'
+alt-3 = 'workspace 3:slack'
+alt-4 = 'workspace 4:alpha'
+alt-5 = 'workspace 5:beta'
+alt-6 = 'workspace 6:gamma'
+alt-7 = 'workspace 7:delta'
+alt-8 = 'workspace 8:epsilon'
+alt-9 = 'workspace 9:zeta'
+alt-0 = 'workspace 10:eta'
+
+alt-shift-1 = 'move-node-to-workspace 1:terminal'
+alt-shift-2 = 'move-node-to-workspace 2:web'
+alt-shift-3 = 'move-node-to-workspace 3:slack'
+alt-shift-4 = 'move-node-to-workspace 4:alpha'
+alt-shift-5 = 'move-node-to-workspace 5:beta'
+alt-shift-6 = 'move-node-to-workspace 6:gamma'
+alt-shift-7 = 'move-node-to-workspace 7:delta'
+alt-shift-8 = 'move-node-to-workspace 8:epsilon'
+alt-shift-9 = 'move-node-to-workspace 9:zeta'
+alt-shift-0 = 'move-node-to-workspace 10:eta'
+
+alt-tab       = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+alt-f       = 'fullscreen'
+alt-shift-f = 'macos-native-fullscreen'
+
+alt-r = 'mode resize'
+
+alt-shift-q = 'close'
+
+alt-shift-c = 'reload-config'
+
+[mode.resize.binding]
+
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+
+enter = 'mode main'
+esc   = 'mode main'

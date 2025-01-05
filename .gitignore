@@ -1,6 +1,7 @@
 # local configs
 fish/local.fish
 homebrew/Brewfile.local
+homebrew/Brewfile.lock
 sh/inc/*-local-*
 zsh/inc/*-local-*
 
