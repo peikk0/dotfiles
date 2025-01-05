@@ -19,12 +19,7 @@ outer.right =      8
 
 [mode.main.binding]
 
-alt-enter = '''exec-and-forget osascript -e '
-tell application "WezTerm"
-    do script
-    activate
-end tell'
-'''
+alt-enter = 'exec-and-forget open -n -a WezTerm'
 
 alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
 alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
