@@ -3,6 +3,7 @@ fish/local.fish
 homebrew/Brewfile.local
 homebrew/Brewfile.lock
 sh/inc/*-local-*
+X11/xsessionrc.local
 zsh/inc/*-local-*
 
 # fish plugins

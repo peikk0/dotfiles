@@ -19,7 +19,7 @@ echo '*** xsessionrc start ***'
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 # Set preferred terminal for i3-sensible-terminal
-for term in wezterm alacritty kitty terminator konsole gnome-terminal urxvt xterm; do
+for term in wezterm terminator konsole gnome-terminal xterm; do
   if command -v "${term}" >/dev/null 2>&1; then
     echo "Setting preferred terminal to '${term}'..."
     TERMINAL="${term}"

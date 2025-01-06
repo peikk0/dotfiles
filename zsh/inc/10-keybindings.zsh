@@ -42,17 +42,6 @@ fi
 
 # }}}
 
-# {{{ URxvt keys
-
-bindkey "\e[2~" overwrite-mode
-bindkey "\e[3~" delete-char
-bindkey "\e[7~" beginning-of-line
-bindkey "\e[8~" end-of-line
-bindkey "\e[5~" history-search-backward
-bindkey "\e[6~" history-search-forward
-
-# }}}
-
 # {{{ Man
 
 bindkey "\eh" run-help
