@@ -108,5 +108,14 @@ return {
         active_titlebar_fg = '#ECEFF4',
         inactive_titlebar_bg = '#2E3440',
         inactive_titlebar_fg = '#D8DEE9',
+
+        border_left_width = '2px',
+        border_right_width = '2px',
+        border_bottom_height = '2px',
+        border_top_height = '2px',
+        border_left_color = '#3B4252',
+        border_right_color = '#3B4252',
+        border_bottom_color = '#3B4252',
+        border_top_color = '#3B4252',
     },
 }
