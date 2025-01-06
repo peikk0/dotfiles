@@ -82,10 +82,10 @@ PAGER="more"
 if command -v less >/dev/null 2>&1; then
   PAGER="less"
   LESS="-i -M -R --shift 5"
-  export LESS
+  LESSKEY="${XDG_CONFIG_HOME}/less/key"
   mkdir -p "${XDG_STATE_HOME}/less"
   LESSHISTFILE="${XDG_STATE_HOME}/less/history"
-  export LESSHISTFILE
+  export LESS LESSKEY LESSHISTFILE
   if command -v lesspipe.sh >/dev/null 2>&1; then
     LESSOPEN='|lesspipe.sh %s'
     export LESSOPEN

@@ -74,6 +74,7 @@ set -gx PAGER more
 if command -qv less
   set -gx PAGER less
   set -gx LESS '-i -M -R --shift 5'
+  set -gx LESSKEY $XDG_CONFIG_HOME/less/key
   mkdir -p $XDG_STATE_HOME/less
   set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
   if command -qv lesspipe.sh
@@ -208,10 +209,10 @@ if status is-interactive
 
   # ls / eza
 
-  set -l dir_colors $XDG_CONFIG_HOME/dir_colors
+  set -l dircolors $XDG_CONFIG_HOME/dircolors/nord
   switch $os
   case 'FreeBSD' 'Darwin'
-    command -qv gdircolors; and gdircolors -c $dir_colors | source
+    command -qv gdircolors; and gdircolors -c $dircolors | source
     set -gx LSCOLORS 'exgxfxcxcxdxdxhbadacec'
     alias ls='ls -G'
     if test $os = 'FreeBSD'
@@ -220,11 +221,11 @@ if status is-interactive
       alias ll='ls -h -l -T'
     end
   case 'Linux'
-    command -qv dircolors; and dircolors -c $dir_colors | source
+    command -qv dircolors; and dircolors -c $dircolors | source
     alias ls='ls --color=auto -N'
     alias ll="ls -h -l --time-style='+%F %T'"
   end
-  set -el dir_colors
+  set -el dircolors
 
   if command -qv eza
     alias eza 'eza --group-directories-first --hyperlink --icons=auto'
@@ -394,6 +395,8 @@ end
 # {{{ Starship
 
 if status is-interactive && command -qv starship
+
+  set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/config.toml
 
   # https://starship.rs/
 
