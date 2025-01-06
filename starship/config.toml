@@ -1,5 +1,9 @@
 '$schema' = 'https://starship.rs/config-schema.json'
 
+# Disabled until fixed, workaround in fish config
+# https://github.com/starship/starship/issues/560#issuecomment-2409922650
+add_newline = false
+
 format = """
 [](fg:nord1)\
 $os\
