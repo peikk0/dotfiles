@@ -80,6 +80,7 @@ brew 'yamllint'
 brew 'yarn'
 brew 'ykman'
 brew 'yq'
+brew 'zoxide'
 brew 'zsh'
 
 cask '1password'

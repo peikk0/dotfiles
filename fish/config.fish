@@ -419,6 +419,16 @@ end
 
 # }}}
 
+# {{{ Zoxide
+
+if status is-interactive && command -qv zoxide
+
+  zoxide init fish | source
+
+end
+
+# }}}
+
 # {{{ Local config
 
 test -f $__fish_config_dir/local.fish; and source $__fish_config_dir/local.fish
