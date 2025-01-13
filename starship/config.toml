@@ -51,7 +51,7 @@ vimcmd_symbol = '[❮](bold fg:nord14)'
 vimcmd_visual_symbol = '[❮](bold fg:nord13)'
 
 [cmd_duration]
-format = '[  $duration ]($style)'
+format = '[  $duration]($style)'
 style = 'fg:nord1 bg:nord10'
 
 [directory]
