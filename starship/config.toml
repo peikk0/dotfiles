@@ -130,9 +130,17 @@ Windows = '󰍲 '
 
 [status]
 disabled = false
-format = '[ $symbol$status (\(SIG$signal_name\) )]($style)'
-symbol = ' '
+format = '[ $symbol ($common_meaning$maybe_int )(\(SIG$signal_name:$signal_number\) )]($style)'
+map_symbol = true
+not_executable_symbol = ''
+not_found_symbol = ''
+pipestatus = true
+pipestatus_format = '[ $pipestatus $symbol ($common_meaning$maybe_int )(\(SIG$signal_name:$signal_number\) )]($style)'
+sigint_symbol = ''
+signal_symbol = ''
 style = 'fg:nord1 bg:nord10'
+success_symbol = ''
+symbol = ''
 
 [username]
 format = '[$user]($style)'
