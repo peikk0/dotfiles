@@ -10,7 +10,7 @@ function kx --description "fzf wrapper for kubectx"
     string match -q -r \'^arn:aws:eks:\' {}; and string replace -r \'^arn:aws:eks:(.+):(.+):cluster/(.+)$\' "$(set_color blue)  EKS Cluster: $(set_color cyan)\\$3\n$(set_color blue)   AWS Account ID: $(set_color cyan)\\$2\n$(set_color blue)   Location: $(set_color cyan)\\$1" {}
     string match -q -r \'^.+\.teleport\.gitlab\.net-:\' {}; and string replace -r \'^(.+\.teleport\.gitlab\.net)-(.+)$\' "$(set_color blue)  Teleport: $(set_color cyan)\\$2\n$(set_color blue)   Proxy: $(set_color cyan)\\$1" {}
   '
-  set -l context (kube_contexts | fzf --tmux center,25%,40% --no-preview --prompt '⎈ ' --preview $preview --preview-window bottom,3)
+  set -l context (kube_contexts | fzf --tmux center,25%,40% --no-preview --prompt ' ' --preview $preview --preview-window bottom,3)
   test -z $context; and return
   kubectx $context
 end
