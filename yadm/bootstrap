@@ -4,7 +4,11 @@
 # shellcheck source=/dev/null
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
-echo ' Creating necessary root-level dotfiles symlinks...'
+msg() {
+  echo "\e[34;1m[bootstrap] \e[36;1m$@\e[0m"
+}
+
+msg ' Creating necessary root-level dotfiles symlinks...'
 mkdir -pv "${HOME}/.ssh"
 ln -fsv .config/sh/profile "${HOME}/.profile"
 ln -fsv .config/zsh/.zshenv "${HOME}/.zshenv"
@@ -15,7 +19,7 @@ fi
 
 # yadm
 
-echo ' Updating yadm repository configuration...'
+msg ' Updating yadm repository configuration...'
 yadm gitconfig commit.gpgSign true
 yadm remote set-url origin https://gitlab.com/peikk0/dotfiles.git
 yadm remote set-url --push origin git@gitlab.com:peikk0/dotfiles.git
@@ -27,38 +31,92 @@ if [ "$(uname -s)" = 'Darwin' ]; then
   brewfile_lock_json="${brewfile}.lock.json"
   # shellcheck disable=SC3013
   if ! [ -f "${brewfile_lock_json}" ] || [ "${brewfile}" -nt "${brewfile_lock_json}" ]; then
-    echo '🍺Updating Homebrew bundle...'
+    msg '🍺Updating Homebrew bundle...'
     brew bundle --file "${brewfile}" --verbose
   fi
   unset brewfile brewfile_lock_json
 
   if ! [ -L "${XDG_DATA_HOME}/terminfo/t/tmux-256color" ]; then
-    echo ' Installing modified Tmux terminfo file for OSX...'
+    msg ' Installing modified Tmux terminfo file for OSX...'
     mkdir -pv "${XDG_DATA_HOME}/terminfo/t"
     ln -fsv t "${XDG_DATA_HOME}/terminfo/74"
     ln -fsv "${XDG_CONFIG_HOME}/tmux/terminfo/tmux-256color" "${XDG_DATA_HOME}/terminfo/t/tmux-256color"
   fi
 fi
 
+# Debian Linux
+
+if [ "$(uname -s)" = 'Linux' ]; then
+  if [ -f /etc/debian_version ]; then
+    msg ' Installing Debian packages...'
+    # Setup APT sources
+    sudo mkdir -p /etc/apt/keyrings
+    sudo apt update
+    sudo apt install -y \
+      apt-transport-https \
+      curl \
+      gnupg
+
+    # https://github.com/eza-community/eza
+    curl -fsSL https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+    sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+    # https://apt.0xe.me
+    curl -fsSL  https://apt.cli.rs/pubkey.asc | sudo gpg --dearmor -o /etc/apt/keyrings/rust-tools.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/rust-tools.gpg] https://apt.0xe.me all main" | sudo tee /etc/apt/sources.list.d/rust-tools.list
+    sudo chmod 644 /etc/apt/keyrings/rust-tools.gpg /etc/apt/sources.list.d/rust-tools.list
+
+    # Install all the things
+    sudo apt update
+    sudo apt install -y \
+      bat \
+      btop \
+      build-essential \
+      cmake \
+      git-delta \
+      eza \
+      fd-find \
+      fish \
+      fzf \
+      git \
+      less \
+      libarchive-tools \
+      python3 \
+      python3-dev \
+      ripgrep \
+      starship \
+      tmux \
+      vim-nox \
+      xh \
+      yadm \
+      yarnpkg \
+      zoxide \
+      zsh
+    sudo apt purge vim-tiny
+    sudo update-alternatives --set editor /usr/bin/vim.nox
+    sudo update-alternatives --set vim /usr/bin/vim.nox
+  fi
+fi
+
 # SSH
 
-echo ' Updating SSH authorized keys...'
+msg ' Updating SSH authorized keys...'
 cat "${XDG_CONFIG_HOME}/ssh/authorized_keys"/* >"${HOME}/.ssh/authorized_keys"
 
 # Tmux
 
 if command -v tmux >/dev/null 2>&1; then
   if ! [ -d "${XDG_DATA_HOME}/tmux/plugins/tpm" ]; then
-    echo ' Installing Tmux Plugin Manager...'
+    msg ' Installing Tmux Plugin Manager...'
     git clone --quiet --depth=1 https://github.com/tmux-plugins/tpm.git \
       "${XDG_DATA_HOME}/tmux/plugins/tpm"
   else
-    echo ' Ensuring Tmux Plugin Manager is up-to-date...'
+    msg ' Ensuring Tmux Plugin Manager is up-to-date...'
     git -C "${XDG_DATA_HOME}/tmux/plugins/tpm" pull --quiet
   fi
-  echo ' Installing all Tmux plugins...'
+  msg ' Installing all Tmux plugins...'
   "${XDG_DATA_HOME}/tmux/plugins/tpm/bin/install_plugins"
-  echo ' Updating all Tmux plugins...'
+  msg ' Updating all Tmux plugins...'
   "${XDG_DATA_HOME}/tmux/plugins/tpm/bin/update_plugins" all
 fi
 
@@ -66,22 +124,22 @@ fi
 
 if command -v vim >/dev/null 2>&1; then
   if ! [ -f "${XDG_DATA_HOME}/vim/autoload/plug.vim" ]; then
-    echo ' Setting up vim-plug...'
+    msg ' Setting up vim-plug...'
     curl -sfLo "${XDG_DATA_HOME}/vim/autoload/plug.vim" --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   else
-    echo ' Ensuring vim-plug is up-to-date...'
+    msg ' Ensuring vim-plug is up-to-date...'
     vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugUpgrade' '+qall'
   fi
 
-  echo ' Updating all Vim plugins...'
+  msg ' Updating all Vim plugins...'
   vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
 if command -v fish >/dev/null 2>&1; then
-  echo '  Installing fisher...'
+  msg '  Installing fisher...'
   fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
-  echo '  Installing/updating all fish plugins...'
+  msg '  Installing/updating all fish plugins...'
   fish -c 'fisher update'
 fi
 
@@ -89,11 +147,11 @@ fi
 
 if command -v zsh >/dev/null 2>&1; then
   if ! [ -d "${XDG_DATA_HOME}/zsh/antidote" ]; then
-    echo ' Installing antidote...'
+    msg ' Installing antidote...'
     git clone --quiet --depth=1 https://github.com/mattmc3/antidote.git \
       "${XDG_DATA_HOME}/zsh/antidote"
   else
-    echo ' Ensuring antidote is up-to-date...'
+    msg ' Ensuring antidote is up-to-date...'
     git -C "${XDG_DATA_HOME}/zsh/antidote" pull --quiet
   fi
 fi
