@@ -100,6 +100,10 @@ if [ "$(uname -s)" = 'Linux' ]; then
     sudo update-alternatives --set editor /usr/bin/vim.nox
     sudo update-alternatives --set vim /usr/bin/vim.nox
 
+    sudo ln -snf /usr/bin/batcat /usr/local/bin/bat
+    sudo ln -snf /usr/bin/fdfind /usr/local/bin/fd
+    sudo ln -snf /usr/bin/yarnpkg /usr/local/bin/yarn
+
     # TODO: install https://github.com/wofr06/lesspipe
   fi
 fi
