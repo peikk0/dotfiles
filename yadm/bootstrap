@@ -73,14 +73,17 @@ if [ "$(uname -s)" = 'Linux' ]; then
       btop \
       build-essential \
       cmake \
+      duf \
       git-delta \
       eza \
       fd-find \
       fish \
       fzf \
       git \
+      jq \
       less \
       libarchive-tools \
+      procs \
       python3 \
       python3-dev \
       ripgrep \
@@ -91,10 +94,13 @@ if [ "$(uname -s)" = 'Linux' ]; then
       yadm \
       yarnpkg \
       zoxide \
-      zsh
+      zsh \
+      xz-utils
     sudo apt purge vim-tiny
     sudo update-alternatives --set editor /usr/bin/vim.nox
     sudo update-alternatives --set vim /usr/bin/vim.nox
+
+    # TODO: install https://github.com/wofr06/lesspipe
   fi
 fi
 
