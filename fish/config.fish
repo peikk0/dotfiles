@@ -344,7 +344,7 @@ if status is-interactive
   # https://fishshell.com/docs/current/cmds/fish_title.html
 
   function fish_title
-    set -q argv[1]; or set argv fish
+    set -q argv[1]; or set argv " "
     # Looks like "hostname ~/d/fish ❯ git log"
     # or /e/apt: fish
     set title (fish_prompt_pwd_dir_length=1 prompt_pwd) "❯ $argv[1]"
