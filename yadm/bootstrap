@@ -5,7 +5,7 @@
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 msg() {
-  echo "\e[34;1m[bootstrap] \e[36;1m$@\e[0m"
+  printf "\e[34;1m[bootstrap] \e[36;1m%s\e[0m\n" "$@"
 }
 
 msg ' Creating necessary root-level dotfiles symlinks...'
@@ -31,7 +31,7 @@ if [ "$(uname -s)" = 'Darwin' ]; then
   brewfile_lock_json="${brewfile}.lock.json"
   # shellcheck disable=SC3013
   if ! [ -f "${brewfile_lock_json}" ] || [ "${brewfile}" -nt "${brewfile_lock_json}" ]; then
-    msg '🍺Updating Homebrew bundle...'
+    msg ' Updating Homebrew bundle...'
     brew bundle --file "${brewfile}" --verbose
   fi
   unset brewfile brewfile_lock_json
@@ -62,7 +62,7 @@ if [ "$(uname -s)" = 'Linux' ]; then
     echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
     sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
     # https://apt.0xe.me
-    curl -fsSL  https://apt.cli.rs/pubkey.asc | sudo gpg --dearmor -o /etc/apt/keyrings/rust-tools.gpg
+    curl -fsSL https://apt.cli.rs/pubkey.asc | sudo gpg --dearmor -o /etc/apt/keyrings/rust-tools.gpg
     echo "deb [signed-by=/etc/apt/keyrings/rust-tools.gpg] https://apt.0xe.me all main" | sudo tee /etc/apt/sources.list.d/rust-tools.list
     sudo chmod 644 /etc/apt/keyrings/rust-tools.gpg /etc/apt/sources.list.d/rust-tools.list
 
