@@ -101,8 +101,8 @@ return {
     macos_window_background_blur = 25,
     window_decorations = 'RESIZE',
     window_frame = {
-        font = wezterm.font { family = 'Noto Sans', italic = true, weight = 'Bold' },
-        font_size = 12.0,
+        font = wezterm.font { family = 'MonaspiceAr NF', italic = true, weight = 'Medium', harfbuzz_features = monaspace_ligatures },
+        font_size = 11.0,
 
         active_titlebar_bg = '#2E3440',
         active_titlebar_fg = '#ECEFF4',
