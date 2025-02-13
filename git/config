@@ -15,7 +15,8 @@
     df = diff
     lg = log -p
     lgs = log --stat
-    lol = log --graph --pretty=ol
+    lol = log --pretty=ol
+    lolg = log --graph --pretty=ol
     lola = lol --all
     ls = ls-files
     st = status
@@ -23,35 +24,35 @@
 [color]
     ui = auto
 [color "branch"]
-    current = "#8fbcbb"
-    local = "#81a1c1"
-    remote = "#5e81ac"
+    current = "#8FBCBB"
+    local = "#81A1C1"
+    remote = "#5E81AC"
 [color "decorate"]
-    HEAD = "#8fbcbb"
-    branch = "#81a1c1"
-    grafted = "#ebcb8b"
-    remoteBranch = "#5e81ac"
-    stash = "#a3be8c"
-    tag = "#b48ead"
+    HEAD = "#A3BE8C"
+    branch = "#8FBCBB"
+    grafted = "#EBCB8B"
+    remoteBranch = "#88C0D0"
+    stash = "#A3BE8C"
+    tag = "#B48EAD"
 [color "diff"]
-    meta = "#81a1c1"
-    frag = "#b48ead"
-    old = "#bf616a"
-    new = "#a3be8c"
-    # colour of %(decorate) decoration elements
-    commit = "#4c566a"
+    meta = "#81A1C1"
+    frag = "#B48EAD"
+    old = "#BF616A"
+    new = "#A3BE8C"
+    # also the colour of %(decorate) decoration elements
+    commit = "#81A1C1"
 [color "grep"]
-    context = "#5e81ac"
-    filename = "#81a1c1"
-    lineNumber = "#88c0d0"
-    column = "#88c0d0"
-    function = "#4c566a"
-    match = "#3b4252 #88c0d0"
-    separator = "#4c566a"
+    context = "#5E81AC"
+    filename = "#81A1C1"
+    lineNumber = "#88C0D0"
+    column = "#88C0D0"
+    function = "#4C566A"
+    match = "#3B4252 #88C0D0"
+    separator = "#4C566A"
 [color "status"]
-    added = "#a3be8c"
-    changed = "#d08770"
-    untracked = "#88c0d0"
+    added = "#A3BE8C"
+    changed = "#D08770"
+    untracked = "#88C0D0"
 
 [commit]
     status = false
@@ -67,6 +68,7 @@
     paging = always
     side-by-side = false
     syntax-theme = Nord
+    pager = less -S
 
     blame-code-style = syntax
     blame-format = "{author:<20} ({commit:>10}) {timestamp:<15} "
@@ -145,6 +147,8 @@
 [log]
     date = iso-local
     decorate = short
+    # graphColors = "#8fbcbb,#88c0d0,#81a1c1,#5e81ac"
+    graphColors = "#BF616A,#D08770,#EBCB8B,#A3BE8C,#B48EAD"
 
 [merge]
     conflictstyle = diff3
@@ -165,7 +169,7 @@
     show = delta
 
 [pretty]
-    ol = "format:%C(#81a1c1)%h%C(auto)%(decorate:prefix= [ ,suffix= ],pointer=  ,separator= ,tag= )%C(reset) %s %C(#5e81ac)(%cr) — %an <%ae>%C(reset)"
+    ol = "format:%C(#81A1C1) %h%C(auto)%(decorate:prefix=  ,suffix=,pointer=  ,separator= ,tag= )%C(reset)  %s %C(#81A1C1) %cr %C(#5E81AC) %an <%ae>%C(reset)"
 
 [pull]
     rebase = false
