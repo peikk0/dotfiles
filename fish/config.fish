@@ -275,6 +275,10 @@ if status is-interactive
 
   command -qv bsdtar; and alias tar='bsdtar'
 
+  # terraform
+
+  command -qv terraform; and abbr -a tf terraform
+
   # vim
 
   test $EDITOR = 'vim'; and abbr -a vi vim
@@ -369,7 +373,7 @@ if command -qv fzf
   set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
   set -gx FORGIT_FZF_DEFAULT_OPTS '--tmux'
-  set -gx FORGIT_LOG_FORMAT '%C(blue)%h%C(auto)%d%C(reset) %s %C(italic brightblack)(%cr)%reset'
+  set -gx FORGIT_LOG_FORMAT '%C(blue)%h%C(auto)%d%C(reset) %s %C(italic brightblack)(%cr)%C(reset)'
   command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
 
   if command -qv fd
