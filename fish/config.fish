@@ -372,8 +372,8 @@ if command -qv fzf
   # Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
   set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
-  set -gx FORGIT_FZF_DEFAULT_OPTS '--tmux'
-  set -gx FORGIT_LOG_FORMAT '%C(blue)%h%C(auto)%d%C(reset) %s %C(italic brightblack)(%cr)%C(reset)'
+  set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux center,80%,80%  --prompt ' '"
+  set -gx FORGIT_LOG_FORMAT (git config --get pretty.ol | string replace format: '')
   command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
 
   if command -qv fd
