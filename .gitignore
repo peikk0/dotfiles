@@ -1,7 +1,7 @@
 # local configs
 fish/local.fish
 homebrew/Brewfile.local
-homebrew/Brewfile.lock
+homebrew/Brewfile.lock.json
 sh/inc/*-local-*
 X11/xsessionrc.local
 zsh/inc/*-local-*
