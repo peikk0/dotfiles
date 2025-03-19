@@ -349,9 +349,9 @@ if status is-interactive
 
   function fish_title
     set -q argv[1]; or set argv " "
-    # Looks like "hostname ~/d/fish ❯ git log"
-    # or /e/apt: fish
-    set title (fish_prompt_pwd_dir_length=1 prompt_pwd) "❯ $argv[1]"
+    # Looks like "~/d/fish ❯ git log"
+    # or /e/apt ❯ 
+    set title (fish_prompt_pwd_dir_length=1 prompt_pwd) (string shorten -m 40 "❯ $argv[1]")
     echo $title
 
     # Update screen/tmux title
@@ -372,7 +372,7 @@ if command -qv fzf
   # Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
   set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
-  set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux center,80%,80%  --prompt ' '"
+  set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux center,80%,80% --prompt ' '"
   set -gx FORGIT_LOG_FORMAT (git config --get pretty.ol | string replace format: '')
   command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
 
