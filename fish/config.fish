@@ -372,6 +372,7 @@ if command -qv fzf
   # Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
   set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
+  test $os = "Linux"; and set -gx FORGIT_COPY_CMD 'xclip -in -selection clipboard'
   set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux border-native,center,80%,80% --prompt ' '"
   set -gx FORGIT_LOG_FORMAT (git config --get pretty.ol | string replace format: '')
   command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
