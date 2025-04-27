@@ -29,7 +29,7 @@ for term in wezterm terminator konsole gnome-terminal xterm; do
 done
 
 # Set preferred browser for sensible-browser
-for browser in vivaldi google-chrome chromium firefox; do
+for browser in google-chrome chromium firefox; do
   if command -v "${browser}" >/dev/null 2>&1; then
     echo "Setting preferred browser to '${browser}'..."
     BROWSER="${browser}"
