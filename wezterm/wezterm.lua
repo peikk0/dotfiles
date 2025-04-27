@@ -1,17 +1,29 @@
 local wezterm = require 'wezterm';
 
 -- calt -> texture healing
--- liga -> ... /// // !! || ;;
--- ss01 -> === !== =!= =/= /== /= #= == != ~~ =~ !~
+-- case -> :0 :A ¡0 ¡A (vertical alignment for : and ¡)
+-- cv01 -> 0 alternates (1: plain, 2: slash, 3: reverse slash, 4: cut-out slash)
+-- cv02 -> 1 alternate (no serif)
+-- cv10 -> l i alternates (Neon, Argon, Xenon, Radon))
+-- cv11 -> j f r t alternates (Neon, Argon)
+-- cv30 -> * vertically aligned closer to the top of the space
+-- cv31 -> * 6-pointed asterisk
+-- cv32 -> >= <= angled lower line
+-- cv60 -> forces the <= pair to render in a fashion that matches => instead of swapping for ≤
+-- cv61 -> enables the optional closed square ligature for []
+-- cv62 -> @_
+-- liga -> ... /// // !! || ;; ;;;
+-- ss01 -> === !== =!= =/= /== /= #= == != ~~ =~ !~ ~- -~ &=
 -- ss02 -> >= <=
 -- ss03 -> <--> <-> <!-- <-- --> <- -> <~> <~~ ~~> <~ ~>
 -- ss04 -> </ /> </> <>
--- ss05 -> [| |] /\ \/ |> <|
+-- ss05 -> [| |] /\ \/ |> <| <|> {| |}
 -- ss06 -> ### +++ &&&
 -- ss07 -> -:- =:= :>: :<: ::> <:: :: :::
 -- ss08 -> ..= ..- ..< .= .-
 -- ss09 -> <=> <<= =>> =<< >>= => << >>
-local monaspace_ligatures = { 'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss06', 'ss07', 'ss08', 'ss09' };
+-- ss10 -> #[ #(
+local monaspace_ligatures = { 'calt', 'cv01=2', 'cv02', 'cv32', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10' };
 
 return {
     adjust_window_size_when_changing_font_size = false,
