@@ -14,8 +14,8 @@
 
 # Limit maximum columns to prevent ripgrep to vomit really long lines,
 # but show a preview for such cases instead.
---max-columns=150
---max-columns-preview
+# --max-columns=150
+# --max-columns-preview
 
 # This is similar to `--ignore-case`, but disables itself if the pattern contains any uppercase letters.
 --smart-case
