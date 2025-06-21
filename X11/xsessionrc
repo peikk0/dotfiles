@@ -110,9 +110,9 @@ fi
 dbus-update-activation-environment --systemd --all
 
 # PolKit
-if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ]; then
+if [ -x /usr/libexec/polkit-mate-authentication-agent-1 ]; then
   echo 'Launching PolicyKit agent...'
-  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+  /usr/libexec/polkit-mate-authentication-agent-1 &
 fi
 
 # Gnome Keyring Daemon
