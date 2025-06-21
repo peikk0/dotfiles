@@ -217,7 +217,6 @@ exec --no-startup-id dunst
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray --key-grabbing
-exec --no-startup-id flameshot
 exec --no-startup-id 1password --silent
 
 # vim:filetype=i3config
