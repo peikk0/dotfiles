@@ -124,9 +124,9 @@ fi
 # fi
 
 # Local xsessionrc script additions
-if [ -f "${XDG_CONFIG_HOME}/.config/X11/xsessionrc.local" ]; then
+if [ -f "${XDG_CONFIG_HOME}/X11/xsessionrc.local" ]; then
   # shellcheck source=/dev/null
-  . "${XDG_CONFIG_HOME}/.config/X11/xsessionrc.local"
+  . "${XDG_CONFIG_HOME}/X11/xsessionrc.local"
 fi
 
 echo "*** xsessionrc end ***"
