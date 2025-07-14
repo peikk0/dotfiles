@@ -184,10 +184,6 @@ set -gx TFLINT_PLUGIN_DIR $XDG_CACHE_HOME/tflint/plugins
 # Vault
 set -gx VAULT_CONFIG $XDG_CONFIG_HOME/vault/config
 
-# Vim
-
-set -gx VIMINIT 'set shell=/bin/sh | if has("nvim") | let $MYVIMRC="${XDG_CONFIG_HOME}/nvim/init.vim" | else | let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | endif | source ${MYVIMRC}'
-
 # Wget
 
 set -gx WGETRC $XDG_CONFIG_HOME/wget/wgetrc

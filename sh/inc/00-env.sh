@@ -214,15 +214,6 @@ export ENV
 
 # }}}
 
-# {{{ Vim
-
-# shellcheck disable=SC2016,SC2089
-VIMINIT='if has("nvim") | let $MYVIMRC="${XDG_CONFIG_HOME}/nvim/init.vim" | else | let $MYVIMRC="${XDG_CONFIG_HOME}/vim/vimrc" | endif | source ${MYVIMRC}'
-# shellcheck disable=SC2090
-export VIMINIT
-
-# }}}
-
 # {{{ Wget
 
 WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
