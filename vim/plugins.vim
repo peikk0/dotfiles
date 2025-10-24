@@ -37,6 +37,7 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
   Plug 'othree/html5.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'pearofducks/ansible-vim'
+  Plug 'pedrohdz/vim-yaml-folds'
   Plug 'preservim/nerdtree'
   Plug 'preservim/vim-markdown'
   Plug 'python-mode/python-mode', { 'branch': 'develop' }
