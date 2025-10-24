@@ -4,6 +4,7 @@
     signingkey = 0x8D1C3224FAB5BA48
 
 [advice]
+    detachedHead = false
     statusHints = false
 
 [alias]
@@ -169,7 +170,7 @@
     show = delta
 
 [pretty]
-    ol = "format:%C(#81A1C1) %h%C(auto)%(decorate:prefix=  ,suffix=,pointer=  ,separator= ,tag= )%C(reset)  %s %C(#81A1C1) %cr %C(#5E81AC) %an <%ae>%C(reset)"
+    ol = "format:%C(#81A1C1) %h%C(auto)%(decorate:prefix=  ,suffix=,pointer=  ,separator= ,tag= )%C(reset)  %s %C(#81A1C1) %cr %C(#5E81AC) %an <%ae>%C(reset)"
 
 [pull]
     rebase = false
