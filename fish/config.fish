@@ -293,6 +293,7 @@ if status is-interactive
 
   # Don't touch the default cursor
   function fish_vi_cursor; end
+  function __fish_vi_cursor; end
 
   # Default VI keybindings
   fish_vi_key_bindings
