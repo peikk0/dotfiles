@@ -26,7 +26,7 @@ Pry.config.history_save = true
 
 class NerdFont
   DOTS_VERTICAL = "\uf6d8".freeze
-  POWERLINE_SEPARATOR = "\ue0b0".freeze
+  POWERLINE_SEPARATOR = "\ue0b4".freeze
   RUBY_LOGO = "\ue791".freeze
 end
 
@@ -55,13 +55,13 @@ Pry::Prompt.add(
 ) do |context, nesting, pry_instance, sep|
   [
     Pry::Helpers::Text.cyan_on_black(" #{pry_instance.input_ring.size} "),
-    Pry::Helpers::Text.black_on_blue(NerdFont::POWERLINE_SEPARATOR),
-    Pry::Helpers::Text.black_on_blue(" #{Pry.config.prompt_name} "),
-    Pry::Helpers::Text.blue_on_red(NerdFont::POWERLINE_SEPARATOR),
+    Pry::Helpers::Text.black_on_red(NerdFont::POWERLINE_SEPARATOR),
     Pry::Helpers::Text.black_on_red(" #{NerdFont::RUBY_LOGO} #{RUBY_ENGINE} #{RUBY_VERSION} "),
     Pry::Helpers::Text.red_on_cyan(NerdFont::POWERLINE_SEPARATOR),
-    Pry::Helpers::Text.black_on_cyan(" #{Pry.view_clip(context)}#{":#{nesting}" unless nesting.zero?} "),
-    (sep == '>' ? Pry::Helpers::Text.cyan("#{NerdFont::POWERLINE_SEPARATOR} ") : '  '),
+    Pry::Helpers::Text.black_on_cyan(" #{Pry.config.prompt_name} "),
+    Pry::Helpers::Text.cyan_on_blue(NerdFont::POWERLINE_SEPARATOR),
+    Pry::Helpers::Text.black_on_blue(" #{Pry.view_clip(context)}#{":#{nesting}" unless nesting.zero?} "),
+    (sep == '>' ? Pry::Helpers::Text.blue("#{NerdFont::POWERLINE_SEPARATOR} ") : '  '),
   ].join('')
 end
 
