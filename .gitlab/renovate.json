@@ -9,9 +9,14 @@
     "dependencies"
   ],
   "gitlabci": {
-      "fileMatch": [
-          "\\.gitlab/ci\\.yml$"
-      ]
+    "managerFilePatterns": [
+      ".gitlab/ci.yml"
+    ]
+  },
+  "gitlabci-include": {
+    "managerFilePatterns": [
+      ".gitlab/ci.yml"
+    ]
   },
   "semanticCommits": "enabled"
 }
