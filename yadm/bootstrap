@@ -44,7 +44,7 @@ if [ "$(uname -s)" = 'Darwin' ]; then
   fi
 fi
 
-# Debian Linux
+# ArchLinux / Debian
 
 if [ "$(uname -s)" = 'Linux' ]; then
   if [ -f /etc/debian_version ]; then
@@ -99,6 +99,41 @@ if [ "$(uname -s)" = 'Linux' ]; then
     sudo ln -snf /usr/bin/batcat /usr/local/bin/bat
     sudo ln -snf /usr/bin/fdfind /usr/local/bin/fd
     sudo ln -snf /usr/bin/yarnpkg /usr/local/bin/yarn
+
+    # TODO: install https://github.com/wofr06/lesspipe
+  elif [ -f /etc/arch-release ]; then
+    msg ' Installing ArchLinux packages...'
+
+    # Install all the things
+    sudo pacman -Ssy \
+      curl \
+      gnupg \
+      bat \
+      btop \
+      base-devel \
+      cmake \
+      duf \
+      git-delta \
+      eza \
+      fd \
+      fish \
+      fzf \
+      git \
+      jq \
+      less \
+      libarchive \
+      procs \
+      python \
+      ripgrep \
+      starship \
+      tmux \
+      vim \
+      xh \
+      yadm \
+      yarn \
+      zoxide \
+      zsh \
+      xz
 
     # TODO: install https://github.com/wofr06/lesspipe
   fi
