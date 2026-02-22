@@ -105,7 +105,7 @@ if [ "$(uname -s)" = 'Linux' ]; then
     msg ' Installing ArchLinux packages...'
 
     # Install all the things
-    sudo pacman -Ssy \
+    sudo pacman -Sy \
       curl \
       gnupg \
       bat \
