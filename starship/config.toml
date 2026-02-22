@@ -121,6 +121,7 @@ style = 'bg:nord1 fg:nord4'
 
 [os.symbols]
 Android = ' '
+Arch = ' '
 Debian = ' '
 Linux = ' '
 Macos = ' '
