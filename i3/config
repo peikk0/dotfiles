@@ -24,9 +24,6 @@ floating_modifier $mod
 # layout for new workspaces
 workspace_layout default
 
-# border style
-default_border normal 1
-
 workspace_auto_back_and_forth yes
 
 # gaps
@@ -55,9 +52,9 @@ set $nord14 #A3BE8C
 set $nord15 #B48EAD
 
 # class                 border  backgr. text    indicator
-client.focused          $nord1  $nord0  $nord6  $nord7
-client.focused_inactive $nord1  $nord0  $nord5  $nord8
-client.unfocused        $nord1  $nord0  $nord4  $nord9
+client.focused          $nord1  $nord0  $nord6  $nord1
+client.focused_inactive $nord1  $nord0  $nord5  $nord1
+client.unfocused        $nord1  $nord0  $nord4  $nord1
 client.urgent           $nord1  $nord0  $nord11 $nord10
 client.background       $nord0
 
@@ -199,7 +196,7 @@ bindsym $mod+Shift+BackSpace exec dunstctl close-all
 #     }
 # }
 
-# Disable window titlebar
+# Borders
 default_border pixel 0
 default_floating_border normal
 for_window [class="^.*"] border pixel 0
@@ -210,7 +207,7 @@ for_window [class="mpv"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 
 exec --no-startup-id ~/.config/i3/set-wallpaper
-exec --no-startup-id compton --config ~/.config/i3/compton.conf
+exec --no-startup-id picom --config ~/.config/i3/picom.conf
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id light-locker
 exec --no-startup-id dunst
