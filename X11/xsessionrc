@@ -29,7 +29,7 @@ for term in wezterm terminator konsole gnome-terminal xterm; do
 done
 
 # Set preferred browser for sensible-browser
-for browser in google-chrome chromium firefox; do
+for browser in google-chrome-stable google-chrome chromium firefox; do
   if command -v "${browser}" >/dev/null 2>&1; then
     echo "Setting preferred browser to '${browser}'..."
     BROWSER="${browser}"
@@ -39,7 +39,7 @@ for browser in google-chrome chromium firefox; do
 done
 
 # Make sure XDG_CURRENT_DESKTOP is set
-: "${XDG_CURRENT_DESKTOP:=i3}"
+: "${XDG_CURRENT_DESKTOP:=gtk}"
 export XDG_CURRENT_DESKTOP
 
 # GTK 2.0 configuration
@@ -111,8 +111,13 @@ dbus-update-activation-environment --systemd --all
 
 # PolKit
 if [ -x /usr/libexec/polkit-mate-authentication-agent-1 ]; then
+  # Debian
   echo 'Launching PolicyKit agent...'
   /usr/libexec/polkit-mate-authentication-agent-1 &
+elif [ -x /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 ]; then
+  # ArchLinux
+  echo 'Launching PolicyKit agent...'
+  /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 fi
 
 # Gnome Keyring Daemon
