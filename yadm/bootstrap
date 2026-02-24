@@ -13,9 +13,6 @@ mkdir -pv "${HOME}/.ssh"
 ln -fsv .config/sh/profile "${HOME}/.profile"
 ln -fsv .config/zsh/.zshenv "${HOME}/.zshenv"
 ln -fsv ../.config/ssh/config "${HOME}/.ssh/config"
-if [ "$(uname -s)" = 'Linux' ]; then
-  ln -fsv .config/X11/xsessionrc "${HOME}/.xsessionrc"
-fi
 
 # yadm
 
@@ -101,6 +98,9 @@ if [ "$(uname -s)" = 'Linux' ]; then
     sudo ln -snf /usr/bin/yarnpkg /usr/local/bin/yarn
 
     # TODO: install https://github.com/wofr06/lesspipe
+
+    # Link .xsessionrc for LightDM's Xsession wrapper
+    ln -fsv .config/X11/xsessionrc "${HOME}/.xsessionrc"
   elif [ -f /etc/arch-release ]; then
     msg ' Installing ArchLinux packages...'
 
@@ -136,6 +136,8 @@ if [ "$(uname -s)" = 'Linux' ]; then
       xz
 
     # TODO: install https://github.com/wofr06/lesspipe
+    # Link .xsessionrc for LightDM's Xsession wrapper
+    ln -fsv .config/X11/xsessionrc "${HOME}/.xsession"
   fi
 fi
 
