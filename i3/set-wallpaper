@@ -5,7 +5,7 @@ WALLPAPER="${HOME}/.config/i3/wallpaper"
 if command -v nitrogen >/dev/null 2>&1; then
     nitrogen --restore
 elif command -v feh >/dev/null 2>&1 && [ -f "${WALLPAPER}" ]; then
-    feh --bg-fill "${WALLPAPER}"
+    feh --no-fehbg --bg-fill "${WALLPAPER}"
 fi
 
 exit 0
