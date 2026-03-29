@@ -109,7 +109,7 @@ return {
         },
     },
     show_new_tab_button_in_tab_bar = false,
-    window_background_opacity = 0.85,
+    window_background_opacity = 0.75,
     macos_window_background_blur = 25,
     window_decorations = 'RESIZE',
     window_frame = {
