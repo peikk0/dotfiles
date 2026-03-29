@@ -171,6 +171,16 @@ fish_add_path --move --path $CARGO_HOME/bin
 
 set -gx ENV $XDG_CONFIG_HOME/sh/profile
 
+# SSH Agent
+
+if ! set -q SSH_AUTH_SOCK
+  if test -S $XDG_RUNTIME_DIR/ssh-agent.socket
+    set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+  else
+    eval (ssh-agent -c | head -n2)
+  end
+end
+
 # Teleport
 
 set -gx TELEPORT_HOME $XDG_CONFIG_HOME/teleport
