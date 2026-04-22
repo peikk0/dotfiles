@@ -1,0 +1,47 @@
+#!/bin/sh
+
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME XDG_CONFIG_HOME
+
+. "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
+
+for term in wezterm kitty alacritty; do
+  if command -v "${term}" >/dev/null 2>&1; then
+    TERMINAL="${term}"
+    TERMINAL_EMULATOR="${term}"
+    export TERMINAL TERMINAL_EMULATOR
+    break
+  fi
+done
+
+# Set preferred browser for sensible-browser
+for browser in google-chrome-stable google-chrome chromium firefox; do
+  if command -v "${browser}" >/dev/null 2>&1; then
+    BROWSER="${browser}"
+    export BROWSER
+    break
+  fi
+done
+
+# GTK 2.0 configuration
+GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+export GTK2_RC_FILES
+
+# Qt theme
+QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME
+
+# Cursor theme
+XCURSOR_THEME="Nordzy-cursors"
+export XCURSOR_THEME
+
+# Enable/force Wayland for everything
+ELECTRON_OZONE_PLATFORM_HINT=wayland
+MOZ_ENABLE_WAYLAND=1
+PROTON_ENABLE_WAYLAND=1
+QT_QPA_PLATFORM=wayland
+SDL_VIDEODRIVER=wayland
+export ELECTRON_OZONE_PLATFORM_HINT MOZ_ENABLE_WAYLAND PROTON_ENABLE_WAYLAND QT_QPA_PLATFORM SDL_VIDEODRIVER
+
+# vim:filetype=sh:tabstop=2:shiftwidth=2:fdm=marker:

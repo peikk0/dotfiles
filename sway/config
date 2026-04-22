@@ -1,0 +1,214 @@
+# http://i3wm.org/docs/userguide.html | man 5 sway
+
+# Nord theme colors
+set $nord0  #2E3440
+set $nord1  #3B4252
+set $nord2  #434C5E
+set $nord3  #4C566A
+set $nord4  #D8DEE9
+set $nord5  #E5E9F0
+set $nord6  #ECEFF4
+set $nord7  #8FBCBB
+set $nord8  #88C0D0
+set $nord9  #81A1C1
+set $nord10 #5E81AC
+set $nord11 #BF616A
+set $nord12 #D08770
+set $nord13 #EBCB8B
+set $nord14 #A3BE8C
+set $nord15 #B48EAD
+
+# Workspace names
+set $ws1 1:terminal
+set $ws2 2:web
+set $ws3 3:alpha
+set $ws4 4:beta
+set $ws5 5:gamma
+set $ws6 6:delta
+set $ws7 7:epsilon
+set $ws8 8:zeta
+set $ws9 9:eta
+set $ws10 10:theta
+
+input * {
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+    xkb_options "compose:menu,caps:escape"
+    repeat_delay 400
+    repeat_rate 30
+}
+
+output "Samsung Electric Company LS49AG95 HNTT200014" {
+    mode 5120x1440@120Hz
+    adaptive_sync on
+    scale 1.0
+}
+output * {
+    background ~/.config/sway/wallpaper fit $nord0
+}
+
+seat * {
+    xcursor_theme Nordzy-cursors
+}
+
+# font for titles
+font pango:Monaspace Argon Italic 11
+
+# use Windows key
+set $mod Mod4
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# layout for new workspaces
+workspace_layout default
+
+workspace_auto_back_and_forth yes
+
+# gaps
+gaps inner 8
+gaps outer 0
+smart_gaps off
+
+# Disable window titlebar
+default_border pixel 0
+default_floating_border normal
+
+# class                 border  backgr. text    indicator
+client.focused          $nord1  $nord0  $nord6  $nord1
+client.focused_inactive $nord1  $nord0  $nord5  $nord1
+client.unfocused        $nord1  $nord0  $nord4  $nord1
+client.urgent           $nord1  $nord0  $nord11 $nord10
+client.background       $nord0
+
+# start a terminal
+bindsym $mod+Return exec uwsm app -- wezterm
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# menu
+bindsym --release $mod+grave exec exec fuzzel --launch-prefix='uwsm app --'
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+backslash split h
+
+# split in vertical orientation
+bindsym $mod+bracketright split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+f fullscreen toggle global
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
+bindsym $mod+Shift+Left workspace prev
+bindsym $mod+Shift+Right workspace next
+
+# move workspace to screen
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Right move workspace to output right
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# lock session
+bindsym $mod+Shift+Escape exec swaylock
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# exit sway (logs you out of your X session)
+# bindsym $mod+Shift+End exit
+# bindsym $mod+Shift+End exec loginctl terminate-session "$XDG_SESSION_ID"
+bindsym $mod+Shift+End exec uwsm stop
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bindsym XF86AudioMute        exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+
+bindsym XF86AudioMicMute     exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+bindsym XF86AudioPlay exec --no-startup-id mpris-ctl --player active --player inactive pp
+bindsym XF86AudioStop exec --no-startup-id mpris-ctl --player active stop
+bindsym XF86AudioNext exec --no-startup-id mpris-ctl --player active next
+bindsym XF86AudioPrev exec --no-startup-id mpris-ctl --player active prev
+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -q -d intel_backlight set 5%-
+bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl -q -d intel_backlight set 5%+
+
+bindsym $mod+Shift+b exec uwsm app -- $(xdg-settings get default-web-browser)
+
+bindsym $mod+Print exec grimshot copy active
+bindsym $mod+Shift+Print exec grimshot copy area
+bindsym $mod+Ctrl+Print exec grimshot copy output
+
+bindsym $mod+BackSpace exec dunstctl close
+bindsym $mod+Shift+BackSpace exec dunstctl close-all
+
+# Rules
+for_window [class="^.*"] border pixel 0
+for_window [class="(?i)pinentry"] floating enable
+for_window [class="(?i)mplayer"] floating enable
+for_window [class="mpv"] floating enable
+
+exec --no-startup-id uwsm finalize
+
+# vim:filetype=swayconfig

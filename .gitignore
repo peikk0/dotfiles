@@ -3,6 +3,8 @@ fish/local.fish
 homebrew/Brewfile.local
 homebrew/Brewfile.lock.json
 i3/wallpaper
+sway/wallpaper
+swaylock/lock-bg
 sh/inc/*-local-*
 X11/xsessionrc.local
 zsh/inc/*-local-*
