@@ -58,6 +58,7 @@ return {
     },
     custom_block_glyphs = true,
     default_cursor_style = 'BlinkingUnderline',
+    enable_wayland = true,
     font = wezterm.font_with_fallback {
         { family = 'MonaspiceAr NF', weight = 'Regular', harfbuzz_features = monaspace_ligatures },
         'FiraCode Nerd Font',
@@ -87,7 +88,7 @@ return {
             },
         },
     },
-    font_size = 13.0,
+    font_size = 11.0,
     hide_tab_bar_if_only_one_tab = true,
     keys = {
         {
@@ -109,7 +110,7 @@ return {
         },
     },
     show_new_tab_button_in_tab_bar = false,
-    window_background_opacity = 0.75,
+    window_background_opacity = 0.85,
     macos_window_background_blur = 25,
     window_decorations = 'RESIZE',
     window_frame = {
