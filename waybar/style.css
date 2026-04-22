@@ -1,0 +1,125 @@
+@define-color nord0 #2E3440;
+@define-color nord0a rgba(46, 52, 64, 0.85);
+@define-color nord1 #3B4252;
+@define-color nord2 #434C5E;
+@define-color nord3 #4C566A;
+@define-color nord4 #D8DEE9;
+@define-color nord5 #E5E9F0;
+@define-color nord6 #ECEFF4;
+@define-color nord7 #8FBCBB;
+@define-color nord7a rgba(143, 188, 187, 0.85);
+@define-color nord8 #88C0D0;
+@define-color nord9 #81A1C1;
+@define-color nord9a rgba(129, 161, 193, 0.85);
+@define-color nord10 #5E81AC;
+@define-color nord11 #BF616A;
+@define-color nord11a rgba(191, 97, 106, 0.85);
+@define-color nord12 #D08770;
+@define-color nord13 #EBCB8B;
+@define-color nord14 #A3BE8C;
+@define-color nord15 #B48EAD;
+
+* {
+    font-family: MonaspiceAr NF, sans-serif;
+    font-size: 11pt;
+}
+
+window#waybar {
+    background-color: @nord0a;
+    color: @nord6;
+    border-radius: 8;
+}
+
+tooltip {
+    background-color: @nord0a;
+    color: @nord6;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: @nord4;
+    border-radius: 8;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    background-color: @nord9a;
+}
+
+#workspaces button.urgent {
+    background-color: @nord11a;
+}
+
+#mode {
+    background-color: @nord7a;
+}
+
+#battery,
+#clock,
+#cpu,
+#custom-power,
+#memory,
+#mode,
+#mpris,
+#tray,
+#window,
+#wireplumber {
+    padding-right: 8px;
+}
+
+#workspaces {
+    padding-right: 8px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+#mpris {
+    color: @nord8;
+}
+
+#wireplumber {
+    color: @nord14;
+}
+
+#wireplumber.muted {
+    color: @nord12;
+}
+
+#cpu {
+    color: @nord10;
+}
+
+#memory {
+    color: @nord15;
+}
+
+#clock {
+    color: @nord9;
+}
+
+#battery {
+    color: @nord14;
+}
+
+#battery.charging, #battery.plugged {
+    color: @nord14;
+}
+
+#battery.discharging {
+    color: @nord13;
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: @nord12;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

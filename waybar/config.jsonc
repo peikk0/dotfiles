@@ -1,0 +1,121 @@
+// -*- mode: jsonc -*-
+{
+    "exclusive": true,
+    "fixed-center": true,
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "margin-left": 8,
+    "margin-right": 8,
+    "margin-top": 8,
+    "spacing": 4,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "mpris",
+        "wireplumber",
+        "cpu",
+        "memory",
+        "battery",
+        "clock",
+        "tray",
+        "custom/power"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "rewrite": {
+            "(.*) - Google Chrome": " $1",
+            "(.*) - Mozilla Firefox": " $1",
+            "(.*) - VIM": " $1"
+        }
+    },
+    "mpris": {
+        "format": "{player_icon} {status_icon} {dynamic}",
+        "dynamic-order": [
+            "title",
+            "artist"
+        ],
+        "interval": 2,
+        "player-icons": {
+            "default": "",
+            "mpv": "",
+            "spotify": "",
+            "vlc": ""
+        },
+        "status-icons": {
+            "paused": "",
+            "playing": "",
+            "stopped": ""
+        }
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "{usage}% "
+    },
+    "memory": {
+        "interval": 10,
+        "format": "{percentage}% "
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%a, %d %b %H:%M}",
+        "format-alt": "{:%a, %d %b %H:%M:%S}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "tray": {
+        "show-passive-items": true,
+        "spacing": 8
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "systemctl poweroff",
+			"reboot": "systemctl reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+    }
+}
