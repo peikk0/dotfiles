@@ -174,7 +174,7 @@ set scrolloff=3
 set sidescroll=1
 set sidescrolloff=5
 set scrolljump=1
-set display+=lastline
+set display+=lastline,uhex
 
 set completeopt=longest,menu
 
