@@ -110,6 +110,7 @@ return {
         },
     },
     show_new_tab_button_in_tab_bar = false,
+    term = 'wezterm',
     window_background_opacity = 0.85,
     macos_window_background_blur = 25,
     window_decorations = 'RESIZE',

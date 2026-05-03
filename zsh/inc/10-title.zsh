@@ -8,7 +8,7 @@ function update_terminal_title {
       print -nP "\ek${t}\e\\"
       print -nP "\e]0;${t}\e\\"
       ;;
-    xterm*|rxvt*|stterm*|(E|e)term)
+    xterm*|rxvt*|stterm*|(E|e)term|wezterm)
       print -nP "\e]0;${t}\e\\"
       ;;
   esac

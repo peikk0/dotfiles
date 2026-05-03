@@ -141,6 +141,10 @@ if [ "$(uname -s)" = 'Linux' ]; then
   fi
 fi
 
+# Wezterm
+msg ' Installing modified Wezterm terminfo file...'
+tic -x -o "${XDG_DATA_HOME}/terminfo" "${XDG_CONFIG_HOME}/wezterm/wezterm.terminfo"
+
 # SSH
 
 msg ' Updating SSH authorized keys...'

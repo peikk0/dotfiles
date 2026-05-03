@@ -57,7 +57,7 @@ set -gx MM_CHARSET 'UTF-8'
 
 # ncurses / terminfo
 
-set -gx TERMINFO_DIRS /usr/local/share/terminfo:/usr/share/terminfo:$XDG_DATA_HOME/terminfo
+set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/local/share/terminfo:/usr/share/terminfo
 
 # Default editor
 
