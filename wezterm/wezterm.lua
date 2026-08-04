@@ -64,6 +64,8 @@ return {
         'FiraCode Nerd Font',
         'FiraMono Nerd Font',
         'NotoMono Nerd Font',
+        'Apple Color Emoji',
+        'Noto Color Emoji',
         'Monaspace Argon',
         'Fira Code',
         'Fira Mono',
@@ -90,6 +92,28 @@ return {
     },
     font_size = 11.0,
     hide_tab_bar_if_only_one_tab = true,
+    hyperlink_rules = (function()
+        local rules = wezterm.default_hyperlink_rules()
+        -- Match Markdown-style links: [text](URL) — capture URL without trailing `)`.
+        table.insert(rules, 1, {
+            regex = [=[\[[^]]*\]\((\w+://[^)\s]+)\)]=],
+            format = '$1',
+            highlight = 1,
+        })
+        -- Replace the default bare-URL rule so a trailing `)` is only kept
+        -- when the URL itself contains a matching `(`. Prevents Markdown
+        -- `(https://example.com/foo)` from including the closing paren.
+        for i, rule in ipairs(rules) do
+            if rule.regex == [=[\b\w+://\S+[)/a-zA-Z0-9-]+]=] then
+                rules[i] = {
+                    regex = [=[\b\w+://[^\s()<>\[\]{}]+(?:\([^\s()<>\[\]{}]*\)[^\s()<>\[\]{}]*)*[/a-zA-Z0-9_%$+~#?&=@-]]=],
+                    format = '$0',
+                }
+                break
+            end
+        end
+        return rules
+    end)(),
     keys = {
         {
             key = 'Enter',
