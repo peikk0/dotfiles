@@ -10,7 +10,7 @@ stages:
 
 vint:
   stage: test
-  image: alpine:3.24
+  image: alpine:3.24@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
   script:
     - apk add py3-setuptools vint
     - vint --color --warning vim/vimrc vim/*.vim
@@ -23,7 +23,7 @@ vint:
 
 shellcheck:
   stage: test
-  image: koalaman/shellcheck-alpine:v0.11.0
+  image: koalaman/shellcheck-alpine:v0.11.0@sha256:9955be09ea7f0dbf7ae942ac1f2094355bb30d96fffba0ec09f5432207544002
   script:
     - |
       shellcheck \
@@ -46,7 +46,7 @@ shellcheck:
 
 shfmt:
   stage: test
-  image: mvdan/shfmt:v3.13.1-alpine
+  image: mvdan/shfmt:v3.13.1-alpine@sha256:3bd333f7861b51081af39a8ba722c0023983362b46332849aaf57c6d32d96b25
   script:
     - |
       shfmt -d -l -i 2 -ci \
