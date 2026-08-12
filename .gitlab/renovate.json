@@ -1,12 +1,13 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":disableRateLimiting"
-  ],
-  "assignAutomerge": true,
-  "assignees": ["peikk0"],
-  "labels": [
-    "dependencies"
+    "config:best-practices",
+    ":assignee(peikk0)",
+    ":automergeAll",
+    ":disableRateLimiting",
+    ":label(dependencies)",
+    ":maintainLockFilesWeekly",
+    ":semanticCommits"
   ],
   "gitlabci": {
     "managerFilePatterns": [
@@ -17,6 +18,5 @@
     "managerFilePatterns": [
       ".gitlab/ci.yml"
     ]
-  },
-  "semanticCommits": "enabled"
+  }
 }
