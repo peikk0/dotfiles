@@ -58,6 +58,7 @@ return {
     },
     custom_block_glyphs = true,
     default_cursor_style = 'BlinkingUnderline',
+    enable_kitty_keyboard = true,
     enable_wayland = true,
     font = wezterm.font_with_fallback {
         { family = 'MonaspiceAr NF', weight = 'Regular', harfbuzz_features = monaspace_ligatures },
