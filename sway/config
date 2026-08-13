@@ -88,7 +88,7 @@ bindsym $mod+Return exec uwsm app -- wezterm
 bindsym $mod+Shift+q kill
 
 # menu
-bindsym --release $mod+grave exec exec fuzzel --launch-prefix='uwsm app --'
+bindsym $mod+grave exec exec fuzzel --launch-prefix='uwsm app --'
 
 # change focus
 bindsym $mod+h focus left
