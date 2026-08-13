@@ -22,7 +22,6 @@ fzf-kubectx-widget() {
   local choice="$(
     _KUBECTX_FORCE_COLOR=1 kubectx \
       | sed -r -e "s/gke_(.+)_(.+)_(.+)/\\3 ${_fg_blue} ${_italic}\\1:${_fg_cyan}\\2${_reset}/" \
-               -e "s/(.+\.teleport\.gitlab\.net)-(.+)/\\2 ${_fg_blue} ${_italic}\\1${_reset}/" \
       | fzf --tmux center,25%,40% --ansi --no-preview --prompt '⎈ '
     )"
 
@@ -34,8 +33,6 @@ fzf-kubectx-widget() {
   zle push-line
   if [[ "${choice}" =~ '' ]]; then
     local context="$(kubectl config get-contexts -o=name | grep -E "^gke_.+_${choice%% *}\$")"
-  elif [[ "${choice}" =~ '' ]]; then
-    local context="$(kubectl config get-contexts -o=name | grep -E "^.+\.teleport\.gitlab\.net-${choice%% *}\$")"
   else
     local context="${choice%% *}"
   fi

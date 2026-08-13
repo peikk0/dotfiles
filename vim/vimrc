@@ -282,9 +282,6 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
-" Fugitive
-let g:fugitive_gitlab_domains=['https://ops.gitlab.net', 'https://dev.gitlab.org']
-
 " Go
 let g:go_fmt_autosave=1
 let g:go_fmt_command='goimports'
