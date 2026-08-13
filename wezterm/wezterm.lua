@@ -18,12 +18,12 @@ local wezterm = require 'wezterm';
 -- ss03 -> <--> <-> <!-- <-- --> <- -> <~> <~~ ~~> <~ ~>
 -- ss04 -> </ /> </> <>
 -- ss05 -> [| |] /\ \/ |> <| <|> {| |}
--- ss06 -> ### +++ &&&
+-- ss06 -> ### +++ &&& ___ ‗‗‗ ====
 -- ss07 -> -:- =:= :>: :<: ::> <:: :: :::
 -- ss08 -> ..= ..- ..< .= .-
 -- ss09 -> <=> <<= =>> =<< >>= => << >>
 -- ss10 -> #[ #(
-local monaspace_ligatures = { 'calt', 'cv01=2', 'cv02', 'cv32', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10' };
+local monaspace_ligatures = { 'calt', 'case', 'cv01=2', 'cv02', 'cv32', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10' };
 
 return {
     adjust_window_size_when_changing_font_size = false,
