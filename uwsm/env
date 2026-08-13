@@ -36,6 +36,10 @@ export QT_QPA_PLATFORMTHEME
 XCURSOR_THEME="Nordzy-cursors"
 export XCURSOR_THEME
 
+# PulseAudio
+PULSE_COOKIE="${XDG_CONFIG_HOME}/pulse/cookie"
+export PULSE_COOKIE
+
 # Enable/force Wayland for everything
 ELECTRON_OZONE_PLATFORM_HINT=wayland
 MOZ_ENABLE_WAYLAND=1
