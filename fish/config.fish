@@ -146,6 +146,7 @@ set -gx LIMA_HOME $XDG_DATA_HOME/lima
 # npm
 
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+fish_add_path --move --path $XDG_DATA_HOME/npm/bin
 
 # PostgreSQL
 
