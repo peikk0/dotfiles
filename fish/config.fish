@@ -61,12 +61,15 @@ set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/local/share/terminfo:/usr/sha
 
 # Default editor
 
-set -gx EDITOR vi
-set -gx VISUAL vi
-
-if command -qv vim
+if command -qv nvim
+  set -gx EDITOR nvim
+  set -gx VISUAL nvim
+else if command -qv vim
   set -gx EDITOR vim
   set -gx VISUAL vim
+else
+  set -gx EDITOR vi
+  set -gx VISUAL vi
 end
 
 # Pager
@@ -289,7 +292,12 @@ if status is-interactive
 
   # vim
 
-  test $EDITOR = 'vim'; and abbr -a vi vim
+  if test $EDITOR = 'nvim'
+    abbr -a vi nvim
+    abbr -a vim nvim
+  else if test $EDITOR = 'vim'
+    abbr -a vi vim
+  end
 
   # yadm
 

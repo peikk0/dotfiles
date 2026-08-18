@@ -80,7 +80,10 @@ fi
 
 # vim
 
-if [[ "${EDITOR}" = "vim" ]]; then
+if [[ "${EDITOR}" = "nvim" ]]; then
+  alias vi="nvim"
+  alias vim="nvim"
+elif [[ "${EDITOR}" = "vim" ]]; then
   alias vi="vim"
 fi
 

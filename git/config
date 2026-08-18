@@ -124,6 +124,10 @@
     colorMoved = default
     renameLimit = 8192
     submodule = log
+    tool = nvim_difftool
+
+[difftool "nvim_difftool"]
+    cmd = nvim -c \"packadd nvim.difftool\" -d \"$LOCAL\" \"$REMOTE\"
 
 [filter "lfs"]
     required = true

@@ -66,11 +66,15 @@ export TERMINFO_DIRS
 
 # {{{ Editor
 
-EDITOR="vi"
-VISUAL="vi"
-if command -v vim >/dev/null 2>&1; then
+if command -v nvim >/dev/null 2>&1; then
+  EDITOR="nvim"
+  VISUAL="nvim"
+elif command -v vim >/dev/null 2>&1; then
   EDITOR="vim"
   VISUAL="vim"
+else
+  EDITOR="vi"
+  VISUAL="vi"
 fi
 export EDITOR VISUAL
 
