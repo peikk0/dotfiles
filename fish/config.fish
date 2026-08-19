@@ -169,7 +169,7 @@ set -gx BUNDLE_USER_CACHE $XDG_CACHE_HOME/bundle
 set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 
-fish_add_path --move --path $CARGO_HOME/bin /usr/lib/rustup/bin
+fish_add_path --move --path $CARGO_HOME/bin /usr/lib/rustup/bin $HOMEBREW_PREFIX/opt/rustup/bin
 
 # sh
 
