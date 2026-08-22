@@ -8,7 +8,13 @@ return {
     lazy = true,
     cmd = 'Neogit',
     keys = {
-        { '<Leader>gg', '<cmd>Neogit<cr>', desc = 'Show Neogit UI' },
+        {
+            '<Leader>gg',
+            function()
+                vim.cmd.Neogit()
+            end,
+            desc = 'Show Neogit UI'
+        },
     },
     opts = {
         graph_style = 'unicode',

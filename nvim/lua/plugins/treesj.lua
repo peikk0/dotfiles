@@ -5,8 +5,20 @@ return {
     opts = {
         use_default_keymaps = false
     },
-    init = function()
-        vim.keymap.set('n', '<Leader>j', require('treesj').join)
-        vim.keymap.set('n', '<Leader>s', require('treesj').split)
-    end
+    keys = {
+        {
+            '<Leader>j',
+            function()
+                require('treesj').join()
+            end,
+            desc = 'Join lines'
+        },
+        {
+            '<Leader>s',
+            function()
+                require('treesj').split()
+            end,
+            desc = 'Split lines'
+        },
+    },
 }
