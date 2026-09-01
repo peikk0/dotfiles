@@ -30,7 +30,7 @@ set $ws8 8:zeta
 set $ws9 9:eta
 set $ws10 10:theta
 
-input * {
+input "type:keyboard" {
     xkb_layout "us"
     xkb_variant "altgr-intl"
     xkb_options "compose:menu,caps:escape"
@@ -41,10 +41,11 @@ input * {
 output "Samsung Electric Company LS49AG95 HNTT200014" {
     mode 5120x1440@120Hz
     adaptive_sync on
-    scale 1.0
 }
+
 output * {
-    background ~/.config/sway/wallpaper fit $nord0
+    background ~/.config/sway/wallpaper fill $nord0
+    scale 1.0
 }
 
 seat * {
