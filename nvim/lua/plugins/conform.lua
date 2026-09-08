@@ -1,0 +1,17 @@
+-- https://github.com/stevearc/conform.nvim
+
+return {
+    'stevearc/conform.nvim',
+    opts = {
+        default_format_opts = {
+            lsp_format = 'fallback',
+        },
+        formatters_by_ft = {
+            lua = { 'stylua' },
+            rust = { 'rustfmt' },
+        },
+        format_on_save = {
+            timeout_ms = 500,
+        },
+    },
+}
