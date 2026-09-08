@@ -3,7 +3,7 @@ return {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {
-        use_default_keymaps = false
+        use_default_keymaps = false,
     },
     keys = {
         {
@@ -11,14 +11,14 @@ return {
             function()
                 require('treesj').join()
             end,
-            desc = 'Join lines'
+            desc = 'Join lines',
         },
         {
             '<Leader>s',
             function()
                 require('treesj').split()
             end,
-            desc = 'Split lines'
+            desc = 'Split lines',
         },
     },
 }

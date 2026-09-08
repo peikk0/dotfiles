@@ -14,13 +14,13 @@ return {
             lualine_b = {
                 { 'branch', icon = ' ' },
                 { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } },
-                { 'diagnostics', symbols = {error = ' ', warn = ' ', info = ' ', hint = ' ' } },
+                { 'diagnostics', symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
             },
             lualine_c = {
                 { 'filename', path = 1 },
             },
             lualine_w = {
-                { 'lsp_status', icon = '', symbols = {spinner = { '', '', '', '', '', '' } } },
+                { 'lsp_status', icon = '', symbols = { spinner = { '', '', '', '', '', '' } } },
             },
             lualine_x = {
                 { 'encoding', show_bomb = true },
@@ -35,5 +35,5 @@ return {
         --         { 'tabs', mode = 2, path = 1 },
         --     },
         -- },
-    }
+    },
 }

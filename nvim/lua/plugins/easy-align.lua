@@ -5,8 +5,8 @@ return {
         {
             'ga',
             '<Plug>(EasyAlign)',
-            mode = {'n', 'x'},
-            desc = 'Easy Align'
+            mode = { 'n', 'x' },
+            desc = 'Easy Align',
         },
-    }
+    },
 }

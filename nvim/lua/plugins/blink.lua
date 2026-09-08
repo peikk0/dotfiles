@@ -9,7 +9,7 @@ return {
         require('blink.cmp').build():pwait()
     end,
     opts = {
-        keymap = { preset= 'super-tab' },
+        keymap = { preset = 'super-tab' },
         signature = { enabled = true },
     },
 }

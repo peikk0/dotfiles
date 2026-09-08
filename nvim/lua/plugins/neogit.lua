@@ -13,7 +13,7 @@ return {
             function()
                 vim.cmd.Neogit()
             end,
-            desc = 'Show Neogit UI'
+            desc = 'Show Neogit UI',
         },
     },
     opts = {

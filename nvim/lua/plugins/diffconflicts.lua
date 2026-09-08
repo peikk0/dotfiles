@@ -1,5 +1,5 @@
 -- https://github.com/mistweaverco/diffconflicts.nvim
 return {
-  'mistweaverco/diffconflicts.nvim',
-  opts = {}
+    'mistweaverco/diffconflicts.nvim',
+    opts = {},
 }
