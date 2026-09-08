@@ -38,6 +38,7 @@
         "rewrite": {
             "(.*) - Google Chrome": " $1",
             "(.*) - Mozilla Firefox": " $1",
+            "(.*) — Zen Browser": " $1",
             "(.*) - Nvim": " $1",
             "(.*) - VIM": " $1"
         }

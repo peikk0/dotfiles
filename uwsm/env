@@ -16,7 +16,7 @@ for term in wezterm kitty alacritty; do
 done
 
 # Set preferred browser for sensible-browser
-for browser in google-chrome-stable google-chrome chromium firefox; do
+for browser in zen-browser google-chrome-stable google-chrome chromium firefox; do
   if command -v "${browser}" >/dev/null 2>&1; then
     BROWSER="${browser}"
     export BROWSER
