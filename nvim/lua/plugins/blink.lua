@@ -2,8 +2,9 @@
 return {
     'saghen/blink.cmp',
     dependencies = {
-        'saghen/blink.lib',
+        'folke/lazydev.nvim',
         'rafamadriz/friendly-snippets',
+        'saghen/blink.lib',
     },
     build = function()
         require('blink.cmp').build():pwait()
@@ -11,5 +12,16 @@ return {
     opts = {
         keymap = { preset = 'super-tab' },
         signature = { enabled = true },
+        sources = {
+            default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+            providers = {
+                lazydev = {
+                    name = 'LazyDev',
+                    module = 'lazydev.integrations.blink',
+                    -- make lazydev completions top priority (see `:h blink.cmp`)
+                    score_offset = 100,
+                },
+            },
+        },
     },
 }
