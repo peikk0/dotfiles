@@ -92,8 +92,6 @@ if has('terminfo') || has('nvim')
     autocmd ColorScheme nord highlight SpellCap cterm=undercurl
     autocmd ColorScheme nord highlight SpellLocal cterm=undercurl
     autocmd ColorScheme nord highlight SpellRare cterm=undercurl
-    autocmd ColorScheme nord highlight ALEWarning cterm=undercurl
-    autocmd ColorScheme nord highlight ALEError cterm=undercurl
   augroup END
   colorscheme nord
 end
@@ -239,61 +237,18 @@ let g:airline_symbols = {
 
 let g:airline_theme='nord'
 
-let g:airline#extensions#ale#enabled=1
-let g:airline#extensions#ale#error_symbol=' '
-let g:airline#extensions#ale#warning_symbol=' '
-let g:airline#extensions#ale#show_line_numbers=1
-let g:airline#extensions#ale#open_lnum_symbol='('
-let g:airline#extensions#ale#close_lnum_symbol=')'
-
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#show_close_button=0
 let g:airline#extensions#tabline#show_tab_type=0
 
-" ALE
-let g:ale_echo_msg_error_str='E'
-let g:ale_echo_msg_warning_str='W'
-let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
-let g:ale_fix_on_save=1
-let g:ale_fixers={
-      \ 'rego': ['opafmt', 'remove_trailing_lines', 'trim_whitespace'],
-      \ 'rust': ['remove_trailing_lines', 'rustfmt', 'trim_whitespace'],
-      \ 'terraform': ['remove_trailing_lines', 'terraform'],
-      \ 'yaml': ['remove_trailing_lines', 'trim_whitespace'],
-      \ }
-let g:ale_linters={
-      \ 'rust': ['analyzer'],
-      \ }
-let g:ale_linters_ignore={
-      \ 'terraform': ['terraform'],
-      \ }
-let g:ale_python_flake8_options='--max-line-length 120'
-let g:ale_python_pylint_options='--max-line-length 120'
-
 " bat (for fzf previews)
 let $BAT_THEME = 'Nord'
-
-" CSV
-let g:csv_table_leftalign=1
 
 " DevIcons
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
-
-" Go
-let g:go_fmt_autosave=1
-let g:go_fmt_command='goimports'
-let g:go_fmt_fail_silently=1
-let g:go_highlight_build_constraints=1
-let g:go_highlight_fields=1
-let g:go_highlight_function_calls=1
-let g:go_highlight_functions=1
-let g:go_highlight_methods=1
-let g:go_highlight_operators=1
-let g:go_highlight_types=1
-let g:go_list_type='quickfix'
 
 " Man
 runtime ftplugin/man.vim
@@ -301,29 +256,6 @@ runtime ftplugin/man.vim
 augroup man_plugin_settings
   autocmd FileType man setlocal nolist
 augroup END
-
-" Markdown
-let g:vim_markdown_edit_url_in='tab'
-let g:vim_markdown_fenced_languages=[
-      \ 'ini=dosini',
-      \ 'shell=sh',
-      \ 'yml=yaml',
-      \ ]
-let g:vim_markdown_folding_style_pythonic=1
-let g:vim_markdown_follow_anchor=1
-let g:vim_markdown_strikethrough=1
-let g:vim_markdown_toc_autofit=1
-
-" Markdown preview
-
-if executable('google-chrome')
-  function OpenMarkdownPreview(url)
-    execute 'silent ! google-chrome --app=' . a:url
-  endfunction
-  let g:mkdp_browserfunc='OpenMarkdownPreview'
-endif
-
-let g:mkdp_theme = 'dark'
 
 " Match It
 runtime macros/matchit.vim
@@ -343,91 +275,12 @@ highlight! link NERDTreeFlags NERDTreeDir
 " NetRW
 let g:netrw_http_cmd='curl -s -o'
 
-" Python
-let python_highlight_builtins=1
-let python_highlight_exceptions=1
-let python_highlight_numbers=1
-let python_highlight_space_errors=1
-let g:pymode_doc=0
-let g:pymode_options=0
-let g:pymode_lint_checkers=['pyflakes', 'pep8']
-let g:pymode_options_max_line_length=120
-let g:pymode_lint_options_pep8={
-    \ 'max_line_length': g:pymode_options_max_line_length
-    \ }
-let g:pymode_options_colorcolumn=1
-let g:pymode_python='python3'
-
-" Ruby
-let ruby_operators=1
-let g:rubycomplete_buffer_loading=1
-let g:rubycomplete_classes_in_global=1
-let g:rubycomplete_rails=1
-
-" Rust
-let g:rust_fold=1
-let g:rustfmt_autosave=1
-let g:rustfmt_fail_silently=1
-
-" Rails
-let g:rails_gnu_screen=1
-let g:rails_mappings=1
-let g:rails_syntax=1
-
-" Rainbow
-" let g:rainbow_active=1
-
-" Startify
-let g:startify_change_to_vcs_root=1
-let g:startify_session_persistence=1
-let g:startify_session_dir=$XDG_STATE_HOME . '/vim/sessions/'
-let g:startify_fortune_use_unicode=1
-let g:startify_skiplist=[
-      \ 'COMMIT_EDITMSG',
-      \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') . 'doc',
-      \ $HOME.'/.vim/pack/.*/doc',
-      \ $XDG_DATA_HOME.'/vim/plugged/.*/doc',
-      \ '/vendor/',
-      \ ]
-
-" Terraform
-let g:terraform_align=0
-let g:terraform_fold_sections=1
-let g:terraform_fmt_on_save=0
-
-" UltiSnips
-let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsListSnippets='<C-k>'
-let g:UltiSnipsJumpBackwardTrigger='<C-j>'
-let g:UltiSnipsJumpForwardTrigger='<C-k>'
-
-" Workspace
-let g:workspace_session_directory=$XDG_STATE_HOME . '/vim/sessions/'
-
-" YCM
-let g:ycm_gopls_binary_path='gopls'
-let g:ycm_language_server = [
-      \   {
-      \     'name': 'rust',
-      \     'cmdline': ['rust-analyzer'],
-      \     'filetypes': ['rust'],
-      \     'project_root_files': ['Cargo.toml']
-      \   }
-      \ ]
-
-" }}}
-
 " {{{ Mappings
 
 inoremap jj <Esc>
 
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 set pastetoggle=<Leader>p
-
-" ALE
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " easy-align
 nmap ga <Plug>(EasyAlign)
@@ -463,12 +316,6 @@ omap <leader><tab> <plug>(fzf-maps-o)
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" Markdown preview
-nmap <silent> <C-m> <Plug>MarkdownPreviewToggle
-
-" Workspace
-nnoremap <Leader>ws :ToggleWorkspace<CR>
 
 " "" '' <> () [] {}
 noremap! "" ""<esc>i
