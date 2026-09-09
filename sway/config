@@ -38,6 +38,12 @@ input "type:keyboard" {
     repeat_rate 30
 }
 
+input "type:touchpad" {
+    dwt enabled
+    natural_scroll enabled
+    tap enabled
+}
+
 output "Samsung Electric Company LS49AG95 HNTT200014" {
     mode 5120x1440@120Hz
     adaptive_sync on
