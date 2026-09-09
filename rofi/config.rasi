@@ -1,7 +1,0 @@
-configuration {
-    font: "Noto Sans Mono 12";
-    icon-theme: "Nordzy";
-    show-icons: true;
-    terminal: "sensible-terminal";
-}
-@theme "nord"

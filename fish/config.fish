@@ -203,11 +203,6 @@ set -gx VAULT_CONFIG $XDG_CONFIG_HOME/vault/config
 
 set -gx WGETRC $XDG_CONFIG_HOME/wget/wgetrc
 
-# X11
-
-set -gx XINITRC $XDG_CONFIG_HOME/X11/xinitrc
-set -gx XSERVERRC $XDG_CONFIG_HOME/X11/xserverrc
-
 # Local path
 
 fish_add_path --move --path $HOME/.local/bin
