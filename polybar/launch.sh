@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-xrandr_info=$(xrandr --query | sed -nre 's/^([A-Z0-9-]+) connected primary ([0-9]+)x([0-9]+)\+.+$/\1 \2 \3/p')
+xrandr_info=$(xrandr --query | sed -nre 's/^([A-Za-z0-9-]+) connected primary ([0-9]+)x([0-9]+)\+.+$/\1 \2 \3/p')
 read -r monitor width height <<<"${xrandr_info}"
 
 export MONITOR="${monitor}"
