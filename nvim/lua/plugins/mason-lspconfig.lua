@@ -7,8 +7,10 @@ return {
     },
     opts = {
         ensure_installed = {
+            'bashls',
             'jsonls',
             'lua_ls',
+            'tombi',
             'vimls',
             'yamlls',
         },
