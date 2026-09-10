@@ -54,11 +54,18 @@ return {
             desc = 'Ripgrep search',
         },
         {
+            '<Leader>rw',
+            function()
+                require('fzf-lua').grep_cword()
+            end,
+            desc = 'Ripgrep search current word',
+        },
+        {
             '<Leader>rr',
             function()
                 require('fzf-lua').grep({ resume = true })
             end,
-            desc = 'Ripgrep search',
+            desc = 'Resume Ripgrep search',
         },
         {
             '<Leader>fb',
