@@ -25,35 +25,35 @@
 [color]
     ui = auto
 [color "branch"]
-    current = "#8FBCBB"
-    local = "#81A1C1"
-    remote = "#5E81AC"
+    current = "#89dceb"
+    local = "#74c7ec"
+    remote = "#89b4fa"
 [color "decorate"]
-    HEAD = "#A3BE8C"
-    branch = "#8FBCBB"
-    grafted = "#EBCB8B"
-    remoteBranch = "#88C0D0"
-    stash = "#A3BE8C"
-    tag = "#B48EAD"
+    HEAD = "#a6e3a1"
+    branch = "#74c7ec"
+    grafted = "#f9e2af"
+    remoteBranch = "#89b4fa"
+    stash = "#fab387"
+    tag = "#b4befe"
 [color "diff"]
-    meta = "#81A1C1"
-    frag = "#B48EAD"
-    old = "#BF616A"
-    new = "#A3BE8C"
+    meta = "#9399b2"
+    frag = "#fab387"
+    old = "#f38ba8"
+    new = "#a6e3a1"
     # also the colour of %(decorate) decoration elements
-    commit = "#81A1C1"
+    commit = "#6c7086"
 [color "grep"]
-    context = "#5E81AC"
-    filename = "#81A1C1"
-    lineNumber = "#88C0D0"
-    column = "#88C0D0"
-    function = "#4C566A"
-    match = "#3B4252 #88C0D0"
-    separator = "#4C566A"
+    context = "#6c7086"
+    filename = "#74c7ec"
+    lineNumber = "#89b4fa"
+    column = "#89b4fa"
+    function = "#cba6f7"
+    match = "#313244 #f38ba8"
+    separator = "#6c7086"
 [color "status"]
-    added = "#A3BE8C"
-    changed = "#D08770"
-    untracked = "#88C0D0"
+    added = "#a6e3a1"
+    changed = "#fab387"
+    untracked = "#cba6f7"
 
 [commit]
     status = false
@@ -68,57 +68,67 @@
     navigate = true
     paging = always
     side-by-side = false
-    syntax-theme = Nord
+    syntax-theme = Catppuccin Mocha
     pager = less -S
 
     blame-code-style = syntax
     blame-format = "{author:<20} ({commit:>10}) {timestamp:<15} "
-    blame-palette = "#2E3440" "#3B4252" "#434C5E" "#4C566A"
+    blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a"
 
-    file-style = "#81A1C1"
-    file-decoration-style = "#434C5E" box
+    commit-decoration-style = "#6c7086" bold box ul
+
+    dark = true
+
+    file-style = "#cdd6f4"
+    file-decoration-style = "#6c7086"
     file-added-label = [+]
     file-copied-label = [=]
     file-modified-label = [~]
     file-removed-label = [-]
     file-renamed-label = [>]
 
-    hunk-header-decoration-style = "#434C5E" box
-    hunk-header-file-style = "#81A1C1"
-    hunk-header-line-number-style = "#B48EAD"
-    hunk-header-style = line-number syntax
+    hunk-header-decoration-style = "#6c7086" box ul
+    hunk-header-file-style = bold
+    hunk-header-line-number-style = bold "#a6adc8"
+    hunk-header-style = file line-number syntax
 
     line-numbers = true
-    line-numbers-minus-style = "#BF616A" italic
-    line-numbers-plus-style = "#A3BE8C" italic
-    line-numbers-zero-style = "#434C5E" italic
-    line-numbers-left-style = "#BF616A"
-    line-numbers-right-style = "#A3BE8C"
+    line-numbers-left-style = "#6c7086"
+    line-numbers-minus-style = italic "#f38ba8"
+    line-numbers-plus-style = italic "#a6e3a1"
+    line-numbers-right-style = "#6c7086"
+    line-numbers-zero-style = italic "#6c7086"
     line-numbers-left-format = " {nm:>3} │"
     line-numbers-right-format = " {np:>3} │"
 
+    map-styles = \
+        bold purple => syntax "#5b4e74", \
+        bold blue => syntax "#445375", \
+        bold cyan => syntax "#446170", \
+        bold yellow => syntax "#6b635b"
+
     merge-conflict-begin-symbol = ~
     merge-conflict-end-symbol = ~
-    merge-conflict-ours-diff-header-style = "#D08770" bold
-    merge-conflict-ours-diff-header-decoration-style = "#434C5E" box
-    merge-conflict-theirs-diff-header-style = "#EBCB8B" bold
-    merge-conflict-theirs-diff-header-decoration-style = "#434C5E" box
+    merge-conflict-ours-diff-header-style = "#fab387" bold
+    merge-conflict-ours-diff-header-decoration-style = "#313244" box
+    merge-conflict-theirs-diff-header-style = "#f9e2af" bold
+    merge-conflict-theirs-diff-header-decoration-style = "#313244" box
 
-    minus-style = "#BF616A"
-    minus-emph-style = bold reverse "#BF616A"
-    minus-non-emph-style = "#BF616A"
-    minus-empty-line-marker-style = "#BF616A"
-    plus-style = "#A3BE8C"
-    plus-emph-style = bold reverse "#A3BE8C"
-    plus-non-emph-style = "#A3BE8C"
-    plus-empty-line-marker-style = "#BF616A"
+    # 35% red 65% base
+    minus-emph-style = bold syntax "#694559"
+    # 20% red 80% base
+    minus-style = syntax "#493447"
+    # 35% green 65% base
+    plus-emph-style = bold syntax "#4e6356"
+    # 20% green 80% base
+    plus-style = syntax "#394545"
     zero-style = syntax
 
-    grep-file-style = "#81A1C1"
-    grep-header-decoration-style = "#434C5E" box
-    grep-line-number-style = "#A3BE8C" italic
+    grep-file-style = "#74c7ec"
+    grep-header-decoration-style = "#313244" box
+    grep-line-number-style = "#89b4fa" italic
 
-    whitespace-error-style = "reverse #B48EAD"
+    whitespace-error-style = "reverse #cba6f7"
 
 [diff]
     colorMoved = default
@@ -152,8 +162,7 @@
 [log]
     date = iso-local
     decorate = short
-    # graphColors = "#8fbcbb,#88c0d0,#81a1c1,#5e81ac"
-    graphColors = "#BF616A,#D08770,#EBCB8B,#A3BE8C,#B48EAD"
+    graphColors = "#f38ba8,#fab387,#f9e2af,#a6e3a1,#74c7ec,#b4befe"
 
 [merge]
     conflictstyle = diff3
@@ -174,7 +183,7 @@
     show = delta
 
 [pretty]
-    ol = "format:%C(#81A1C1) %h%C(auto)%(decorate:prefix=  ,suffix=,pointer=  ,separator= ,tag= )%C(reset)  %s %C(#81A1C1) %cr %C(#5E81AC) %an <%ae>%C(reset)"
+    ol = "format:%C(#9ca0b0) %h%C(auto)%(decorate:prefix=  ,suffix=,pointer=  ,separator= ,tag= )%C(reset)  %s %C(#74c7ec) %cr %C(#b4befe) %an <%ae>%C(reset)"
 
 [pull]
     rebase = false

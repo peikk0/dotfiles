@@ -1,6 +1,3 @@
-# Nord
-nordtheme/dircolors kind:clone
-
 # FZF / Git
 Aloxaf/fzf-tab
 junegunn/fzf path:shell

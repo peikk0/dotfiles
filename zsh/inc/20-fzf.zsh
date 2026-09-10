@@ -3,7 +3,6 @@
 FZF_TMUX=1
 FZF_TMUX_OPTS="-p"
 
-# Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/fzfrc"
 
 if command -v fd >/dev/null 2>&1; then

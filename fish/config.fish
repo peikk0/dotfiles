@@ -3,8 +3,8 @@
 # No greeting
 set fish_greeting
 
-# Nord theme
-fish_config theme choose Nord
+# Catppuccin Mocha theme
+fish_config theme choose catppuccin-mocha
 
 # Ensure sane default umask
 umask 0022
@@ -104,7 +104,6 @@ set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
 # Bat
 
 if command -qv bat
-  set -gx BAT_THEME 'Nord'
   set -gx MANPAGER "sh -c 'col -bx | bat -l man --paging=always --plain'"
   set -gx MANROFFOPT '-c'
 end
@@ -215,10 +214,13 @@ if status is-interactive
 
   # ls / eza
 
-  set -l dircolors $XDG_CONFIG_HOME/dircolors/nord
+  # https://github.com/sharkdp/vivid
+  if command -qv vivid
+    set -gx LS_COLORS (vivid generate catppuccin-mocha)
+  end
+
   switch $os
   case 'FreeBSD' 'Darwin'
-    command -qv gdircolors; and gdircolors -c $dircolors | source
     set -gx LSCOLORS 'exgxfxcxcxdxdxhbadacec'
     alias ls='ls -G'
     if test $os = 'FreeBSD'
@@ -227,11 +229,9 @@ if status is-interactive
       alias ll='ls -h -l -T'
     end
   case 'Linux'
-    command -qv dircolors; and dircolors -c $dircolors | source
     alias ls='ls --color=auto -N'
     alias ll="ls -h -l --time-style='+%F %T'"
   end
-  set -el dircolors
 
   if command -qv eza
     alias eza 'eza --group-directories-first --hyperlink --icons=auto'
@@ -380,8 +380,6 @@ end
 # {{{ FZF
 
 if command -qv fzf
-
-  # Nord theme: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
   set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
   test $os = "Linux"; and set -gx FORGIT_COPY_CMD 'xclip -in -selection clipboard'

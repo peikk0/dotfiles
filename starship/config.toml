@@ -5,62 +5,72 @@
 add_newline = false
 
 format = """
-[](fg:nord1)\
+[](fg:surface0)\
 $os\
-[( $username([@](bg:nord1 fg:nord4)$hostname) )](bg:nord1)\
-[](fg:nord1 bg:nord2)\
+[( $username([@](bg:surface0 fg:text)$hostname) )](bg:surface0)\
+[](fg:surface0 bg:surface1)\
 $directory\
-[](fg:nord2 bg:nord8)\
+[](fg:surface1 bg:sky)\
 $git_branch\
 $git_commit\
-[](fg:nord8 bg:nord9)\
+[](fg:sky bg:blue)\
 $git_state\
 $git_status\
-[](fg:nord9 bg:nord10)\
+[](fg:blue bg:lavender)\
 $cmd_duration\
 $status\
-[ ](fg:nord10)\
+[ ](fg:lavender)\
 $line_break$character"""
 
-palette = 'nord'
+palette = 'catppuccin_mocha'
 
-[palettes.nord]
-nord0  = '#2E3440'
-nord1  = '#3B4252'
-nord2  = '#434C5E'
-nord3  = '#4C566A'
-nord4  = '#D8DEE9'
-nord5  = '#E5E9F0'
-nord6  = '#ECEFF4'
-nord7  = '#8FBCBB'
-nord8  = '#88C0D0'
-nord9  = '#81A1C1'
-nord10 = '#5E81AC'
-nord11 = '#BF616A'
-nord12 = '#D08770'
-nord13 = '#EBCB8B'
-nord14 = '#A3BE8C'
-nord15 = '#B48EAD'
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
 [character]
-error_symbol = '[❯](bold fg:nord11)'
-success_symbol = '[❯](bold fg:nord14)'
-vimcmd_replace_one_symbol = '[❮](bold fg:nord15)'
-vimcmd_replace_symbol = '[❮](bold fg:nord15)'
-vimcmd_symbol = '[❮](bold fg:nord14)'
-vimcmd_visual_symbol = '[❮](bold fg:nord13)'
+error_symbol = '[❯](bold fg:red)'
+success_symbol = '[❯](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:mauve)'
+vimcmd_replace_symbol = '[❮](bold fg:mauve)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_visual_symbol = '[❮](bold fg:peach)'
 
 [cmd_duration]
 format = '[  $duration]($style)'
-style = 'fg:nord1 bg:nord10'
+style = 'fg:surface0 bg:lavender'
 
 [directory]
 fish_style_pwd_dir_length = 2
 format = '[ $path[$read_only]($read_only_style) ]($style)'
 home_symbol = ' '
 read_only = ' 󰌾'
-read_only_style = 'fg:nord11 bg:nord2'
-style = 'fg:nord8 bg:nord2'
+read_only_style = 'fg:red bg:surface1'
+style = 'fg:blue bg:surface1'
 truncation_length = 3
 truncation_symbol = '…/'
 truncate_to_repo = true
@@ -76,22 +86,22 @@ truncate_to_repo = true
 
 [git_branch]
 format = '[ $symbol$branch(  $remote_branch) ]($style)'
-style = 'fg:nord1 bg:nord8'
+style = 'fg:surface0 bg:sky'
 symbol = ' '
 
 [git_commit]
 format = '[ $hash$tag ]($style)'
-style = 'fg:nord1 bg:nord8'
+style = 'fg:surface0 bg:sky'
 tag_symbol = '  '
 tag_disabled = false
 
 [git_state]
 format = '[ \($state( $progress_current/$progress_total)\)]($style)'
-style = 'fg:nord1 bg:nord9'
+style = 'fg:surface0 bg:blue'
 
 [git_status]
 format = '[( $all_status$ahead_behind)]($style)'
-style = 'fg:nord1 bg:nord9'
+style = 'fg:surface0 bg:blue'
 
 ahead = ' $count '
 behind = ' $count '
@@ -109,7 +119,7 @@ up_to_date = ''
 format = '[$hostname]($style)'
 ssh_symbol = ' '
 ssh_only = true
-style = 'bg:nord1 fg:nord14'
+style = 'bg:surface0 fg:green'
 
 [line_break]
 disabled = false
@@ -117,7 +127,7 @@ disabled = false
 [os]
 disabled = false
 format = '[$symbol]($style)'
-style = 'bg:nord1 fg:nord4'
+style = 'bg:surface0 fg:text'
 
 [os.symbols]
 Android = ' '
@@ -139,12 +149,12 @@ pipestatus = true
 pipestatus_format = '[ $pipestatus $symbol ($common_meaning$maybe_int )(\(SIG$signal_name:$signal_number\) )]($style)'
 sigint_symbol = ''
 signal_symbol = ''
-style = 'fg:nord1 bg:nord10'
+style = 'fg:surface0 bg:lavender'
 success_symbol = ''
 symbol = ''
 
 [username]
 format = '[$user]($style)'
 show_always = false
-style_user = 'bg:nord1 fg:nord13'
-style_root = 'bg:nord1 fg:nord11 bold'
+style_user = 'bg:surface0 fg:blue'
+style_root = 'bg:surface0 fg:red bold'

@@ -111,7 +111,9 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#4c566a"
+    # https://github.com/catppuccin/dunst/blob/main/themes/mocha.conf
+    frame_color = "#89b4fa"
+    highlight = "#89b4fa"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -231,7 +233,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Nordzy-dark, Adwaita
+    icon_theme = Papirus-Dark, Adwaita
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -357,32 +359,26 @@
     # This setting overrides enable_posix_regex.
     enable_pcre_regex = false
 
+# https://github.com/catppuccin/dunst/blob/main/themes/mocha.conf
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#3b4252d8"
-    foreground = "#eceff4"
-    frame_color = "#4c566a"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
     timeout = 10
-    # Icon for notifications with low urgency
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#3b4252d8"
-    foreground = "#eceff4"
-    frame_color = "#4c566a"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
     timeout = 10
     override_pause_level = 30
-    # Icon for notifications with normal urgency
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#3b4252d8"
-    foreground = "#eceff4"
-    frame_color = "#bf616a"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#fab387"
     timeout = 0
     override_pause_level = 60
-    # Icon for notifications with critical urgency
     default_icon = dialog-warning
 
 # Every section that isn't one of the above is interpreted as a rules to

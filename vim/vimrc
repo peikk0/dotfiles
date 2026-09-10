@@ -79,21 +79,18 @@ if has('terminfo') || has('nvim')
     endif
     set termguicolors
   endif
-  " https://www.nordtheme.com/docs/ports/vim/configuration
-  let g:nord_bold=1
-  let g:nord_italic=1
-  let g:nord_italic_comments=1
-  let g:nord_underline=1
-  let g:nord_uniform_diff_background=1
-  augroup nord-theme-overrides
+
+  " https://github.com/catppuccin/vim
+
+  augroup catppuccin-theme-overrides
     autocmd!
-    autocmd ColorScheme nord highlight normal guibg=NONE ctermbg=NONE
-    autocmd ColorScheme nord highlight SpellBad cterm=undercurl
-    autocmd ColorScheme nord highlight SpellCap cterm=undercurl
-    autocmd ColorScheme nord highlight SpellLocal cterm=undercurl
-    autocmd ColorScheme nord highlight SpellRare cterm=undercurl
+    autocmd ColorScheme catppuccin highlight SpellBad cterm=undercurl
+    autocmd ColorScheme catppuccin highlight SpellCap cterm=undercurl
+    autocmd ColorScheme catppuccin highlight SpellLocal cterm=undercurl
+    autocmd ColorScheme catppuccin highlight SpellRare cterm=undercurl
   augroup END
-  colorscheme nord
+
+  colorscheme catppuccin_mocha
 end
 
 " }}}
@@ -235,15 +232,12 @@ let g:airline_symbols = {
       \ 'dirty': ' '
       \ }
 
-let g:airline_theme='nord'
+let g:airline_theme='catppuccin_mocha'
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#show_close_button=0
 let g:airline#extensions#tabline#show_tab_type=0
-
-" bat (for fzf previews)
-let $BAT_THEME = 'Nord'
 
 " DevIcons
 if exists('g:loaded_webdevicons')

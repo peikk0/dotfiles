@@ -2,7 +2,7 @@
 return {
     'akinsho/bufferline.nvim',
     dependencies = {
-        'gbprod/nord.nvim',
+        'catppuccin/nvim',
         'nvim-tree/nvim-web-devicons',
     },
     opts = {
@@ -22,7 +22,7 @@ return {
     },
     config = function(_, opts)
         require('bufferline').setup({
-            highlights = require('nord.plugins.bufferline').akinsho(),
+            highlights = require('catppuccin.special.bufferline').get_theme(),
             options = opts,
         })
     end,

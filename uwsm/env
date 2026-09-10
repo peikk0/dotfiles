@@ -33,7 +33,7 @@ QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORMTHEME
 
 # Cursor theme
-XCURSOR_THEME="Nordzy-cursors"
+XCURSOR_THEME="catppuccin-mocha-dark-cursors"
 export XCURSOR_THEME
 
 # PulseAudio

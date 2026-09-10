@@ -3,7 +3,7 @@ call plug#begin($XDG_DATA_HOME.'/vim/plugged')
 
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'nordtheme/vim', { 'as': 'nord' }
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'

@@ -3,6 +3,8 @@ Configuration file for ipython.
 """
 
 from IPython.terminal.prompts import Prompts, Token
+from IPython.utils.PyColorize import linux_theme, theme_table
+from copy import deepcopy
 
 
 class MyPrompts(Prompts):
@@ -25,6 +27,7 @@ class MyPrompts(Prompts):
             (Token.Prompt, "❮ "),
         ]
 
+c = get_config()
 
 c.TerminalInteractiveShell.highlighting_style_overrides = {
     Token.Prompt: 'ansigreen',
@@ -35,3 +38,14 @@ c.TerminalInteractiveShell.highlighting_style_overrides = {
 c.TerminalInteractiveShell.prompts_class = MyPrompts
 
 c.TerminalIPythonApp.display_banner = False
+
+# Catppuccin Mocha theme
+# https://github.com/catppuccin/python/issues/111#issuecomment-3114285378
+
+theme = deepcopy(linux_theme)
+catppuccin_theme = "catppuccin-mocha"
+theme.base = catppuccin_theme
+theme_table[catppuccin_theme] = theme
+
+c.TerminalInteractiveShell.true_color = True
+c.TerminalInteractiveShell.colors = catppuccin_theme

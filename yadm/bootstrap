@@ -127,6 +127,7 @@ if [ "$(uname -s)" = 'Linux' ]; then
       starship \
       tmux \
       vim \
+      vivid \
       xh \
       yadm \
       yarn \

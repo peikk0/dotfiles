@@ -2,13 +2,15 @@
 
 # ls / eza
 
+# https://github.com/sharkdp/vivid
+if command -v vivid >/dev/null 2>&1; then
+  LS_COLORS="$(vivid generate catppuccin-mocha)"
+  export LS_COLORS
+fi
+
 : "${OS:=$(uname -s)}"
-local dir_colors="$(antidote path nordtheme/dircolors)/src/dir_colors"
 case "${OS}" in
   FreeBSD|Darwin)
-    if command -v gdircolors >/dev/null 2>&1 && [ -f "${dir_colors}" ]; then
-      eval "$(gdircolors -b "${dir_colors}")"
-    fi
     LSCOLORS="exgxfxcxcxdxdxhbadacec"; export LSCOLORS
     alias ls="ls -G"
     if [[ "${OS}" = "FreeBSD" ]]; then
@@ -18,14 +20,10 @@ case "${OS}" in
     fi
     ;;
   Linux)
-    if command -v dircolors >/dev/null 2>&1 && [ -f "${dir_colors}" ]; then
-      eval "$(dircolors -b "${dir_colors}")"
-    fi
     alias ls="ls --color=auto -N"
     alias ll="ls -h -l --time-style='+%F %T'"
     ;;
 esac
-unset dir_colors
 
 alias l="ls -A -F"
 alias la="ls -a"

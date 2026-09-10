@@ -1,4 +1,4 @@
-function kubectx --description "Kubectx with Nord colors"
+function kubectx --description "Kubectx with custom colors"
   set -lx KUBECTX_CURRENT_BGCOLOR (tput setab 0)
   set -lx KUBECTX_CURRENT_FGCOLOR (tput setaf 6)
   command kubectx $argv
