@@ -67,12 +67,12 @@ if [ "$(uname -s)" = 'Linux' ]; then
       build-essential \
       cmake \
       duf \
-      git-delta \
       eza \
       fd-find \
       fish \
       fzf \
       git \
+      git-delta \
       jq \
       less \
       libarchive-tools \
@@ -85,11 +85,11 @@ if [ "$(uname -s)" = 'Linux' ]; then
       tmux \
       vim-nox \
       xh \
+      xz-utils \
       yadm \
       yarnpkg \
       zoxide \
-      zsh \
-      xz-utils
+      zsh
     sudo apt purge vim-tiny
     sudo update-alternatives --set editor /usr/bin/vim.nox
     sudo update-alternatives --set vim /usr/bin/vim.nox
@@ -104,21 +104,22 @@ if [ "$(uname -s)" = 'Linux' ]; then
 
     # Install all the things
     sudo pacman -Sy \
-      curl \
-      gnupg \
+      base-devel \
       bat \
       btop \
-      base-devel \
       cmake \
+      curl \
       duf \
-      git-delta \
       eza \
       fd \
       fish \
       fzf \
       git \
+      git-delta \
+      gnupg \
       jq \
       less \
+      lesspipe \
       libarchive \
       neovim \
       procs \
@@ -129,13 +130,11 @@ if [ "$(uname -s)" = 'Linux' ]; then
       vim \
       vivid \
       xh \
+      xz \
       yadm \
       yarn \
       zoxide \
-      zsh \
-      xz
-
-    # TODO: install https://github.com/wofr06/lesspipe
+      zsh
   fi
 fi
 
