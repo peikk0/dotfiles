@@ -25,22 +25,22 @@ set -q XDG_STATE_HOME; or set -gx XDG_STATE_HOME {$HOME}/.local/state
 
 # Default path
 
-test $os = 'Darwin'; or set -gx PATH /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin
+test $os = Darwin; or set -gx PATH /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin
 
 # Homebrew
 
 if test -x /opt/homebrew/bin/brew || test -x /usr/local/bin/brew
-  set -gx HOMEBREW_DOWNLOAD_CONCURRENCY auto
-  if test -x /opt/homebrew/bin/brew
-    set -gx HOMEBREW_PREFIX /opt/homebrew
-  else if test -x /usr/local/bin/brew
-    set -gx HOMEBREW_PREFIX /usr/local
-  end
-  set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
-  set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
-  set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
-  set -gx INFOPATH $HOMEBREW_PREFIX/share/info $INFOPATH
-  fish_add_path --move --path $HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin
+    set -gx HOMEBREW_DOWNLOAD_CONCURRENCY auto
+    if test -x /opt/homebrew/bin/brew
+        set -gx HOMEBREW_PREFIX /opt/homebrew
+    else if test -x /usr/local/bin/brew
+        set -gx HOMEBREW_PREFIX /usr/local
+    end
+    set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
+    set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
+    set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
+    set -gx INFOPATH $HOMEBREW_PREFIX/share/info $INFOPATH
+    fish_add_path --move --path $HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin
 end
 
 # Locale
@@ -53,7 +53,7 @@ set -gx LC_MESSAGES $LOCALE
 set -gx LC_MONETARY $LOCALE
 set -gx LC_NUMERIC $LOCALE
 set -gx LC_TIME $LOCALE
-set -gx MM_CHARSET 'UTF-8'
+set -gx MM_CHARSET UTF-8
 
 # ncurses / terminfo
 
@@ -62,32 +62,32 @@ set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/local/share/terminfo:/usr/sha
 # Default editor
 
 if command -qv nvim
-  set -gx EDITOR nvim
-  set -gx VISUAL nvim
+    set -gx EDITOR nvim
+    set -gx VISUAL nvim
 else if command -qv vim
-  set -gx EDITOR vim
-  set -gx VISUAL vim
+    set -gx EDITOR vim
+    set -gx VISUAL vim
 else
-  set -gx EDITOR vi
-  set -gx VISUAL vi
+    set -gx EDITOR vi
+    set -gx VISUAL vi
 end
 
 # Pager
 
 set -gx PAGER more
 if command -qv less
-  set -gx PAGER less
-  set -gx LESS '-i -M -R --shift 5'
-  set -gx LESSKEY $XDG_CONFIG_HOME/less/key
-  mkdir -p $XDG_STATE_HOME/less
-  set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
-  if command -qv lesspipe.sh
-    set -gx LESSOPEN '|lesspipe.sh %s'
-    command -qv bat; and set -gx LESSCOLORIZER 'bat'
-  else if command -qv lesspipe
-    set -gx LESSOPEN '|lesspipe %s'
-    set -gx LESSCLOSE 'lesspipe %s %s'
-  end
+    set -gx PAGER less
+    set -gx LESS '-i -M -R --shift 5'
+    set -gx LESSKEY $XDG_CONFIG_HOME/less/key
+    mkdir -p $XDG_STATE_HOME/less
+    set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
+    if command -qv lesspipe.sh
+        set -gx LESSOPEN '|lesspipe.sh %s'
+        command -qv bat; and set -gx LESSCOLORIZER bat
+    else if command -qv lesspipe
+        set -gx LESSOPEN '|lesspipe %s'
+        set -gx LESSCLOSE 'lesspipe %s %s'
+    end
 end
 
 # Ansible
@@ -104,8 +104,8 @@ set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
 # Bat
 
 if command -qv bat
-  set -gx MANPAGER "sh -c 'col -bx | bat -l man --paging=always --plain'"
-  set -gx MANROFFOPT '-c'
+    set -gx MANPAGER "sh -c 'col -bx | bat -l man --paging=always --plain'"
+    set -gx MANROFFOPT -c
 end
 
 # Docker
@@ -114,7 +114,7 @@ set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
 # du
 
-set -gx BLOCKSIZE 'K'
+set -gx BLOCKSIZE K
 
 # GnuPG
 
@@ -129,17 +129,17 @@ fish_add_path --move --path $GOPATH/bin
 # Google Cloud SDK
 
 for gcloud_path in \
-  $HOME/.local/opt/google-cloud-sdk \
-  /usr/local/google-cloud-sdk \
-  /usr/lib/google-cloud-sdk \
-  /opt/google-cloud-sdk \
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+    $HOME/.local/opt/google-cloud-sdk \
+    /usr/local/google-cloud-sdk \
+    /usr/lib/google-cloud-sdk \
+    /opt/google-cloud-sdk \
+    $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
 
-  test -d $gcloud_path; and fish_add_path --move --path $gcloud_path/bin; and break
+    test -d $gcloud_path; and fish_add_path --move --path $gcloud_path/bin; and break
 end
 
-set -gx CLOUDSDK_PYTHON_SITEPACKAGES '1' # For loading the optional Numpy dependency
-set -gx USE_GKE_GCLOUD_AUTH_PLUGIN 'True' # For kubectl with GKE
+set -gx CLOUDSDK_PYTHON_SITEPACKAGES 1 # For loading the optional Numpy dependency
+set -gx USE_GKE_GCLOUD_AUTH_PLUGIN True # For kubectl with GKE
 
 # Kubernetes
 
@@ -182,19 +182,15 @@ set -gx ENV $XDG_CONFIG_HOME/sh/profile
 # SSH Agent
 
 if ! set -q SSH_AUTH_SOCK
-  if test -S $XDG_RUNTIME_DIR/ssh-agent.socket
-    set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
-  else
-    eval (ssh-agent -c | head -n2)
-  end
+    if test -S $XDG_RUNTIME_DIR/ssh-agent.socket
+        set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+    else
+        eval (ssh-agent -c | head -n2)
+    end
 end
 
-# Teleport
-
-set -gx TELEPORT_HOME $XDG_CONFIG_HOME/teleport
-
 # Terraform
-set -gx CHECKPOINT_DISABLE 'true'
+set -gx CHECKPOINT_DISABLE true
 set -gx TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/terraformrc
 
 # TFLint
@@ -217,91 +213,91 @@ fish_add_path --move --path $HOME/.local/bin
 
 if status is-interactive
 
-  # ls / eza
+    # ls / eza
 
-  # https://github.com/sharkdp/vivid
-  if command -qv vivid
-    set -gx LS_COLORS (vivid generate catppuccin-mocha)
-  end
-
-  switch $os
-  case 'FreeBSD' 'Darwin'
-    set -gx LSCOLORS 'exgxfxcxcxdxdxhbadacec'
-    alias ls='ls -G'
-    if test $os = 'FreeBSD'
-      alias ll="ls -h -l -D '%F %T'"
-    else
-      alias ll='ls -h -l -T'
+    # https://github.com/sharkdp/vivid
+    if command -qv vivid
+        set -gx LS_COLORS (vivid generate catppuccin-mocha)
     end
-  case 'Linux'
-    alias ls='ls --color=auto -N'
-    alias ll="ls -h -l --time-style='+%F %T'"
-  end
 
-  if command -qv eza
-    alias eza 'eza --group-directories-first --hyperlink --icons=auto'
-    alias ls 'eza'
-    alias ll 'eza -l -g --time-style=long-iso'
-    alias l 'eza -F -a'
-    alias la 'eza -aa'
-  else
-    alias l='ls -A -F'
-    alias la='ls -a'
-  end
+    switch $os
+        case FreeBSD Darwin
+            set -gx LSCOLORS exgxfxcxcxdxdxhbadacec
+            alias ls='ls -G'
+            if test $os = FreeBSD
+                alias ll="ls -h -l -D '%F %T'"
+            else
+                alias ll='ls -h -l -T'
+            end
+        case Linux
+            alias ls='ls --color=auto -N'
+            alias ll="ls -h -l --time-style='+%F %T'"
+    end
 
-  # bash
+    if command -qv eza
+        alias eza 'eza --group-directories-first --hyperlink --icons=auto'
+        alias ls eza
+        alias ll 'eza -l -g --time-style=long-iso'
+        alias l 'eza -F -a'
+        alias la 'eza -aa'
+    else
+        alias l='ls -A -F'
+        alias la='ls -a'
+    end
 
-  alias bash='bash --init-file $XDG_CONFIG_HOME/bash/bashrc'
+    # bash
 
-  # git
+    alias bash='bash --init-file $XDG_CONFIG_HOME/bash/bashrc'
 
-  abbr -a g git
-  abbr -a gp git pull
-  abbr -a gpu git push --set-upstream
-  abbr -a gf git fetch
-  abbr -a gfp git fetch --prune
+    # git
 
-  # grep
+    abbr -a g git
+    abbr -a gp git pull
+    abbr -a gpu git push --set-upstream
+    abbr -a gf git fetch
+    abbr -a gfp git fetch --prune
 
-  if command -qv bsdgrep
-    alias grep='bsdgrep --color=auto'
-  else
-    alias grep='grep --color=auto'
-  end
-  alias egrep='grep -E'
-  alias fgrep='grep -F'
+    # grep
 
-  # homebrew
+    if command -qv bsdgrep
+        alias grep='bsdgrep --color=auto'
+    else
+        alias grep='grep --color=auto'
+    end
+    alias egrep='grep -E'
+    alias fgrep='grep -F'
 
-  command -qv brew; and alias bb='brew bundle --file $XDG_CONFIG_HOME/homebrew/Brewfile'
+    # homebrew
 
-  # kubectl
-  command -qv kubectl; and abbr -a k kubectl
+    command -qv brew; and alias bb='brew bundle --file $XDG_CONFIG_HOME/homebrew/Brewfile'
 
-  # ripgrep
+    # kubectl
+    command -qv kubectl; and abbr -a k kubectl
 
-  command -qv rg; and alias rgd='rg --json --context 2 $argv | delta'
+    # ripgrep
 
-  # tar
+    command -qv rg; and alias rgd='rg --json --context 2 $argv | delta'
 
-  command -qv bsdtar; and alias tar='bsdtar'
+    # tar
 
-  # terraform
+    command -qv bsdtar; and alias tar='bsdtar'
 
-  command -qv terraform; and abbr -a tf terraform
+    # terraform
 
-  # vim
+    command -qv terraform; and abbr -a tf terraform
 
-  if test $EDITOR = 'nvim'
-    abbr -a vi nvim
-    abbr -a vim nvim
-  else if test $EDITOR = 'vim'
-    abbr -a vi vim
-  end
+    # vim
 
-  # yadm
+    if test $EDITOR = nvim
+        abbr -a vi nvim
+        abbr -a vim nvim
+    else if test $EDITOR = vim
+        abbr -a vi vim
+    end
 
-  command -qv yadm; and abbr y yadm
+    # yadm
+
+    command -qv yadm; and abbr y yadm
 
 end
 
@@ -311,29 +307,31 @@ end
 
 if status is-interactive
 
-  # Don't touch the default cursor
-  function fish_vi_cursor; end
-  function __fish_vi_cursor; end
+    # Don't touch the default cursor
+    function fish_vi_cursor
+    end
+    function __fish_vi_cursor
+    end
 
-  # Default VI keybindings
-  fish_vi_key_bindings
+    # Default VI keybindings
+    fish_vi_key_bindings
 
-  # Switch to normal mode with jj
-  bind -M insert -m default jj cancel repaint-mode
-  # Edit in vim with vv
-  bind -M default vv edit_command_buffer
+    # Switch to normal mode with jj
+    bind -M insert -m default jj cancel repaint-mode
+    # Edit in vim with vv
+    bind -M default vv edit_command_buffer
 
-  set -g fish_sequence_key_delay_ms 200
+    set -g fish_sequence_key_delay_ms 200
 
-  # Custom widgets
-  bind -M default \ck\cp kube-proxy-widget
-  bind -M insert  \ck\cp kube-proxy-widget
-  bind -M default \cv\cl vault-login-widget
-  bind -M insert  \cv\cl vault-login-widget
-  bind -M default \cv\ck 'vault-login-widget admin'
-  bind -M insert  \cv\ck 'vault-login-widget admin'
-  bind -M default \cv\cp vault-proxy-widget
-  bind -M insert  \cv\cp vault-proxy-widget
+    # Custom widgets
+    bind -M default \ck\cp kube-proxy-widget
+    bind -M insert \ck\cp kube-proxy-widget
+    bind -M default \cv\cl vault-login-widget
+    bind -M insert \cv\cl vault-login-widget
+    bind -M default \cv\ck 'vault-login-widget admin'
+    bind -M insert \cv\ck 'vault-login-widget admin'
+    bind -M default \cv\cp vault-proxy-widget
+    bind -M insert \cv\cp vault-proxy-widget
 
 end
 
@@ -343,16 +341,16 @@ end
 
 if status is-interactive
 
-  # From https://codeberg.org/dnkl/foot/wiki#fish
+    # From https://codeberg.org/dnkl/foot/wiki#fish
 
-  function update_cwd_osc --on-variable PWD --description 'Notify terminals when $PWD changes'
-    if status --is-command-substitution || set -q INSIDE_EMACS
-      return
+    function update_cwd_osc --on-variable PWD --description 'Notify terminals when $PWD changes'
+        if status --is-command-substitution || set -q INSIDE_EMACS
+            return
+        end
+        printf \e\]7\;file://%s%s\e\\ $hostname (string escape --style=url $PWD)
     end
-    printf \e\]7\;file://%s%s\e\\ $hostname (string escape --style=url $PWD)
-  end
 
-  update_cwd_osc # Run once since we might have inherited PWD from a parent shell
+    update_cwd_osc # Run once since we might have inherited PWD from a parent shell
 
 end
 
@@ -362,21 +360,21 @@ end
 
 if status is-interactive
 
-  # https://fishshell.com/docs/current/cmds/fish_title.html
+    # https://fishshell.com/docs/current/cmds/fish_title.html
 
-  function fish_title
-    set -q argv[1]; or set argv " "
-    # Looks like "~/d/fish ❯ git log"
-    # or /e/apt ❯ 
-    set title (fish_prompt_pwd_dir_length=1 prompt_pwd) (string shorten -m 40 "❯ $argv[1]")
-    echo $title
+    function fish_title
+        set -q argv[1]; or set argv " "
+        # Looks like "~/d/fish ❯ git log"
+        # or /e/apt ❯ 
+        set title (fish_prompt_pwd_dir_length=1 prompt_pwd) (string shorten -m 40 "❯ $argv[1]")
+        echo $title
 
-    # Update screen/tmux title
-    switch $TERM
-    case 'screen*' 'tmux*'
-      echo -ne "\\ek$title\\e\\" >/dev/tty
+        # Update screen/tmux title
+        switch $TERM
+            case 'screen*' 'tmux*'
+                echo -ne "\\ek$title\\e\\" >/dev/tty
+        end
     end
-  end
 
 end
 
@@ -385,28 +383,28 @@ end
 # {{{ FZF
 
 if command -qv fzf
-  set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
+    set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
-  test $os = "Linux"; and set -gx FORGIT_COPY_CMD 'xclip -in -selection clipboard'
-  set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux border-native,center,80%,80% --prompt ' '"
-  set -gx FORGIT_LOG_FORMAT (git config --get pretty.ol | string replace format: '')
-  command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
+    test $os = Linux; and set -gx FORGIT_COPY_CMD 'xclip -in -selection clipboard'
+    set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux border-native,center,80%,80% --prompt ' '"
+    set -gx FORGIT_LOG_FORMAT (git config --get pretty.ol | string replace format: '')
+    command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
 
-  if command -qv fd
-    set -gx FZF_DEFAULT_COMMAND 'fd --type file --hidden --exclude .git --strip-cwd-prefix'
-  else if command -qv rg
-    set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --glob !.git'
-  end
+    if command -qv fd
+        set -gx FZF_DEFAULT_COMMAND 'fd --type file --hidden --exclude .git --strip-cwd-prefix'
+    else if command -qv rg
+        set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --glob !.git'
+    end
 
-  if status is-interactive
+    if status is-interactive
 
-    fzf --fish | source
+        fzf --fish | source
 
-    set -q FZF_DEFAULT_COMMAND; and set -g FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-    command -qv fd; and set -g FZF_ALT_C_COMMAND 'fd --type directory --hidden --exclude .git --strip-cwd-prefix'
-    command -qv eza; and set -g FZF_ALT_C_OPTS "--preview 'eza -1 --color=always --group-directories-first --icons {}'"
+        set -q FZF_DEFAULT_COMMAND; and set -g FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+        command -qv fd; and set -g FZF_ALT_C_COMMAND 'fd --type directory --hidden --exclude .git --strip-cwd-prefix'
+        command -qv eza; and set -g FZF_ALT_C_OPTS "--preview 'eza -1 --color=always --group-directories-first --icons {}'"
 
-  end
+    end
 
 end
 
@@ -416,24 +414,25 @@ end
 
 if status is-interactive && command -qv starship
 
-  set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/config.toml
+    set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/config.toml
 
-  # https://starship.rs/
+    # https://starship.rs/
 
-  starship init fish | source
-  enable_transience
+    starship init fish | source
+    # @fish-lsp-disable-next-line 7001
+    enable_transience
 
-  # Workaround for https://github.com/starship/starship/issues/560#issuecomment-2409922650
-  function starship_transient_prompt_func
-    tput cuu1
-    starship module character
-  end
+    # Workaround for https://github.com/starship/starship/issues/560#issuecomment-2409922650
+    function starship_transient_prompt_func
+        tput cuu1
+        starship module character
+    end
 
-  function prompt_newline --on-event fish_postexec
-    echo
-  end
+    function prompt_newline --on-event fish_postexec
+        echo
+    end
 
-  alias clear "command clear; commandline -f clear-screen"
+    alias clear "command clear; commandline -f clear-screen"
 
 end
 
@@ -443,7 +442,7 @@ end
 
 if status is-interactive && command -qv zoxide
 
-  zoxide init fish | source
+    zoxide init fish | source
 
 end
 
