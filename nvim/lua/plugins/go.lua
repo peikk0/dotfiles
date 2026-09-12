@@ -8,7 +8,7 @@ return {
     },
     ft = { 'go', 'gomod' },
     build = function()
-        require('go.install').update_all_sync()
+        require('go.install').update_all()
     end,
     opts = {
         lsp_cfg = true,
