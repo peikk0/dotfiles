@@ -121,6 +121,11 @@ set -gx BLOCKSIZE 'K'
 set -gx GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set -gx GPG_TTY (tty)
 
+# Go
+
+set -gx GOPATH $XDG_DATA_HOME/go
+fish_add_path --move --path $GOPATH/bin
+
 # Google Cloud SDK
 
 for gcloud_path in \
