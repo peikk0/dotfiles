@@ -1,10 +1,11 @@
 local wezterm = require('wezterm')
+local mux = wezterm.mux
 
 local monaspace_ligatures = {
-    'calt', -- texture healing
-    'case', -- :0 :A ¡0 ¡A (vertical alignment for : and ¡)
+    'calt',   -- texture healing
+    'case',   -- :0 :A ¡0 ¡A (vertical alignment for : and ¡)
     'cv01=2', -- 0 alternates (1: plain, 2: slash, 3: reverse slash, 4: cut-out slash)
-    'cv02', -- 1 alternate (no serif)
+    'cv02',   -- 1 alternate (no serif)
     -- 'cv10', -- l i alternates (Neon, Argon, Xenon, Radon))
     -- 'cv11', -- j f r t alternates (Neon, Argon)
     -- 'cv30', -- * vertically aligned closer to the top of the space
@@ -26,6 +27,11 @@ local monaspace_ligatures = {
     'ss10', -- #[ #(
 }
 
+wezterm.on('gui-startup', function(cmd)
+    local _, _, window = mux.spawn_window(cmd or {})
+    window:gui_window():maximize()
+end)
+
 return {
     adjust_window_size_when_changing_font_size = false,
     allow_square_glyphs_to_overflow_width = 'WhenFollowedBySpace',
@@ -34,7 +40,7 @@ return {
     color_scheme = 'Catppuccin Mocha',
     custom_block_glyphs = true,
     default_cursor_style = 'BlinkingUnderline',
-    enable_kitty_keyboard = true,
+    enable_kitty_keyboard = false,
     enable_wayland = true,
     font = wezterm.font_with_fallback({
         { family = 'MonaspiceAr NF', weight = 'Regular', harfbuzz_features = monaspace_ligatures },
@@ -88,7 +94,8 @@ return {
         for i, rule in ipairs(rules) do
             if rule.regex == [=[\b\w+://\S+[)/a-zA-Z0-9-]+]=] then
                 rules[i] = {
-                    regex = [=[\b\w+://[^\s()<>\[\]{}]+(?:\([^\s()<>\[\]{}]*\)[^\s()<>\[\]{}]*)*[/a-zA-Z0-9_%$+~#?&=@-]]=],
+                    regex =
+                    [=[\b\w+://[^\s()<>\[\]{}]+(?:\([^\s()<>\[\]{}]*\)[^\s()<>\[\]{}]*)*[/a-zA-Z0-9_%$+~#?&=@-]]=],
                     format = '$0',
                 }
                 break
@@ -101,6 +108,11 @@ return {
             key = 'Enter',
             mods = 'ALT',
             action = wezterm.action.DisableDefaultAssignment,
+        },
+        {
+            key = 'f',
+            mods = 'CTRL|CMD',
+            action = wezterm.action.ToggleFullScreen
         },
     },
     mouse_bindings = {
