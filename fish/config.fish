@@ -291,6 +291,7 @@ if status is-interactive
     if test $EDITOR = nvim
         abbr -a vi nvim
         abbr -a vim nvim
+        abbr -a vimdiff nvim -d
     else if test $EDITOR = vim
         abbr -a vi vim
     end
