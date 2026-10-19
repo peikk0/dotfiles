@@ -30,7 +30,6 @@ test $os = Darwin; or set -gx PATH /usr/local/bin /usr/local/sbin /usr/bin /bin 
 # Homebrew
 
 if test -x /opt/homebrew/bin/brew || test -x /usr/local/bin/brew
-    set -gx HOMEBREW_DOWNLOAD_CONCURRENCY auto
     if test -x /opt/homebrew/bin/brew
         set -gx HOMEBREW_PREFIX /opt/homebrew
     else if test -x /usr/local/bin/brew
