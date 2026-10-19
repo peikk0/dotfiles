@@ -1,7 +1,5 @@
 # https://github.com/Homebrew/homebrew-bundle
 
-tap 'nikitabobko/tap'
-
 brew 'awscli'
 brew 'bat'
 brew 'bat-extras'
@@ -39,6 +37,8 @@ brew 'less'
 brew 'lesspipe'
 brew 'lftp'
 brew 'libarchive'
+brew 'lldb'
+brew 'luarocks'
 brew 'markdownlint-cli'
 brew 'mas'
 brew 'mise'
@@ -78,9 +78,7 @@ brew 'zsh'
 
 cask '1password'
 cask '1password-cli'
-cask 'nikitabobko/tap/aerospace'
 cask 'discord'
-cask 'firefox'
 cask 'font-fira-code'
 cask 'font-fira-code-nerd-font'
 cask 'font-fira-mono'
@@ -104,7 +102,7 @@ cask 'slack'
 cask 'spotify'
 cask 'vlc'
 cask 'wacom-tablet'
-cask 'wezterm'
+cask 'wezterm@nightly'
 
 local_brewfile=File.join(ENV['HOME'], '.config', 'homebrew', 'Brewfile.local')
 eval(IO.read(local_brewfile), binding) if File.exist?(local_brewfile)
