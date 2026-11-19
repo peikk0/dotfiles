@@ -53,3 +53,35 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     group = filetype_settings,
     command = 'setlocal shiftwidth=2 tabstop=2',
 })
+
+local lsp = vim.api.nvim_create_augroup('lsp', { clear = false })
+vim.api.nvim_create_autocmd({ 'LspAttach' }, {
+    group = lsp,
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        -- Enable inlay hints by default, disable in insert mode
+        if client and client:supports_method('textDocument/inlayHint') then
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+
+            local inlay_hints_group = vim.api.nvim_create_augroup('toggle_inlay_hints', { clear = false })
+
+            vim.api.nvim_create_autocmd('InsertEnter', {
+                group = inlay_hints_group,
+                desc = 'Disable inlay hints',
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.inlay_hint.enable(false, { bufnr = args.buf })
+                end,
+            })
+
+            vim.api.nvim_create_autocmd('InsertLeave', {
+                group = inlay_hints_group,
+                desc = 'Enable inlay hints',
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+                end,
+            })
+        end
+    end,
+})
