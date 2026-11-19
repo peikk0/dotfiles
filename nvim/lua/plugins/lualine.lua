@@ -19,10 +19,12 @@ return {
             lualine_c = {
                 { 'filename', path = 1 },
             },
-            lualine_w = {
-                { 'lsp_status', icon = '', symbols = { spinner = { '', '', '', '', '', '' } } },
-            },
             lualine_x = {
+                {
+                    'lsp_status',
+                    icon = '',
+                    symbols = { done = '', spinner = { '', '', '', '', '', '' } },
+                },
                 { 'encoding', show_bomb = true },
                 { 'fileformat', symbols = { unix = '', dos = '', mac = '' } },
                 { 'filetype' },
@@ -30,10 +32,5 @@ return {
             lualine_y = { 'progress' },
             lualine_z = { 'location' },
         },
-        -- tabline = {
-        --     lualine_a = {
-        --         { 'tabs', mode = 2, path = 1 },
-        --     },
-        -- },
     },
 }
