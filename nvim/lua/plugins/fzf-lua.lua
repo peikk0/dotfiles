@@ -75,6 +75,13 @@ return {
             desc = 'FZF built-in commands',
         },
         {
+            '<Leader>ft',
+            function()
+                require('fzf-lua').filetypes()
+            end,
+            desc = 'Select filetype',
+        },
+        {
             '<Leader>ca',
             function()
                 require('fzf-lua').lsp_code_actions()
