@@ -4,7 +4,7 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
-        default_parsers = {
+        local default_parsers = {
             -- Bundled parsers
             'c',
             'lua',
@@ -31,7 +31,9 @@ return {
             'javascript',
             'jq',
             'json',
+            'jsonnet',
             'lua',
+            'make',
             'python',
             'ruby',
             'rust',
