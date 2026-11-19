@@ -10,6 +10,24 @@ return {
         require('blink.cmp').build():pwait()
     end,
     opts = {
+        completion = {
+            documentation = {
+                auto_show = true,
+                auto_show_delay_ms = 500,
+            },
+            ghost_text = {
+                enabled = true,
+            },
+            menu = {
+                auto_show = false,
+                draw = {
+                    treesitter = { 'lsp' },
+                },
+            },
+            trigger = {
+                show_in_snippet = false,
+            },
+        },
         keymap = { preset = 'super-tab' },
         signature = { enabled = true },
         sources = {
