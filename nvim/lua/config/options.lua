@@ -76,5 +76,3 @@ vim.opt.diffopt:append('vertical')
 
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 250
-
--- vim.opt.mouse = '' -- disable mouse support
