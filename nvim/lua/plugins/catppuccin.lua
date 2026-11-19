@@ -6,7 +6,7 @@ return {
     priority = 1000,
     opts = {
         flavour = 'mocha',
-        transparent_background = true,
+        transparent_background = false,
     },
     init = function()
         vim.cmd.colorscheme('catppuccin-nvim')
