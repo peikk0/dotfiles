@@ -2,10 +2,10 @@ local wezterm = require('wezterm')
 local mux = wezterm.mux
 
 local monaspace_ligatures = {
-    'calt',   -- texture healing
-    'case',   -- :0 :A ¡0 ¡A (vertical alignment for : and ¡)
+    'calt', -- texture healing
+    'case', -- :0 :A ¡0 ¡A (vertical alignment for : and ¡)
     'cv01=2', -- 0 alternates (1: plain, 2: slash, 3: reverse slash, 4: cut-out slash)
-    'cv02',   -- 1 alternate (no serif)
+    'cv02', -- 1 alternate (no serif)
     -- 'cv10', -- l i alternates (Neon, Argon, Xenon, Radon))
     -- 'cv11', -- j f r t alternates (Neon, Argon)
     -- 'cv30', -- * vertically aligned closer to the top of the space
@@ -94,8 +94,7 @@ return {
         for i, rule in ipairs(rules) do
             if rule.regex == [=[\b\w+://\S+[)/a-zA-Z0-9-]+]=] then
                 rules[i] = {
-                    regex =
-                    [=[\b\w+://[^\s()<>\[\]{}]+(?:\([^\s()<>\[\]{}]*\)[^\s()<>\[\]{}]*)*[/a-zA-Z0-9_%$+~#?&=@-]]=],
+                    regex = [=[\b\w+://[^\s()<>\[\]{}]+(?:\([^\s()<>\[\]{}]*\)[^\s()<>\[\]{}]*)*[/a-zA-Z0-9_%$+~#?&=@-]]=],
                     format = '$0',
                 }
                 break
@@ -112,7 +111,7 @@ return {
         {
             key = 'f',
             mods = 'CTRL|CMD',
-            action = wezterm.action.ToggleFullScreen
+            action = wezterm.action.ToggleFullScreen,
         },
     },
     mouse_bindings = {
