@@ -2,7 +2,7 @@
 return {
     'NeogitOrg/neogit',
     dependencies = {
-        'sindrets/diffview.nvim',
+        'dlyongemallo/diffview-plus.nvim',
         'ibhagwan/fzf-lua',
     },
     lazy = true,
