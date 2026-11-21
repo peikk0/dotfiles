@@ -3,22 +3,78 @@
     <object class="GtkMenu" id="menu">
         <child>
             <object class="GtkMenuItem" id="suspend">
-                <property name="label">Suspend</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="spacing">8</property>
+                        <child>
+                            <object class="GtkImage">
+                                <property name="icon-name">system-suspend</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Suspend</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
             <object class="GtkMenuItem" id="hibernate">
-                <property name="label">Hibernate</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="spacing">8</property>
+                        <child>
+                            <object class="GtkImage">
+                                <property name="icon-name">system-hibernate</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Hibernate</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
             <object class="GtkMenuItem" id="shutdown">
-                <property name="label">Shutdown</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="spacing">8</property>
+                        <child>
+                            <object class="GtkImage">
+                                <property name="icon-name">system-shutdown</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Shutdown</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
             <object class="GtkMenuItem" id="reboot">
-                <property name="label">Reboot</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="spacing">8</property>
+                        <child>
+                            <object class="GtkImage">
+                                <property name="icon-name">system-reboot</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Reboot</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
     </object>

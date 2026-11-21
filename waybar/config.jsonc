@@ -8,7 +8,7 @@
     "margin-left": 8,
     "margin-right": 8,
     "margin-top": 8,
-    "spacing": 4,
+    "spacing": 0,
     "modules-left": [
         "sway/workspaces",
         "sway/mode"
@@ -19,11 +19,12 @@
     "modules-right": [
         "mpris",
         "wireplumber",
+        "wireplumber#source",
         "cpu",
         "memory",
         "battery",
         "clock",
-        "tray",
+        "group/tray-drawer",
         "custom/power"
     ],
     "sway/workspaces": {
@@ -49,9 +50,12 @@
             "title",
             "artist"
         ],
+        "format-stopped": "",
         "interval": 2,
         "player-icons": {
             "default": "",
+            "chrome": "",
+            "chromium": "",
             "mpv": "",
             "spotify": "",
             "vlc": ""
@@ -63,10 +67,8 @@
         }
     },
     "wireplumber": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{volume}% {icon}",
+        "format-muted": "",
         "format-icons": {
             "headphone": "",
             "headset": "",
@@ -79,7 +81,15 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "{volume}% ",
+        "format-muted": "",
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     },
     "cpu": {
         "interval": 2,
@@ -113,6 +123,28 @@
         "format": "{:%a, %d %b %H:%M}",
         "format-alt": "{:%a, %d %b %H:%M:%S}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "group/tray-drawer": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/tray-icon",
+            "tray",
+            "custom/tray-icon-close"
+        ],
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+            "click-to-reveal": true,
+            "hide-leader-when-expanded": true
+        }
+    },
+    "custom/tray-icon": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/tray-icon-close": {
+        "format": "",
+        "tooltip": false
     },
     "tray": {
         "show-passive-items": true,

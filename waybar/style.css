@@ -3,12 +3,24 @@
 * {
     font-family: MonaspiceAr NF, sans-serif;
     font-size: 11pt;
+    font-weight: bold;
+}
+
+tooltip label {
+    font-weight: normal;
+}
+
+menu,
+menu * {
+    font-family: Noto Sans, sans-serif;
+    font-size: 10pt;
+    font-weight: normal;
 }
 
 window#waybar {
     background-color: alpha(@base, 0.85);
     color: @text;
-    border-radius: 8;
+    border-radius: 8px;
 }
 
 tooltip {
@@ -20,7 +32,7 @@ tooltip {
     padding: 0 8px;
     background-color: transparent;
     color: @overlay2;
-    border-radius: 8;
+    border-radius: 8px;
 }
 
 #workspaces button.focused, #workspaces button.active {
@@ -40,13 +52,16 @@ tooltip {
 #clock,
 #cpu,
 #custom-power,
+#custom-tray-icon,
+#custom-tray-icon-close,
 #memory,
 #mode,
 #mpris,
 #tray,
 #window,
-#wireplumber {
-    padding-right: 8px;
+#wireplumber,
+#wireplumber.source {
+    padding: 0 8px;
 }
 
 #workspaces {
@@ -58,27 +73,39 @@ tooltip {
 }
 
 #mpris {
-    color: @sky;
+    color: @mauve;
+}
+
+#mpris.paused {
+    color: @overlay0;
 }
 
 #wireplumber {
-    color: @green;
+    color: @lavender;
 }
 
 #wireplumber.muted {
     color: @peach;
 }
 
-#cpu {
+#wireplumber.source {
     color: @blue;
 }
 
+#wireplumber.source.muted {
+    color: @peach;
+}
+
+#cpu {
+    color: @sapphire;
+}
+
 #memory {
-    color: @mauve;
+    color: @teal;
 }
 
 #clock {
-    color: @sapphire;
+    color: @text;
 }
 
 #battery {
@@ -93,9 +120,22 @@ tooltip {
     color: @peach;
 }
 
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     color: @red;
+}
+
+#custom-tray-icon,
+#custom-tray-icon-close {
+    color: @overlay2;
+}
+
+#custom-tray-icon-close {
+    padding-left: 0;
 }
 
 #tray > .passive {
