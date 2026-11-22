@@ -8,6 +8,10 @@ msg() {
   printf "\e[34;1m[bootstrap] \e[36;1m%s\e[0m\n" "$@"
 }
 
+warn() {
+  printf "\e[34;1m[bootstrap] \e[33;1mWARNING: %s\e[0m\n" "$@" >&2
+}
+
 msg ' Creating necessary root-level dotfiles symlinks...'
 mkdir -pv "${HOME}/.ssh"
 ln -fsv .config/sh/profile "${HOME}/.profile"
@@ -52,7 +56,11 @@ if [ "$(uname -s)" = 'Linux' ]; then
     sudo apt install -y \
       apt-transport-https \
       curl \
+      extrepo \
       gnupg
+
+    # https://mise.jdx.dev/installing-mise.html#apt
+    sudo extrepo enable mise
 
     # https://github.com/eza-community/eza
     curl -fsSL https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
@@ -66,6 +74,7 @@ if [ "$(uname -s)" = 'Linux' ]; then
       btop \
       build-essential \
       cmake \
+      direnv \
       duf \
       eza \
       fd-find \
@@ -73,17 +82,28 @@ if [ "$(uname -s)" = 'Linux' ]; then
       fzf \
       git \
       git-delta \
+      git-lfs \
+      golang-go \
       jq \
       less \
       libarchive-tools \
+      mise \
       neovim \
+      nodejs \
+      npm \
+      openssh-client \
       procs \
       python3 \
       python3-dev \
       ripgrep \
+      rustup \
+      shellcheck \
+      shfmt \
       starship \
       tmux \
+      tree-sitter-cli \
       vim-nox \
+      vivid \
       xh \
       xz-utils \
       yadm \
@@ -103,12 +123,13 @@ if [ "$(uname -s)" = 'Linux' ]; then
     msg ' Installing ArchLinux packages...'
 
     # Install all the things
-    sudo pacman -Sy \
+    sudo pacman -Sy --needed \
       base-devel \
       bat \
       btop \
       cmake \
       curl \
+      direnv \
       duf \
       eza \
       fd \
@@ -116,17 +137,27 @@ if [ "$(uname -s)" = 'Linux' ]; then
       fzf \
       git \
       git-delta \
+      git-lfs \
       gnupg \
+      go \
       jq \
       less \
       lesspipe \
       libarchive \
+      mise \
       neovim \
+      nodejs \
+      npm \
+      openssh \
       procs \
       python \
       ripgrep \
+      rustup \
+      shellcheck \
+      shfmt \
       starship \
       tmux \
+      tree-sitter-cli \
       vim \
       vivid \
       xh \
@@ -137,6 +168,31 @@ if [ "$(uname -s)" = 'Linux' ]; then
       zsh
   fi
 fi
+
+# Toolchains
+
+if command -v rustup >/dev/null 2>&1; then
+  msg ' Setting up Rust toolchain...'
+  rustup default stable
+  rustup component add rust-analyzer rustfmt
+fi
+
+report_version() {
+  icon="$1" name="$2"
+  shift 2
+  if command -v "$1" >/dev/null 2>&1; then
+    printf "\e[34;1m[bootstrap] \e[36;1m%s %s\e[0m %s\n" \
+      "${icon}" "${name}" "$("$@" 2>&1 | head -n1)"
+  else
+    warn "${icon} ${name}: $1 not found"
+  fi
+}
+
+msg ' Checking toolchain versions...'
+report_version '' 'Go' go version
+report_version '' 'Node' node --version
+report_version '' 'Python' python3 --version
+report_version '' 'Rust' rustc --version
 
 # Wezterm
 msg ' Installing modified Wezterm terminfo file...'
@@ -179,6 +235,8 @@ if command -v vim >/dev/null 2>&1; then
   msg ' Updating all Vim plugins...'
   vim -es -N -u "${XDG_CONFIG_HOME}/vim/vimrc" -i NONE '+PlugClean!' '+PlugUpdate' '+qall'
 fi
+
+# Fish
 
 if command -v fish >/dev/null 2>&1; then
   msg '  Installing fisher...'
