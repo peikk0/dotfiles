@@ -4,6 +4,7 @@ return {
     dependencies = { 'mason-org/mason.nvim' },
     opts = {
         ensure_installed = {
+            'codelldb',
             'prettier',
             'shellcheck',
             'shfmt',
