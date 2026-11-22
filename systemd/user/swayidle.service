@@ -6,11 +6,7 @@ Requisite=graphical-session.target
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f' \
-    lock 'swaylock -f'
+ExecStart=/usr/bin/swayidle -w -C %E/swayidle/config
 Restart=on-failure
 
 [Install]
