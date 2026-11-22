@@ -385,7 +385,7 @@ end
 if command -qv fzf
     set -gx FZF_DEFAULT_OPTS_FILE $XDG_CONFIG_HOME/fzf/fzfrc
 
-    test $os = Linux; and set -gx FORGIT_COPY_CMD 'xclip -in -selection clipboard'
+    test $os = Linux; and set -gx FORGIT_COPY_CMD wl-copy
     set -gx FORGIT_FZF_DEFAULT_OPTS "--tmux border-native,center,80%,80% --prompt ' '"
     set -gx FORGIT_LOG_FORMAT (git config --get pretty.ol | string replace format: '')
     command -qv eza; and set -gx FORGIT_DIR_VIEW 'eza --tree --color=always --group-directories-first --icons'
