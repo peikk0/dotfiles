@@ -2,7 +2,7 @@ ignore-empty-password
 show-failed-attempts
 
 image=~/.config/swaylock/lock-bg
-scaling=fit
+scaling=fill
 
 font=Monaspace Argon
 font-size=13
