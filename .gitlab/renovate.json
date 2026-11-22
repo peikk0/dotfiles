@@ -10,13 +10,9 @@
     ":semanticCommits"
   ],
   "gitlabci": {
-    "managerFilePatterns": [
-      ".gitlab/ci.yml"
-    ]
+    "managerFilePatterns": [".gitlab/ci.yml"]
   },
   "gitlabci-include": {
-    "managerFilePatterns": [
-      ".gitlab/ci.yml"
-    ]
+    "managerFilePatterns": [".gitlab/ci.yml"]
   }
 }

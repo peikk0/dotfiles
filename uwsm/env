@@ -4,6 +4,7 @@ XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_CACHE_HOME XDG_CONFIG_HOME
 
+# shellcheck source=../sh/profile
 . "${ENV:-${XDG_CONFIG_HOME}/sh/profile}"
 
 for term in wezterm kitty alacritty; do

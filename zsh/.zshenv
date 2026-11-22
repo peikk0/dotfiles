@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # {{{ Skip system files
 
 setopt noglobalrcs
