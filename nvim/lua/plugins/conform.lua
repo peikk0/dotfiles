@@ -10,7 +10,9 @@ return {
             function()
                 local bufnr = vim.api.nvim_get_current_buf()
                 vim.b[bufnr].disable_autoformat = not vim.b[bufnr].disable_autoformat
-                vim.notify('Autoformat ' .. (vim.b[bufnr].disable_autoformat and 'disabled' or 'enabled') .. ' (buffer)')
+                vim.notify(
+                    'Autoformat ' .. (vim.b[bufnr].disable_autoformat and 'disabled' or 'enabled') .. ' (buffer)'
+                )
             end,
             desc = 'Toggle autoformat (buffer)',
         },
@@ -33,7 +35,6 @@ return {
             rust = { 'rustfmt' },
             sh = { 'shfmt' },
             yaml = { 'yamlfmt' },
-            zsh = { 'shfmt' },
         },
         format_on_save = function(bufnr)
             if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
