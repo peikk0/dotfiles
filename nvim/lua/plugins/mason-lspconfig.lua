@@ -10,6 +10,8 @@ return {
             'bashls',
             'jsonls',
             'lua_ls',
+            'pyrefly',
+            'ruff',
             'tombi',
             'vimls',
             'yamlls',
