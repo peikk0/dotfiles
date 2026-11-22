@@ -28,8 +28,8 @@ yadm remote set-url --push origin git@gitlab.com:peikk0/dotfiles.git
 msg ' Updating yadm alternates...'
 if [ "$(uname -s)" = 'Linux' ]; then
   case "$(hostnamectl chassis 2>/dev/null)" in
-  laptop | convertible) yadm config local.class laptop ;;
-  *) yadm config --unset local.class || true ;;
+    laptop | convertible) yadm config local.class laptop ;;
+    *) yadm config --unset local.class || true ;;
   esac
 fi
 yadm alt
