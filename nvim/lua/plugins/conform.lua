@@ -19,6 +19,11 @@ return {
         default_format_opts = {
             lsp_format = 'fallback',
         },
+        formatters = {
+            shfmt = {
+                args = { '-i', '2', '-ci' },
+            },
+        },
         formatters_by_ft = {
             bash = { 'shfmt' },
             json = { 'prettier' },
