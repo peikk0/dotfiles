@@ -54,83 +54,10 @@ if [ "$(uname -s)" = 'Darwin' ]; then
   fi
 fi
 
-# ArchLinux / Debian
+# ArchLinux
 
 if [ "$(uname -s)" = 'Linux' ]; then
-  if [ -f /etc/debian_version ]; then
-    msg ' Installing Debian packages...'
-    # Setup APT sources
-    sudo mkdir -p /etc/apt/keyrings
-    sudo apt update
-    sudo apt install -y \
-      apt-transport-https \
-      curl \
-      extrepo \
-      gnupg
-
-    # https://mise.jdx.dev/installing-mise.html#apt
-    sudo extrepo enable mise
-
-    # https://github.com/eza-community/eza
-    curl -fsSL https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
-    sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
-
-    # Install all the things
-    sudo apt update
-    sudo apt install -y \
-      bat \
-      btop \
-      build-essential \
-      cmake \
-      direnv \
-      duf \
-      eza \
-      fd-find \
-      fish \
-      fzf \
-      git \
-      git-delta \
-      git-lfs \
-      golang-go \
-      jq \
-      less \
-      libarchive-tools \
-      mise \
-      neovim \
-      nodejs \
-      npm \
-      openssh-client \
-      procs \
-      python3 \
-      python3-dev \
-      python3-pip \
-      python3-virtualenv \
-      ripgrep \
-      rustup \
-      shellcheck \
-      shfmt \
-      starship \
-      tmux \
-      tree-sitter-cli \
-      vim-nox \
-      vivid \
-      xh \
-      xz-utils \
-      yadm \
-      yarnpkg \
-      zoxide \
-      zsh
-    sudo apt purge vim-tiny
-    sudo update-alternatives --set editor /usr/bin/vim.nox
-    sudo update-alternatives --set vim /usr/bin/vim.nox
-
-    sudo ln -snf /usr/bin/batcat /usr/local/bin/bat
-    sudo ln -snf /usr/bin/fdfind /usr/local/bin/fd
-    sudo ln -snf /usr/bin/yarnpkg /usr/local/bin/yarn
-
-    # TODO: install https://github.com/wofr06/lesspipe
-  elif [ -f /etc/arch-release ]; then
+  if [ -f /etc/arch-release ]; then
     msg ' Installing ArchLinux packages...'
 
     # Install all the things
