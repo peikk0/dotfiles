@@ -28,6 +28,7 @@ return {
         },
         formatters_by_ft = {
             bash = { 'shfmt' },
+            go = { 'goimports' },
             json = { 'prettier' },
             jsonc = { 'prettier' },
             lua = { 'stylua' },
