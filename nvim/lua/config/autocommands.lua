@@ -59,6 +59,28 @@ vim.api.nvim_create_autocmd({ 'LspAttach' }, {
     group = lsp,
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+        local function map(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, silent = true, desc = desc })
+        end
+        if client and client.name == 'gopls' then
+            map({ 'n', 'x' }, '<Leader>a', function()
+                require('go.codeaction').run_code_action()
+            end, 'Go code action')
+        elseif client and client.name == 'rust-analyzer' then
+            map({ 'n', 'x' }, '<Leader>a', function()
+                vim.cmd.RustLsp('codeAction')
+            end, 'Rust code action')
+            map('n', 'K', function()
+                vim.cmd.RustLsp({ 'hover', 'actions' })
+            end, 'Rust hover actions')
+        else
+            map({ 'n', 'x' }, '<Leader>a', vim.lsp.buf.code_action, 'LSP code action')
+        end
+        map('n', 'gd', vim.lsp.buf.definition, 'LSP definition')
+        map('n', 'gD', vim.lsp.buf.type_definition, 'LSP type definition')
+        map('n', 'gi', vim.lsp.buf.implementation, 'LSP implementation')
+
         -- Enable inlay hints by default, disable in insert mode
         if client and client:supports_method('textDocument/inlayHint') then
             vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })

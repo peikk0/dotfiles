@@ -12,5 +12,7 @@ return {
     end,
     opts = {
         lsp_cfg = true,
+        gopls_cmd = { 'gopls' },
+        lsp_keymaps = false,
     },
 }

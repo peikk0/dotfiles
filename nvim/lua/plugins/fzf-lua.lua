@@ -82,13 +82,6 @@ return {
             desc = 'Select filetype',
         },
         {
-            '<Leader>ca',
-            function()
-                require('fzf-lua').lsp_code_actions()
-            end,
-            desc = 'LSP code actions',
-        },
-        {
             '<Leader>dd',
             function()
                 require('fzf-lua').diagnostics_document()
