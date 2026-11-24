@@ -107,3 +107,23 @@ vim.api.nvim_create_autocmd({ 'LspAttach' }, {
         end
     end,
 })
+
+-- Use Trouble instead of the quickfix and location list windows
+local trouble = vim.api.nvim_create_augroup('trouble_qf', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+    group = trouble,
+    pattern = 'qf',
+    desc = 'Replace quickfix/location list window with Trouble',
+    callback = function()
+        local is_loclist = vim.fn.getwininfo(vim.fn.win_getid())[1].loclist == 1
+        vim.schedule(function()
+            if is_loclist then
+                vim.cmd.lclose()
+                vim.cmd('Trouble loclist open')
+            else
+                vim.cmd.cclose()
+                vim.cmd('Trouble qflist open')
+            end
+        end)
+    end,
+})
