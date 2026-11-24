@@ -9,6 +9,7 @@ return {
         ensure_installed = {
             'bashls',
             'jsonls',
+            'helm_ls',
             'lua_ls',
             'pyrefly',
             'ruff',
